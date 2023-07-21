@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { styled } from 'styled-components';
 import largeCircle from '../img/largeCircle.png';
 
@@ -12,15 +12,16 @@ const Container = styled.div`
 `;
 
 const AboutMain = styled.div`
-  width: 80%;
+  width: 90%;
+  height: 1000px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 `;
 
 const AboutTitle = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-end;
   h1 {
     font-size: 170px;
@@ -48,9 +49,13 @@ const Subtitle = styled.div`
   }
 `;
 
+// display: flex <-> none
 const AboutMe = styled.div`
-  width: 50%;
-  padding-top: 150px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 200px;
   h1 {
     font-size: 3rem;
     margin-bottom: 50px;
@@ -60,23 +65,96 @@ const AboutMe = styled.div`
     line-height: 40px;
     margin-bottom: 50px;
     color: #999; 
+    width: 80%;
   }
   button {
+    width: 30%;
     border: none;
-    background-color: #0079FF;
+    border-radius: 10px;
+    background: linear-gradient(130deg, #BBD3F8 0%, #0079FF 100%);
     color: #fff;
     font-size: 26px;
-    padding: 20px 70px;
+    padding: 20px 0;
+    transition: all 0.5s ease;
     cursor: pointer;
+    &:hover {
+      background: linear-gradient(130deg, #0079FF 0%, #BBD3F8 100%);
+      transition: all 0.5s ease;
+    }
   }
 `;
 
+// display: flex <-> none
 const AboutSkill = styled.div`
-
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 200px;
+  display: none;
+  h1 {
+    font-size: 2.5rem;
+    color: #555;
+  }
+  .about_skill_wrap {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    .about_skill_item {
+      display: flex;
+      flex-direction: column;
+      color: #999;
+      width: 35%;
+      margin-right: 30px;
+      margin-bottom: 20px;
+      h3 {
+        font-size: 1.3rem;
+        margin: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+      p {
+        font-size: 1.1rem;
+      }
+    }
+  }
 `;
 
+// display: flex <-> none
 const AboutExperience = styled.div`
-
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 200px;
+  display: none;
+  h1 {
+    font-size: 2.5rem;
+    color: #555;
+  }
+  .about_experience_wrap {
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    .about_experience_item {
+      display: flex;
+      flex-direction: column;
+      color: #999;
+      width: 70%;
+      margin-right: 30px;
+      margin-bottom: 20px;
+      h3 {
+        font-size: 1.3rem;
+        margin: 0;
+        padding-bottom: 0px;
+        text-decoration: underline;
+      }
+      p {
+        font-size: 1.1rem;
+      }
+    }
+  }
 `;
 
 const SmallCircle = styled.img`
@@ -93,19 +171,23 @@ const LargeCircle = styled.img`
   z-index: -1;
 `;
 
+
 const About = () => {
+  const [aboutMe, setAboutMe] = useState(true);
+  const [aboutSkill, setAboutSkill] = useState(false);
+  const [aboutExperience, setAboutExperience] = useState(false);
   return (
     <Container>
       <AboutMain>
-         <AboutTitle>
+        <AboutTitle>
           <h1>About</h1>
           <Subtitle>
-            <span>Me</span>
-            <span>Skill</span>
-            <span>Experience</span>
+            <span className='me'>Me</span>
+            <span className='skill'>Skill</span>
+            <span className='experience'>Experience</span>
           </Subtitle>
-         </AboutTitle>
-         <AboutMe>
+        </AboutTitle>
+        <AboutMe>
           <h1>프론트엔드 개발자를 꿈꾸는<br/> 윤동성 입니다.</h1>
           <p>
             여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
@@ -116,9 +198,85 @@ const About = () => {
             원스톱 여행 플랫폼을 만들고 있어요.
           </p>
           <button>Resume</button>
-         </AboutMe>
-         <AboutSkill></AboutSkill>
-         <AboutExperience></AboutExperience>
+        </AboutMe>
+        <AboutSkill>
+          <h1>사용 가능한 기술은</h1>
+          <div className='about_skill_wrap'>
+            <div className='about_skill_item'>
+              <h3>HTML</h3>
+              <p>여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
+            숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
+            원스톱 여행 플랫폼을 만들고 있어요.</p>
+            </div>
+            <div className='about_skill_item'>
+              <h3>CSS</h3>
+              <p>여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
+            숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
+            원스톱 여행 플랫폼을 만들고 있어요.</p>
+            </div>
+            <div className='about_skill_item'>
+              <h3>SCSS</h3>
+              <p>여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
+            숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
+            원스톱 여행 플랫폼을 만들고 있어요.</p>
+            </div>
+            <div className='about_skill_item'>
+              <h3>JavaScript</h3>
+              <p>여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
+            숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
+            원스톱 여행 플랫폼을 만들고 있어요.</p>
+            </div>
+            <div className='about_skill_item'>
+              <h3>React</h3>
+              <p>여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
+            숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
+            원스톱 여행 플랫폼을 만들고 있어요.</p>
+            </div>
+            <div className='about_skill_item'>
+              <h3>TypeScript</h3>
+              <p>여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
+            숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
+            원스톱 여행 플랫폼을 만들고 있어요.</p>
+            </div>
+          </div>
+        </AboutSkill>
+        <AboutExperience>
+          <h1>이런 경험이 있습니다</h1>
+          <div className='about_experience_wrap'>
+            <div className='about_experience_item'>
+              <h3>Git</h3>
+              <p>
+              여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
+              숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
+              원스톱 여행 플랫폼을 만들고 있어요.
+              </p>
+            </div>
+            <div className='about_experience_item'>
+              <h3>API</h3>
+              <p>
+              여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
+              숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
+              원스톱 여행 플랫폼을 만들고 있어요.
+              </p>
+            </div>
+            <div className='about_experience_item'>
+              <h3>Hosting</h3>
+              <p>
+              여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
+              숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
+              원스톱 여행 플랫폼을 만들고 있어요.
+              </p>
+            </div>
+            <div className='about_experience_item'>
+              <h3>상태관리</h3>
+              <p>
+              여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
+              숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
+              원스톱 여행 플랫폼을 만들고 있어요.
+              </p>
+            </div>
+          </div>
+        </AboutExperience>
       </AboutMain>
       <SmallCircle src={largeCircle}/>
       <LargeCircle src={largeCircle}/>
