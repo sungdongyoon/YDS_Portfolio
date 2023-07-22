@@ -19,16 +19,13 @@ const Container = styled.div`
 const Divider = styled.div`
   width: 100%;
   height: 5px;
-  background-color: gray;
+  background-color: #ccc;
 `;
 
 const DIVIDER_HEIGHT = 5;
 
 function App() {
-  const onClick = (e) => {
-    
-  }
-
+  // Scroll Event
   const outerDivRef = useRef();
   const [scrollIndex, setScrollIndex] = useState(1);
   useEffect(() => {
@@ -112,13 +109,34 @@ function App() {
       outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
     }
   }, [])
+  
+  // About show & hide
+  const [showMe, setShowMe] = useState(true);
+  const [showSkill, setSkill] = useState(false);
+  const [showExpereince, setShowExperience] = useState(false);
+  const clickMe = () => {
+    setShowMe(true);
+    setSkill(false);
+    setShowExperience(false);
+  };
+  const clickSkill = () => {
+    setShowMe(false);
+    setSkill(true);
+    setShowExperience(false);
+  };
+  const clickExperience = () => {
+    setShowMe(false);
+    setSkill(false);
+    setShowExperience(true);
+  };
+
   return (
     <Container ref={outerDivRef}>
       <Dots scrollIndex={scrollIndex}/>
       <Header/>
       <Home/>
       <Divider/>
-      <About/>
+      <About clickMe={clickMe} clickSkill={clickSkill} clickExperience={clickExperience} showMe={showMe} showSkill={showSkill} showExpereince={showExpereince}/>
       <Divider/>
       <Project/>
       <Divider/>

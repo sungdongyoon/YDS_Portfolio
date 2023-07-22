@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { styled } from 'styled-components';
 import largeCircle from '../img/largeCircle.png';
 
@@ -49,7 +49,6 @@ const Subtitle = styled.div`
   }
 `;
 
-// display: flex <-> none
 const AboutMe = styled.div`
   width: 60%;
   display: flex;
@@ -84,14 +83,12 @@ const AboutMe = styled.div`
   }
 `;
 
-// display: flex <-> none
 const AboutSkill = styled.div`
   width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-top: 200px;
-  display: none;
   h1 {
     font-size: 2.5rem;
     color: #555;
@@ -120,14 +117,12 @@ const AboutSkill = styled.div`
   }
 `;
 
-// display: flex <-> none
 const AboutExperience = styled.div`
   width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-top: 200px;
-  display: none;
   h1 {
     font-size: 2.5rem;
     color: #555;
@@ -172,21 +167,19 @@ const LargeCircle = styled.img`
 `;
 
 
-const About = () => {
-  const [aboutMe, setAboutMe] = useState(true);
-  const [aboutSkill, setAboutSkill] = useState(false);
-  const [aboutExperience, setAboutExperience] = useState(false);
+const About = ({clickMe, clickSkill, clickExperience, showMe, showSkill, showExpereince}) => {
   return (
     <Container>
       <AboutMain>
         <AboutTitle>
           <h1>About</h1>
           <Subtitle>
-            <span className='me'>Me</span>
-            <span className='skill'>Skill</span>
-            <span className='experience'>Experience</span>
+            <span className='me' onClick={clickMe} style={showMe ? {color: "#bbd3f8", borderBottom: "5px solid #bbd3f8"} : {color: "#ccc"}}>Me</span>
+            <span className='skill' onClick={clickSkill} style={showSkill ? {color: "#bbd3f8", borderBottom: "5px solid #bbd3f8"} : {color: "#ccc"}}>Skill</span>
+            <span className='experience' onClick={clickExperience} style={showExpereince ? {color: "#bbd3f8", borderBottom: "5px solid #bbd3f8"} : {color: "#ccc"}}>Experience</span>
           </Subtitle>
         </AboutTitle>
+        {showMe && 
         <AboutMe>
           <h1>프론트엔드 개발자를 꿈꾸는<br/> 윤동성 입니다.</h1>
           <p>
@@ -199,6 +192,8 @@ const About = () => {
           </p>
           <button>Resume</button>
         </AboutMe>
+        }
+        {showSkill && 
         <AboutSkill>
           <h1>사용 가능한 기술은</h1>
           <div className='about_skill_wrap'>
@@ -240,6 +235,8 @@ const About = () => {
             </div>
           </div>
         </AboutSkill>
+        }
+        {showExpereince &&
         <AboutExperience>
           <h1>이런 경험이 있습니다</h1>
           <div className='about_experience_wrap'>
@@ -277,6 +274,7 @@ const About = () => {
             </div>
           </div>
         </AboutExperience>
+        }
       </AboutMain>
       <SmallCircle src={largeCircle}/>
       <LargeCircle src={largeCircle}/>
