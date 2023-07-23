@@ -1,12 +1,13 @@
 import './App.css';
+import { useEffect, useRef, useState } from 'react';
+import { styled } from 'styled-components';
 import Header from './Components/Header';
 import Dots from './Components/Dots';
 import Home from './pages/Home';
 import About from './pages/About';
 import Project from './pages/Project';
 import Contact from './pages/Contact';
-import { useEffect, useRef, useState } from 'react';
-import { styled } from 'styled-components';
+
 
 const Container = styled.div`
   height: 100vh;
@@ -130,6 +131,9 @@ function App() {
     setShowExperience(true);
   };
 
+  // project PageNum
+  const [pageNum, setPageNum] = useState(1);
+
   return (
     <Container ref={outerDivRef}>
       <Dots scrollIndex={scrollIndex}/>
@@ -138,7 +142,7 @@ function App() {
       <Divider/>
       <About clickMe={clickMe} clickSkill={clickSkill} clickExperience={clickExperience} showMe={showMe} showSkill={showSkill} showExpereince={showExpereince}/>
       <Divider/>
-      <Project/>
+      <Project pageNum={pageNum} setPageNum={setPageNum}/>
       <Divider/>
       <Contact/>
     </Container>

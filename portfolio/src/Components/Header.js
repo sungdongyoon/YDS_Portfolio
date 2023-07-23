@@ -27,12 +27,12 @@ const Logo = styled.span`
 
 const HeaderInfo = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 30%;
   height: 100%;
   span {
-    // margin-right: 200px;
+    margin-right: 50px;
     font-size: 16px;
     color: #999;
   }
@@ -44,7 +44,7 @@ const Header = () => {
       <Logo>Logo</Logo>
       <HeaderInfo>
         <span className='email'>ehdtjd0906@naver.com</span>
-        <span className='phone'>010-6312-5903</span>
+        <span className='phone'>+82 10-6312-5903</span>
       </HeaderInfo>
     </Container>
   )
