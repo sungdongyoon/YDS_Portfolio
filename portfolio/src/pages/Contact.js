@@ -94,7 +94,7 @@ const LargeCircle = styled.img`
   z-index: -1;
 `;
 
-const Contact = () => {
+const Contact = ({goHome}) => {
   return (
     <Container>
       <ContactMain>
@@ -110,7 +110,7 @@ const Contact = () => {
             <Link to="https://dongyoons.tistory.com/">
               <img src={blog_img}/>
             </Link>
-            <img src={mail_img}/>
+            <img src={mail_img} onClick={goHome}/>
           </div>
         </ContactContent>
       </ContactMain>

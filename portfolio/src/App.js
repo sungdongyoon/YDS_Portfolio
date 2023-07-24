@@ -110,6 +110,11 @@ function App() {
       outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
     }
   }, [])
+
+  // const goHome = () => {
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  //   console.log("home으로 이동")
+  // };
   
   // About show & hide
   const [showMe, setShowMe] = useState(true);
