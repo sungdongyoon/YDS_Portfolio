@@ -6,6 +6,7 @@ import largeCircle from '../img/largeCircle.png';
 import umbrella_logo from '../img/umbrella_logo.png';
 import whatitisnt_logo from '../img/whatitisnt_logo.png';
 import momentum_img from '../img/momentum_img.png';
+import netflix_logo from '../img/netflix_logo.png';
 
 
 const Container = styled.div`
@@ -196,12 +197,12 @@ const Project = ({pageNum, setPageNum}) => {
             {pageNum === 2 &&
             <>
               <ProjectItem>
-                <ProjectImg>
+                <ProjectImg style={{backgroundImage: `url(${netflix_logo})`}}>
                   <div className='projectDetail'>
                     <span>프로젝트 설명</span>
                   </div>
                 </ProjectImg>
-                <ProjectName>프로젝트 5</ProjectName>
+                <ProjectName>Netflix</ProjectName>
               </ProjectItem>
               <ProjectItem>
                 <ProjectImg>
@@ -209,7 +210,7 @@ const Project = ({pageNum, setPageNum}) => {
                     <span>프로젝트 설명</span>
                   </div>
                 </ProjectImg>
-                <ProjectName>프로젝트 6</ProjectName>
+                <ProjectName>mbti로 나와 맞는 고양이 찾기</ProjectName>
               </ProjectItem>
               <ProjectItem style={{opacity: 0}}>
                 <ProjectImg>
