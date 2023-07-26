@@ -179,7 +179,16 @@ const Project = ({pageNum, setPageNum}) => {
               <ProjectItem>
                 <ProjectImg style={{backgroundImage: `url(${whatitisnt_logo})`}}>
                   <div className='projectDetail'>
-                    <span>프로젝트 설명</span>
+                    <h3>React</h3>
+                    <span>
+                      리액트를 사용하여 만든 와릿이즌 홈페이지입니다.
+                    </span>
+                    <ul>
+                      <li>상단 스토어 버튼, 배너 카테고리 클릭 시 제품 리스트 페이지로 이동</li>
+                      <li>메인페이지 베스트아이템 슬라이드 구현</li>
+                      <li>로그인 & 로그아웃 구현</li>
+                      <li>제품 상세 페이지 수량 및 가격, 상세설명 아코디언 구현</li>
+                    </ul>
                   </div>
                 </ProjectImg>
                 <ProjectName>WhatItIsnt</ProjectName>

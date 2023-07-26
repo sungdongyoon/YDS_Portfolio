@@ -23,8 +23,9 @@ const HomeContent = styled.div`
     border: none;
     width: 200px;
     height: 50px;
-    background: linear-gradient(to right, #000 0%, #fff 50%, #000 100%);
-    background-size: 200%;
+    // background: linear-gradient(to right, #000 0%, #fff 50%, #000 100%);
+    // background-size: 200%;
+    background-color: #000;
     color: #fff;
     font-size: 20px;
     transition: 0.5s;
