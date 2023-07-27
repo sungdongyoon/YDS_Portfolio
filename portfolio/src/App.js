@@ -1,6 +1,7 @@
 import './App.css';
 import { useEffect, useRef, useState } from 'react';
 import { styled } from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from './Components/Header';
 import Dots from './Components/Dots';
 import Home from './pages/Home';
@@ -24,6 +25,7 @@ const Divider = styled.div`
 `;
 
 const DIVIDER_HEIGHT = 5;
+const pageHeight = window.innerHeight;
 
 function App() {
   // Scroll Event
@@ -111,37 +113,49 @@ function App() {
     }
   }, [])
 
-  // const goHome = () => {
-  //   window.scrollTo({ top: 0, behavior: "smooth" });
-  //   console.log("home으로 이동")
-  // };
+  const goHome = () => {
+    outerDivRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    setScrollIndex(1);
+  };
+  const goAbout = () => {
+    outerDivRef.current.scrollTo({ top: (pageHeight) + DIVIDER_HEIGHT, behavior: "smooth" });
+    setScrollIndex(2);
+  };
+  const goProject = () => {
+    outerDivRef.current.scrollTo({ top: (pageHeight * 2) + DIVIDER_HEIGHT, behavior: "smooth" });
+    setScrollIndex(3);
+  };
+  const goContact = () => {
+    outerDivRef.current.scrollTo({ top: (pageHeight * 3) + DIVIDER_HEIGHT, behavior: "smooth" });
+    setScrollIndex(4);
+  };
+
+
   
   // About show & hide
-  const [showMe, setShowMe] = useState(true);
-  const [showSkill, setSkill] = useState(false);
-  const [showExpereince, setShowExperience] = useState(false);
+  const dispatch = useDispatch();
+  const showMe = useSelector((state) => state.showMe);
+  const showSkill = useSelector((state) => state.showSkill);
+  const showExpereince = useSelector((state) => state.showExperience);
+
   const clickMe = () => {
-    setShowMe(true);
-    setSkill(false);
-    setShowExperience(false);
+    dispatch({type: "CLICK_ME"});
   };
   const clickSkill = () => {
-    setShowMe(false);
-    setSkill(true);
-    setShowExperience(false);
+    dispatch({type: "CLICK_SKILL"});
   };
   const clickExperience = () => {
-    setShowMe(false);
-    setSkill(false);
-    setShowExperience(true);
+    dispatch({type: "CLICK_EXPERIENCE"});
   };
 
   // project PageNum
   const [pageNum, setPageNum] = useState(1);
 
+  // Scroll Animation
+
   return (
     <Container ref={outerDivRef}>
-      <Dots scrollIndex={scrollIndex}/>
+      <Dots scrollIndex={scrollIndex} goHome={goHome} goAbout={goAbout} goProject={goProject} goContact={goContact}/>
       <Header/>
       <Home/>
       <Divider/>

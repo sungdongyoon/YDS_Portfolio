@@ -1,5 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
+import { motion, transform } from 'framer-motion';
 import largeCircle from '../img/largeCircle.png';
 
 const Container = styled.div`
@@ -18,7 +19,7 @@ const AboutMain = styled.div`
   justify-content: space-evenly;
 `;
 
-const AboutTitle = styled.div`
+const AboutTitle = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,7 +31,7 @@ const AboutTitle = styled.div`
   }
 `;
 
-const Subtitle = styled.div`
+const Subtitle = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -165,6 +166,8 @@ const LargeCircle = styled.img`
   right: -300px;
   z-index: -1;
 `;
+
+
 
 
 const About = ({clickMe, clickSkill, clickExperience, showMe, showSkill, showExpereince}) => {

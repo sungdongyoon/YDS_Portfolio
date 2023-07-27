@@ -6,6 +6,7 @@ const DotsWrap = styled.div`
   top: 50%;
   transform: translateY(-50%);
   right: 100px;
+  z-index: 10;
 `;
 
 const Dot = styled.div`
@@ -20,16 +21,17 @@ const DotTitle = styled.div`
   font-size: 60px;
   font-weight: bold;
   color: ${(props) => props.num === props.scrollIndex ? "#0079FF" : "#999"};
+  cursor: pointer;
 `;
 
-const Dots = ({scrollIndex}) => {
+const Dots = ({scrollIndex, goHome, goAbout, goProject, goContact}) => {
   return (
     <DotsWrap>
       <Dot>
-        <DotTitle className='dot' num={1} scrollIndex={scrollIndex}>HOME</DotTitle>
-        <DotTitle className='dot' num={2} scrollIndex={scrollIndex}>ABOUT</DotTitle>
-        <DotTitle className='dot' num={3} scrollIndex={scrollIndex}>PROJECT</DotTitle>
-        <DotTitle className='dot' num={4} scrollIndex={scrollIndex}>CONTACT</DotTitle>
+        <DotTitle onClick={goHome} className='dot' num={1} scrollIndex={scrollIndex}>HOME</DotTitle>
+        <DotTitle onClick={goAbout} className='dot' num={2} scrollIndex={scrollIndex}>ABOUT</DotTitle>
+        <DotTitle onClick={goProject} className='dot' num={3} scrollIndex={scrollIndex}>PROJECT</DotTitle>
+        <DotTitle onClick={goContact} className='dot' num={4} scrollIndex={scrollIndex}>CONTACT</DotTitle>
       </Dot>
     </DotsWrap>
   )
