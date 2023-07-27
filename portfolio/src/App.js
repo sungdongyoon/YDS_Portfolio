@@ -150,9 +150,6 @@ function App() {
 
   // project PageNum
   const [pageNum, setPageNum] = useState(1);
-
-  // Scroll Animation
-
   return (
     <Container ref={outerDivRef}>
       <Dots scrollIndex={scrollIndex} goHome={goHome} goAbout={goAbout} goProject={goProject} goContact={goContact}/>

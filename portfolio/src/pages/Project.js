@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import { styled } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver} from '../animation/animation';
 import largeCircle from '../img/largeCircle.png';
 import umbrella_logo from '../img/umbrella_logo.png';
 import whatitisnt_logo from '../img/whatitisnt_logo.png';
@@ -34,10 +35,12 @@ const ProjectTitle = styled.div`
     font-size: 170px;
     margin: 0;
     color: #bbd3f8;
+    transition: 1s;
   }
   .slide_arrow {
     font-size: 30px;
     color: #999;
+    transition: 1s;
     span {
       text-align: center;
       display: inline-block;
@@ -53,6 +56,7 @@ const ProjectContent = styled.div`
   justify-content: center;
   padding-top: 200px;
   gap: 50px;
+  transition: 1s;
   span {
     color: #ff0000;
     font-size: 18px;
@@ -123,6 +127,7 @@ const SmallCircle = styled.img`
   position: absolute;
   bottom: -330px;
   left: -330px;
+  transition: 1s;
 `;
 
 const LargeCircle = styled.img`
@@ -131,21 +136,34 @@ const LargeCircle = styled.img`
   height: 800px;
   right: -300px;
   z-index: -1;
+  transition: 1s;
 `;
 
 const Project = ({pageNum, setPageNum}) => {
+  const titleRef = useRef();
+  const subTitleRef = useRef();
+  const contentRef = useRef();
+  const leftCircleRef = useRef();
+  const rightCircleRef = useRef();
+  useEffect(() => {
+    titleObserver.observe(titleRef.current);
+    subTitleObserver.observe(subTitleRef.current);
+    contentObserver.observe(contentRef.current);
+    leftCircleObserver.observe(leftCircleRef.current);
+    rightCircleObserver.observe(rightCircleRef.current);
+  })
   return (
     <Container>
       <ProjectMain>
         <ProjectTitle>
-          <h1>Project</h1>
-          <div className='slide_arrow'>
+          <h1 ref={titleRef}>Project</h1>
+          <div className='slide_arrow' ref={subTitleRef}>
             <FontAwesomeIcon onClick={() => setPageNum(1)} style={{marginRight: 20, cursor: "pointer"}} icon={faArrowLeft}/>
             <span>{pageNum} / 2</span>
             <FontAwesomeIcon onClick={() => setPageNum(2)} style={{marginLeft: 20, cursor: "pointer"}} icon={faArrowRight}/>
           </div>
         </ProjectTitle>
-        <ProjectContent>
+        <ProjectContent ref={contentRef}>
           <span>* 제목 클릭 시 해당 페이지로 이동합니다.</span>
           <ProjectWrap>
             {pageNum === 1 &&
@@ -234,8 +252,8 @@ const Project = ({pageNum, setPageNum}) => {
           </ProjectWrap>
         </ProjectContent>
       </ProjectMain>
-      <SmallCircle src={largeCircle}/>
-      <LargeCircle src={largeCircle}/>
+      <SmallCircle ref={leftCircleRef} src={largeCircle}/>
+      <LargeCircle ref={rightCircleRef} src={largeCircle}/>
     </Container>
   )
 }

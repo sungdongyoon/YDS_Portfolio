@@ -42,7 +42,7 @@ const HomeImg = styled.div`
 const Home = () => {
   return (
     <Container>
-      <HomeContent>
+      {/* <HomeContent>
         <h1>Front-End<br/>Development</h1>
         <p>Lorem, ipsum dolor sit amet consectetur
           adipisicing elit. Vitae excepturi sequi facitiis
@@ -51,7 +51,8 @@ const Home = () => {
       </HomeContent>
       <HomeImg>
         <img src={home_img}/>
-      </HomeImg>
+      </HomeImg> */}
+      HOME
     </Container>
   )
 }

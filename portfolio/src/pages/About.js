@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { styled } from 'styled-components';
 import { motion, transform } from 'framer-motion';
 import largeCircle from '../img/largeCircle.png';
+import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver} from '../animation/animation';
 
 const Container = styled.div`
   height: 100vh;
@@ -19,7 +20,7 @@ const AboutMain = styled.div`
   justify-content: space-evenly;
 `;
 
-const AboutTitle = styled(motion.div)`
+const AboutTitle = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,13 +29,15 @@ const AboutTitle = styled(motion.div)`
     font-size: 170px;
     margin: 0;
     color: #bbd3f8;
+    transition: 1s;
   }
 `;
 
-const Subtitle = styled(motion.div)`
+const Subtitle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  transition: 1s;
   span {
     border: 5px solid transparent;
     display: block;
@@ -56,6 +59,8 @@ const AboutMe = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-top: 200px;
+  transition: 1s;
+  transition-delay: 0.1s;
   h1 {
     font-size: 3rem;
     margin-bottom: 50px;
@@ -90,6 +95,7 @@ const AboutSkill = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-top: 200px;
+  transition: 1s;
   h1 {
     font-size: 2.5rem;
     color: #555;
@@ -124,6 +130,7 @@ const AboutExperience = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-top: 200px;
+  transition: 1s;
   h1 {
     font-size: 2.5rem;
     color: #555;
@@ -157,6 +164,7 @@ const SmallCircle = styled.img`
   position: absolute;
   bottom: -330px;
   left: -330px;
+  transition: 1s;
 `;
 
 const LargeCircle = styled.img`
@@ -164,6 +172,7 @@ const LargeCircle = styled.img`
   width: 800px;
   height: 800px;
   right: -300px;
+  transition: 1s;
   z-index: -1;
 `;
 
@@ -171,19 +180,31 @@ const LargeCircle = styled.img`
 
 
 const About = ({clickMe, clickSkill, clickExperience, showMe, showSkill, showExpereince}) => {
+  const titleRef = useRef();
+  const subTitleRef = useRef();
+  const contentRef = useRef();
+  const leftCircleRef = useRef();
+  const rightCircleRef = useRef();
+  useEffect(() => {
+    titleObserver.observe(titleRef.current);
+    subTitleObserver.observe(subTitleRef.current);
+    contentObserver.observe(contentRef.current);
+    leftCircleObserver.observe(leftCircleRef.current);
+    rightCircleObserver.observe(rightCircleRef.current);
+  })
   return (
     <Container>
       <AboutMain>
         <AboutTitle>
-          <h1>About</h1>
-          <Subtitle>
+          <h1 ref={titleRef} className='About'>About</h1>
+          <Subtitle ref={subTitleRef}>
             <span className='me' onClick={clickMe} style={showMe ? {color: "#bbd3f8", borderBottom: "5px solid #bbd3f8"} : {color: "#ccc"}}>Me</span>
             <span className='skill' onClick={clickSkill} style={showSkill ? {color: "#bbd3f8", borderBottom: "5px solid #bbd3f8"} : {color: "#ccc"}}>Skill</span>
             <span className='experience' onClick={clickExperience} style={showExpereince ? {color: "#bbd3f8", borderBottom: "5px solid #bbd3f8"} : {color: "#ccc"}}>Experience</span>
           </Subtitle>
         </AboutTitle>
         {showMe && 
-        <AboutMe>
+        <AboutMe ref={contentRef}>
           <h1>프론트엔드 개발자를 꿈꾸는<br/> 윤동성 입니다.</h1>
           <p>
             여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
@@ -197,7 +218,7 @@ const About = ({clickMe, clickSkill, clickExperience, showMe, showSkill, showExp
         </AboutMe>
         }
         {showSkill && 
-        <AboutSkill>
+        <AboutSkill ref={contentRef}>
           <h1>사용 가능한 기술은</h1>
           <div className='about_skill_wrap'>
             <div className='about_skill_item'>
@@ -240,7 +261,7 @@ const About = ({clickMe, clickSkill, clickExperience, showMe, showSkill, showExp
         </AboutSkill>
         }
         {showExpereince &&
-        <AboutExperience>
+        <AboutExperience ref={contentRef}>
           <h1>이런 경험이 있습니다</h1>
           <div className='about_experience_wrap'>
             <div className='about_experience_item'>
@@ -279,8 +300,8 @@ const About = ({clickMe, clickSkill, clickExperience, showMe, showSkill, showExp
         </AboutExperience>
         }
       </AboutMain>
-      <SmallCircle src={largeCircle}/>
-      <LargeCircle src={largeCircle}/>
+      <SmallCircle ref={leftCircleRef} src={largeCircle}/>
+      <LargeCircle ref={rightCircleRef} src={largeCircle}/>
     </Container>
   )
 }
