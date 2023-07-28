@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { styled } from 'styled-components';
 import { motion, transform } from 'framer-motion';
 import largeCircle from '../img/largeCircle.png';
-import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver} from '../animation/animation';
+import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver, aboutClick} from '../animation/animation';
+
 
 const Container = styled.div`
   height: 100vh;
@@ -45,6 +46,7 @@ const Subtitle = styled.div`
     font-size: 50px;
     font-weight: bold;
     color: #ccc;
+    transition: 0.5s;
     cursor: pointer;
     &:hover {
       color: #bbd3f8;
@@ -59,8 +61,8 @@ const AboutMe = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-top: 200px;
+  animation: ${aboutClick} 1s;
   transition: 1s;
-  transition-delay: 0.1s;
   h1 {
     font-size: 3rem;
     margin-bottom: 50px;
@@ -95,6 +97,7 @@ const AboutSkill = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-top: 200px;
+  animation: ${aboutClick} 1s;
   transition: 1s;
   h1 {
     font-size: 2.5rem;
@@ -130,6 +133,7 @@ const AboutExperience = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-top: 200px;
+  animation: ${aboutClick} 1s;
   transition: 1s;
   h1 {
     font-size: 2.5rem;

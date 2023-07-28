@@ -122,11 +122,11 @@ function App() {
     setScrollIndex(2);
   };
   const goProject = () => {
-    outerDivRef.current.scrollTo({ top: (pageHeight * 2) + DIVIDER_HEIGHT, behavior: "smooth" });
+    outerDivRef.current.scrollTo({ top: (pageHeight * 2) + (DIVIDER_HEIGHT * 2), behavior: "smooth" });
     setScrollIndex(3);
   };
   const goContact = () => {
-    outerDivRef.current.scrollTo({ top: (pageHeight * 3) + DIVIDER_HEIGHT, behavior: "smooth" });
+    outerDivRef.current.scrollTo({ top: (pageHeight * 3) + (DIVIDER_HEIGHT * 3), behavior: "smooth" });
     setScrollIndex(4);
   };
 

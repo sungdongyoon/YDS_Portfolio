@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
+import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver} from '../animation/animation';
 import largeCircle from '../img/largeCircle.png';
 import github_img from '../img/github_img.png';
 import blog_img from '../img/blog_img.png';
@@ -19,7 +20,6 @@ const ContactMain = styled.div`
   width: 100%;
   height: 1000px;
   display: flex;
-  // justify-content: space-evenly;
 `;
 
 const ContactTitle = styled.div`
@@ -32,6 +32,7 @@ width: 30%;
     font-size: 170px;
     margin: 0;
     color: #bbd3f8;
+    transition: 1s;
   }
 `;
 
@@ -42,6 +43,7 @@ const ContactContent = styled.div`
   align-items: center;
   justify-content: center;
   padding-top: 200px;
+  transition: 1s;
   p {
     text-align: center;
     font-size: 30px;
@@ -84,6 +86,7 @@ const SmallCircle = styled.img`
   position: absolute;
   bottom: -330px;
   left: -330px;
+  transition: 1s;
 `;
 
 const LargeCircle = styled.img`
@@ -91,17 +94,28 @@ const LargeCircle = styled.img`
   width: 800px;
   height: 800px;
   right: -300px;
+  transition: 1s;
   z-index: -1;
 `;
 
 const Contact = ({goHome}) => {
+  const titleRef = useRef();
+  const contentRef = useRef();
+  const leftCircleRef = useRef();
+  const rightCircleRef = useRef();
+  useEffect(() => {
+    titleObserver.observe(titleRef.current);
+    contentObserver.observe(contentRef.current);
+    leftCircleObserver.observe(leftCircleRef.current);
+    rightCircleObserver.observe(rightCircleRef.current);
+  })
   return (
     <Container>
       <ContactMain>
         <ContactTitle>
-          <h1>Contact</h1>
+          <h1 ref={titleRef}>Contact</h1>
         </ContactTitle>
-        <ContactContent>
+        <ContactContent ref={contentRef}>
           <p>궁금하신 사항이나<br/> 저의 부족한 부분에 대한 피드백이 있으시면 <br/> 언제든 연락주시면 감사하겠습니다.</p>
           <div className='link_wrap'>
             <Link to='https://github.com/sungdongyoon'>
@@ -114,8 +128,8 @@ const Contact = ({goHome}) => {
           </div>
         </ContactContent>
       </ContactMain>
-      <SmallCircle src={largeCircle}/>
-      <LargeCircle src={largeCircle}/>
+      <SmallCircle ref={leftCircleRef} src={largeCircle}/>
+      <LargeCircle ref={rightCircleRef} src={largeCircle}/>
       <Footer>
         <p>본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.<br/>© 2023 Yoon DongSung. All Rights Reserved.</p>
       </Footer>

@@ -20,7 +20,7 @@ const Dot = styled.div`
 const DotTitle = styled.div`
   font-size: 60px;
   font-weight: bold;
-  color: ${(props) => props.num === props.scrollIndex ? "#0079FF" : "#999"};
+  color: ${(props) => props.num === props.scrollIndex ? "#0079FF" : "#fff"};
   cursor: pointer;
 `;
 
