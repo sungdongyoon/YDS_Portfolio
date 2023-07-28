@@ -30,7 +30,7 @@ const AboutTitle = styled.div`
     font-size: 170px;
     margin: 0;
     color: #bbd3f8;
-    transition: 1s;
+    transition: 0.5s;
   }
 `;
 
@@ -61,7 +61,7 @@ const AboutMe = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-top: 200px;
-  animation: ${aboutClick} 1s;
+  animation: ${aboutClick} ease-in-out 1s;
   transition: 1s;
   h1 {
     font-size: 3rem;
@@ -97,14 +97,14 @@ const AboutSkill = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-top: 200px;
-  animation: ${aboutClick} 1s;
+  animation: ${aboutClick} ease-in-out 1s;
   transition: 1s;
   h1 {
     font-size: 2.5rem;
     color: #555;
   }
   .about_skill_wrap {
-    margin-top: 40px;
+    margin-top: 0px;
     display: flex;
     flex-wrap: wrap;
     .about_skill_item {
@@ -133,7 +133,7 @@ const AboutExperience = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-top: 200px;
-  animation: ${aboutClick} 1s;
+  animation: ${aboutClick} ease-in-out 1s;
   transition: 1s;
   h1 {
     font-size: 2.5rem;
@@ -142,20 +142,19 @@ const AboutExperience = styled.div`
   .about_experience_wrap {
     margin-top: 0px;
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     .about_experience_item {
       display: flex;
       flex-direction: column;
       color: #999;
-      width: 70%;
+      width: 35%;
       margin-right: 30px;
       margin-bottom: 20px;
       h3 {
         font-size: 1.3rem;
         margin: 0;
-        padding-bottom: 0px;
-        text-decoration: underline;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ccc;
       }
       p {
         font-size: 1.1rem;
@@ -271,9 +270,7 @@ const About = ({clickMe, clickSkill, clickExperience, showMe, showSkill, showExp
             <div className='about_experience_item'>
               <h3>Git</h3>
               <p>
-              여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
-              숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
-              원스톱 여행 플랫폼을 만들고 있어요.
+              Git bash를 활용해 개인 프로젝트, 팀원들과 협업하는 과정에서 업데이트, 버전관리를 위해 Git을 사용한 경험이 있습니다.
               </p>
             </div>
             <div className='about_experience_item'>
@@ -286,6 +283,22 @@ const About = ({clickMe, clickSkill, clickExperience, showMe, showSkill, showExp
             </div>
             <div className='about_experience_item'>
               <h3>Hosting</h3>
+              <p>
+              여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
+              숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
+              원스톱 여행 플랫폼을 만들고 있어요.
+              </p>
+            </div>
+            <div className='about_experience_item'>
+              <h3>상태관리</h3>
+              <p>
+              여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
+              숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
+              원스톱 여행 플랫폼을 만들고 있어요.
+              </p>
+            </div>
+            <div className='about_experience_item'>
+              <h3>상태관리</h3>
               <p>
               여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
               숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등

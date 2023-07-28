@@ -43,7 +43,7 @@ const ContactContent = styled.div`
   align-items: center;
   justify-content: center;
   padding-top: 200px;
-  transition: 1s;
+  transition: 1.5s;
   p {
     text-align: center;
     font-size: 30px;

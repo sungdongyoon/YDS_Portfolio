@@ -2,7 +2,7 @@ import React, {useRef, useEffect} from 'react';
 import { styled } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver} from '../animation/animation';
+import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver, projectSlide} from '../animation/animation';
 import largeCircle from '../img/largeCircle.png';
 import umbrella_logo from '../img/umbrella_logo.png';
 import whatitisnt_logo from '../img/whatitisnt_logo.png';
@@ -64,19 +64,22 @@ const ProjectContent = styled.div`
 `;
 
 const ProjectWrap = styled.div`
-  width: 1000px;
+  width: 900px;
+  padding: 20px;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 `;
 
 const ProjectItem = styled.div`
-  width: 42%;
+  width: 45%;
   height: 400px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-right: 50px;
+  // margin-right: 50px;
   margin-bottom: 50px;
+  animation: ${projectSlide} ease-in-out 0.7s;
 `;
 
 const ProjectImg = styled.div`
@@ -239,13 +242,13 @@ const Project = ({pageNum, setPageNum}) => {
                 </ProjectImg>
                 <ProjectName>mbti로 나와 맞는 고양이 찾기</ProjectName>
               </ProjectItem>
-              <ProjectItem style={{opacity: 0}}>
+              <ProjectItem>
                 <ProjectImg>
                   <div className='projectDetail'>
-                    <span></span>
+                    <span>프로젝트 설명</span>
                   </div>
                 </ProjectImg>
-                <ProjectName></ProjectName>
+                <ProjectName>YDS 포트폴리오</ProjectName>
               </ProjectItem>
             </>
             }
