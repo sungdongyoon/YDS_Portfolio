@@ -1,9 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { styled } from 'styled-components';
-import { motion, transform } from 'framer-motion';
-import largeCircle from '../img/largeCircle.png';
 import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver, aboutClick} from '../animation/animation';
-
+import largeCircle from '../img/largeCircle.png';
+import theme from '../style/theme';
 
 const Container = styled.div`
   height: 100vh;
@@ -19,6 +18,14 @@ const AboutMain = styled.div`
   height: 1000px;
   display: flex;
   justify-content: space-evenly;
+  @media screen and ${theme.tablet} {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  @media screen and ${theme.mobile} {
+    height: 650px;
+  }
 `;
 
 const AboutTitle = styled.div`
@@ -26,11 +33,27 @@ const AboutTitle = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  @media screen and ${theme.tablet} {
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 80%;
+  }
+  @media screen and ${theme.mobile} {
+  }
   h1 {
     font-size: 170px;
     margin: 0;
     color: #bbd3f8;
     transition: 0.5s;
+    @media screen and ${theme.laptop} {
+      font-size: 100px;
+    }
+    @media screen and ${theme.tablet} {
+      font-size: 80px;
+    }
+    @media screen and ${theme.mobile} {
+      font-size: 50px;
+    }
   }
 `;
 
@@ -39,6 +62,11 @@ const Subtitle = styled.div`
   flex-direction: column;
   align-items: flex-end;
   transition: 1s;
+  @media screen and ${theme.tablet} {
+    flex-direction: row;
+    width: 100%;
+    gap: 50px;
+  }
   span {
     border: 5px solid transparent;
     display: block;
@@ -52,6 +80,15 @@ const Subtitle = styled.div`
       color: #bbd3f8;
       border-bottom: 5px solid #bbd3f8;
     }
+    @media screen and ${theme.laptop} {
+      font-size: 30px;
+    }
+    @media screen and ${theme.mobile} {
+      font-size: 20px;
+      text-shadow: 5px 5px 10px #fff,
+      -5px -5px 10px #fff;
+      margin-bottom: 0px;
+    }
   }
 `;
 
@@ -63,16 +100,44 @@ const AboutMe = styled.div`
   padding-top: 200px;
   animation: ${aboutClick} ease-in-out 1s;
   transition: 1s;
+  @media screen and ${theme.tablet} {
+    padding-top: 0;
+    width: 80%;
+    margin-top: 50px;
+  }
+  @media screen and ${theme.mobile} {
+    margin-top: 0px;
+  }
   h1 {
     font-size: 3rem;
     margin-bottom: 50px;
+    @media screen and ${theme.laptop} {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+    @media screen and ${theme.tablet} {
+      font-size: 30px;
+    }
+    @media screen and ${theme.mobile} {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
   }
   p {
     font-size: 26px;
     line-height: 40px;
     margin-bottom: 50px;
     color: #999; 
-    width: 80%;
+    width: 60%;
+    @media screen and ${theme.laptop} {
+      font-size: 20px;
+    }
+    @media screen and ${theme.tablet} {
+      width: 100%;
+    }
+    @media screen and ${theme.mobile} {
+      font-size: 16px;
+    }
   }
   button {
     width: 30%;
@@ -88,6 +153,9 @@ const AboutMe = styled.div`
       background: linear-gradient(130deg, #0079FF 0%, #BBD3F8 100%);
       transition: all 0.5s ease;
     }
+    @media screen and ${theme.mobile} {
+      width: 100%;
+    }
   }
 `;
 
@@ -99,14 +167,32 @@ const AboutSkill = styled.div`
   padding-top: 200px;
   animation: ${aboutClick} ease-in-out 1s;
   transition: 1s;
+  @media screen and ${theme.tablet} {
+    padding-top: 0;
+    width: 80%;
+    margin-top: 20px;
+  }
+  @media screen and ${theme.mobile} {
+    margin-top: 0px;
+    height: 100%;
+  }
   h1 {
     font-size: 2.5rem;
     color: #555;
+    @media screen and ${theme.laptop} {
+      font-size: 26px;
+    }
+    @media screen and ${theme.mobile} {
+      font-size: 24px;
+    }
   }
   .about_skill_wrap {
     margin-top: 0px;
     display: flex;
     flex-wrap: wrap;
+    @media screen and ${theme.mobile} {
+      justify-content: space-between;
+    }
     .about_skill_item {
       display: flex;
       flex-direction: column;
@@ -114,14 +200,38 @@ const AboutSkill = styled.div`
       width: 35%;
       margin-right: 30px;
       margin-bottom: 20px;
+      @media screen and ${theme.tablet} {
+        width: 45%;
+      }
+      @media screen and ${theme.mobile} {
+        width: 45%;
+        text-shadow: 5px 5px 10px #fff,
+        -5px -5px 10px #fff;
+        margin-bottom: 0px;
+        margin-right: 0;
+      }
       h3 {
         font-size: 1.3rem;
         margin: 0;
         padding-bottom: 10px;
         border-bottom: 1px solid #ccc;
+        @media screen and ${theme.laptop} {
+          font-size: 18px;
+        }
+        @media screen and ${theme.mobile} {
+          font-size: 16px;
+          box-shadow: 0px 5px 5px -5px #fff;
+        }
       }
       p {
         font-size: 1.1rem;
+        @media screen and ${theme.laptop} {
+          font-size: 16px;
+        }
+        @media screen and ${theme.mobile} {
+          font-size: 12px;
+          line-height: 15px;
+        }
       }
     }
   }
@@ -135,14 +245,32 @@ const AboutExperience = styled.div`
   padding-top: 200px;
   animation: ${aboutClick} ease-in-out 1s;
   transition: 1s;
+  @media screen and ${theme.tablet} {
+    padding-top: 0;
+    width: 80%;
+    margin-top: 20px;
+  }
+  @media screen and ${theme.mobile} {
+    margin-top: 0px;
+    height: 100%;
+  }
   h1 {
     font-size: 2.5rem;
     color: #555;
+    @media screen and ${theme.laptop} {
+      font-size: 26px;
+    }
+    @media screen and ${theme.mobile} {
+      font-size: 24px;
+    }
   }
   .about_experience_wrap {
     margin-top: 0px;
     display: flex;
     flex-wrap: wrap;
+    @media screen and ${theme.mobile} {
+      justify-content: space-between;
+    }
     .about_experience_item {
       display: flex;
       flex-direction: column;
@@ -150,33 +278,70 @@ const AboutExperience = styled.div`
       width: 35%;
       margin-right: 30px;
       margin-bottom: 20px;
+      @media screen and ${theme.tablet} {
+        width: 45%;
+      }
+      @media screen and ${theme.mobile} {
+        width: 45%;
+        text-shadow: 5px 5px 10px #fff,
+        -5px -5px 10px #fff;
+        margin-bottom: 0px;
+        margin-right: 0;
+      }
       h3 {
         font-size: 1.3rem;
         margin: 0;
         padding-bottom: 10px;
         border-bottom: 1px solid #ccc;
+        @media screen and ${theme.laptop} {
+          font-size: 18px;
+        }
+        @media screen and ${theme.mobile} {
+          font-size: 16px;
+          box-shadow: 0px 5px 5px -5px #fff;
+        }
       }
       p {
         font-size: 1.1rem;
+        @media screen and ${theme.laptop} {
+          font-size: 16px;
+        }
+        @media screen and ${theme.mobile} {
+          font-size: 12px;
+          line-height: 15px;
+        }
       }
     }
   }
 `;
 
-const SmallCircle = styled.img`
+const LeftCircle = styled.div`
   position: absolute;
   bottom: -330px;
   left: -330px;
-  transition: 1s;
+  width: 30%;
+  img {
+    width: 100%;
+    heigiht: 100%;
+    transition: 1s;
+  }
 `;
 
-const LargeCircle = styled.img`
+const RightCircle = styled.div`
   position: absolute;
   width: 800px;
   height: 800px;
   right: -300px;
-  transition: 1s;
   z-index: -1;
+  @media screen and ${theme.laptop} {
+    width: 550px;
+    height: 550px;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    transition: 1s;
+  }
 `;
 
 
@@ -203,7 +368,7 @@ const About = ({clickMe, clickSkill, clickExperience, showMe, showSkill, showExp
           <Subtitle ref={subTitleRef}>
             <span className='me' onClick={clickMe} style={showMe ? {color: "#bbd3f8", borderBottom: "5px solid #bbd3f8"} : {color: "#ccc"}}>Me</span>
             <span className='skill' onClick={clickSkill} style={showSkill ? {color: "#bbd3f8", borderBottom: "5px solid #bbd3f8"} : {color: "#ccc"}}>Skill</span>
-            <span className='experience' onClick={clickExperience} style={showExpereince ? {color: "#bbd3f8", borderBottom: "5px solid #bbd3f8"} : {color: "#ccc"}}>Experience</span>
+            <span className='experience' onClick={clickExperience} style={showExpereince ? {color: "#bbd3f8", borderBottom: "5px solid #bbd3f8", boxShadow: "0px 5px 5px -5px #fff"} : {color: "#ccc"}}>Experience</span>
           </Subtitle>
         </AboutTitle>
         {showMe && 
@@ -317,8 +482,12 @@ const About = ({clickMe, clickSkill, clickExperience, showMe, showSkill, showExp
         </AboutExperience>
         }
       </AboutMain>
-      <SmallCircle ref={leftCircleRef} src={largeCircle}/>
-      <LargeCircle ref={rightCircleRef} src={largeCircle}/>
+      <LeftCircle>
+        <img src={largeCircle} ref={leftCircleRef}/>
+      </LeftCircle>
+      <RightCircle>
+        <img src={largeCircle} ref={rightCircleRef}/>
+      </RightCircle>
     </Container>
   )
 }

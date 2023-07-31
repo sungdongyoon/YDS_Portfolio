@@ -8,6 +8,7 @@ import umbrella_logo from '../img/umbrella_logo.png';
 import whatitisnt_logo from '../img/whatitisnt_logo.png';
 import momentum_img from '../img/momentum_img.png';
 import netflix_logo from '../img/netflix_logo.png';
+import theme from '../style/theme';
 
 
 const Container = styled.div`
@@ -24,6 +25,11 @@ const ProjectMain = styled.div`
   height: 1000px;
   display: flex;
   justify-content: space-evenly;
+  @media screen and ${theme.tablet} {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const ProjectTitle = styled.div`
@@ -31,11 +37,22 @@ const ProjectTitle = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  @media screen and ${theme.tablet} {
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 80%;
+  }
   h1 {
     font-size: 170px;
     margin: 0;
     color: #bbd3f8;
     transition: 1s;
+    @media screen and ${theme.laptop} {
+      font-size: 100px;
+    }
+    @media screen and ${theme.tablet} {
+      font-size: 80px;
+    }
   }
   .slide_arrow {
     font-size: 30px;
@@ -45,6 +62,12 @@ const ProjectTitle = styled.div`
       text-align: center;
       display: inline-block;
       width: 80px;
+      @media screen and ${theme.laptop} {
+        font-size: 26px;
+      }
+      @media screen and ${theme.tablet} {
+        font-size: 16px;
+      }
     }
   }
 `;
@@ -55,43 +78,64 @@ const ProjectContent = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-top: 200px;
-  gap: 50px;
   transition: 1s;
   span {
     color: #ff0000;
     font-size: 18px;
   }
+  @media screen and ${theme.tablet} {
+    padding-top: 0;
+    width: 80%;
+    margin-top: 50px;
+  }
 `;
 
 const ProjectWrap = styled.div`
-  width: 900px;
+  width: 70%;
+  height: 100%;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  @media screen and ${theme.laptop} {
+    width: 500px;
+  }
+  @media screen and ${theme.tablet} {
+    width: 100%;
+    padding: 0;
+    padding-top: 20px;
+  }
 `;
 
 const ProjectItem = styled.div`
   width: 45%;
-  height: 400px;
+  height: 50%;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  // margin-right: 50px;
   margin-bottom: 50px;
   animation: ${projectSlide} ease-in-out 0.7s;
+  @media screen and ${theme.laptop} {
+    height: 300px;
+  }
+  @media screen and ${theme.tablet} {
+    width: 30%;
+  }
 `;
 
 const ProjectImg = styled.div`
   width: 100%;
   height: 100%;
-  background-size: 200px;
+  background-size: 70%;
   background-repeat: no-repeat;
   background-position: center center;
   background-color: #fff;
   box-shadow: 0px 0px 10px #ccc, 10px 10px 8px #ccc;
   border-radius: 20px;
-  transition: 0.3;
+  transition: 0.3s;
+  @media screen and ${theme.laptop} {
+    background-size: 80%;
+  }
   .projectDetail {
     height: 100%;
     width: 100%;
@@ -103,6 +147,9 @@ const ProjectImg = styled.div`
       margin: 0;
       padding: 20px;
       color: #fff;
+      @media screen and ${theme.laptop} {
+        font-size: 16px;
+      }
     }
     span {
       display: block;
@@ -126,20 +173,32 @@ const ProjectName = styled.div`
   cursor: pointer;
 `;
 
-const SmallCircle = styled.img`
+const LeftCircle = styled.div`
   position: absolute;
   bottom: -330px;
   left: -330px;
-  transition: 1s;
+  width: 30%;
+  img {
+    width: 100%;
+    heigiht: 100%;
+    transition: 1s;
+  }
 `;
 
-const LargeCircle = styled.img`
+const RightCircle = styled.div`
   position: absolute;
-  width: 800px;
-  height: 800px;
-  right: -300px;
+  right: -13%;
   z-index: -1;
-  transition: 1s;
+  @media screen and ${theme.laptop} {
+    width: 550px;
+    height: 550px;
+    right: -20%;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    transition: 1s;
+  }
 `;
 
 const Project = ({pageNum, setPageNum}) => {
@@ -155,6 +214,7 @@ const Project = ({pageNum, setPageNum}) => {
     leftCircleObserver.observe(leftCircleRef.current);
     rightCircleObserver.observe(rightCircleRef.current);
   })
+  window.innerWidth >= 1024 && console.log("hi");
   return (
     <Container>
       <ProjectMain>
@@ -172,19 +232,19 @@ const Project = ({pageNum, setPageNum}) => {
             {pageNum === 1 &&
             <>
               <ProjectItem>
-                <ProjectImg style={{backgroundImage: `url(${momentum_img})`, backgroundSize: 300}}>
+                <ProjectImg style={{backgroundImage: `url(${momentum_img})`}}>
                   <div className='projectDetail'>
-                    <h3>HTML, CSS, JavaScript</h3>
+                    {/* <h3>HTML, CSS, JavaScript</h3> */}
                     <span>
                       자바스크립트의 기본적인 기능들을 활용하여 제작한 momentum 페이지 입니다.
                     </span>
-                    <ul>
+                    {/* <ul>
                       <li>랜덤 배경화면</li>
                       <li>디지털 시계 & 날짜</li>
                       <li>랜덤 명언</li>
                       <li>Todo List</li>
                       <li>현재 날씨</li>
-                    </ul>
+                    </ul> */}
                   </div>
                 </ProjectImg>
                 <ProjectName>Momentum</ProjectName>
@@ -200,28 +260,28 @@ const Project = ({pageNum, setPageNum}) => {
               <ProjectItem>
                 <ProjectImg style={{backgroundImage: `url(${whatitisnt_logo})`}}>
                   <div className='projectDetail'>
-                    <h3>React</h3>
+                    {/* <h3>React</h3> */}
                     <span>
                       리액트를 사용하여 만든 와릿이즌 홈페이지입니다.
                     </span>
-                    <ul>
+                    {/* <ul>
                       <li>상단 스토어 버튼, 배너 카테고리 클릭 시 제품 리스트 페이지로 이동</li>
                       <li>메인페이지 베스트아이템 슬라이드 구현</li>
                       <li>로그인 & 로그아웃 구현</li>
                       <li>제품 상세 페이지 수량 및 가격, 상세설명 아코디언 구현</li>
-                    </ul>
+                    </ul> */}
                   </div>
                 </ProjectImg>
                 <ProjectName>WhatItIsnt</ProjectName>
               </ProjectItem>
               <ProjectItem>
-                <ProjectImg>
-                  <div className='projectDetail'>
-                    <span>프로젝트 설명</span>
-                  </div>
-                </ProjectImg>
-                <ProjectName>My Diary Book</ProjectName>
-              </ProjectItem>
+                  <ProjectImg>
+                    <div className='projectDetail'>
+                      <span>프로젝트 설명</span>
+                    </div>
+                  </ProjectImg>
+                  <ProjectName>My Diary Book</ProjectName>
+                </ProjectItem>
             </>
             }
             {pageNum === 2 &&
@@ -240,7 +300,7 @@ const Project = ({pageNum, setPageNum}) => {
                     <span>프로젝트 설명</span>
                   </div>
                 </ProjectImg>
-                <ProjectName>mbti로 나와 맞는 고양이 찾기</ProjectName>
+                <ProjectName>mbti 고양이</ProjectName>
               </ProjectItem>
               <ProjectItem>
                 <ProjectImg>
@@ -255,8 +315,12 @@ const Project = ({pageNum, setPageNum}) => {
           </ProjectWrap>
         </ProjectContent>
       </ProjectMain>
-      <SmallCircle ref={leftCircleRef} src={largeCircle}/>
-      <LargeCircle ref={rightCircleRef} src={largeCircle}/>
+      <LeftCircle>
+        <img src={largeCircle} ref={leftCircleRef}/>
+      </LeftCircle>
+      <RightCircle>
+        <img src={largeCircle} ref={rightCircleRef}/>
+      </RightCircle>
     </Container>
   )
 }

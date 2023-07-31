@@ -1,12 +1,16 @@
 import React from 'react';
 import { styled } from 'styled-components';
+import theme from '../style/theme';
 
 const DotsWrap = styled.div`
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  right: 100px;
+  right: 3%;
   z-index: 10;
+  @media screen and ${theme.laptop} {
+    right: 50px;
+  }
 `;
 
 const Dot = styled.div`
@@ -15,6 +19,9 @@ const Dot = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   height: 400px;
+  @media screen and ${theme.laptop} {
+    height: 300px;
+  }
 `;
 
 const DotTitle = styled.div`
@@ -22,6 +29,12 @@ const DotTitle = styled.div`
   font-weight: bold;
   color: ${(props) => props.num === props.scrollIndex ? "#0079FF" : "#fff"};
   cursor: pointer;
+  @media screen and ${theme.laptop} {
+    font-size: 30px;
+  }
+  @media screen and ${theme.tablet} {
+    display: none;
+  }
 `;
 
 const Dots = ({scrollIndex, goHome, goAbout, goProject, goContact}) => {
