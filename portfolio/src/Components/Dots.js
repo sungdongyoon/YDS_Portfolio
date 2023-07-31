@@ -41,10 +41,10 @@ const Dots = ({scrollIndex, goHome, goAbout, goProject, goContact}) => {
   return (
     <DotsWrap>
       <Dot>
-        <DotTitle onClick={goHome} className='dot' num={1} scrollIndex={scrollIndex}>HOME</DotTitle>
-        <DotTitle onClick={goAbout} className='dot' num={2} scrollIndex={scrollIndex}>ABOUT</DotTitle>
-        <DotTitle onClick={goProject} className='dot' num={3} scrollIndex={scrollIndex}>PROJECT</DotTitle>
-        <DotTitle onClick={goContact} className='dot' num={4} scrollIndex={scrollIndex}>CONTACT</DotTitle>
+        <DotTitle onClick={goHome} num={1} scrollIndex={scrollIndex}>HOME</DotTitle>
+        <DotTitle onClick={goAbout} num={2} scrollIndex={scrollIndex}>ABOUT</DotTitle>
+        <DotTitle onClick={goProject} num={3} scrollIndex={scrollIndex}>PROJECT</DotTitle>
+        <DotTitle onClick={goContact} num={4} scrollIndex={scrollIndex}>CONTACT</DotTitle>
       </Dot>
     </DotsWrap>
   )

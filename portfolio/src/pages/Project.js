@@ -214,7 +214,6 @@ const Project = ({pageNum, setPageNum}) => {
     leftCircleObserver.observe(leftCircleRef.current);
     rightCircleObserver.observe(rightCircleRef.current);
   })
-  window.innerWidth >= 1024 && console.log("hi");
   return (
     <Container>
       <ProjectMain>

@@ -116,21 +116,23 @@ function App() {
   const goHome = () => {
     outerDivRef.current.scrollTo({ top: 0, behavior: "smooth" });
     setScrollIndex(1);
+    dispatch({type: "FALSE_TOGGLE"});
   };
   const goAbout = () => {
     outerDivRef.current.scrollTo({ top: (pageHeight) + DIVIDER_HEIGHT, behavior: "smooth" });
     setScrollIndex(2);
+    dispatch({type: "FALSE_TOGGLE"});
   };
   const goProject = () => {
     outerDivRef.current.scrollTo({ top: (pageHeight * 2) + (DIVIDER_HEIGHT * 2), behavior: "smooth" });
     setScrollIndex(3);
+    dispatch({type: "FALSE_TOGGLE"});
   };
   const goContact = () => {
     outerDivRef.current.scrollTo({ top: (pageHeight * 3) + (DIVIDER_HEIGHT * 3), behavior: "smooth" });
     setScrollIndex(4);
+    dispatch({type: "FALSE_TOGGLE"});
   };
-
-
   
   // About show & hide
   const dispatch = useDispatch();
@@ -148,12 +150,16 @@ function App() {
     dispatch({type: "CLICK_EXPERIENCE"});
   };
 
+  const handleToggle = () => {
+    dispatch({type: "TOGGLE"});
+  };
+
   // project PageNum
   const [pageNum, setPageNum] = useState(1);
   return (
     <Container ref={outerDivRef}>
       <Dots scrollIndex={scrollIndex} goHome={goHome} goAbout={goAbout} goProject={goProject} goContact={goContact}/>
-      <Header/>
+      <Header scrollIndex={scrollIndex} handleToggle={handleToggle} goHome={goHome} goAbout={goAbout} goProject={goProject} goContact={goContact}/>
       <Home/>
       <Divider/>
       <About clickMe={clickMe} clickSkill={clickSkill} clickExperience={clickExperience} showMe={showMe} showSkill={showSkill} showExpereince={showExpereince}/>
