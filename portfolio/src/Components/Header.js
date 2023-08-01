@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { styled } from 'styled-components';
 import { useSelector } from 'react-redux';
 import theme from '../style/theme';
@@ -42,9 +42,10 @@ const HeaderInfo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  width: 40%;
   height: 100%;
-  @media screen and ${theme.mobile} {
+  // border: 1px solid red;
+  @media screen and ${theme.laptop} {
     display: none;
   }
   span {
@@ -74,17 +75,21 @@ const ToggleBtn = styled.div`
   .tobbleBtn_t {
     position: absolute;
     top: 0;
-    transform: ${(props) => (props.isToggle ? "rotate(90deg)" : "rotate(0)")};
+    transition: 1s;
+    transform: ${(props) => (props.isToggle ? "rotate(45deg) translateY(20px)" : "rotate(0) translateY(0)")};
   }
   .tobbleBtn_m {
     position: absolute;
     top: 50%;
+    opacity: ${(props) => props.isToggle ? "0" : "1"};
   }
   .tobbleBtn_b {
     position: absolute;
     bottom: 0;
+    transition: 1s;
+    transform: ${(props) => (props.isToggle ? "rotate(-45deg) translateY(-20px)" : "rotate(0) translateY(0)")};
   }
-  @media screen and ${theme.mobile} {
+  @media screen and ${theme.tablet} {
     display: block;
   }
 `;
@@ -98,8 +103,8 @@ const MobileNavMenu = styled.div`
   right: 0;
   background-color: #000;
   color: #fff;
-  transition: 1s;
-  transform: ${(props) => (props.isToggle ? "translateX(0px)" : "translateX(450px)")};
+  transition: ${window.innerWidth < 768 ? '1s' : '1.5s'};
+  transform: ${(props) => (props.isToggle ? "translateX(0px)" : `${window.innerWidth < 768 ? "translateX(400px)" : "translateX(1200px)"}`)};
   .nav_menu_info {
     position: absolute;
     top: 30px;
@@ -121,6 +126,7 @@ const MobileNavMenu = styled.div`
     list-style: none;
     height: 100%;
     margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -129,16 +135,17 @@ const MobileNavMenu = styled.div`
     li {
       font-size: 36px;
       font-weight: bold;
-      color: ${(props) => props.num === props.scrollIndex ? "#0079FF" : "#fff"};
+      color: #bbd3f8;
     }
   }
-  @media screen and ${theme.mobile} {
+  @media screen and ${theme.tablet} {
     display: block;
   }
 `;
 
 const Header = ({scrollIndex, handleToggle, goHome, goAbout, goProject, goContact}) => {
   const isToggle = useSelector((state) => state.isToggle);
+  console.log("스크롤 넘버: ", scrollIndex);
   return (
     <Container>
       <Logo>Logo</Logo>
@@ -146,7 +153,7 @@ const Header = ({scrollIndex, handleToggle, goHome, goAbout, goProject, goContac
         <span className='email'>ehdtjd0906@naver.com</span>
         <span className='phone'>+82 10-6312-5903</span>
       </HeaderInfo>
-      <ToggleBtn onClick={handleToggle}>
+      <ToggleBtn onClick={handleToggle} isToggle={isToggle}>
         <span className='tobbleBtn_t' isToggle={isToggle}></span>
         <span className='tobbleBtn_m' isToggle={isToggle}></span>
         <span className='tobbleBtn_b' isToggle={isToggle}></span>
@@ -158,10 +165,10 @@ const Header = ({scrollIndex, handleToggle, goHome, goAbout, goProject, goContac
           <span>+82 10-6312-5903</span>
         </div>
         <ul>
-          <li onClick={goHome} value={1} scrollIndex={scrollIndex}>HOME</li>
-          <li onClick={goAbout} value={2} scrollIndex={scrollIndex}>ABOUT</li>
-          <li onClick={goProject} value={3} scrollIndex={scrollIndex}>PROJECT</li>
-          <li onClick={goContact} value={4} scrollIndex={scrollIndex}>CONTACT</li>
+          <li onClick={goHome} num={1} scrollIndex={scrollIndex}>HOME</li>
+          <li onClick={goAbout} num={2} scrollIndex={scrollIndex}>ABOUT</li>
+          <li onClick={goProject} num={3} scrollIndex={scrollIndex}>PROJECT</li>
+          <li onClick={goContact} num={4} scrollIndex={scrollIndex}>CONTACT</li>
         </ul>
       </MobileNavMenu>
     </Container>
