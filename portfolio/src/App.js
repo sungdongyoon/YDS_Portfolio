@@ -26,6 +26,7 @@ const Divider = styled.div`
 
 const DIVIDER_HEIGHT = 5;
 const pageHeight = window.innerHeight;
+const pageWidth = window.innerWidth;
 
 function App() {
   // Scroll Event
@@ -36,7 +37,6 @@ function App() {
       e.preventDefault();
       const { deltaY } = e;
       const { scrollTop } = outerDivRef.current;
-      const pageHeight = window.innerHeight;
 
       if(deltaY > 0) {
         if(scrollTop >= 0 && scrollTop < pageHeight) {
@@ -63,7 +63,7 @@ function App() {
             behavior: "smooth",
           });
           setScrollIndex(4);
-        } else {
+        } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 4) {
           console.log("현재 4페이지, down");
           outerDivRef.current.scrollTo({
             top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
@@ -108,6 +108,7 @@ function App() {
     };
     const outerDivRefCurrent = outerDivRef.current;
     outerDivRefCurrent.addEventListener("wheel", wheelHandler);
+    // pageWidth < 1024 && outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
     return () => {
       outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
     }

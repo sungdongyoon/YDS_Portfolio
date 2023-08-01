@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import { styled } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -18,6 +18,9 @@ const Container = styled.div`
   align-items: center;
   position: relative;
   overflow: hidden;
+  @media screen and ${theme.mobile} {
+    height: 100%;
+  }
 `;
 
 const ProjectMain = styled.div`
@@ -29,6 +32,9 @@ const ProjectMain = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  @media screen and ${theme.mobile} {
+    height: 650px;
   }
 `;
 
@@ -46,6 +52,7 @@ const ProjectTitle = styled.div`
     font-size: 170px;
     margin: 0;
     color: #bbd3f8;
+    color: #fff;
     transition: 1s;
     @media screen and ${theme.laptop} {
       font-size: 100px;
@@ -53,11 +60,17 @@ const ProjectTitle = styled.div`
     @media screen and ${theme.tablet} {
       font-size: 80px;
     }
+    @media screen and ${theme.mobile} {
+      font-size: 50px;
+    }
   }
   .slide_arrow {
     font-size: 30px;
     color: #999;
     transition: 1s;
+    @media screen and ${theme.mobile} {
+      display: none;
+    }
     span {
       text-align: center;
       display: inline-block;
@@ -79,6 +92,7 @@ const ProjectContent = styled.div`
   justify-content: center;
   padding-top: 200px;
   transition: 1s;
+  position: relative;
   span {
     color: #ff0000;
     font-size: 18px;
@@ -87,6 +101,36 @@ const ProjectContent = styled.div`
     padding-top: 0;
     width: 80%;
     margin-top: 50px;
+  }
+  @media screen and ${theme.mobile} {
+    margin-top: 0px;
+    padding: 10px;
+    padding-top: 40px;
+    height: 300px;
+    span {
+      font-size: 12px;
+    }
+  }
+`;
+
+const MobileNavBtn = styled.div`
+  display: none;
+  .leftBtn {
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  .rightBtn {
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  @media screen and ${theme.mobile} {
+    display: block;
   }
 `;
 
@@ -105,7 +149,13 @@ const ProjectWrap = styled.div`
     padding: 0;
     padding-top: 20px;
   }
+  @media screen and ${theme.mobile} {
+    flex-direction: column;
+    padding-top: 10px;
+    
+  }
 `;
+
 
 const ProjectItem = styled.div`
   width: 45%;
@@ -120,6 +170,11 @@ const ProjectItem = styled.div`
   }
   @media screen and ${theme.tablet} {
     width: 30%;
+  }
+  @media screen and ${theme.mobile} {
+    width: 100%;
+    margin-bottom: 0px;
+    margin-right: 20px;
   }
 `;
 
@@ -173,6 +228,8 @@ const ProjectName = styled.div`
   cursor: pointer;
 `;
 
+
+
 const LeftCircle = styled.div`
   position: absolute;
   bottom: -330px;
@@ -202,6 +259,9 @@ const RightCircle = styled.div`
 `;
 
 const Project = ({pageNum, setPageNum}) => {
+  const [itemId, setItemId] = useState(1);
+  const [slidePx, setSlidePx] = useState(0);
+
   const titleRef = useRef();
   const subTitleRef = useRef();
   const contentRef = useRef();
@@ -214,6 +274,15 @@ const Project = ({pageNum, setPageNum}) => {
     leftCircleObserver.observe(leftCircleRef.current);
     rightCircleObserver.observe(rightCircleRef.current);
   })
+
+  const prevCount = () => {
+    itemId > 1 && setItemId(itemId - 1);
+    slidePx < 0 && setSlidePx(slidePx + 301);
+  };
+  const nextCount = () => {
+    itemId < 8 && setItemId(itemId + 1);
+    slidePx > -2160 && setSlidePx(slidePx - 301);
+  };
   return (
     <Container>
       <ProjectMain>
@@ -227,10 +296,10 @@ const Project = ({pageNum, setPageNum}) => {
         </ProjectTitle>
         <ProjectContent ref={contentRef}>
           <span>* 제목 클릭 시 해당 페이지로 이동합니다.</span>
-          <ProjectWrap>
+          <ProjectWrap style={{transform: `translateX(${slidePx}px)`}}>
             {pageNum === 1 &&
             <>
-              <ProjectItem>
+              <ProjectItem id={1}>
                 <ProjectImg style={{backgroundImage: `url(${momentum_img})`}}>
                   <div className='projectDetail'>
                     {/* <h3>HTML, CSS, JavaScript</h3> */}
@@ -248,7 +317,7 @@ const Project = ({pageNum, setPageNum}) => {
                 </ProjectImg>
                 <ProjectName>Momentum</ProjectName>
               </ProjectItem>
-              <ProjectItem>
+              <ProjectItem id={2}>
                 <ProjectImg style={{backgroundImage: `url(${umbrella_logo})`}}>
                   <div className='projectDetail'>
                     <span>프로젝트 설명</span>
@@ -256,7 +325,7 @@ const Project = ({pageNum, setPageNum}) => {
                 </ProjectImg>
                 <ProjectName>우산있어?</ProjectName>
               </ProjectItem>
-              <ProjectItem>
+              <ProjectItem id={3}>
                 <ProjectImg style={{backgroundImage: `url(${whatitisnt_logo})`}}>
                   <div className='projectDetail'>
                     {/* <h3>React</h3> */}
@@ -273,19 +342,19 @@ const Project = ({pageNum, setPageNum}) => {
                 </ProjectImg>
                 <ProjectName>WhatItIsnt</ProjectName>
               </ProjectItem>
-              <ProjectItem>
+              <ProjectItem id={4}>
                   <ProjectImg>
                     <div className='projectDetail'>
                       <span>프로젝트 설명</span>
                     </div>
                   </ProjectImg>
-                  <ProjectName>My Diary Book</ProjectName>
-                </ProjectItem>
+                <ProjectName>My Diary Book</ProjectName>
+              </ProjectItem>
             </>
             }
             {pageNum === 2 &&
             <>
-              <ProjectItem>
+              <ProjectItem id={5}>
                 <ProjectImg style={{backgroundImage: `url(${netflix_logo})`}}>
                   <div className='projectDetail'>
                     <span>프로젝트 설명</span>
@@ -293,7 +362,7 @@ const Project = ({pageNum, setPageNum}) => {
                 </ProjectImg>
                 <ProjectName>Netflix</ProjectName>
               </ProjectItem>
-              <ProjectItem>
+              <ProjectItem id={6}>
                 <ProjectImg>
                   <div className='projectDetail'>
                     <span>프로젝트 설명</span>
@@ -301,7 +370,7 @@ const Project = ({pageNum, setPageNum}) => {
                 </ProjectImg>
                 <ProjectName>mbti 고양이</ProjectName>
               </ProjectItem>
-              <ProjectItem>
+              <ProjectItem id={7}>
                 <ProjectImg>
                   <div className='projectDetail'>
                     <span>프로젝트 설명</span>
@@ -312,6 +381,11 @@ const Project = ({pageNum, setPageNum}) => {
             </>
             }
           </ProjectWrap>
+          <MobileNavBtn>
+            <div className='leftBtn' onClick={prevCount}>{"<"}</div>
+            <div className='count'>{itemId} / 8</div>
+            <div className='rightBtn' onClick={nextCount}>{">"}</div>
+          </MobileNavBtn>
         </ProjectContent>
       </ProjectMain>
       <LeftCircle>

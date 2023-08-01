@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { styled } from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import theme from '../style/theme';
 
 const Container = styled.div`
@@ -127,7 +127,7 @@ const MobileNavMenu = styled.div`
     justify-content: center;
     gap: 50px;
     li {
-      font-size: 20px;
+      font-size: 36px;
       font-weight: bold;
       color: ${(props) => props.num === props.scrollIndex ? "#0079FF" : "#fff"};
     }
@@ -158,10 +158,10 @@ const Header = ({scrollIndex, handleToggle, goHome, goAbout, goProject, goContac
           <span>+82 10-6312-5903</span>
         </div>
         <ul>
-          <li onClick={goHome} num={1} scrollIndex={scrollIndex}>HOME</li>
-          <li onClick={goAbout} num={2} scrollIndex={scrollIndex}>ABOUT</li>
-          <li onClick={goProject} num={3} scrollIndex={scrollIndex}>PROJECT</li>
-          <li onClick={goContact} num={4} scrollIndex={scrollIndex}>CONTACT</li>
+          <li onClick={goHome} value={1} scrollIndex={scrollIndex}>HOME</li>
+          <li onClick={goAbout} value={2} scrollIndex={scrollIndex}>ABOUT</li>
+          <li onClick={goProject} value={3} scrollIndex={scrollIndex}>PROJECT</li>
+          <li onClick={goContact} value={4} scrollIndex={scrollIndex}>CONTACT</li>
         </ul>
       </MobileNavMenu>
     </Container>
