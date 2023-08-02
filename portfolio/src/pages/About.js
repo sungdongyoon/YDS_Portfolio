@@ -61,6 +61,9 @@ const AboutTitle = styled.div`
     @media screen and ${theme.tablet} {
       font-size: 80px;
     }
+    @media screen and ${theme.mobile} {
+      font-size: 60px;
+    }
     @media screen and ${theme.iphone12Pro} {
       font-size: 50px;
     }
@@ -92,6 +95,9 @@ const Subtitle = styled.div`
     }
     @media screen and ${theme.laptop} {
       font-size: 30px;
+    }
+    @media screen and ${theme.mobile} {
+      font-size: 20px;
     }
     @media screen and ${theme.iphone12Pro} {
       font-size: 20px;
@@ -154,7 +160,7 @@ const AboutMe = styled.div`
     }
   }
   button {
-    width: 30%;
+    width: 300px;
     border: none;
     border-radius: 10px;
     background: linear-gradient(130deg, #BBD3F8 0%, #0079FF 100%);
@@ -167,7 +173,7 @@ const AboutMe = styled.div`
       background: linear-gradient(130deg, #0079FF 0%, #BBD3F8 100%);
       transition: all 0.5s ease;
     }
-    @media screen and ${theme.iphone12Pro} {
+    @media screen and ${theme.mobile} {
       width: 100%;
     }
   }
@@ -348,7 +354,7 @@ const LeftCircle = styled.div`
     width: 600px;
     height: 600px;
   }
-  @media screen and ${theme.iphone12Pro} {
+  @media screen and ${theme.mobile} {
     width: 400px;
     height: 400px;
   }
@@ -406,7 +412,7 @@ const About = ({clickMe, clickSkill, clickExperience, showMe, showSkill, showExp
         </AboutTitle>
         {showMe && 
         <AboutMe ref={contentRef}>
-          <h1>프론트엔드 개발자를 꿈꾸는<br/> 윤동성 입니다.</h1>
+          <h1>프론트엔드 개발자<br/> 윤동성 입니다.</h1>
           <p>
             여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
             숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등

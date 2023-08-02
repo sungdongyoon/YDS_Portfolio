@@ -73,6 +73,9 @@ const ContactTitle = styled.div`
     @media screen and ${theme.tablet} {
       font-size: 100px;
     }
+    @media screen and ${theme.mobile} {
+      font-size: 70px;
+    }
     @media screen and ${theme.iphone12Pro} {
       font-size: 50px;
     }
@@ -93,7 +96,7 @@ const ContactContent = styled.div`
     width: 80%;
   }
   @media screen and ${theme.mobile} {
-    padding-top: 50px;
+    padding-top: 0px;
   }
   @media screen and ${theme.iphone12Pro} {
     margin-top: 0px;
@@ -109,7 +112,7 @@ const ContactContent = styled.div`
     @media screen and ${theme.laptop} {
       font-size: 24px;
     }
-    @media screen and ${theme.iphone12Pro} {
+    @media screen and ${theme.mobile} {
       font-size: 18px;
       width: 100%;
       margin-left: 0px;
@@ -123,7 +126,7 @@ const ContactContent = styled.div`
     justify-content: space-evenly;
     align-items: center;
     margin-left: 60px;
-    @media screen and ${theme.iphone12Pro} {
+    @media screen and ${theme.mobile} {
       width: 100%;
       margin-left: 0px;
     }
@@ -137,7 +140,7 @@ const ContactContent = styled.div`
         width: 60px;
         height: 60px;
       }
-      @media screen and ${theme.iphone12Pro} {
+      @media screen and ${theme.mobile} {
         width: 40px;
         height: 40px;
       }
@@ -151,14 +154,14 @@ const Footer = styled.div`
   right: 0;
   left: 0;
   height: 100px;
-  @media screen and ${theme.iphone12Pro} {
+  @media screen and ${theme.mobile} {
     height: 80px;
   }
   p {
     text-align: center;
     color: #777;
     font-size: 18px;
-    @media screen and ${theme.iphone12Pro} {
+    @media screen and ${theme.mobile} {
       font-size: 12px;
     }
   }
@@ -175,7 +178,7 @@ const LeftCircle = styled.div`
     width: 600px;
     height: 600px;
   }
-  @media screen and ${theme.iphone12Pro} {
+  @media screen and ${theme.mobile} {
     width: 400px;
     height: 400px;
   }

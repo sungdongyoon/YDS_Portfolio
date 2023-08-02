@@ -40,7 +40,7 @@ const ProjectMain = styled.div`
     justify-content: center;
     align-items: center;
   }
-  @media screen and ${theme.iphone12Pro} {
+  @media screen and ${theme.mobile} {
     height: 650px;
   }
 `;
@@ -66,16 +66,18 @@ const ProjectTitle = styled.div`
     @media screen and ${theme.tablet} {
       font-size: 80px;
     }
+    @media screen and ${theme.mobile} {
+      font-size: 60px;
+    }
     @media screen and ${theme.iphone12Pro} {
       font-size: 50px;
-      color: #fff;
     }
   }
   .slide_arrow {
     font-size: 30px;
     color: #999;
     transition: 1s;
-    @media screen and ${theme.iphone12Pro} {
+    @media screen and ${theme.mobile} {
       display: none;
     }
     .slide_left {
@@ -125,11 +127,12 @@ const ProjectContent = styled.div`
     width: 80%;
     margin-top: 50px;
   }
-  @media screen and ${theme.iphone12Pro} {
+  @media screen and ${theme.mobile} {
     margin-top: 0px;
     padding: 10px;
     padding-top: 40px;
     height: 300px;
+    margin-bottom: 50px;
     span {
       font-size: 12px;
     }
@@ -152,7 +155,7 @@ const SliderBtn = styled.div`
   .count {
     font-size: 20px;
   }
-  @media screen and ${theme.iphone12Pro} {
+  @media screen and ${theme.mobile} {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -175,7 +178,7 @@ const ProjectWrap = styled.div`
     padding: 0;
     padding-top: 20px;
   }
-  @media screen and ${theme.iphone12Pro} {
+  @media screen and ${theme.mobile} {
     flex-direction: column;
     padding-top: 10px;
     transition: 0.5s;
@@ -196,11 +199,15 @@ const ProjectItem = styled.div`
   }
   @media screen and ${theme.tablet} {
     width: 45%;
+    height: 250px;
   }
-  @media screen and ${theme.iphone12Pro} {
-    width: 100%;
+  @media screen and ${theme.mobile} {
+    width: 360px;
     margin-bottom: 0px;
     margin-right: 20px;
+  }
+  @media screen and ${theme.iphone12Pro} {
+    width: 281px;
   }
 `;
 
@@ -216,6 +223,12 @@ const ProjectImg = styled.div`
   transition: 0.3s;
   @media screen and ${theme.laptop} {
     background-size: 80%;
+  }
+  @media screen and ${theme.tablet} {
+    background-size: 70%;
+  }
+  @media screen and ${theme.mobile} {
+    background-size: 60%;
   }
   .projectDetail {
     height: 100%;
@@ -252,13 +265,11 @@ const ProjectName = styled.div`
   margin-top: 20px;
   font-size: 20px;
   cursor: pointer;
-  @media screen and ${theme.iphone12Pro} {
+  @media screen and ${theme.mobile} {
     font-size: 14px;
     text-align: center;
   }
 `;
-
-
 
 const LeftCircle = styled.div`
   position: absolute;
@@ -271,7 +282,7 @@ const LeftCircle = styled.div`
     width: 600px;
     height: 600px;
   }
-  @media screen and ${theme.iphone12Pro} {
+  @media screen and ${theme.mobile} {
     width: 400px;
     height: 400px;
   }
@@ -282,14 +293,16 @@ const LeftCircle = styled.div`
   }
 `;
 
+
 const RightCircle = styled.div`
   position: absolute;
-  right: -13%;
+  width: 800px;
+  height: 800px;
+  right: -300px;
   z-index: -1;
   @media screen and ${theme.laptop} {
     width: 550px;
     height: 550px;
-    right: -20%;
   }
   img {
     width: 100%;
@@ -301,32 +314,46 @@ const RightCircle = styled.div`
 const Project = ({pageNum, setPageNum}) => {
   const [itemId, setItemId] = useState(1);
   const [slidePx, setSlidePx] = useState(0);
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  })
+
+  const handleResize = () => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  }
 
   const titleRef = useRef();
   const subTitleRef = useRef();
   const contentRef = useRef();
   const leftCircleRef = useRef();
   const rightCircleRef = useRef();
+  
   useEffect(() => {
     titleObserver.observe(titleRef.current);
     subTitleObserver.observe(subTitleRef.current);
     contentObserver.observe(contentRef.current);
     leftCircleObserver.observe(leftCircleRef.current);
     rightCircleObserver.observe(rightCircleRef.current);
-  })
+    window.addEventListener("resize", handleResize)
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    }
+  }, []);
 
+  window.innerWidth < 768 ? setPageNum(3) : setPageNum(1);
   const prevCount = () => {
     itemId > 1 && setItemId(itemId - 1);
-    slidePx < 0 && setSlidePx(slidePx + 301);
+    window.innerWidth < 392 ? (slidePx < 0 && setSlidePx(slidePx + 301)) : (slidePx < 0 && setSlidePx(slidePx + 380));
   };
   const nextCount = () => {
     itemId < 8 && setItemId(itemId + 1);
-    slidePx > -2107 && setSlidePx(slidePx - 301);
+    window.innerWidth < 392 ? (slidePx > -2107 && setSlidePx(slidePx - 301)) : (slidePx > -2660 && setSlidePx(slidePx - 380));
   };
-  if(window.innerWidth < 768) {
-    setPageNum(3);
-  }
-  console.log(pageNum)
+  
   return (
     <Container>
       <div className='pattern'></div>
@@ -344,7 +371,7 @@ const Project = ({pageNum, setPageNum}) => {
           <ProjectWrap style={{transform: `translateX(${slidePx}px)`}}>
             {(pageNum === 1 || pageNum === 3) &&
             <>
-              <ProjectItem>
+              <ProjectItem itemID={1}>
                 <ProjectImg style={{backgroundImage: `url(${momentum_img})`}}>
                   <div className='projectDetail'>
                     {/* <h3>HTML, CSS, JavaScript</h3> */}
@@ -362,7 +389,7 @@ const Project = ({pageNum, setPageNum}) => {
                 </ProjectImg>
                 <ProjectName>Momentum</ProjectName>
               </ProjectItem>
-              <ProjectItem>
+              <ProjectItem itemID={2}>
                 <ProjectImg style={{backgroundImage: `url(${umbrella_logo})`}}>
                   <div className='projectDetail'>
                     <span>프로젝트 설명</span>
@@ -370,7 +397,7 @@ const Project = ({pageNum, setPageNum}) => {
                 </ProjectImg>
                 <ProjectName>우산있어?</ProjectName>
               </ProjectItem>
-              <ProjectItem>
+              <ProjectItem itemID={3}>
                 <ProjectImg style={{backgroundImage: `url(${whatitisnt_logo})`}}>
                   <div className='projectDetail'>
                     {/* <h3>React</h3> */}
@@ -387,7 +414,7 @@ const Project = ({pageNum, setPageNum}) => {
                 </ProjectImg>
                 <ProjectName>WhatItIsnt</ProjectName>
               </ProjectItem>
-              <ProjectItem>
+              <ProjectItem itemID={4}>
                   <ProjectImg>
                     <div className='projectDetail'>
                       <span>프로젝트 설명</span>
@@ -399,7 +426,7 @@ const Project = ({pageNum, setPageNum}) => {
             }
             {(pageNum === 2 || pageNum === 3) &&
             <>
-              <ProjectItem>
+              <ProjectItem itemID={5}>
                 <ProjectImg style={{backgroundImage: `url(${netflix_logo})`}}>
                   <div className='projectDetail'>
                     <span>프로젝트 설명</span>
@@ -407,7 +434,7 @@ const Project = ({pageNum, setPageNum}) => {
                 </ProjectImg>
                 <ProjectName>Netflix</ProjectName>
               </ProjectItem>
-              <ProjectItem>
+              <ProjectItem itemID={6}>
                 <ProjectImg>
                   <div className='projectDetail'>
                     <span>프로젝트 설명</span>
@@ -415,13 +442,21 @@ const Project = ({pageNum, setPageNum}) => {
                 </ProjectImg>
                 <ProjectName>mbti 고양이</ProjectName>
               </ProjectItem>
-              <ProjectItem>
+              <ProjectItem itemID={7}>
                 <ProjectImg>
                   <div className='projectDetail'>
                     <span>프로젝트 설명</span>
                   </div>
                 </ProjectImg>
                 <ProjectName>YDS 포트폴리오</ProjectName>
+              </ProjectItem>
+              <ProjectItem itemID={8}>
+                <ProjectImg>
+                  <div className='projectDetail'>
+                    <span>프로젝트 설명</span>
+                  </div>
+                </ProjectImg>
+                <ProjectName>프로젝트</ProjectName>
               </ProjectItem>
             </>
             }
