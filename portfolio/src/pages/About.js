@@ -11,6 +11,16 @@ const Container = styled.div`
   align-items: center;
   position: relative;
   overflow: hidden;
+  .pattern {
+    width: 500px;
+    height: 290px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-image: url('https://kijepark.com/assets/img/root/plus-light-pattern.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 `;
 
 const AboutMain = styled.div`
@@ -38,7 +48,7 @@ const AboutTitle = styled.div`
     align-items: flex-start;
     width: 80%;
   }
-  @media screen and ${theme.mobile} {
+  @media screen and ${theme.iphone12Pro} {
   }
   h1 {
     font-size: 170px;
@@ -51,7 +61,7 @@ const AboutTitle = styled.div`
     @media screen and ${theme.tablet} {
       font-size: 80px;
     }
-    @media screen and ${theme.mobile} {
+    @media screen and ${theme.iphone12Pro} {
       font-size: 50px;
     }
   }
@@ -83,7 +93,7 @@ const Subtitle = styled.div`
     @media screen and ${theme.laptop} {
       font-size: 30px;
     }
-    @media screen and ${theme.mobile} {
+    @media screen and ${theme.iphone12Pro} {
       font-size: 20px;
       text-shadow: 5px 5px 10px #fff,
       -5px -5px 10px #fff;
@@ -100,13 +110,15 @@ const AboutMe = styled.div`
   padding-top: 200px;
   animation: ${aboutClick} ease-in-out 1s;
   transition: 1s;
-  @media screen and ${theme.tablet} {
-    padding-top: 0;
-    width: 80%;
-    margin-top: 50px;
+  @media screen and ${theme.laptop} {
+    padding-top: 100px;
   }
-  @media screen and ${theme.mobile} {
-    margin-top: 0px;
+  @media screen and ${theme.tablet} {
+    padding-top: 20px;
+    width: 80%;
+  }
+  @media screen and ${theme.iphone12Pro} {
+    padding-top: 0px;
   }
   h1 {
     font-size: 3rem;
@@ -118,9 +130,10 @@ const AboutMe = styled.div`
     @media screen and ${theme.tablet} {
       font-size: 30px;
     }
-    @media screen and ${theme.mobile} {
+    @media screen and ${theme.iphone12Pro} {
       font-size: 24px;
-      margin-bottom: 10px;
+      margin-bottom: 0px;
+      margin-top: 30px;
     }
   }
   p {
@@ -128,15 +141,16 @@ const AboutMe = styled.div`
     line-height: 40px;
     margin-bottom: 50px;
     color: #999; 
-    width: 60%;
+    width: 70%;
     @media screen and ${theme.laptop} {
       font-size: 20px;
     }
     @media screen and ${theme.tablet} {
       width: 100%;
     }
-    @media screen and ${theme.mobile} {
+    @media screen and ${theme.iphone12Pro} {
       font-size: 16px;
+      line-height: 25px;
     }
   }
   button {
@@ -153,7 +167,7 @@ const AboutMe = styled.div`
       background: linear-gradient(130deg, #0079FF 0%, #BBD3F8 100%);
       transition: all 0.5s ease;
     }
-    @media screen and ${theme.mobile} {
+    @media screen and ${theme.iphone12Pro} {
       width: 100%;
     }
   }
@@ -182,7 +196,7 @@ const AboutSkill = styled.div`
     @media screen and ${theme.laptop} {
       font-size: 26px;
     }
-    @media screen and ${theme.mobile} {
+    @media screen and ${theme.iphone12Pro} {
       font-size: 24px;
     }
   }
@@ -229,6 +243,10 @@ const AboutSkill = styled.div`
           font-size: 16px;
         }
         @media screen and ${theme.mobile} {
+          font-size: 14px;
+          line-height: 20px;
+        }
+        @media screen and ${theme.iphone12Pro} {
           font-size: 12px;
           line-height: 15px;
         }
@@ -260,7 +278,7 @@ const AboutExperience = styled.div`
     @media screen and ${theme.laptop} {
       font-size: 26px;
     }
-    @media screen and ${theme.mobile} {
+    @media screen and ${theme.iphone12Pro} {
       font-size: 24px;
     }
   }
@@ -307,6 +325,10 @@ const AboutExperience = styled.div`
           font-size: 16px;
         }
         @media screen and ${theme.mobile} {
+          font-size: 14px;
+          line-height: 20px;
+        }
+        @media screen and ${theme.iphone12Pro} {
           font-size: 12px;
           line-height: 15px;
         }
@@ -317,9 +339,19 @@ const AboutExperience = styled.div`
 
 const LeftCircle = styled.div`
   position: absolute;
-  bottom: -330px;
-  left: -330px;
-  width: 30%;
+  bottom: -200px;
+  left: -200px;
+  width: 700px;
+  height: 700px;
+  z-index: -10;
+  @media screen and ${theme.laptop} {
+    width: 600px;
+    height: 600px;
+  }
+  @media screen and ${theme.iphone12Pro} {
+    width: 400px;
+    height: 400px;
+  }
   img {
     width: 100%;
     heigiht: 100%;
@@ -362,6 +394,7 @@ const About = ({clickMe, clickSkill, clickExperience, showMe, showSkill, showExp
   })
   return (
     <Container>
+      <div className='pattern'></div>
       <AboutMain>
         <AboutTitle>
           <h1 ref={titleRef} className='About'>About</h1>

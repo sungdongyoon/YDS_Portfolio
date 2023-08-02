@@ -18,7 +18,7 @@ const Container = styled.div`
   @media screen and ${theme.laptop} {
     font-size: 18px;
   }
-  @media screen and ${theme.mobile} {
+  @media screen and ${theme.iphone12Pro} {
     height: 80px;
   }
 `;
@@ -32,7 +32,7 @@ const Logo = styled.span`
   font-size: 35px;
   font-weight: bold;
   color: #999;
-  @media screen and ${theme.mobile} {
+  @media screen and ${theme.iphone12Pro} {
     width: 30%;
     font-size: 25px;
   }
@@ -44,8 +44,7 @@ const HeaderInfo = styled.div`
   align-items: center;
   width: 40%;
   height: 100%;
-  // border: 1px solid red;
-  @media screen and ${theme.laptop} {
+  @media screen and ${theme.tablet} {
     display: none;
   }
   span {
@@ -69,25 +68,32 @@ const ToggleBtn = styled.div`
   span {
     display: inline-block;
     width: 30px;
-    height: 1px;
+    height: 3px;
     background-color: #999;
+    cursor: pointer;
   }
   .tobbleBtn_t {
     position: absolute;
     top: 0;
     transition: 1s;
-    transform: ${(props) => (props.isToggle ? "rotate(45deg) translateY(20px)" : "rotate(0) translateY(0)")};
+    border-radius: 20px;
+    transform: ${(props) => props.isToggle ? "translateY(10px) rotate(45deg)" : "rotate(0) translateY(0)"};
+    background-color: ${(props) => props.isToggle ? "#fff" : "#999"};
   }
   .tobbleBtn_m {
     position: absolute;
     top: 50%;
+    transform: translateY(-50%);
+    border-radius: 20px;
     opacity: ${(props) => props.isToggle ? "0" : "1"};
   }
   .tobbleBtn_b {
     position: absolute;
     bottom: 0;
     transition: 1s;
-    transform: ${(props) => (props.isToggle ? "rotate(-45deg) translateY(-20px)" : "rotate(0) translateY(0)")};
+    border-radius: 20px;
+    transform: ${(props) => props.isToggle ? "translateY(-8px) rotate(-45deg)" : "rotate(0) translateY(0)"};
+    background-color: ${(props) => props.isToggle ? "#fff" : "#999"};
   }
   @media screen and ${theme.tablet} {
     display: block;
@@ -104,7 +110,7 @@ const MobileNavMenu = styled.div`
   background-color: #000;
   color: #fff;
   transition: ${window.innerWidth < 768 ? '1s' : '1.5s'};
-  transform: ${(props) => (props.isToggle ? "translateX(0px)" : `${window.innerWidth < 768 ? "translateX(400px)" : "translateX(1200px)"}`)};
+  transform: ${(props) => (props.isToggle ? "translateX(0px)" : `translateX(${window.innerWidth}px)`)};
   .nav_menu_info {
     position: absolute;
     top: 30px;
@@ -136,6 +142,7 @@ const MobileNavMenu = styled.div`
       font-size: 36px;
       font-weight: bold;
       color: #bbd3f8;
+      cursor: pointer;
     }
   }
   @media screen and ${theme.tablet} {

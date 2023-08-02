@@ -1,7 +1,7 @@
 import React, {useRef, useEffect, useState} from 'react';
 import { styled } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faArrowLeft, faAnglesLeft, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver, projectSlide} from '../animation/animation';
 import largeCircle from '../img/largeCircle.png';
 import umbrella_logo from '../img/umbrella_logo.png';
@@ -18,8 +18,15 @@ const Container = styled.div`
   align-items: center;
   position: relative;
   overflow: hidden;
-  @media screen and ${theme.mobile} {
-    height: 100%;
+  .pattern {
+    width: 500px;
+    height: 290px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-image: url('https://kijepark.com/assets/img/root/plus-light-pattern.png');
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 `;
 
@@ -33,7 +40,7 @@ const ProjectMain = styled.div`
     justify-content: center;
     align-items: center;
   }
-  @media screen and ${theme.mobile} {
+  @media screen and ${theme.iphone12Pro} {
     height: 650px;
   }
 `;
@@ -59,7 +66,7 @@ const ProjectTitle = styled.div`
     @media screen and ${theme.tablet} {
       font-size: 80px;
     }
-    @media screen and ${theme.mobile} {
+    @media screen and ${theme.iphone12Pro} {
       font-size: 50px;
       color: #fff;
     }
@@ -68,8 +75,24 @@ const ProjectTitle = styled.div`
     font-size: 30px;
     color: #999;
     transition: 1s;
-    @media screen and ${theme.mobile} {
+    @media screen and ${theme.iphone12Pro} {
       display: none;
+    }
+    .slide_left {
+      margin-right: 20px;
+    }
+    .slide_right {
+      margin-left: 20px;
+    }
+    .slide_right,
+    .slide_left {
+      cursor: pointer;
+      @media screen and ${theme.laptop} {
+        font-size: 26px;
+      }
+      @media screen and ${theme.tablet} {
+        font-size: 20px;
+      }
     }
     span {
       text-align: center;
@@ -79,7 +102,7 @@ const ProjectTitle = styled.div`
         font-size: 26px;
       }
       @media screen and ${theme.tablet} {
-        font-size: 16px;
+        font-size: 20px;
       }
     }
   }
@@ -102,7 +125,7 @@ const ProjectContent = styled.div`
     width: 80%;
     margin-top: 50px;
   }
-  @media screen and ${theme.mobile} {
+  @media screen and ${theme.iphone12Pro} {
     margin-top: 0px;
     padding: 10px;
     padding-top: 40px;
@@ -120,18 +143,16 @@ const SliderBtn = styled.div`
   left: 0;
   right: 0;
   color: #999;
-  .leftBtn {
-    font-size: 20px;
-    cursor: pointer;
-  }
+  .leftBtn,
   .rightBtn {
     font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
   }
   .count {
     font-size: 20px;
   }
-  @media screen and ${theme.mobile} {
+  @media screen and ${theme.iphone12Pro} {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -154,7 +175,7 @@ const ProjectWrap = styled.div`
     padding: 0;
     padding-top: 20px;
   }
-  @media screen and ${theme.mobile} {
+  @media screen and ${theme.iphone12Pro} {
     flex-direction: column;
     padding-top: 10px;
     transition: 0.5s;
@@ -174,9 +195,9 @@ const ProjectItem = styled.div`
     height: 300px;
   }
   @media screen and ${theme.tablet} {
-    width: 30%;
+    width: 45%;
   }
-  @media screen and ${theme.mobile} {
+  @media screen and ${theme.iphone12Pro} {
     width: 100%;
     margin-bottom: 0px;
     margin-right: 20px;
@@ -231,15 +252,29 @@ const ProjectName = styled.div`
   margin-top: 20px;
   font-size: 20px;
   cursor: pointer;
+  @media screen and ${theme.iphone12Pro} {
+    font-size: 14px;
+    text-align: center;
+  }
 `;
 
 
 
 const LeftCircle = styled.div`
   position: absolute;
-  bottom: -330px;
-  left: -330px;
-  width: 30%;
+  bottom: -200px;
+  left: -200px;
+  width: 700px;
+  height: 700px;
+  z-index: -10;
+  @media screen and ${theme.laptop} {
+    width: 600px;
+    height: 600px;
+  }
+  @media screen and ${theme.iphone12Pro} {
+    width: 400px;
+    height: 400px;
+  }
   img {
     width: 100%;
     heigiht: 100%;
@@ -294,13 +329,14 @@ const Project = ({pageNum, setPageNum}) => {
   console.log(pageNum)
   return (
     <Container>
+      <div className='pattern'></div>
       <ProjectMain>
         <ProjectTitle>
           <h1 ref={titleRef}>Project</h1>
           <div className='slide_arrow' ref={subTitleRef}>
-            <FontAwesomeIcon onClick={() => setPageNum(1)} style={{marginRight: 20, cursor: "pointer"}} icon={faArrowLeft}/>
+            <FontAwesomeIcon onClick={() => setPageNum(1)} className='slide_left' icon={faArrowLeft}/>
             <span>{pageNum} / 2</span>
-            <FontAwesomeIcon onClick={() => setPageNum(2)} style={{marginLeft: 20, cursor: "pointer"}} icon={faArrowRight}/>
+            <FontAwesomeIcon onClick={() => setPageNum(2)} className='slide_right' icon={faArrowRight}/>
           </div>
         </ProjectTitle>
         <ProjectContent ref={contentRef}>
@@ -391,9 +427,9 @@ const Project = ({pageNum, setPageNum}) => {
             }
           </ProjectWrap>
           <SliderBtn>
-            <div className='leftBtn' onClick={prevCount}>{"<"}</div>
+            <FontAwesomeIcon icon={faAnglesLeft} className='leftBtn' onClick={prevCount}/>
             <div className='count'>{itemId} / 8</div>
-            <div className='rightBtn' onClick={nextCount}>{">"}</div>
+            <FontAwesomeIcon icon={faAnglesRight} className='rightBtn' onClick={nextCount}/>
           </SliderBtn>
         </ProjectContent>
       </ProjectMain>

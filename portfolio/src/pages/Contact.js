@@ -16,32 +16,51 @@ const Container = styled.div`
   align-items: center;
   position: relative;
   overflow: hidden;
+  .pattern {
+    width: 500px;
+    height: 290px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-image: url('https://kijepark.com/assets/img/root/plus-light-pattern.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 `;
 
 const ContactMain = styled.div`
   width: 100%;
   height: 1000px;
   display: flex;
+  position: relative;
   @media screen and ${theme.tablet} {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  @media screen and ${theme.mobile} {
+  @media screen and ${theme.iphone12Pro} {
     height: 650px;
   }
 `;
 
 const ContactTitle = styled.div`
-  width: 30%;
+  position: absolute;
+  top: 30%;
+  left: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  @media screen and ${theme.laptop} {
+    top: 35%;
+  }
   @media screen and ${theme.tablet} {
     justify-content: flex-start;
     align-items: flex-start;
-    width: 80%;
+    top: 25%;
+  }
+  @media screen and ${theme.iphone12Pro} {
+    top: 15%;
   }
   h1 {
     font-size: 170px;
@@ -49,20 +68,19 @@ const ContactTitle = styled.div`
     color: #bbd3f8;
     transition: 1s;
     @media screen and ${theme.laptop} {
-      font-size: 100px;
+      font-size: 120px;
     }
     @media screen and ${theme.tablet} {
-      font-size: 80px;
+      font-size: 100px;
     }
-    @media screen and ${theme.mobile} {
+    @media screen and ${theme.iphone12Pro} {
       font-size: 50px;
-      color: #fff;
     }
   }
 `;
 
 const ContactContent = styled.div`
-  width: 36%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,8 +89,14 @@ const ContactContent = styled.div`
   transition: 1.5s;
   @media screen and ${theme.tablet} {
     padding-top: 0;
-    margin-top: 10px;
+    margin-top: 100px;
     width: 80%;
+  }
+  @media screen and ${theme.mobile} {
+    padding-top: 50px;
+  }
+  @media screen and ${theme.iphone12Pro} {
+    margin-top: 0px;
   }
   p {
     text-align: center;
@@ -85,7 +109,7 @@ const ContactContent = styled.div`
     @media screen and ${theme.laptop} {
       font-size: 24px;
     }
-    @media screen and ${theme.mobile} {
+    @media screen and ${theme.iphone12Pro} {
       font-size: 18px;
       width: 100%;
       margin-left: 0px;
@@ -99,7 +123,7 @@ const ContactContent = styled.div`
     justify-content: space-evenly;
     align-items: center;
     margin-left: 60px;
-    @media screen and ${theme.mobile} {
+    @media screen and ${theme.iphone12Pro} {
       width: 100%;
       margin-left: 0px;
     }
@@ -113,13 +137,13 @@ const ContactContent = styled.div`
         width: 60px;
         height: 60px;
       }
-      @media screen and ${theme.mobile} {
+      @media screen and ${theme.iphone12Pro} {
         width: 40px;
         height: 40px;
       }
     }
   }
-`;
+`
 
 const Footer = styled.div`
   position: absolute;
@@ -127,14 +151,14 @@ const Footer = styled.div`
   right: 0;
   left: 0;
   height: 100px;
-  @media screen and ${theme.mobile} {
+  @media screen and ${theme.iphone12Pro} {
     height: 80px;
   }
   p {
     text-align: center;
     color: #777;
     font-size: 18px;
-    @media screen and ${theme.mobile} {
+    @media screen and ${theme.iphone12Pro} {
       font-size: 12px;
     }
   }
@@ -142,9 +166,19 @@ const Footer = styled.div`
 
 const LeftCircle = styled.div`
   position: absolute;
-  bottom: -330px;
-  left: -330px;
-  width: 30%;
+  bottom: -200px;
+  left: -200px;
+  width: 700px;
+  height: 700px;
+  z-index: -10;
+  @media screen and ${theme.laptop} {
+    width: 600px;
+    height: 600px;
+  }
+  @media screen and ${theme.iphone12Pro} {
+    width: 400px;
+    height: 400px;
+  }
   img {
     width: 100%;
     heigiht: 100%;
@@ -154,12 +188,13 @@ const LeftCircle = styled.div`
 
 const RightCircle = styled.div`
   position: absolute;
-  right: -13%;
+  width: 800px;
+  height: 800px;
+  right: -300px;
   z-index: -1;
   @media screen and ${theme.laptop} {
     width: 550px;
     height: 550px;
-    right: -20%;
   }
   img {
     width: 100%;
@@ -181,6 +216,7 @@ const Contact = ({goHome}) => {
   })
   return (
     <Container>
+      <div className='pattern'></div>
       <ContactMain>
         <ContactTitle>
           <h1 ref={titleRef}>Contact</h1>
