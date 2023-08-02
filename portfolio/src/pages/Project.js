@@ -202,7 +202,8 @@ const ProjectItem = styled.div`
     height: 250px;
   }
   @media screen and ${theme.mobile} {
-    width: 360px;
+    width: 100%;
+    height: 100%;
     margin-bottom: 0px;
     margin-right: 20px;
   }
@@ -314,17 +315,9 @@ const RightCircle = styled.div`
 const Project = ({pageNum, setPageNum}) => {
   const [itemId, setItemId] = useState(1);
   const [slidePx, setSlidePx] = useState(0);
-  const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  })
 
-  const handleResize = () => {
-    setWindowSize({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
-  }
+  const itemRef = useRef();
+  const itemWidth = itemRef.current?.offsetWidth;
 
   const titleRef = useRef();
   const subTitleRef = useRef();
@@ -338,22 +331,18 @@ const Project = ({pageNum, setPageNum}) => {
     contentObserver.observe(contentRef.current);
     leftCircleObserver.observe(leftCircleRef.current);
     rightCircleObserver.observe(rightCircleRef.current);
-    window.addEventListener("resize", handleResize)
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    }
   }, []);
 
-  window.innerWidth < 768 ? setPageNum(3) : setPageNum(1);
   const prevCount = () => {
     itemId > 1 && setItemId(itemId - 1);
-    window.innerWidth < 392 ? (slidePx < 0 && setSlidePx(slidePx + 301)) : (slidePx < 0 && setSlidePx(slidePx + 380));
+    window.innerWidth < 392 ? (slidePx < 0 && setSlidePx(slidePx + 301)) : (slidePx < 0 && setSlidePx(slidePx + (itemWidth + 20)));
   };
   const nextCount = () => {
     itemId < 8 && setItemId(itemId + 1);
-    window.innerWidth < 392 ? (slidePx > -2107 && setSlidePx(slidePx - 301)) : (slidePx > -2660 && setSlidePx(slidePx - 380));
+    window.innerWidth < 392 ? (slidePx > -2107 && setSlidePx(slidePx - 301)) : (slidePx > -(itemWidth * 7) && setSlidePx(slidePx - (itemWidth + 20)));
   };
   
+  window.innerWidth < 768 ? setPageNum(3) : setPageNum(1);
   return (
     <Container>
       <div className='pattern'></div>
@@ -371,7 +360,7 @@ const Project = ({pageNum, setPageNum}) => {
           <ProjectWrap style={{transform: `translateX(${slidePx}px)`}}>
             {(pageNum === 1 || pageNum === 3) &&
             <>
-              <ProjectItem itemID={1}>
+              <ProjectItem itemId={1} ref={itemRef}>
                 <ProjectImg style={{backgroundImage: `url(${momentum_img})`}}>
                   <div className='projectDetail'>
                     {/* <h3>HTML, CSS, JavaScript</h3> */}
@@ -389,7 +378,7 @@ const Project = ({pageNum, setPageNum}) => {
                 </ProjectImg>
                 <ProjectName>Momentum</ProjectName>
               </ProjectItem>
-              <ProjectItem itemID={2}>
+              <ProjectItem itemId={2}>
                 <ProjectImg style={{backgroundImage: `url(${umbrella_logo})`}}>
                   <div className='projectDetail'>
                     <span>프로젝트 설명</span>
@@ -397,7 +386,7 @@ const Project = ({pageNum, setPageNum}) => {
                 </ProjectImg>
                 <ProjectName>우산있어?</ProjectName>
               </ProjectItem>
-              <ProjectItem itemID={3}>
+              <ProjectItem itemId={3}>
                 <ProjectImg style={{backgroundImage: `url(${whatitisnt_logo})`}}>
                   <div className='projectDetail'>
                     {/* <h3>React</h3> */}
@@ -414,7 +403,7 @@ const Project = ({pageNum, setPageNum}) => {
                 </ProjectImg>
                 <ProjectName>WhatItIsnt</ProjectName>
               </ProjectItem>
-              <ProjectItem itemID={4}>
+              <ProjectItem itemId={4}>
                   <ProjectImg>
                     <div className='projectDetail'>
                       <span>프로젝트 설명</span>
@@ -426,7 +415,7 @@ const Project = ({pageNum, setPageNum}) => {
             }
             {(pageNum === 2 || pageNum === 3) &&
             <>
-              <ProjectItem itemID={5}>
+              <ProjectItem itemId={5}>
                 <ProjectImg style={{backgroundImage: `url(${netflix_logo})`}}>
                   <div className='projectDetail'>
                     <span>프로젝트 설명</span>
@@ -434,7 +423,7 @@ const Project = ({pageNum, setPageNum}) => {
                 </ProjectImg>
                 <ProjectName>Netflix</ProjectName>
               </ProjectItem>
-              <ProjectItem itemID={6}>
+              <ProjectItem itemId={6}>
                 <ProjectImg>
                   <div className='projectDetail'>
                     <span>프로젝트 설명</span>
@@ -442,7 +431,7 @@ const Project = ({pageNum, setPageNum}) => {
                 </ProjectImg>
                 <ProjectName>mbti 고양이</ProjectName>
               </ProjectItem>
-              <ProjectItem itemID={7}>
+              <ProjectItem itemId={7}>
                 <ProjectImg>
                   <div className='projectDetail'>
                     <span>프로젝트 설명</span>
@@ -450,7 +439,7 @@ const Project = ({pageNum, setPageNum}) => {
                 </ProjectImg>
                 <ProjectName>YDS 포트폴리오</ProjectName>
               </ProjectItem>
-              <ProjectItem itemID={8}>
+              <ProjectItem itemId={8}>
                 <ProjectImg>
                   <div className='projectDetail'>
                     <span>프로젝트 설명</span>

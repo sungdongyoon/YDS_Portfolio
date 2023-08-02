@@ -29,6 +29,19 @@ const pageHeight = window.innerHeight;
 const pageWidth = window.innerWidth;
 
 function App() {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  })
+
+  const handleResize = () => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+    console.log("윈도우 렌더링", windowSize)
+  }
+
   // Scroll Event
   const outerDivRef = useRef();
   const [scrollIndex, setScrollIndex] = useState(1);
@@ -109,10 +122,12 @@ function App() {
     const outerDivRefCurrent = outerDivRef.current;
     outerDivRefCurrent.addEventListener("wheel", wheelHandler);
     // pageWidth < 1024 && outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
+    window.addEventListener("resize", handleResize);
     return () => {
       outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
+      window.removeEventListener("resize", handleResize);
     }
-  }, [])
+  }, [handleResize])
 
   const goHome = () => {
     outerDivRef.current.scrollTo({ top: 0, behavior: "smooth" });
