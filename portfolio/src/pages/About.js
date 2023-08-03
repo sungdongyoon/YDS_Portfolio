@@ -383,8 +383,6 @@ const RightCircle = styled.div`
 `;
 
 
-
-
 const About = ({clickMe, clickSkill, clickExperience, showMe, showSkill, showExpereince}) => {
   const titleRef = useRef();
   const subTitleRef = useRef();

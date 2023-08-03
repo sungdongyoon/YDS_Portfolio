@@ -63,7 +63,7 @@ function App() {
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
           // console.log("현재 2페이지, down");
           outerDivRef.current.scrollTo({
-            top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+            top: (pageHeight * 2) + (DIVIDER_HEIGHT * 2),
             left: 0,
             behavior: "smooth",
           });
@@ -71,7 +71,7 @@ function App() {
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 3) {
           // console.log("현재 3페이지, down");
           outerDivRef.current.scrollTo({
-            top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
+            top: (pageHeight * 3) + (DIVIDER_HEIGHT * 3),
             left: 0,
             behavior: "smooth",
           });
@@ -79,7 +79,7 @@ function App() {
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 4) {
           // console.log("현재 4페이지, down");
           outerDivRef.current.scrollTo({
-            top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
+            top: (pageHeight * 4) + (DIVIDER_HEIGHT * 4),
             left: 0,
             behavior: "smooth",
           });
@@ -111,7 +111,7 @@ function App() {
         } else {
           // console.log("현재 4페이지, up");
           outerDivRef.current.scrollTo({
-            top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+            top: (pageHeight * 2) + (DIVIDER_HEIGHT * 2),
             left: 0,
             behavior: "smooth",
           });
@@ -172,6 +172,7 @@ function App() {
 
   // project PageNum
   const [pageNum, setPageNum] = useState(1);
+  const [mobileProject, setMobileProject] = useState(0);
   return (
     <Container ref={outerDivRef}>
       <Dots scrollIndex={scrollIndex} goHome={goHome} goAbout={goAbout} goProject={goProject} goContact={goContact}/>
@@ -180,7 +181,7 @@ function App() {
       <Divider/>
       <About clickMe={clickMe} clickSkill={clickSkill} clickExperience={clickExperience} showMe={showMe} showSkill={showSkill} showExpereince={showExpereince}/>
       <Divider/>
-      <Project pageNum={pageNum} setPageNum={setPageNum}/>
+      <Project pageNum={pageNum} setPageNum={setPageNum} mobileProject={mobileProject} setMobileProject={setMobileProject}/>
       <Divider/>
       <Contact/>
     </Container>

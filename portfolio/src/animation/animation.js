@@ -49,11 +49,11 @@ let leftCircleObserver = new IntersectionObserver((e) => {
       el.target.style.opacity = 1;
       el.target.style.transitionDelay = '0.3s';
       el.target.style.transform = "translateX(0) translateY(0)";
-      console.log("left on")
+      console.log("등장 isIntersecting? :", el.isIntersecting);
     } else {
       el.target.style.opacity = 0;
       el.target.style.transform = "translateX(-30%) translateY(20%)";
-      console.log("left off")
+      console.log("퇴장 isIntersecting? :", el.isIntersecting);
     }
   })
 })

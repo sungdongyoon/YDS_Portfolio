@@ -312,7 +312,10 @@ const RightCircle = styled.div`
   }
 `;
 
-const Project = ({pageNum, setPageNum}) => {
+const Project = ({pageNum, setPageNum, mobileProject, setMobileProject}) => {
+  /** 윈도우 너비 : window.innerWidth */
+  const pageWidth = window.innerWidth;
+
   const [itemId, setItemId] = useState(1);
   const [slidePx, setSlidePx] = useState(0);
 
@@ -335,14 +338,15 @@ const Project = ({pageNum, setPageNum}) => {
 
   const prevCount = () => {
     itemId > 1 && setItemId(itemId - 1);
-    window.innerWidth < 392 ? (slidePx < 0 && setSlidePx(slidePx + 301)) : (slidePx < 0 && setSlidePx(slidePx + (itemWidth + 20)));
+    pageWidth < 392 ? (slidePx < 0 && setSlidePx(slidePx + 301)) : (slidePx < 0 && setSlidePx(slidePx + (itemWidth + 20)));
   };
   const nextCount = () => {
     itemId < 8 && setItemId(itemId + 1);
-    window.innerWidth < 392 ? (slidePx > -2107 && setSlidePx(slidePx - 301)) : (slidePx > -(itemWidth * 7) && setSlidePx(slidePx - (itemWidth + 20)));
+    pageWidth < 392 ? (slidePx > -2107 && setSlidePx(slidePx - 301)) : (slidePx > -(itemWidth * 7) && setSlidePx(slidePx - (itemWidth + 20)));
   };
-  
-  window.innerWidth < 768 ? setPageNum(3) : setPageNum(1);
+  // mobile page project
+  // pageWidth < 768 ? setPageNum(3) : setPageNum(1); 
+  pageWidth < 768 ? setMobileProject(1) : setMobileProject(0)
   return (
     <Container>
       <div className='pattern'></div>
@@ -357,8 +361,8 @@ const Project = ({pageNum, setPageNum}) => {
         </ProjectTitle>
         <ProjectContent ref={contentRef}>
           <span>* 제목 클릭 시 해당 페이지로 이동합니다.</span>
-          <ProjectWrap style={{transform: `translateX(${slidePx}px)`}}>
-            {(pageNum === 1 || pageNum === 3) &&
+          <ProjectWrap style={pageWidth < 768 ? {transform: `translateX(${slidePx}px)`} : {transform: `translateX(0px)`}}>
+            {(pageNum === 1 || mobileProject === 1) &&
             <>
               <ProjectItem itemId={1} ref={itemRef}>
                 <ProjectImg style={{backgroundImage: `url(${momentum_img})`}}>
@@ -413,7 +417,7 @@ const Project = ({pageNum, setPageNum}) => {
               </ProjectItem>
             </>
             }
-            {(pageNum === 2 || pageNum === 3) &&
+            {(pageNum === 2 || mobileProject === 1) &&
             <>
               <ProjectItem itemId={5}>
                 <ProjectImg style={{backgroundImage: `url(${netflix_logo})`}}>
