@@ -21,7 +21,7 @@ const Container = styled.div`
 const Divider = styled.div`
   width: 100%;
   height: 5px;
-  background-color: #ccc;
+  background-color: #eee;
 `;
 
 const DIVIDER_HEIGHT = 5;
@@ -39,7 +39,7 @@ function App() {
       width: window.innerWidth,
       height: window.innerHeight,
     });
-    console.log("윈도우 렌더링", windowSize)
+    // console.log("윈도우 렌더링", windowSize)
   }
 
   // Scroll Event
@@ -53,7 +53,7 @@ function App() {
 
       if(deltaY > 0) {
         if(scrollTop >= 0 && scrollTop < pageHeight) {
-          console.log("현재 1페이지, down");
+          // console.log("현재 1페이지, down");
           outerDivRef.current.scrollTo({
             top: pageHeight + DIVIDER_HEIGHT,
             left: 0,
@@ -61,7 +61,7 @@ function App() {
           });
           setScrollIndex(2);
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
-          console.log("현재 2페이지, down");
+          // console.log("현재 2페이지, down");
           outerDivRef.current.scrollTo({
             top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
             left: 0,
@@ -69,7 +69,7 @@ function App() {
           });
           setScrollIndex(3);
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 3) {
-          console.log("현재 3페이지, down");
+          // console.log("현재 3페이지, down");
           outerDivRef.current.scrollTo({
             top: pageHeight * 3 + DIVIDER_HEIGHT * 3,
             left: 0,
@@ -77,7 +77,7 @@ function App() {
           });
           setScrollIndex(4);
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 4) {
-          console.log("현재 4페이지, down");
+          // console.log("현재 4페이지, down");
           outerDivRef.current.scrollTo({
             top: pageHeight * 4 + DIVIDER_HEIGHT * 4,
             left: 0,
@@ -86,14 +86,14 @@ function App() {
         }
       } else {
         if(scrollTop >= 0 && scrollTop < pageHeight) {
-          console.log("현재 1페이지, up");
+          // console.log("현재 1페이지, up");
           outerDivRef.current.scrollTo({
             top: 0,
             left: 0,
             behavior: "smooth",
           });
-        } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
-          console.log("현재 2페이지, up");
+       } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
+          // console.log("현재 2페이지, up");
           outerDivRef.current.scrollTo({
             top: 0,
             left: 0,
@@ -101,7 +101,7 @@ function App() {
           });
           setScrollIndex(1);
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 3) {
-          console.log("현재 3페이지, up");
+          // console.log("현재 3페이지, up");
           outerDivRef.current.scrollTo({
             top: pageHeight + DIVIDER_HEIGHT,
             left: 0,
@@ -109,7 +109,7 @@ function App() {
           });
           setScrollIndex(2);
         } else {
-          console.log("현재 4페이지, up");
+          // console.log("현재 4페이지, up");
           outerDivRef.current.scrollTo({
             top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
             left: 0,

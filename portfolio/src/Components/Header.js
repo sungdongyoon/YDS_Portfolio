@@ -152,7 +152,7 @@ const MobileNavMenu = styled.div`
 
 const Header = ({scrollIndex, handleToggle, goHome, goAbout, goProject, goContact}) => {
   const isToggle = useSelector((state) => state.isToggle);
-  console.log("스크롤 넘버: ", scrollIndex);
+  // console.log("스크롤 넘버: ", scrollIndex);
   return (
     <Container>
       <Logo>Logo</Logo>
