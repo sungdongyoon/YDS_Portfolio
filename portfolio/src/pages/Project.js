@@ -312,7 +312,7 @@ const RightCircle = styled.div`
   }
 `;
 
-const Project = ({pageNum, setPageNum, mobileProject, setMobileProject}) => {
+const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
   /** 윈도우 너비 : window.innerWidth */
   const pageWidth = window.innerWidth;
 
@@ -344,9 +344,10 @@ const Project = ({pageNum, setPageNum, mobileProject, setMobileProject}) => {
     itemId < 8 && setItemId(itemId + 1);
     pageWidth < 392 ? (slidePx > -2107 && setSlidePx(slidePx - 301)) : (slidePx > -(itemWidth * 7) && setSlidePx(slidePx - (itemWidth + 20)));
   };
+
   // mobile page project
   // pageWidth < 768 ? setPageNum(3) : setPageNum(1); 
-  pageWidth < 768 ? setMobileProject(1) : setMobileProject(0)
+  pageWidth < 768 ? setMobilePjNum(1) : setMobilePjNum(0)
   return (
     <Container>
       <div className='pattern'></div>
@@ -354,15 +355,15 @@ const Project = ({pageNum, setPageNum, mobileProject, setMobileProject}) => {
         <ProjectTitle>
           <h1 ref={titleRef}>Project</h1>
           <div className='slide_arrow' ref={subTitleRef}>
-            <FontAwesomeIcon onClick={() => setPageNum(1)} className='slide_left' icon={faArrowLeft}/>
-            <span>{pageNum} / 2</span>
-            <FontAwesomeIcon onClick={() => setPageNum(2)} className='slide_right' icon={faArrowRight}/>
+            <FontAwesomeIcon onClick={() => setPjNum(1)} className='slide_left' icon={faArrowLeft}/>
+            <span>{pjNum} / 2</span>
+            <FontAwesomeIcon onClick={() => setPjNum(2)} className='slide_right' icon={faArrowRight}/>
           </div>
         </ProjectTitle>
         <ProjectContent ref={contentRef}>
           <span>* 제목 클릭 시 해당 페이지로 이동합니다.</span>
           <ProjectWrap style={pageWidth < 768 ? {transform: `translateX(${slidePx}px)`} : {transform: `translateX(0px)`}}>
-            {(pageNum === 1 || mobileProject === 1) &&
+            {(pjNum === 1 || mobilePjNum === 1) &&
             <>
               <ProjectItem itemId={1} ref={itemRef}>
                 <ProjectImg style={{backgroundImage: `url(${momentum_img})`}}>
@@ -417,7 +418,7 @@ const Project = ({pageNum, setPageNum, mobileProject, setMobileProject}) => {
               </ProjectItem>
             </>
             }
-            {(pageNum === 2 || mobileProject === 1) &&
+            {(pjNum === 2 || mobilePjNum === 1) &&
             <>
               <ProjectItem itemId={5}>
                 <ProjectImg style={{backgroundImage: `url(${netflix_logo})`}}>

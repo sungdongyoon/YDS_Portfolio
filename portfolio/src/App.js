@@ -171,8 +171,8 @@ function App() {
   };
 
   // project PageNum
-  const [pageNum, setPageNum] = useState(1);
-  const [mobileProject, setMobileProject] = useState(0);
+  const [pjNum, setPjNum] = useState(1);
+  const [mobilePjNum, setMobilePjNum] = useState(0);
   return (
     <Container ref={outerDivRef}>
       <Dots scrollIndex={scrollIndex} goHome={goHome} goAbout={goAbout} goProject={goProject} goContact={goContact}/>
@@ -181,7 +181,7 @@ function App() {
       <Divider/>
       <About clickMe={clickMe} clickSkill={clickSkill} clickExperience={clickExperience} showMe={showMe} showSkill={showSkill} showExpereince={showExpereince}/>
       <Divider/>
-      <Project pageNum={pageNum} setPageNum={setPageNum} mobileProject={mobileProject} setMobileProject={setMobileProject}/>
+      <Project pjNum={pjNum} setPjNum={setPjNum} mobilePjNum={mobilePjNum} setMobilePjNum={setMobilePjNum}/>
       <Divider/>
       <Contact/>
     </Container>
