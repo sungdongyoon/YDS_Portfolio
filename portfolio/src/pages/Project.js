@@ -30,7 +30,7 @@ const Container = styled.div`
   }
 `;
 
-const ProjectMain = styled.div`
+const ProjectMain = styled.main`
   width: 90%;
   height: 1000px;
   display: flex;
@@ -45,7 +45,7 @@ const ProjectMain = styled.div`
   }
 `;
 
-const ProjectTitle = styled.div`
+const ProjectTitle = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -110,7 +110,7 @@ const ProjectTitle = styled.div`
   }
 `;
 
-const ProjectContent = styled.div`
+const ProjectContent = styled.section`
   width: 60%;
   display: flex;
   flex-direction: column;

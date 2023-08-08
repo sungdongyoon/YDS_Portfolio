@@ -34,18 +34,18 @@ function App() {
     height: window.innerHeight,
   })
 
-  const handleResize = () => {
-    setWindowSize({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
-    // console.log("윈도우 사이즈", windowSize)
-  }
-
   // Scroll Event
   const outerDivRef = useRef();
   const [scrollIndex, setScrollIndex] = useState(1);
   useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+      console.log("윈도우 사이즈", windowSize)
+    }
+    
     const wheelHandler = (e) => {
       e.preventDefault();
       const { deltaY } = e;

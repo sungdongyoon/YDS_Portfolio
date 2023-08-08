@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import theme from '../style/theme';
 
-const DotsWrap = styled.div`
+const DotsWrap = styled.nav`
   position: fixed;
   top: 50%;
   transform: translateY(-50%);

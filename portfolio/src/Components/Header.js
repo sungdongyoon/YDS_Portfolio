@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { useSelector } from 'react-redux';
 import theme from '../style/theme';
 
-const Container = styled.div`
+const Container = styled.header`
   height: 100px;
   background-color: transparent;
   display: flex;

@@ -28,7 +28,7 @@ const Container = styled.div`
   }
 `;
 
-const ContactMain = styled.div`
+const ContactMain = styled.main`
   width: 100%;
   height: 1000px;
   display: flex;
@@ -43,7 +43,7 @@ const ContactMain = styled.div`
   }
 `;
 
-const ContactTitle = styled.div`
+const ContactTitle = styled.section`
   position: absolute;
   top: 30%;
   left: 5%;
@@ -82,7 +82,7 @@ const ContactTitle = styled.div`
   }
 `;
 
-const ContactContent = styled.div`
+const ContactContent = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -148,7 +148,7 @@ const ContactContent = styled.div`
   }
 `
 
-const Footer = styled.div`
+const Footer = styled.footer`
   position: absolute;
   bottom: 0;
   right: 0;

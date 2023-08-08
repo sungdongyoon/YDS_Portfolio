@@ -24,7 +24,7 @@ const Container = styled.div`
   }
 `;
 
-const AboutMain = styled.div`
+const AboutMain = styled.main`
   width: 90%;
   height: 1000px;
   display: flex;
@@ -39,7 +39,7 @@ const AboutMain = styled.div`
   }
 `;
 
-const AboutTitle = styled.div`
+const AboutTitle = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -109,7 +109,7 @@ const Subtitle = styled.div`
   }
 `;
 
-const AboutMe = styled.div`
+const AboutMe = styled.section`
   width: 60%;
   display: flex;
   flex-direction: column;
@@ -180,7 +180,7 @@ const AboutMe = styled.div`
   }
 `;
 
-const AboutSkill = styled.div`
+const AboutSkill = styled.section`
   width: 60%;
   display: flex;
   flex-direction: column;
@@ -262,7 +262,7 @@ const AboutSkill = styled.div`
   }
 `;
 
-const AboutExperience = styled.div`
+const AboutExperience = styled.section`
   width: 60%;
   display: flex;
   flex-direction: column;
@@ -434,39 +434,29 @@ const About = ({clickMe, clickSkill, clickExperience}) => {
           <div className='about_skill_wrap'>
             <div className='about_skill_item'>
               <h3>HTML</h3>
-              <p>여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
-            숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
-            원스톱 여행 플랫폼을 만들고 있어요.</p>
+              <p>웹 접근성을 좋게하고 유지보수를 편하게 할 수 있도록 시멘틱 태그 사용을 지향합니다.
+              </p>
             </div>
             <div className='about_skill_item'>
               <h3>CSS</h3>
-              <p>여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
-            숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
-            원스톱 여행 플랫폼을 만들고 있어요.</p>
+              <p>와이어 프레임을 바탕으로 flex와 grid를 활용한 페이지 스타일링, keyframe을 활용한 애니메이션 제작, 미디어쿼리를 활용한 반응형 페이지를 제작할 수 있습니다. </p>
             </div>
             <div className='about_skill_item'>
-              <h3>SCSS</h3>
-              <p>여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
-            숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
-            원스톱 여행 플랫폼을 만들고 있어요.</p>
+              <h3>Styled-components</h3>
+              <p>컴포넌트를 기반으로 웹 개발을 할 때 주로 사용하고 있으며
+              css-in-Js 방식의 장점을 살려 props를 받아와 연산자와 변수를 활용한 스타일링이 가능합니다.</p>
             </div>
             <div className='about_skill_item'>
               <h3>JavaScript</h3>
-              <p>여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
-            숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
-            원스톱 여행 플랫폼을 만들고 있어요.</p>
+              <p></p>
             </div>
             <div className='about_skill_item'>
               <h3>React</h3>
-              <p>여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
-            숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
-            원스톱 여행 플랫폼을 만들고 있어요.</p>
+              <p>기본적인 리액트 훅 활용 가능, 라우터를 이용한 페이지 분기, 상태 최적화 경험, 비동기 처리 경험이 있습니다.</p>
             </div>
             <div className='about_skill_item'>
               <h3>TypeScript</h3>
-              <p>여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
-            숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
-            원스톱 여행 플랫폼을 만들고 있어요.</p>
+              <p></p>
             </div>
           </div>
         </AboutSkill>
@@ -478,47 +468,41 @@ const About = ({clickMe, clickSkill, clickExperience}) => {
             <div className='about_experience_item'>
               <h3>Git</h3>
               <p>
-              Git bash를 활용해 개인 프로젝트, 팀원들과 협업하는 과정에서 업데이트, 버전관리를 위해 Git을 사용한 경험이 있습니다.
+                Git bash를 활용해 개인 프로젝트, 팀원들과 협업하는 과정에서 업데이트, 버전관리를 위해 Git을 사용한 경험이 있습니다.
               </p>
             </div>
             <div className='about_experience_item'>
               <h3>API</h3>
               <p>
-              여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
-              숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
-              원스톱 여행 플랫폼을 만들고 있어요.
+                공공데이터포털, The movie Database, cdn.js, OpenWeather API 등의 API 데이터를 활용한 경험이 있습니다.
               </p>
             </div>
             <div className='about_experience_item'>
               <h3>Hosting</h3>
               <p>
-              여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
-              숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
-              원스톱 여행 플랫폼을 만들고 있어요.
+                firbase, netlify를 이용해 완성한 프로젝트의 호스팅과 배포 경험이 있습니다.
               </p>
             </div>
             <div className='about_experience_item'>
               <h3>상태관리</h3>
               <p>
-              여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
-              숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
-              원스톱 여행 플랫폼을 만들고 있어요.
+                React의 useMemo(), redux를 사용해서 컴포넌트에 대한 최적화 경험이 있습니다.
               </p>
             </div>
             <div className='about_experience_item'>
-              <h3>상태관리</h3>
+              <h3>미정</h3>
               <p>
-              여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
-              숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
-              원스톱 여행 플랫폼을 만들고 있어요.
+                여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
+                숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
+                원스톱 여행 플랫폼을 만들고 있어요.
               </p>
             </div>
             <div className='about_experience_item'>
-              <h3>상태관리</h3>
+              <h3>미정</h3>
               <p>
-              여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
-              숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
-              원스톱 여행 플랫폼을 만들고 있어요.
+                여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
+                숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
+                원스톱 여행 플랫폼을 만들고 있어요.
               </p>
             </div>
           </div>
