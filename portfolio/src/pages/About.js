@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { styled } from 'styled-components';
 import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver, aboutClick} from '../animation/animation';
+import { useSelector } from 'react-redux';
 import largeCircle from '../img/largeCircle.png';
 import theme from '../style/theme';
 
@@ -383,7 +384,12 @@ const RightCircle = styled.div`
 `;
 
 
-const About = ({clickMe, clickSkill, clickExperience, showMe, showSkill, showExpereince}) => {
+const About = ({clickMe, clickSkill, clickExperience}) => {
+
+  const showMe = useSelector((state) => state.showMe);
+  const showSkill = useSelector((state) => state.showSkill);
+  const showExpereince = useSelector((state) => state.showExperience);
+
   const titleRef = useRef();
   const subTitleRef = useRef();
   const contentRef = useRef();

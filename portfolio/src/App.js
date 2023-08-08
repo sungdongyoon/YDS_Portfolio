@@ -39,7 +39,7 @@ function App() {
       width: window.innerWidth,
       height: window.innerHeight,
     });
-    // console.log("윈도우 렌더링", windowSize)
+    // console.log("윈도우 사이즈", windowSize)
   }
 
   // Scroll Event
@@ -121,21 +121,21 @@ function App() {
     };
     const outerDivRefCurrent = outerDivRef.current;
     outerDivRefCurrent.addEventListener("wheel", wheelHandler);
-    // pageWidth < 1024 && outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
     window.addEventListener("resize", handleResize);
     return () => {
       outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
       window.removeEventListener("resize", handleResize);
     }
-  }, [handleResize])
+  }, [windowSize])
 
+  // Navigation Event
   const goHome = () => {
     outerDivRef.current.scrollTo({ top: 0, behavior: "smooth" });
     setScrollIndex(1);
     dispatch({type: "FALSE_TOGGLE"});
   };
   const goAbout = () => {
-    outerDivRef.current.scrollTo({ top: (pageHeight) + DIVIDER_HEIGHT, behavior: "smooth" });
+    outerDivRef.current.scrollTo({ top: pageHeight + DIVIDER_HEIGHT, behavior: "smooth" });
     setScrollIndex(2);
     dispatch({type: "FALSE_TOGGLE"});
   };
@@ -152,10 +152,6 @@ function App() {
   
   // About show & hide
   const dispatch = useDispatch();
-  const showMe = useSelector((state) => state.showMe);
-  const showSkill = useSelector((state) => state.showSkill);
-  const showExpereince = useSelector((state) => state.showExperience);
-
   const clickMe = () => {
     dispatch({type: "CLICK_ME"});
   };
@@ -173,13 +169,14 @@ function App() {
   // project PageNum
   const [pjNum, setPjNum] = useState(1);
   const [mobilePjNum, setMobilePjNum] = useState(0);
+  
   return (
     <Container ref={outerDivRef}>
       <Dots scrollIndex={scrollIndex} goHome={goHome} goAbout={goAbout} goProject={goProject} goContact={goContact}/>
       <Header scrollIndex={scrollIndex} handleToggle={handleToggle} goHome={goHome} goAbout={goAbout} goProject={goProject} goContact={goContact}/>
       <Home/>
       <Divider/>
-      <About clickMe={clickMe} clickSkill={clickSkill} clickExperience={clickExperience} showMe={showMe} showSkill={showSkill} showExpereince={showExpereince}/>
+      <About clickMe={clickMe} clickSkill={clickSkill} clickExperience={clickExperience}/>
       <Divider/>
       <Project pjNum={pjNum} setPjNum={setPjNum} mobilePjNum={mobilePjNum} setMobilePjNum={setMobilePjNum}/>
       <Divider/>
