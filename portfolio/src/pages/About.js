@@ -11,7 +11,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   .pattern {
     width: 500px;
     height: 290px;
@@ -376,6 +376,10 @@ const RightCircle = styled.div`
     width: 550px;
     height: 550px;
   }
+  @media screen and ${theme.mobile} {
+    width: 400px;
+    height: 400px;
+  }
   img {
     width: 100%;
     height: 100%;
@@ -439,15 +443,15 @@ const About = ({clickMe, clickSkill, clickExperience}) => {
             </div>
             <div className='about_skill_item'>
               <h3>CSS</h3>
-              <p>와이어 프레임을 바탕으로 flex와 grid를 활용한 페이지 스타일링, keyframe을 활용한 애니메이션 제작, 미디어쿼리를 활용한 반응형 페이지를 제작할 수 있습니다. </p>
+              <p>와이어 프레임을 바탕으로 flex와 grid를 활용하여 레이아웃을 구현할 수 있고, keyframe을 활용한 애니메이션 제작, 미디어쿼리를 활용한 반응형 페이지를 제작할 수 있습니다. </p>
             </div>
             <div className='about_skill_item'>
               <h3>JavaScript</h3>
-              <p></p>
+              <p>자바스크립트</p>
             </div>
             <div className='about_skill_item'>
               <h3>TypeScript</h3>
-              <p></p>
+              <p>타입스크립트</p>
             </div>
             <div className='about_skill_item'>
               <h3>React</h3>
@@ -484,25 +488,9 @@ const About = ({clickMe, clickSkill, clickExperience}) => {
               </p>
             </div>
             <div className='about_experience_item'>
-              <h3>상태관리</h3>
+              <h3>상태 최적화</h3>
               <p>
                 React의 useMemo(), redux를 사용해서 컴포넌트에 대한 최적화 경험이 있습니다.
-              </p>
-            </div>
-            <div className='about_experience_item'>
-              <h3>미정</h3>
-              <p>
-                여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
-                숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
-                원스톱 여행 플랫폼을 만들고 있어요.
-              </p>
-            </div>
-            <div className='about_experience_item'>
-              <h3>미정</h3>
-              <p>
-                여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
-                숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
-                원스톱 여행 플랫폼을 만들고 있어요.
               </p>
             </div>
           </div>

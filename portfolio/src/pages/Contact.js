@@ -199,6 +199,10 @@ const RightCircle = styled.div`
     width: 550px;
     height: 550px;
   }
+  @media screen and ${theme.mobile} {
+    width: 400px;
+    height: 400px;
+  }
   img {
     width: 100%;
     height: 100%;

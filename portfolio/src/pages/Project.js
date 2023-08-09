@@ -17,7 +17,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   .pattern {
     width: 500px;
     height: 290px;
@@ -278,6 +278,7 @@ const LeftCircle = styled.div`
   left: -200px;
   width: 600px;
   height: 600px;
+  border-radius: 50%;
   z-index: -10;
   @media screen and ${theme.laptop} {
     width: 500px;
@@ -304,6 +305,10 @@ const RightCircle = styled.div`
   @media screen and ${theme.laptop} {
     width: 550px;
     height: 550px;
+  }
+  @media screen and ${theme.mobile} {
+    width: 400px;
+    height: 400px;
   }
   img {
     width: 100%;

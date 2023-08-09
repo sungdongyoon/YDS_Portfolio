@@ -6,7 +6,7 @@ let titleObserver = new IntersectionObserver((e) => {
   e.forEach((el) => {
     if(el.isIntersecting) {
       el.target.style.opacity = 1;
-      el.target.style.transitionDelay = '0.3s';
+      // el.target.style.transitionDelay = '0.3s';
       el.target.style.transform = "translateX(0)";
     } else {
       el.target.style.opacity = 0;
@@ -19,7 +19,7 @@ let subTitleObserver = new IntersectionObserver((e) => {
   e.forEach((el) => {
     if(el.isIntersecting) {
       el.target.style.opacity = 1;
-      el.target.style.transitionDelay = '0.3s';
+      // el.target.style.transitionDelay = '0.3s';
       el.target.style.transform = "translateX(0)";
     } else {
       el.target.style.opacity = 0;
@@ -32,7 +32,7 @@ let contentObserver = new IntersectionObserver((e) => {
   e.forEach((el) => {
     if(el.isIntersecting) {
       el.target.style.opacity = 1;
-      el.target.style.transitionDelay = '1s';
+      // el.target.style.transitionDelay = '1s';
       // el.target.style.transform = "translateY(0)";
       el.target.style.transform = "scale(1)";
     } else {
@@ -47,13 +47,11 @@ let leftCircleObserver = new IntersectionObserver((e) => {
   e.forEach((el) => {
     if(el.isIntersecting) {
       el.target.style.opacity = 1;
-      el.target.style.transitionDelay = '0.3s';
-      el.target.style.transform = "translateX(0) translateY(0)";
-      console.log("등장 isIntersecting? :", el.isIntersecting);
+      // el.target.style.transitionDelay = '0.3s';
+      el.target.style.transform = "translateX(-50%) translateY(-50%)";
     } else {
       el.target.style.opacity = 0;
-      el.target.style.transform = "translateX(-30%) translateY(20%)";
-      console.log("퇴장 isIntersecting? :", el.isIntersecting);
+      el.target.style.transform = "translateX(0%) translateY(0%)";
     }
   })
 })
@@ -62,7 +60,7 @@ let rightCircleObserver = new IntersectionObserver((e) => {
   e.forEach((el) => {
     if(el.isIntersecting) {
       el.target.style.opacity = 1;
-      el.target.style.transitionDelay = '0.3s';
+      // el.target.style.transitionDelay = '0.3s';
       el.target.style.transform = "translateX(0)";
     } else {
       el.target.style.opacity = 0;

@@ -5,54 +5,30 @@ import home_img from '../img/home_img.png';
 const Container = styled.div`
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: #000;
+  gap: 50px;
 `;
 
-const HomeContent = styled.div`
-  width: 800px;
-  h1 {
-    font-size: 90px;
-  }
-  p {
-    font-size: 30px;
-    color: #999;
-  }
-  button {
-    border: none;
-    width: 200px;
-    height: 50px;
-    // background: linear-gradient(to right, #000 0%, #fff 50%, #000 100%);
-    // background-size: 200%;
-    background-color: #000;
-    color: #fff;
-    font-size: 20px;
-    transition: 0.5s;
-    cursor: pointer;
-    &:hover {
-      background-position: right center;
-    }
-  }
+const HomeTitle = styled.header`
+  font-size: 100px;
+  font-weight: bold;
+  text-shadow: 0 0 20px #bbd3f8;
 `;
 
-const HomeImg = styled.div`
+const HomeSubTitle = styled.div`
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 0px 0px 10px #bbd3f8;
 `;
 
 const Home = () => {
   return (
     <Container>
-      {/* <HomeContent>
-        <h1>Front-End<br/>Development</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur
-          adipisicing elit. Vitae excepturi sequi facitiis
-        </p>
-        <button>more</button>
-      </HomeContent>
-      <HomeImg>
-        <img src={home_img}/>
-      </HomeImg> */}
-      HOME
+      <HomeTitle>Yoon DONGSUNG</HomeTitle>
+      <HomeSubTitle>PORTFOLIO</HomeSubTitle>
     </Container>
   )
 }
