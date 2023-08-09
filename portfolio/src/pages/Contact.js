@@ -171,12 +171,12 @@ const LeftCircle = styled.div`
   position: absolute;
   bottom: -200px;
   left: -200px;
-  width: 700px;
-  height: 700px;
+  width: 600px;
+  height: 600px;
   z-index: -10;
   @media screen and ${theme.laptop} {
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
   }
   @media screen and ${theme.mobile} {
     width: 400px;
@@ -191,9 +191,9 @@ const LeftCircle = styled.div`
 
 const RightCircle = styled.div`
   position: absolute;
-  width: 800px;
-  height: 800px;
-  right: -300px;
+  width: 700px;
+  height: 700px;
+  right: -200px;
   z-index: -1;
   @media screen and ${theme.laptop} {
     width: 550px;

@@ -348,12 +348,12 @@ const LeftCircle = styled.div`
   position: absolute;
   bottom: -200px;
   left: -200px;
-  width: 700px;
-  height: 700px;
+  width: 600px;
+  height: 600px;
   z-index: -10;
   @media screen and ${theme.laptop} {
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
   }
   @media screen and ${theme.mobile} {
     width: 400px;
@@ -361,16 +361,16 @@ const LeftCircle = styled.div`
   }
   img {
     width: 100%;
-    heigiht: 100%;
+    height: 100%;
     transition: 1s;
   }
 `;
 
 const RightCircle = styled.div`
   position: absolute;
-  width: 800px;
-  height: 800px;
-  right: -300px;
+  width: 700px;
+  height: 700px;
+  right: -200px;
   z-index: -1;
   @media screen and ${theme.laptop} {
     width: 550px;
@@ -442,12 +442,11 @@ const About = ({clickMe, clickSkill, clickExperience}) => {
               <p>와이어 프레임을 바탕으로 flex와 grid를 활용한 페이지 스타일링, keyframe을 활용한 애니메이션 제작, 미디어쿼리를 활용한 반응형 페이지를 제작할 수 있습니다. </p>
             </div>
             <div className='about_skill_item'>
-              <h3>Styled-components</h3>
-              <p>컴포넌트를 기반으로 웹 개발을 할 때 주로 사용하고 있으며
-              css-in-Js 방식의 장점을 살려 props를 받아와 연산자와 변수를 활용한 스타일링이 가능합니다.</p>
+              <h3>JavaScript</h3>
+              <p></p>
             </div>
             <div className='about_skill_item'>
-              <h3>JavaScript</h3>
+              <h3>TypeScript</h3>
               <p></p>
             </div>
             <div className='about_skill_item'>
@@ -455,8 +454,9 @@ const About = ({clickMe, clickSkill, clickExperience}) => {
               <p>기본적인 리액트 훅 활용 가능, 라우터를 이용한 페이지 분기, 상태 최적화 경험, 비동기 처리 경험이 있습니다.</p>
             </div>
             <div className='about_skill_item'>
-              <h3>TypeScript</h3>
-              <p></p>
+              <h3>Styled-components</h3>
+              <p>컴포넌트를 기반으로 웹 개발을 할 때 주로 사용하고 있으며
+              css-in-Js 방식의 장점을 살려 props를 받아와 연산자와 변수를 활용한 스타일링이 가능합니다.</p>
             </div>
           </div>
         </AboutSkill>
@@ -474,7 +474,7 @@ const About = ({clickMe, clickSkill, clickExperience}) => {
             <div className='about_experience_item'>
               <h3>API</h3>
               <p>
-                공공데이터포털, The movie Database, cdn.js, OpenWeather API 등의 API 데이터를 활용한 경험이 있습니다.
+                외부 API 데이터를 활용한 경험이 있습니다.
               </p>
             </div>
             <div className='about_experience_item'>

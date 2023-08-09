@@ -29,6 +29,7 @@ const DotTitle = styled.div`
   font-weight: bold;
   color: ${(props) => props.num === props.scrollIndex ? "#0079FF" : "#fff"};
   cursor: pointer;
+  transition: 1s;
   @media screen and ${theme.laptop} {
     font-size: 30px;
   }

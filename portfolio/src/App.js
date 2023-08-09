@@ -1,13 +1,14 @@
 import './App.css';
 import { useEffect, useRef, useState } from 'react';
 import { styled } from 'styled-components';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Header from './Components/Header';
 import Dots from './Components/Dots';
 import Home from './pages/Home';
 import About from './pages/About';
 import Project from './pages/Project';
 import Contact from './pages/Contact';
+import throttle from 'lodash.throttle';
 
 
 const Container = styled.div`
@@ -33,23 +34,32 @@ function App() {
     width: window.innerWidth,
     height: window.innerHeight,
   })
+  
+  const handleResize = () => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+    console.log("윈도우 사이즈", windowSize)
+  }
+
+  // const handleResize = throttle(() => {
+  //   setWindowSize({
+  //     width: window.innerWidth,
+  //     height: window.innerHeight,
+  //   }, 200);
+  //   console.log("윈도우 사이즈", windowSize)
+  // })
 
   // Scroll Event
   const outerDivRef = useRef();
   const [scrollIndex, setScrollIndex] = useState(1);
   useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-      console.log("윈도우 사이즈", windowSize)
-    }
-    
     const wheelHandler = (e) => {
       e.preventDefault();
       const { deltaY } = e;
       const { scrollTop } = outerDivRef.current;
+      const pageHeight = window.innerHeight;
 
       if(deltaY > 0) {
         if(scrollTop >= 0 && scrollTop < pageHeight) {
@@ -79,7 +89,7 @@ function App() {
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 4) {
           // console.log("현재 4페이지, down");
           outerDivRef.current.scrollTo({
-            top: (pageHeight * 4) + (DIVIDER_HEIGHT * 4),
+            top: (pageHeight * 3) + (DIVIDER_HEIGHT * 3),
             left: 0,
             behavior: "smooth",
           });
