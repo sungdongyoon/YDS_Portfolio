@@ -77,33 +77,31 @@ const Subtitle = styled.div`
   align-items: flex-end;
   transition: 1s;
   @media screen and ${theme.tablet} {
-    flex-direction: row;
     width: 100%;
+    flex-direction: row;
     gap: 50px;
   }
   span {
-    border: 5px solid transparent;
     display: block;
     padding: 10px 0;
+    border: 5px solid transparent;
     font-size: var(--page-subTitle);
     font-weight: bold;
-    color: #ccc;
     transition: 0.5s;
     cursor: pointer;
     &:hover {
-      color: #bbd3f8;
-      border-bottom: 5px solid #bbd3f8;
+      border-bottom: 5px solid var(--sky-blue);
     }
     @media screen and ${theme.laptop} {
-      font-size: 30px;
+      font-size: 3rem;
     }
     @media screen and ${theme.mobile} {
-      font-size: 20px;
+      font-size: 2rem;
     }
     @media screen and ${theme.iphone12Pro} {
-      font-size: 20px;
-      text-shadow: 5px 5px 10px #fff,
-      -5px -5px 10px #fff;
+      font-size: 2rem;
+      text-shadow: 5px 5px 10px var(--white),
+      -5px -5px 10px var(--white);
       margin-bottom: 0px;
     }
   }
@@ -128,46 +126,44 @@ const AboutMe = styled.section`
     padding-top: 0px;
   }
   h1 {
-    font-size: 3rem;
+    font-size: 5rem;
+    font-weight: bold;
     margin-bottom: 50px;
     @media screen and ${theme.laptop} {
-      font-size: 30px;
+      font-size: 3rem;
       margin-bottom: 20px;
     }
-    @media screen and ${theme.tablet} {
-      font-size: 30px;
-    }
     @media screen and ${theme.iphone12Pro} {
-      font-size: 24px;
+      font-size: 2.4rem;
       margin-bottom: 0px;
       margin-top: 30px;
     }
   }
   p {
-    font-size: 26px;
+    width: 70%;
+    color: var(--gray); 
+    font-size: 2.6rem;
     line-height: 40px;
     margin-bottom: 50px;
-    color: #999; 
-    width: 70%;
     @media screen and ${theme.laptop} {
-      font-size: 20px;
+      font-size: 2rem;
     }
     @media screen and ${theme.tablet} {
       width: 100%;
     }
     @media screen and ${theme.iphone12Pro} {
-      font-size: 16px;
+      font-size: 1.6rem;
       line-height: 25px;
     }
   }
   button {
     width: 300px;
+    color: var(--white);
+    font-size: 2.6rem;
+    padding: 20px 0;
     border: none;
     border-radius: 10px;
     background: linear-gradient(130deg, #BBD3F8 0%, #0079FF 100%);
-    color: #fff;
-    font-size: 26px;
-    padding: 20px 0;
     transition: all 0.5s ease;
     cursor: pointer;
     &:hover {
@@ -189,72 +185,75 @@ const AboutSkill = styled.section`
   animation: ${aboutClick} ease-in-out 1s;
   transition: 1s;
   @media screen and ${theme.tablet} {
-    padding-top: 0;
     width: 80%;
+    padding-top: 0;
     margin-top: 20px;
   }
   @media screen and ${theme.mobile} {
-    margin-top: 0px;
     height: 100%;
+    margin-top: 0px;
   }
   h1 {
-    font-size: 2.5rem;
-    color: #555;
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: var(--gray);
     @media screen and ${theme.laptop} {
-      font-size: 26px;
+      font-size: 2.6rem;
     }
     @media screen and ${theme.iphone12Pro} {
-      font-size: 24px;
+      font-size: 2.4rem;
     }
   }
   .about_skill_wrap {
-    margin-top: 0px;
     display: flex;
     flex-wrap: wrap;
     @media screen and ${theme.mobile} {
       justify-content: space-between;
     }
     .about_skill_item {
+      width: 35%;
       display: flex;
       flex-direction: column;
-      color: #999;
-      width: 35%;
+      color: var(--gray);
       margin-right: 30px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       @media screen and ${theme.tablet} {
         width: 45%;
       }
       @media screen and ${theme.mobile} {
         width: 45%;
-        text-shadow: 5px 5px 10px #fff,
-        -5px -5px 10px #fff;
+        text-shadow: 5px 5px 10px var(--white),
+        -5px -5px 10px var(--white);
         margin-bottom: 0px;
         margin-right: 0;
       }
       h3 {
-        font-size: 1.3rem;
-        margin: 0;
+        font-size: 3rem;
+        font-weight: bold;
         padding-bottom: 10px;
-        border-bottom: 1px solid #ccc;
+        margin-bottom: 10px;
+        border-bottom: 1px solid var(--light-gray);
         @media screen and ${theme.laptop} {
-          font-size: 18px;
+          font-size: 1.8rem;
         }
         @media screen and ${theme.mobile} {
-          font-size: 16px;
-          box-shadow: 0px 5px 5px -5px #fff;
+          font-size: 1.6rem;
+          box-shadow: 0px 5px 5px -5px var(--white);
         }
       }
       p {
-        font-size: 1.1rem;
+        font-size: 2rem;
+        letter-spacing: 1px;
         @media screen and ${theme.laptop} {
-          font-size: 16px;
+          font-size: 1.6rem;
         }
         @media screen and ${theme.mobile} {
-          font-size: 14px;
+          font-size: 1.4rem;
           line-height: 20px;
         }
         @media screen and ${theme.iphone12Pro} {
-          font-size: 12px;
+          font-size: 1.2rem;
           line-height: 15px;
         }
       }
@@ -271,72 +270,76 @@ const AboutExperience = styled.section`
   animation: ${aboutClick} ease-in-out 1s;
   transition: 1s;
   @media screen and ${theme.tablet} {
-    padding-top: 0;
     width: 80%;
+    padding-top: 0;
     margin-top: 20px;
   }
   @media screen and ${theme.mobile} {
-    margin-top: 0px;
     height: 100%;
+    margin-top: 0px;
   }
   h1 {
-    font-size: 2.5rem;
-    color: #555;
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: var(--gray);
     @media screen and ${theme.laptop} {
-      font-size: 26px;
+      font-size: 2.6rem;
     }
     @media screen and ${theme.iphone12Pro} {
-      font-size: 24px;
+      font-size: 2.4rem;
     }
   }
   .about_experience_wrap {
-    margin-top: 0px;
     display: flex;
     flex-wrap: wrap;
+    margin-top: 0px;
     @media screen and ${theme.mobile} {
       justify-content: space-between;
     }
     .about_experience_item {
+      width: 35%;
       display: flex;
       flex-direction: column;
-      color: #999;
-      width: 35%;
+      color: var(--gray);
       margin-right: 30px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       @media screen and ${theme.tablet} {
         width: 45%;
       }
       @media screen and ${theme.mobile} {
         width: 45%;
-        text-shadow: 5px 5px 10px #fff,
-        -5px -5px 10px #fff;
+        text-shadow: 5px 5px 10px var(--white),
+        -5px -5px 10px var(--white);
         margin-bottom: 0px;
         margin-right: 0;
       }
       h3 {
-        font-size: 1.3rem;
-        margin: 0;
+        font-size: 3rem;
+        font-weight: bold;
         padding-bottom: 10px;
-        border-bottom: 1px solid #ccc;
+        margin-bottom: 10px;
+        border-bottom: 1px solid var(--light-gray);
         @media screen and ${theme.laptop} {
-          font-size: 18px;
+          font-size: 1.8rem;
         }
         @media screen and ${theme.mobile} {
-          font-size: 16px;
-          box-shadow: 0px 5px 5px -5px #fff;
+          font-size: 1.6rem;
+          box-shadow: 0px 5px 5px -5px var(--white);
         }
       }
       p {
-        font-size: 1.1rem;
+        font-size: 2rem;
+        letter-spacing: 1px;
         @media screen and ${theme.laptop} {
-          font-size: 16px;
+          font-size: 1.6rem;
         }
         @media screen and ${theme.mobile} {
-          font-size: 14px;
+          font-size: 1.4rem;
           line-height: 20px;
         }
         @media screen and ${theme.iphone12Pro} {
-          font-size: 12px;
+          font-size: 1.2rem;
           line-height: 15px;
         }
       }
@@ -345,14 +348,14 @@ const AboutExperience = styled.section`
 `;
 
 const LeftCircle = styled.div`
+  width: 600px;
+  height: 600px;
+  background-color: var(--sky-blue);
+  border-radius: 50%;
   position: absolute;
   bottom: -200px;
   left: -200px;
-  width: 600px;
-  height: 600px;
   z-index: -10;
-  background-color: #bbd3f8;
-  border-radius: 50%;
   transition: 0.5s;
   @media screen and ${theme.laptop} {
     width: 500px;

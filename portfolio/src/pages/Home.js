@@ -35,11 +35,25 @@ const HomeSubTitle = styled.div`
 `;
 
 const HomeArrow = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: var(--blue);
   font-size: 5rem;
   position: absolute;
   bottom: 100px;
   animation: ${homeArrow} 1s ease-in-out infinite;
+  border: 1px solid red;
+  span {
+    font-size: 2.5rem;
+  }
+  .chevronDownTop {
+    display: block;
+    transform: translateY(30px);
+  }
+  .chevronDownBottom {
+    display: block;
+  }
 `;
 
 const Bubble = styled.div`
@@ -64,7 +78,9 @@ const Home = () => {
       </HomeTitle>
       <HomeSubTitle>PORTFOLIO</HomeSubTitle>
       <HomeArrow>
-        <FontAwesomeIcon icon={faChevronDown}/>
+        <span>Scroll!</span>
+        <FontAwesomeIcon className='chevronDownTop' icon={faChevronDown}/>
+        <FontAwesomeIcon className='chevronDownBottom' icon={faChevronDown}/>
       </HomeArrow>
       {/* <Bubble width={800} height={800} left={50} top={50} color={'blue'}/> */}
     </Container>

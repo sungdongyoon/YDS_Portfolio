@@ -134,17 +134,24 @@ const MobileNavMenu = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 50px;
+    gap: 70px;
     li {
-      font-size: 4rem;
+      font-size: 5rem;
       font-weight: bold;
       text-shadow: 0px 0px 20px var(--blue);
-      -webkit-box-reflect: below -2vw -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.45, transparent), to(rgba(255, 255, 255, 0.25)));
+      -webkit-box-reflect: below -1vw -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.45, transparent), to(rgba(255, 255, 255, 0.25)));
       cursor: pointer;
     }
   }
   @media screen and ${theme.tablet} {
     display: block;
+  }
+  @media screen and ${theme.iphone12Pro} {
+    ul {
+      li {
+        font-size: 3rem;
+      }
+    }
   }
 `;
 

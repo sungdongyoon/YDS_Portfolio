@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from 'react';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
-import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver} from '../animation/animation';
+import {titleObserver, contentObserver, leftCircleObserver, rightCircleObserver} from '../animation/animation';
 import largeCircle from '../img/largeCircle.png';
 import github_img from '../img/github_img.png';
 import blog_img from '../img/blog_img.png';
@@ -44,13 +44,13 @@ const ContactMain = styled.main`
 `;
 
 const ContactTitle = styled.section`
-  position: absolute;
-  top: 30%;
-  left: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  position: absolute;
+  top: 30%;
+  left: 5%;
   @media screen and ${theme.laptop} {
     top: 35%;
   }
@@ -63,21 +63,21 @@ const ContactTitle = styled.section`
     top: 15%;
   }
   h1 {
-    font-size: 170px;
-    margin: 0;
-    color: #bbd3f8;
+    font-size: var(--page-title);
+    font-weight: bold;
+    color: var(--sky-blue);
     transition: 1s;
     @media screen and ${theme.laptop} {
-      font-size: 120px;
+      font-size: 12rem;
     }
     @media screen and ${theme.tablet} {
-      font-size: 100px;
+      font-size: 10rem;
     }
     @media screen and ${theme.mobile} {
-      font-size: 70px;
+      font-size: 7rem;
     }
     @media screen and ${theme.iphone12Pro} {
-      font-size: 50px;
+      font-size: 5rem;
     }
   }
 `;
@@ -91,48 +91,45 @@ const ContactContent = styled.section`
   padding-top: 200px;
   transition: 1.5s;
   @media screen and ${theme.tablet} {
+    width: 80%;
     padding-top: 0;
     margin-top: 100px;
-    width: 80%;
-  }
-  @media screen and ${theme.mobile} {
-    padding-top: 0px;
   }
   @media screen and ${theme.iphone12Pro} {
     margin-top: 0px;
   }
   p {
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 80px;
-    color: #999; 
     width: 550px;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 80px;
+    color: var(--gray); 
     margin-left: 60px;
     @media screen and ${theme.laptop} {
-      font-size: 24px;
+      font-size: 2.4rem;
     }
     @media screen and ${theme.mobile} {
-      font-size: 18px;
       width: 100%;
+      font-size: 2rem;
+      color: var(--gray);
       margin-left: 0px;
-      color: #555;
     }
   }
   .link_wrap {
-    text-align: center;
     width: 550px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     margin-left: 60px;
+    text-align: center;
     @media screen and ${theme.mobile} {
       width: 100%;
       margin-left: 0px;
     }
     img {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
       padding: 20px;
       cursor: pointer;
       @media screen and ${theme.laptop} {
@@ -149,20 +146,20 @@ const ContactContent = styled.section`
 `
 
 const Footer = styled.footer`
+  height: 100px;
   position: absolute;
   bottom: 0;
   right: 0;
   left: 0;
-  height: 100px;
   @media screen and ${theme.mobile} {
     height: 80px;
   }
   p {
+    font-size: 2rem;
+    color: var(--gray);
     text-align: center;
-    color: #777;
-    font-size: 18px;
     @media screen and ${theme.mobile} {
-      font-size: 12px;
+      font-size: 1.2rem;
     }
   }
 `;

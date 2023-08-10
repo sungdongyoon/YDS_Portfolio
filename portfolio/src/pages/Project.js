@@ -50,32 +50,33 @@ const ProjectTitle = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  gap: 30px;
   @media screen and ${theme.tablet} {
+    width: 80%;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 80%;
   }
   h1 {
-    font-size: 170px;
-    margin: 0;
-    color: #bbd3f8;
-    transition: 1s;
+    font-size: var(--page-title);
+    font-weight: bold;
+    color: var(--sky-blue);
+    transition: 0.5s;
     @media screen and ${theme.laptop} {
-      font-size: 100px;
+      font-size: 10rem;
     }
     @media screen and ${theme.tablet} {
-      font-size: 80px;
+      font-size: 8rem;
     }
     @media screen and ${theme.mobile} {
-      font-size: 60px;
+      font-size: 6rem;
     }
     @media screen and ${theme.iphone12Pro} {
-      font-size: 50px;
+      font-size: 5rem;
     }
   }
   .slide_arrow {
-    font-size: 30px;
-    color: #999;
+    font-size: 3rem;
+    color: var(--gray);
     transition: 1s;
     @media screen and ${theme.mobile} {
       display: none;
@@ -90,21 +91,22 @@ const ProjectTitle = styled.section`
     .slide_left {
       cursor: pointer;
       @media screen and ${theme.laptop} {
-        font-size: 26px;
+        font-size: 2.6rem;
       }
       @media screen and ${theme.tablet} {
-        font-size: 20px;
+        font-size: 2rem;
       }
     }
     span {
-      text-align: center;
+      width: 150px;
       display: inline-block;
-      width: 80px;
+      font-size: 3rem;
+      text-align: center;
       @media screen and ${theme.laptop} {
-        font-size: 26px;
+        font-size: 2.6rem;
       }
       @media screen and ${theme.tablet} {
-        font-size: 20px;
+        font-size: 2rem;
       }
     }
   }
@@ -116,25 +118,25 @@ const ProjectContent = styled.section`
   flex-direction: column;
   justify-content: center;
   padding-top: 200px;
-  transition: 1s;
   position: relative;
+  transition: 1s;
   span {
-    color: #ff0000;
-    font-size: 18px;
+    color: var(--red);
+    font-size: 1.8rem;
   }
   @media screen and ${theme.tablet} {
-    padding-top: 0;
     width: 80%;
+    padding-top: 0;
     margin-top: 50px;
   }
   @media screen and ${theme.mobile} {
+    height: 300px;
     margin-top: 0px;
     padding: 10px;
     padding-top: 40px;
-    height: 300px;
     margin-bottom: 50px;
     span {
-      font-size: 12px;
+      font-size: 1.2rem;
     }
   }
 `;
@@ -145,15 +147,15 @@ const SliderBtn = styled.div`
   bottom: -100px;
   left: 0;
   right: 0;
-  color: #999;
+  color: var(--gray);
   .leftBtn,
   .rightBtn {
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: bold;
     cursor: pointer;
   }
   .count {
-    font-size: 20px;
+    font-size: 2rem;
   }
   @media screen and ${theme.mobile} {
     display: flex;
@@ -219,7 +221,7 @@ const ProjectImg = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
   background-color: #fff;
-  box-shadow: 0px 0px 10px #ccc, 10px 10px 8px #ccc;
+  box-shadow: 0px 0px 10px var(--light-gray), 10px 10px 8px var(--light-gray);
   border-radius: 20px;
   transition: 0.3s;
   @media screen and ${theme.laptop} {
@@ -234,26 +236,26 @@ const ProjectImg = styled.div`
   .projectDetail {
     height: 100%;
     width: 100%;
+    border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.7);
     opacity: 0;
     transition: 0.3s;
-    border-radius: 20px;
     h3 {
       margin: 0;
       padding: 20px;
-      color: #fff;
+      color: var(--white);
       @media screen and ${theme.laptop} {
-        font-size: 16px;
+        font-size: 1.6rem;
       }
     }
     span {
       display: block;
       padding: 20px;
-      color: #fff;
+      color: var(--white);
     }
     li {
       list-style: circle;
-      color: #fff;
+      color: var(--white);
       margin-bottom: 10px;
     }
   }
@@ -263,11 +265,11 @@ const ProjectImg = styled.div`
 `;
 
 const ProjectName = styled.div`
+  font-size: 2rem;
   margin-top: 20px;
-  font-size: 20px;
   cursor: pointer;
   @media screen and ${theme.mobile} {
-    font-size: 14px;
+    font-size: 1.4rem;
     text-align: center;
   }
 `;

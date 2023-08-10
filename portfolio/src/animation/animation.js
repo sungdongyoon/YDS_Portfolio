@@ -74,13 +74,16 @@ let rightCircleObserver = new IntersectionObserver((e) => {
 
 let homeArrow = keyframes`
   0% {
-    transform: translateY(0);
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    opacity: 0;
   }
   50% {
-    transform: translateY(30px);
+    transform: translateY(10px);
+    opacity: 1;
   }
   100% {
     transform: translateY(0);
+    opacity: 0;
   }
 `;
 
