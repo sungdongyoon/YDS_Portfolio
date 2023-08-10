@@ -26,7 +26,7 @@ const Container = styled.div`
 
 const AboutMain = styled.main`
   width: 90%;
-  height: 1000px;
+  // height: 1000px;
   display: flex;
   justify-content: space-evenly;
   @media screen and ${theme.tablet} {
@@ -52,9 +52,9 @@ const AboutTitle = styled.section`
   @media screen and ${theme.iphone12Pro} {
   }
   h1 {
-    font-size: 170px;
-    margin: 0;
-    color: #bbd3f8;
+    font-size: var(--page-title);
+    font-weight: bold;
+    color: var(--sky-blue);
     transition: 0.5s;
     @media screen and ${theme.laptop} {
       font-size: 100px;
@@ -85,7 +85,7 @@ const Subtitle = styled.div`
     border: 5px solid transparent;
     display: block;
     padding: 10px 0;
-    font-size: 50px;
+    font-size: var(--page-subTitle);
     font-weight: bold;
     color: #ccc;
     transition: 0.5s;
@@ -351,6 +351,9 @@ const LeftCircle = styled.div`
   width: 600px;
   height: 600px;
   z-index: -10;
+  background-color: #bbd3f8;
+  border-radius: 50%;
+  transition: 0.5s;
   @media screen and ${theme.laptop} {
     width: 500px;
     height: 500px;
@@ -360,8 +363,8 @@ const LeftCircle = styled.div`
     height: 400px;
   }
   img {
-    width: 100%;
-    height: 100%;
+    width: 0%;
+    height: 0%;
     transition: 1s;
   }
 `;
@@ -497,8 +500,8 @@ const About = ({clickMe, clickSkill, clickExperience}) => {
         </AboutExperience>
         }
       </AboutMain>
-      <LeftCircle>
-        <img src={largeCircle} ref={leftCircleRef}/>
+      <LeftCircle ref={leftCircleRef}>
+        <img src={largeCircle} />
       </LeftCircle>
       <RightCircle>
         <img src={largeCircle} ref={rightCircleRef}/>

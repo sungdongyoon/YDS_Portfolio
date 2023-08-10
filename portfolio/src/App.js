@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useRef, useState } from 'react';
 import { styled } from 'styled-components';
 import { useDispatch } from 'react-redux';
+import GlobalStyle from './style/GlobalStyle';
 import Header from './Components/Header';
 import Dots from './Components/Dots';
 import Home from './pages/Home';
@@ -179,10 +180,13 @@ function App() {
   // project PageNum
   const [pjNum, setPjNum] = useState(1);
   const [mobilePjNum, setMobilePjNum] = useState(0);
-  
   return (
+    <>
+    <GlobalStyle/>
     <Container ref={outerDivRef}>
-      <Dots scrollIndex={scrollIndex} goHome={goHome} goAbout={goAbout} goProject={goProject} goContact={goContact}/>
+      {scrollIndex != 1 &&
+        <Dots scrollIndex={scrollIndex} goHome={goHome} goAbout={goAbout} goProject={goProject} goContact={goContact}/>
+      }
       <Header scrollIndex={scrollIndex} handleToggle={handleToggle} goHome={goHome} goAbout={goAbout} goProject={goProject} goContact={goContact}/>
       <Home/>
       <Divider/>
@@ -192,6 +196,7 @@ function App() {
       <Divider/>
       <Contact/>
     </Container>
+    </>
   );
 }
 

@@ -16,7 +16,7 @@ const Container = styled.header`
   bottom: 0;
   z-index: 10;
   @media screen and ${theme.laptop} {
-    font-size: 18px;
+    font-size: 1.8rem;
   }
   @media screen and ${theme.iphone12Pro} {
     height: 80px;
@@ -29,12 +29,12 @@ const Logo = styled.span`
   align-items: center;
   width: 20%;
   height: 100%;
-  font-size: 35px;
+  font-size: 3.5rem;
   font-weight: bold;
-  color: #999;
+  color: var(--gray);
   @media screen and ${theme.iphone12Pro} {
     width: 30%;
-    font-size: 25px;
+    font-size: 2.5rem;
   }
 `;
 
@@ -48,9 +48,9 @@ const HeaderInfo = styled.div`
     display: none;
   }
   span {
+    font-size: 1.6rem;
+    color: var(--gray);
     margin-right: 50px;
-    font-size: 16px;
-    color: #999;
     @media screen and ${theme.laptop} {
       margin-right: 30px;
     }
@@ -61,39 +61,39 @@ const ToggleBtn = styled.div`
   display: none;
   position: absolute;
   right: 30px;
-  color: #999;
   width: 30px;
   height: 20px;
+  color: var(--gray);
   z-index: 100;
   span {
     display: inline-block;
     width: 30px;
     height: 3px;
-    background-color: #999;
+    background-color: var(--gray);
     cursor: pointer;
   }
   .tobbleBtn_t {
     position: absolute;
     top: 0;
-    transition: 1s;
     border-radius: 20px;
+    background-color: ${(props) => props.isToggle ? "#fff" : "var(--gray)"};
+    transition: 1s;
     transform: ${(props) => props.isToggle ? "translateY(10px) rotate(45deg)" : "rotate(0) translateY(0)"};
-    background-color: ${(props) => props.isToggle ? "#fff" : "#999"};
   }
   .tobbleBtn_m {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     border-radius: 20px;
+    transform: translateY(-50%);
     opacity: ${(props) => props.isToggle ? "0" : "1"};
   }
   .tobbleBtn_b {
     position: absolute;
     bottom: 0;
-    transition: 1s;
     border-radius: 20px;
+    background-color: ${(props) => props.isToggle ? "#fff" : "var(--gray)"};
+    transition: 1s;
     transform: ${(props) => props.isToggle ? "translateY(-8px) rotate(-45deg)" : "rotate(0) translateY(0)"};
-    background-color: ${(props) => props.isToggle ? "#fff" : "#999"};
   }
   @media screen and ${theme.tablet} {
     display: block;
@@ -107,8 +107,8 @@ const MobileNavMenu = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #000;
-  color: #fff;
+  background-color: var(--black);
+  color: var(--white);
   transition: ${window.innerWidth < 768 ? '1s' : '1.5s'};
   transform: ${(props) => (props.isToggle ? "translateX(0px)" : `translateX(${window.innerWidth}px)`)};
   .nav_menu_info {
@@ -117,31 +117,29 @@ const MobileNavMenu = styled.div`
     left: 30px;
     display: flex;
     flex-direction: column;
-    color: #999;
+    color: var(--white);
     .nav_logo {
-      font-size: 30px;
+      font-size: 3rem;
       margin-bottom: 30px;
-      color: #fff;
+      color: var(--white);
     }
     span {
       margin-bottom: 10px;
-      font-size: 10px;
+      font-size: 1rem;
     }
   }
   ul {
-    list-style: none;
     height: 100%;
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 50px;
     li {
-      font-size: 36px;
+      font-size: 4rem;
       font-weight: bold;
-      color: #bbd3f8;
+      text-shadow: 0px 0px 20px var(--blue);
+      -webkit-box-reflect: below -2vw -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.45, transparent), to(rgba(255, 255, 255, 0.25)));
       cursor: pointer;
     }
   }
@@ -152,7 +150,6 @@ const MobileNavMenu = styled.div`
 
 const Header = ({scrollIndex, handleToggle, goHome, goAbout, goProject, goContact}) => {
   const isToggle = useSelector((state) => state.isToggle);
-  // console.log("스크롤 넘버: ", scrollIndex);
   return (
     <Container>
       <Logo>Logo</Logo>

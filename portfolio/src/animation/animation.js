@@ -72,6 +72,18 @@ let rightCircleObserver = new IntersectionObserver((e) => {
 
 // Animation
 
+let homeArrow = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+`;
+
 let aboutClick = keyframes`
   0% {
     opacity: 0;
@@ -100,7 +112,7 @@ let projectSlide = keyframes`
   }
 `;
 
-export {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver, aboutClick, projectSlide};
+export {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver, homeArrow, aboutClick, projectSlide};
 
 
 
