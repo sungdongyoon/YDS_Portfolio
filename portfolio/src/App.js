@@ -180,19 +180,38 @@ function App() {
   // project PageNum
   const [pjNum, setPjNum] = useState(1);
   const [mobilePjNum, setMobilePjNum] = useState(0);
+
+  // Props
+  const goProps = {
+    goHome,
+    goAbout,
+    goProject,
+    goContact,
+  }
+  const clickProps = {
+    clickMe,
+    clickSkill,
+    clickExperience,
+  }
+  const pjNumProps = {
+    pjNum,
+    setPjNum,
+    mobilePjNum,
+    setMobilePjNum,
+  }
   return (
     <>
     <GlobalStyle/>
     <Container ref={outerDivRef}>
       {scrollIndex != 1 &&
-        <Dots scrollIndex={scrollIndex} goHome={goHome} goAbout={goAbout} goProject={goProject} goContact={goContact}/>
+        <Dots scrollIndex={scrollIndex} {...goProps}/>
       }
-      <Header scrollIndex={scrollIndex} handleToggle={handleToggle} goHome={goHome} goAbout={goAbout} goProject={goProject} goContact={goContact}/>
+      <Header scrollIndex={scrollIndex} handleToggle={handleToggle} {...goProps}/>
       <Home/>
       <Divider/>
-      <About clickMe={clickMe} clickSkill={clickSkill} clickExperience={clickExperience}/>
+      <About {...clickProps}/>
       <Divider/>
-      <Project pjNum={pjNum} setPjNum={setPjNum} mobilePjNum={mobilePjNum} setMobilePjNum={setMobilePjNum}/>
+      <Project {...pjNumProps}/>
       <Divider/>
       <Contact/>
     </Container>

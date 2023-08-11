@@ -1,14 +1,12 @@
 import React, {useRef, useEffect, useState} from 'react';
+import { getProjectImg } from './util';
 import { styled } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft, faAnglesLeft, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver, projectSlide} from '../animation/animation';
 import largeCircle from '../img/largeCircle.png';
-import umbrella_logo from '../img/umbrella_logo.png';
-import whatitisnt_logo from '../img/whatitisnt_logo.png';
-import momentum_img from '../img/momentum_img.png';
-import netflix_logo from '../img/netflix_logo.png';
 import theme from '../style/theme';
+
 
 
 const Container = styled.div`
@@ -224,6 +222,15 @@ const ProjectImg = styled.div`
   box-shadow: 0px 0px 10px var(--light-gray), 10px 10px 8px var(--light-gray);
   border-radius: 20px;
   transition: 0.3s;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 80%;
+    height: 40%;
+  }
   @media screen and ${theme.laptop} {
     background-size: 80%;
   }
@@ -240,6 +247,12 @@ const ProjectImg = styled.div`
     background-color: rgba(0, 0, 0, 0.7);
     opacity: 0;
     transition: 0.3s;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     h3 {
       margin: 0;
       padding: 20px;
@@ -353,8 +366,8 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
   };
 
   // mobile page project
-  // pageWidth < 768 ? setPageNum(3) : setPageNum(1); 
-  pageWidth < 768 ? setMobilePjNum(1) : setMobilePjNum(0)
+  pageWidth < 768 ? setMobilePjNum(1) : setMobilePjNum(0);
+  
   return (
     <Container>
       <div className='pattern'></div>
@@ -373,7 +386,8 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
             {(pjNum === 1 || mobilePjNum === 1) &&
             <>
               <ProjectItem itemId={1} ref={itemRef}>
-                <ProjectImg style={{backgroundImage: `url(${momentum_img})`}}>
+                <ProjectImg>
+                  <img src={getProjectImg(1)}/>
                   <div className='projectDetail'>
                     {/* <h3>HTML, CSS, JavaScript</h3> */}
                     <span>
@@ -391,7 +405,8 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
                 <ProjectName>Momentum</ProjectName>
               </ProjectItem>
               <ProjectItem itemId={2}>
-                <ProjectImg style={{backgroundImage: `url(${umbrella_logo})`}}>
+                <ProjectImg>
+                  <img src={getProjectImg(2)} alt='momentumImg'/>
                   <div className='projectDetail'>
                     <span>프로젝트 설명</span>
                   </div>
@@ -399,7 +414,8 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
                 <ProjectName>우산있어?</ProjectName>
               </ProjectItem>
               <ProjectItem itemId={3}>
-                <ProjectImg style={{backgroundImage: `url(${whatitisnt_logo})`}}>
+                <ProjectImg>
+                  <img src={getProjectImg(3)}/>
                   <div className='projectDetail'>
                     {/* <h3>React</h3> */}
                     <span>
@@ -428,7 +444,8 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
             {(pjNum === 2 || mobilePjNum === 1) &&
             <>
               <ProjectItem itemId={5}>
-                <ProjectImg style={{backgroundImage: `url(${netflix_logo})`}}>
+                <ProjectImg>
+                  <img src={getProjectImg(5)}/>
                   <div className='projectDetail'>
                     <span>프로젝트 설명</span>
                   </div>

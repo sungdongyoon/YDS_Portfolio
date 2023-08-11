@@ -141,7 +141,7 @@ const AboutMe = styled.section`
   }
   p {
     width: 70%;
-    color: var(--gray); 
+    color: var(--semi-gray); 
     font-size: 2.6rem;
     line-height: 40px;
     margin-bottom: 50px;
@@ -215,7 +215,7 @@ const AboutSkill = styled.section`
       width: 35%;
       display: flex;
       flex-direction: column;
-      color: var(--gray);
+      color: var(--semi-gray);
       margin-right: 30px;
       margin-bottom: 30px;
       @media screen and ${theme.tablet} {
@@ -229,10 +229,10 @@ const AboutSkill = styled.section`
         margin-right: 0;
       }
       h3 {
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-weight: bold;
-        padding-bottom: 10px;
-        margin-bottom: 10px;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
         border-bottom: 1px solid var(--light-gray);
         @media screen and ${theme.laptop} {
           font-size: 1.8rem;
@@ -244,7 +244,8 @@ const AboutSkill = styled.section`
       }
       p {
         font-size: 2rem;
-        letter-spacing: 1px;
+        letter-spacing: 1.5px;
+        line-height: 25px;
         @media screen and ${theme.laptop} {
           font-size: 1.6rem;
         }
@@ -301,7 +302,7 @@ const AboutExperience = styled.section`
       width: 35%;
       display: flex;
       flex-direction: column;
-      color: var(--gray);
+      color: var(--semi-gray);
       margin-right: 30px;
       margin-bottom: 30px;
       @media screen and ${theme.tablet} {
@@ -444,24 +445,25 @@ const About = ({clickMe, clickSkill, clickExperience}) => {
           <div className='about_skill_wrap'>
             <div className='about_skill_item'>
               <h3>HTML</h3>
-              <p>웹 접근성을 좋게하고 유지보수를 편하게 할 수 있도록 시멘틱 태그 사용을 지향합니다.
+              <p>
+                웹 접근성이 좋고 유지보수하기 용이한 시멘틱 태그 사용을 지향합니다. 태그에 대한 이해도가 있습니다.
               </p>
             </div>
             <div className='about_skill_item'>
               <h3>CSS</h3>
-              <p>와이어 프레임을 바탕으로 flex와 grid를 활용하여 레이아웃을 구현할 수 있고, keyframe을 활용한 애니메이션 제작, 미디어쿼리를 활용한 반응형 페이지를 제작할 수 있습니다. </p>
+              <p>flex와 grid를 활용하여 적절한 레이아웃을 구현할 수 있으며, keyframe을 활용한 애니메이션 제작, 미디어쿼리를 활용한 반응형 페이지를 제작할 수 있습니다.</p>
             </div>
             <div className='about_skill_item'>
               <h3>JavaScript</h3>
-              <p>자바스크립트</p>
+              <p>ES6 문법과 함수에 대한 이해, 바닐라 자바스크립트로 화면 제어 및 기능 구현 가능, DOM 활용 가능, 다양한 함수 메서드 활용 가능, 외부 API 데이터를 활용한 작업이 가능합니다.</p>
             </div>
             <div className='about_skill_item'>
               <h3>TypeScript</h3>
-              <p>타입스크립트</p>
+              <p>기본적인 타입스크립트 문법에 대한 이해</p>
             </div>
             <div className='about_skill_item'>
               <h3>React</h3>
-              <p>기본적인 리액트 훅 활용 가능, 라우터를 이용한 페이지 분기, 상태 최적화 경험, 비동기 처리 경험이 있습니다.</p>
+              <p>리액트를 활용한 SPA 방식 웹 개발 경험이 있고 기본적인 리액트 훅 활용 가능, 공통 컴포넌트 활용 가능, 라우터를 이용한 페이지 분기, 상태 최적화 경험, 비동기 처리 경험이 있습니다.</p>
             </div>
             <div className='about_skill_item'>
               <h3>Styled-components</h3>
@@ -478,13 +480,17 @@ const About = ({clickMe, clickSkill, clickExperience}) => {
             <div className='about_experience_item'>
               <h3>Git</h3>
               <p>
-                Git bash를 활용해 개인 프로젝트, 팀원들과 협업하는 과정에서 업데이트, 버전관리를 위해 Git을 사용한 경험이 있습니다.
+                Git bash를 활용해 프로젝트 업데이트 및 버전관리를 위해 Git을 사용한 경험이 있습니다.
               </p>
             </div>
             <div className='about_experience_item'>
               <h3>API</h3>
               <p>
                 외부 API 데이터를 활용한 경험이 있습니다.
+                <ul>
+                  <li>momentum - 날씨 데이터</li>
+                  <li>우산있어? - 카카오 지도 정보, 따릉이 대여소 데이터</li>
+                </ul>
               </p>
             </div>
             <div className='about_experience_item'>
@@ -496,7 +502,19 @@ const About = ({clickMe, clickSkill, clickExperience}) => {
             <div className='about_experience_item'>
               <h3>상태 최적화</h3>
               <p>
-                React의 useMemo(), redux를 사용해서 컴포넌트에 대한 최적화 경험이 있습니다.
+                React의 useMemo, redux를 사용해서 프로젝트 최적화 경험이 있습니다.
+              </p>
+            </div>
+            <div className='about_experience_item'>
+              <h3>Node.js</h3>
+              <p>
+                익스프레스 라이브러리를 사용하여 웹 서버 구현 경험이 있습니다.
+              </p>
+            </div>
+            <div className='about_experience_item'>
+              <h3>MySQL</h3>
+              <p>
+                MySQL Workbench와 터미널을 활용하여 간단한 데이터 테이블 생성 경험이 있습니다.
               </p>
             </div>
           </div>

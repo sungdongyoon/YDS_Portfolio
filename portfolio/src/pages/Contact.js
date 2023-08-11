@@ -1,11 +1,9 @@
 import React, {useRef, useEffect} from 'react';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
+import { getContactImg } from './util';
 import {titleObserver, contentObserver, leftCircleObserver, rightCircleObserver} from '../animation/animation';
 import largeCircle from '../img/largeCircle.png';
-import github_img from '../img/github_img.png';
-import blog_img from '../img/blog_img.png';
-import mail_img from '../img/mail_img.png';
 import theme from '../style/theme';
 
 
@@ -229,12 +227,12 @@ const Contact = ({goHome}) => {
           <p>궁금하신 사항이나<br/> 저의 부족한 부분에 대한 피드백이 있으시면 <br/> 언제든 연락주시면 감사하겠습니다.</p>
           <div className='link_wrap'>
             <Link to='https://github.com/sungdongyoon'>
-              <img src={github_img}/>
+              <img src={getContactImg(1)} alt='githubIcon'/>
             </Link>
             <Link to="https://dongyoons.tistory.com/">
-              <img src={blog_img}/>
+              <img src={getContactImg(2)} alt='blogIcon'/>
             </Link>
-            <img src={mail_img} onClick={goHome}/>
+            <img src={getContactImg(3)} onClick={goHome} alt='emailIcon'/>
           </div>
         </ContactContent>
       </ContactMain>
