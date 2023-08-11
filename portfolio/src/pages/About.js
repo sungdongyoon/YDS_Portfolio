@@ -10,6 +10,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-right: 200px;
   position: relative;
   // overflow: hidden;
   .pattern {
@@ -25,10 +26,11 @@ const Container = styled.div`
 `;
 
 const AboutMain = styled.main`
-  width: 90%;
+  width: 80%;
+  border: 1px solid red;
   // height: 1000px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   @media screen and ${theme.tablet} {
     flex-direction: column;
     justify-content: center;
@@ -40,6 +42,8 @@ const AboutMain = styled.main`
 `;
 
 const AboutTitle = styled.section`
+border: 1px solid red;
+  width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -126,7 +130,7 @@ const AboutMe = styled.section`
     padding-top: 0px;
   }
   h1 {
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: bold;
     margin-bottom: 50px;
     @media screen and ${theme.laptop} {
@@ -184,6 +188,7 @@ const AboutSkill = styled.section`
   padding-top: 200px;
   animation: ${aboutClick} ease-in-out 1s;
   transition: 1s;
+  border: 1px solid red;
   @media screen and ${theme.tablet} {
     width: 80%;
     padding-top: 0;
@@ -194,7 +199,7 @@ const AboutSkill = styled.section`
     margin-top: 0px;
   }
   h1 {
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: bold;
     margin-bottom: 30px;
     color: var(--gray);
@@ -206,13 +211,15 @@ const AboutSkill = styled.section`
     }
   }
   .about_skill_wrap {
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
+    border: 1px solid blue;
     @media screen and ${theme.mobile} {
       justify-content: space-between;
     }
     .about_skill_item {
-      width: 35%;
+      width: 30%;
       display: flex;
       flex-direction: column;
       color: var(--semi-gray);
@@ -229,7 +236,7 @@ const AboutSkill = styled.section`
         margin-right: 0;
       }
       h3 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: bold;
         padding-bottom: 15px;
         margin-bottom: 15px;
@@ -243,7 +250,7 @@ const AboutSkill = styled.section`
         }
       }
       p {
-        font-size: 2rem;
+        font-size: 1.5rem;
         letter-spacing: 1.5px;
         line-height: 25px;
         @media screen and ${theme.laptop} {
@@ -280,7 +287,7 @@ const AboutExperience = styled.section`
     margin-top: 0px;
   }
   h1 {
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: bold;
     margin-bottom: 30px;
     color: var(--gray);
@@ -316,7 +323,7 @@ const AboutExperience = styled.section`
         margin-right: 0;
       }
       h3 {
-        font-size: 3rem;
+        font-size: 2rem;
         font-weight: bold;
         padding-bottom: 10px;
         margin-bottom: 10px;
@@ -330,7 +337,7 @@ const AboutExperience = styled.section`
         }
       }
       p {
-        font-size: 2rem;
+        font-size: 1.5rem;
         letter-spacing: 1px;
         @media screen and ${theme.laptop} {
           font-size: 1.6rem;

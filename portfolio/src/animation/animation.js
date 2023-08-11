@@ -116,6 +116,3 @@ let projectSlide = keyframes`
 `;
 
 export {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver, homeArrow, aboutClick, projectSlide};
-
-
-
