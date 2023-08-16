@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect, useRef, useState } from 'react';
 import { styled } from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import GlobalStyle from './style/GlobalStyle';
 import Header from './Components/Header';
 import Dots from './Components/Dots';
@@ -163,9 +163,6 @@ function App() {
   
   // About show & hide
   const dispatch = useDispatch();
-  const clickMe = () => {
-    dispatch({type: "CLICK_ME"});
-  };
   const clickSkill = () => {
     dispatch({type: "CLICK_SKILL"});
   };
@@ -189,7 +186,6 @@ function App() {
     goContact,
   }
   const clickProps = {
-    clickMe,
     clickSkill,
     clickExperience,
   }

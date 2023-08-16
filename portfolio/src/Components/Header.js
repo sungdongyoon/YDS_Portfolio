@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
 import { useSelector } from 'react-redux';
-import theme from '../style/theme';
+import responsive from '../style/responsive';
 
 const Container = styled.header`
   height: 100px;
@@ -15,10 +15,10 @@ const Container = styled.header`
   right: 0;
   bottom: 0;
   z-index: 10;
-  @media screen and ${theme.laptop} {
+  @media screen and ${responsive.laptop} {
     font-size: 1.8rem;
   }
-  @media screen and ${theme.iphone12Pro} {
+  @media screen and ${responsive.iphone12Pro} {
     height: 80px;
   }
 `;
@@ -32,7 +32,7 @@ const Logo = styled.span`
   font-size: 3.5rem;
   font-weight: bold;
   color: var(--gray);
-  @media screen and ${theme.iphone12Pro} {
+  @media screen and ${responsive.iphone12Pro} {
     width: 30%;
     font-size: 2.5rem;
   }
@@ -44,14 +44,14 @@ const HeaderInfo = styled.div`
   align-items: center;
   width: 40%;
   height: 100%;
-  @media screen and ${theme.tablet} {
+  @media screen and ${responsive.tablet} {
     display: none;
   }
   span {
     font-size: 1.6rem;
     color: var(--gray);
     margin-right: 50px;
-    @media screen and ${theme.laptop} {
+    @media screen and ${responsive.laptop} {
       margin-right: 30px;
     }
   }
@@ -95,7 +95,7 @@ const ToggleBtn = styled.div`
     transition: 1s;
     transform: ${(props) => props.isToggle ? "translateY(-8px) rotate(-45deg)" : "rotate(0) translateY(0)"};
   }
-  @media screen and ${theme.tablet} {
+  @media screen and ${responsive.tablet} {
     display: block;
   }
 `;
@@ -143,10 +143,10 @@ const MobileNavMenu = styled.div`
       cursor: pointer;
     }
   }
-  @media screen and ${theme.tablet} {
+  @media screen and ${responsive.tablet} {
     display: block;
   }
-  @media screen and ${theme.iphone12Pro} {
+  @media screen and ${responsive.iphone12Pro} {
     ul {
       li {
         font-size: 3rem;

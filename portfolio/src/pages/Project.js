@@ -4,8 +4,9 @@ import { styled } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft, faAnglesLeft, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver, projectSlide} from '../animation/animation';
+import ProjectModal from '../Components/ProjectModal';
 import largeCircle from '../img/largeCircle.png';
-import theme from '../style/theme';
+import responsive from '../style/responsive';
 
 
 
@@ -15,7 +16,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  // overflow: hidden;
+  overflow: hidden;
   .pattern {
     width: 500px;
     height: 290px;
@@ -26,59 +27,50 @@ const Container = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
   }
+  @media screen and ${responsive.laptop} {
+    border: 3px solid yellow;
+  }
+  @media screen and ${responsive.tablet} {
+    border: 3px solid red;
+    padding-right: 0;
+  }
+  @media screen and ${responsive.mobile} {
+    border: 3px solid blue;
+  }
 `;
 
 const ProjectMain = styled.main`
-  width: 90%;
+  width: 80%;
   height: 1000px;
   display: flex;
-  justify-content: space-evenly;
-  @media screen and ${theme.tablet} {
+  justify-content: space-between;
+  @media screen and ${responsive.tablet} {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  @media screen and ${theme.mobile} {
+  @media screen and ${responsive.mobile} {
     height: 650px;
   }
 `;
 
 const ProjectTitle = styled.section`
+  width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
   gap: 30px;
-  @media screen and ${theme.tablet} {
-    width: 80%;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
   h1 {
     font-size: var(--page-title);
     font-weight: bold;
     color: var(--sky-blue);
     transition: 0.5s;
-    @media screen and ${theme.laptop} {
-      font-size: 10rem;
-    }
-    @media screen and ${theme.tablet} {
-      font-size: 8rem;
-    }
-    @media screen and ${theme.mobile} {
-      font-size: 6rem;
-    }
-    @media screen and ${theme.iphone12Pro} {
-      font-size: 5rem;
-    }
   }
   .slide_arrow {
     font-size: 3rem;
     color: var(--gray);
     transition: 1s;
-    @media screen and ${theme.mobile} {
-      display: none;
-    }
     .slide_left {
       margin-right: 20px;
     }
@@ -88,46 +80,85 @@ const ProjectTitle = styled.section`
     .slide_right,
     .slide_left {
       cursor: pointer;
-      @media screen and ${theme.laptop} {
-        font-size: 2.6rem;
-      }
-      @media screen and ${theme.tablet} {
-        font-size: 2rem;
-      }
     }
     span {
       width: 150px;
       display: inline-block;
       font-size: 3rem;
       text-align: center;
-      @media screen and ${theme.laptop} {
+    }
+  }
+  @media screen and ${responsive.laptop} {
+    h1 {
+      font-size: 10rem;
+    }
+    .slide_arrow {
+      .slide_right,
+      .slide_left {
         font-size: 2.6rem;
       }
-      @media screen and ${theme.tablet} {
+      span {
+        font-size: 2.6rem;
+      }
+    }
+  }
+  @media screen and ${responsive.tablet} {
+    width: 80%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    h1 {
+      font-size: 8rem;
+    }
+    .slide_arrow {
+      .slide_right,
+      .slide_left {
         font-size: 2rem;
       }
+      span {
+        font-size: 2rem;
+      }
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    h1 {
+      font-size: 6rem;
+    }
+    .slide_arrow {
+      display: none;
+    }
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    h1 {
+      font-size: 5rem;
     }
   }
 `;
 
 const ProjectContent = styled.section`
-  width: 60%;
+  width: 65%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 200px;
+  margin-top: 200px;
   position: relative;
   transition: 1s;
-  span {
+  .notice {
     color: var(--red);
     font-size: 1.8rem;
+    margin-bottom: 20px;
   }
-  @media screen and ${theme.tablet} {
+  @media screen and ${responsive.laptop} {
+    width: 50%;
+    margin-top: 300px;
+    margin-right: 150px;
+  }
+  @media screen and ${responsive.tablet} {
     width: 80%;
-    padding-top: 0;
     margin-top: 50px;
+    margin-right: 0;
   }
-  @media screen and ${theme.mobile} {
+  @media screen and ${responsive.mobile} {
+    border: 1px solid black;
     height: 300px;
     margin-top: 0px;
     padding: 10px;
@@ -155,7 +186,7 @@ const SliderBtn = styled.div`
   .count {
     font-size: 2rem;
   }
-  @media screen and ${theme.mobile} {
+  @media screen and ${responsive.mobile} {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -166,20 +197,20 @@ const SliderBtn = styled.div`
 const ProjectWrap = styled.div`
   width: 70%;
   height: 100%;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  @media screen and ${theme.laptop} {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  border: 1px solid red;
+  @media screen and ${responsive.laptop} {
     width: 500px;
   }
-  @media screen and ${theme.tablet} {
+  @media screen and ${responsive.tablet} {
     width: 100%;
     padding: 0;
     padding-top: 20px;
   }
-  @media screen and ${theme.mobile} {
-    flex-direction: column;
+  @media screen and ${responsive.mobile} {
+    display: flex;
+    flex-direction: row;
     padding-top: 10px;
     transition: 0.5s;
   }
@@ -187,27 +218,29 @@ const ProjectWrap = styled.div`
 
 
 const ProjectItem = styled.div`
-  width: 45%;
-  height: 50%;
+  width: 80%;
+  min-width: 300px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  margin-bottom: 50px;
+  justify-content: center;
+  padding: 10px;
   animation: ${projectSlide} ease-in-out 0.7s;
-  @media screen and ${theme.laptop} {
+  border: 1px solid blue;
+  @media screen and ${responsive.laptop} {
+    height: 300px;
+    min-width: 250px;
+  }
+  @media screen and ${responsive.tablet} {
+    width: 90%;
     height: 300px;
   }
-  @media screen and ${theme.tablet} {
-    width: 45%;
-    height: 250px;
-  }
-  @media screen and ${theme.mobile} {
+  @media screen and ${responsive.mobile} {
     width: 100%;
     height: 100%;
     margin-bottom: 0px;
     margin-right: 20px;
   }
-  @media screen and ${theme.iphone12Pro} {
+  @media screen and ${responsive.iphone12Pro} {
     width: 281px;
   }
 `;
@@ -215,61 +248,38 @@ const ProjectItem = styled.div`
 const ProjectImg = styled.div`
   width: 100%;
   height: 100%;
-  background-size: 70%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-color: #fff;
   box-shadow: 0px 0px 10px var(--light-gray), 10px 10px 8px var(--light-gray);
+  background-color: var(--white);
   border-radius: 20px;
   transition: 0.3s;
-
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   img {
     width: 80%;
     height: 40%;
   }
-  @media screen and ${theme.laptop} {
-    background-size: 80%;
-  }
-  @media screen and ${theme.tablet} {
-    background-size: 70%;
-  }
-  @media screen and ${theme.mobile} {
-    background-size: 60%;
-  }
   .projectDetail {
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.7);
     opacity: 0;
     transition: 0.3s;
-
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    h3 {
-      margin: 0;
-      padding: 20px;
-      color: var(--white);
-      @media screen and ${theme.laptop} {
-        font-size: 1.6rem;
-      }
-    }
     span {
-      display: block;
       padding: 20px;
       color: var(--white);
-    }
-    li {
-      list-style: circle;
-      color: var(--white);
-      margin-bottom: 10px;
+      font-size: 2rem;
     }
   }
   &:hover .projectDetail {
@@ -280,10 +290,15 @@ const ProjectImg = styled.div`
 const ProjectName = styled.div`
   font-size: 2rem;
   margin-top: 20px;
-  cursor: pointer;
-  @media screen and ${theme.mobile} {
+  text-align: center;
+  @media screen and ${responsive.laptop} {
+    font-size: 1.8rem;
+  }
+  @media screen and ${responsive.tablet} {
+    font-size: 1.6rem;
+  }
+  @media screen and ${responsive.mobile} {
     font-size: 1.4rem;
-    text-align: center;
   }
 `;
 
@@ -295,11 +310,11 @@ const LeftCircle = styled.div`
   height: 600px;
   border-radius: 50%;
   z-index: -10;
-  @media screen and ${theme.laptop} {
+  @media screen and ${responsive.laptop} {
     width: 500px;
     height: 500px;
   }
-  @media screen and ${theme.mobile} {
+  @media screen and ${responsive.mobile} {
     width: 400px;
     height: 400px;
   }
@@ -317,11 +332,11 @@ const RightCircle = styled.div`
   height: 700px;
   right: -200px;
   z-index: -1;
-  @media screen and ${theme.laptop} {
-    width: 550px;
-    height: 550px;
+  @media screen and ${responsive.laptop} {
+    width: 500px;
+    height: 500px;
   }
-  @media screen and ${theme.mobile} {
+  @media screen and ${responsive.mobile} {
     width: 400px;
     height: 400px;
   }
@@ -367,9 +382,20 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
 
   // mobile page project
   pageWidth < 768 ? setMobilePjNum(1) : setMobilePjNum(0);
+
+  // project modal
+  const [isModal, setIsModal] = useState(false);
+  const [modalNum, setModalNum] = useState(0);
+  const showModal = (modalNum) => {
+    setIsModal(!isModal);
+    setModalNum(modalNum);
+  }
+  const closeModal = () => {
+    setIsModal(false);
+  }
   
   return (
-    <Container>
+    <Container isModal={isModal}>
       <div className='pattern'></div>
       <ProjectMain>
         <ProjectTitle>
@@ -381,60 +407,42 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
           </div>
         </ProjectTitle>
         <ProjectContent ref={contentRef}>
-          <span>* 제목 클릭 시 해당 페이지로 이동합니다.</span>
+          <span className='notice'>* 제목 클릭 시 해당 페이지로 이동합니다.</span>
           <ProjectWrap style={pageWidth < 768 ? {transform: `translateX(${slidePx}px)`} : {transform: `translateX(0px)`}}>
             {(pjNum === 1 || mobilePjNum === 1) &&
             <>
               <ProjectItem itemId={1} ref={itemRef}>
-                <ProjectImg>
-                  <img src={getProjectImg(1)}/>
+                <ProjectImg onClick={() => showModal(1)}>
+                  <img src={getProjectImg(3)} alt='momentumImg'/>
                   <div className='projectDetail'>
-                    {/* <h3>HTML, CSS, JavaScript</h3> */}
-                    <span>
-                      자바스크립트의 기본적인 기능들을 활용하여 제작한 momentum 페이지 입니다.
-                    </span>
-                    {/* <ul>
-                      <li>랜덤 배경화면</li>
-                      <li>디지털 시계 & 날짜</li>
-                      <li>랜덤 명언</li>
-                      <li>Todo List</li>
-                      <li>현재 날씨</li>
-                    </ul> */}
+                    <span>자세히 보기</span>
                   </div>
                 </ProjectImg>
                 <ProjectName>Momentum</ProjectName>
               </ProjectItem>
               <ProjectItem itemId={2}>
-                <ProjectImg>
-                  <img src={getProjectImg(2)} alt='momentumImg'/>
+                <ProjectImg onClick={() => showModal(2)}>
+                  <img src={getProjectImg(3)} alt='umbrellaImg'/>
                   <div className='projectDetail'>
-                    <span>프로젝트 설명</span>
+                    <span>자세히 보기</span>
                   </div>
                 </ProjectImg>
                 <ProjectName>우산있어?</ProjectName>
               </ProjectItem>
               <ProjectItem itemId={3}>
-                <ProjectImg>
-                  <img src={getProjectImg(3)}/>
+                <ProjectImg onClick={() => showModal(3)}>
+                  <img src={getProjectImg(3)} alt='whatItIsntImg'/>
                   <div className='projectDetail'>
-                    {/* <h3>React</h3> */}
-                    <span>
-                      리액트를 사용하여 만든 와릿이즌 홈페이지입니다.
-                    </span>
-                    {/* <ul>
-                      <li>상단 스토어 버튼, 배너 카테고리 클릭 시 제품 리스트 페이지로 이동</li>
-                      <li>메인페이지 베스트아이템 슬라이드 구현</li>
-                      <li>로그인 & 로그아웃 구현</li>
-                      <li>제품 상세 페이지 수량 및 가격, 상세설명 아코디언 구현</li>
-                    </ul> */}
+                    <span>자세히 보기</span>
                   </div>
                 </ProjectImg>
                 <ProjectName>WhatItIsnt</ProjectName>
               </ProjectItem>
               <ProjectItem itemId={4}>
-                  <ProjectImg>
+                  <ProjectImg onClick={() => showModal(4)}>
+                    <img src={getProjectImg(3)} alt='diaryImg'/>
                     <div className='projectDetail'>
-                      <span>프로젝트 설명</span>
+                      <span>자세히 보기</span>
                     </div>
                   </ProjectImg>
                 <ProjectName>My Diary Book</ProjectName>
@@ -444,34 +452,37 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
             {(pjNum === 2 || mobilePjNum === 1) &&
             <>
               <ProjectItem itemId={5}>
-                <ProjectImg>
-                  <img src={getProjectImg(5)}/>
+                <ProjectImg onClick={() => showModal(5)}>
+                  <img src={getProjectImg(3)} alt='netflixImg'/>
                   <div className='projectDetail'>
-                    <span>프로젝트 설명</span>
+                    <span>자세히 보기</span>
                   </div>
                 </ProjectImg>
                 <ProjectName>Netflix</ProjectName>
               </ProjectItem>
               <ProjectItem itemId={6}>
-                <ProjectImg>
+                <ProjectImg onClick={() => showModal(6)}>
+                  <img src={getProjectImg(3)} alt='catMbtiImg'/>
                   <div className='projectDetail'>
-                    <span>프로젝트 설명</span>
+                    <span>자세히 보기</span>
                   </div>
                 </ProjectImg>
-                <ProjectName>mbti 고양이</ProjectName>
+                <ProjectName>고양이 MBTI</ProjectName>
               </ProjectItem>
               <ProjectItem itemId={7}>
-                <ProjectImg>
+                <ProjectImg onClick={() => showModal(7)}>
+                  <img src={getProjectImg(3)} alt='portfolioImg'/>
                   <div className='projectDetail'>
-                    <span>프로젝트 설명</span>
+                    <span>자세히 보기</span>
                   </div>
                 </ProjectImg>
                 <ProjectName>YDS 포트폴리오</ProjectName>
               </ProjectItem>
               <ProjectItem itemId={8}>
-                <ProjectImg>
+                <ProjectImg onClick={() => showModal(8)}>
+                  <img src={getProjectImg(3)} alt='momentumImg'/>
                   <div className='projectDetail'>
-                    <span>프로젝트 설명</span>
+                    <span>자세히 보기</span>
                   </div>
                 </ProjectImg>
                 <ProjectName>프로젝트</ProjectName>
@@ -485,6 +496,7 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
             <FontAwesomeIcon icon={faAnglesRight} className='rightBtn' onClick={nextCount}/>
           </SliderBtn>
         </ProjectContent>
+        {isModal && <ProjectModal modalNum={modalNum} closeModal={closeModal}/>}
       </ProjectMain>
       <LeftCircle>
         <img src={largeCircle} ref={leftCircleRef}/>

@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { homeArrow } from '../animation/animation';
+import responsive from '../style/responsive';
 
 const Container = styled.div`
   height: 100vh;
@@ -14,6 +15,12 @@ const Container = styled.div`
   background-image: linear-gradient(#B0D2F5, #D6E6F5);
   position: relative;
   z-index: -10;
+  @media screen and ${responsive.tablet} {
+    border: 3px solid red;
+  }
+  @media screen and ${responsive.mobile} {
+    border: 3px solid blue;
+  }
 `;
 
 const HomeTitle = styled.header`
@@ -25,13 +32,36 @@ const HomeTitle = styled.header`
     text-shadow: 0 0 20px var(--blue);
     letter-spacing: 5px;
   }
+  @media screen and ${responsive.laptop} {
+    h1 {
+      font-size: 10rem;
+    }
+  }
+  @media screen and ${responsive.tablet} {
+    h1 {
+      font-size: 8rem;
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    h1 {
+      font-size: 5rem;
+      -webkit-text-stroke: 3px var(--white);
+    }
+  }
 `;
 
 const HomeSubTitle = styled.div`
   font-size: 4rem;
   font-weight: bold;
   color: var(--white);
+  letter-spacing: 3px;
   text-shadow: 0 0 20px var(--blue);
+  @media screen and ${responsive.tablet} {
+    font-size: 3rem;
+  }
+  @media screen and ${responsive.mobile} {
+    font-size: 2rem;
+  }
 `;
 
 const HomeArrow = styled.div`
@@ -43,30 +73,33 @@ const HomeArrow = styled.div`
   position: absolute;
   bottom: 100px;
   animation: ${homeArrow} 1s ease-in-out infinite;
-  border: 1px solid red;
   span {
     font-size: 2.5rem;
   }
   .chevronDownTop {
     display: block;
-    transform: translateY(30px);
   }
   .chevronDownBottom {
     display: block;
+    transform: translateY(-30px);
+  }
+  @media screen and ${responsive.laptop} {
+    font-size: 4rem;
+    span {
+      font-size: 2rem;
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    font-size: 3rem;
+    span {
+      font-size: 1.5rem;
+    }
+    .chevronDownBottom {
+      transform: translateY(-20px);
+    }
   }
 `;
 
-const Bubble = styled.div`
-  width: ${(props) => props.width}px;
-  height: ${(props) => props.height}px;
-  border-radius: 50%;
-  background-color: var(--sky-blue);
-  position: absolute;
-  left: ${(props) => props.left}%;
-  right: ${(props) => props.right}%;
-  top: ${(props) => props.top}%;
-  z-index: -1;
-`;
 
 const Home = () => {
   return (
@@ -82,7 +115,6 @@ const Home = () => {
         <FontAwesomeIcon className='chevronDownTop' icon={faChevronDown}/>
         <FontAwesomeIcon className='chevronDownBottom' icon={faChevronDown}/>
       </HomeArrow>
-      {/* <Bubble width={800} height={800} left={50} top={50} color={'blue'}/> */}
     </Container>
   )
 }

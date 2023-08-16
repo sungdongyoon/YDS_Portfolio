@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import theme from '../style/theme';
+import responsive from '../style/responsive';
 
 const DotsWrap = styled.nav`
   position: fixed;
@@ -8,7 +8,7 @@ const DotsWrap = styled.nav`
   transform: translateY(-50%);
   right: 3%;
   z-index: 10;
-  @media screen and ${theme.laptop} {
+  @media screen and ${responsive.laptop} {
     right: 50px;
   }
 `;
@@ -19,7 +19,7 @@ const Dot = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   height: 400px;
-  @media screen and ${theme.laptop} {
+  @media screen and ${responsive.laptop} {
     height: 300px;
   }
 `;
@@ -30,10 +30,10 @@ const DotTitle = styled.div`
   color: ${(props) => props.num === props.scrollIndex ? "#0079FF" : "#fff"};
   cursor: pointer;
   transition: 1s;
-  @media screen and ${theme.laptop} {
+  @media screen and ${responsive.laptop} {
     font-size: 30px;
   }
-  @media screen and ${theme.tablet} {
+  @media screen and ${responsive.tablet} {
     display: none;
   }
 `;

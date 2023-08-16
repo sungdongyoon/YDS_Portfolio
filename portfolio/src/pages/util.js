@@ -5,6 +5,7 @@ import netflixImg from "../img/netflix_logo.png";
 import blogImg from "../img/blog_img.png";
 import githubImg from "../img/github_img.png";
 import mailImg from "../img/mail_img.png";
+import personImg from "../img/person.png";
 
 export const getProjectImg = (projectId) => {
   const targetProjectImg = String(projectId);
@@ -31,6 +32,8 @@ export const getContactImg = (contactId) => {
       return blogImg;
     case "3":
       return mailImg;
+    case "4":
+      return personImg;
     default:
       return null;
   }

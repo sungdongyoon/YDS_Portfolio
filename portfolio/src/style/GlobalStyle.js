@@ -3,10 +3,6 @@ import {reset} from "styled-reset";
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    --primary-color: #7a22d6;
-    --font-regular: 1rem;
-    --font-small: 0.8rem;
-    
     --page-title: 17rem;
     --page-subTitle: 5rem;
 
@@ -36,6 +32,7 @@ const GlobalStyle = createGlobalStyle`
   }
   a{
     text-decoration: none;
+    color: var(--black);
   }
   ol, ul{
     list-style: none;

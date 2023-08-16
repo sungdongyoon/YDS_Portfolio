@@ -2,11 +2,14 @@ import { keyframes } from "styled-components";
 
 // Scroll Animation
 
+const options = {
+  threshold: [0, 0.5, 1],
+}
+
 let titleObserver = new IntersectionObserver((e) => {
   e.forEach((el) => {
     if(el.isIntersecting) {
       el.target.style.opacity = 1;
-      // el.target.style.transitionDelay = '0.3s';
       el.target.style.transform = "translateX(0)";
     } else {
       el.target.style.opacity = 0;
@@ -19,7 +22,6 @@ let subTitleObserver = new IntersectionObserver((e) => {
   e.forEach((el) => {
     if(el.isIntersecting) {
       el.target.style.opacity = 1;
-      // el.target.style.transitionDelay = '0.3s';
       el.target.style.transform = "translateX(0)";
     } else {
       el.target.style.opacity = 0;
@@ -32,7 +34,6 @@ let contentObserver = new IntersectionObserver((e) => {
   e.forEach((el) => {
     if(el.isIntersecting) {
       el.target.style.opacity = 1;
-      // el.target.style.transitionDelay = '1s';
       // el.target.style.transform = "translateY(0)";
       el.target.style.transform = "scale(1)";
     } else {
@@ -47,20 +48,18 @@ let leftCircleObserver = new IntersectionObserver((e) => {
   e.forEach((el) => {
     if(el.isIntersecting) {
       el.target.style.opacity = 1;
-      // el.target.style.transitionDelay = '0.3s';
-      el.target.style.transform = "translateX(-50%) translateY(-50%)";
+      el.target.style.transform = "translateX(0) translateY(0)";
     } else {
       el.target.style.opacity = 0;
-      el.target.style.transform = "translateX(0%) translateY(0%)";
+      el.target.style.transform = "translateX(-50%) translateY(-50%)";
     }
   })
-})
+}, options)
 
 let rightCircleObserver = new IntersectionObserver((e) => {
   e.forEach((el) => {
     if(el.isIntersecting) {
       el.target.style.opacity = 1;
-      // el.target.style.transitionDelay = '0.3s';
       el.target.style.transform = "translateX(0)";
     } else {
       el.target.style.opacity = 0;
