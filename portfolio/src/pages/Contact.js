@@ -24,6 +24,15 @@ const Container = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
   }
+  @media screen and ${responsive.laptop} {
+    border: 3px solid yellow;
+  }
+  @media screen and ${responsive.tablet} {
+    border: 3px solid red;
+  }
+  @media screen and ${responsive.mobile} {
+    border: 3px solid blue;
+  }
 `;
 
 const ContactMain = styled.main`
@@ -35,9 +44,10 @@ const ContactMain = styled.main`
   gap: 50px;
   margin-top: 100px;
   position: relative;
+  @media screen and ${responsive.laptop} {
+    width: 800px;
+  }
   @media screen and ${responsive.tablet} {
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
   }
   @media screen and ${responsive.iphone12Pro} {
@@ -50,33 +60,30 @@ const ContactTitle = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  @media screen and ${responsive.laptop} {
-    top: 35%;
-  }
-  @media screen and ${responsive.tablet} {
-    justify-content: flex-start;
-    align-items: flex-start;
-    top: 25%;
-  }
-  @media screen and ${responsive.iphone12Pro} {
-    top: 15%;
-  }
   h1 {
     font-size: 7rem;
     -webkit-text-stroke: 1px var(--blue);
     font-weight: bold;
     color: var(--blue);
     transition: 1s;
-    @media screen and ${responsive.laptop} {
-      font-size: 12rem;
+  }
+  @media screen and ${responsive.laptop} {
+    h1 {
+      font-size: 5rem;
     }
-    @media screen and ${responsive.tablet} {
-      font-size: 10rem;
+  }
+  @media screen and ${responsive.tablet} {
+    h1 {
+      font-size: 6rem;
     }
-    @media screen and ${responsive.mobile} {
-      font-size: 7rem;
+  }
+  @media screen and ${responsive.mobile} {
+    h1 {
+      font-size: 4rem;
     }
-    @media screen and ${responsive.iphone12Pro} {
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    h1 {
       font-size: 5rem;
     }
   }
@@ -89,14 +96,6 @@ const ContactContent = styled.section`
   align-items: flex-start;
   justify-content: center;
   transition: 1.5s;
-  @media screen and ${responsive.tablet} {
-    width: 80%;
-    padding-top: 0;
-    margin-top: 100px;
-  }
-  @media screen and ${responsive.iphone12Pro} {
-    margin-top: 0px;
-  }
   .contact_wrap {
     width: 85%;
     display: flex;
@@ -108,14 +107,6 @@ const ContactContent = styled.section`
       font-weight: bold;
       color: var(--gray); 
       line-height: 70px;
-      @media screen and ${responsive.laptop} {
-        font-size: 2.4rem;
-      }
-      @media screen and ${responsive.mobile} {
-        width: 100%;
-        font-size: 2rem;
-        color: var(--gray);
-      }
     }
     img {
       border-radius: 30px;
@@ -131,9 +122,6 @@ const ContactContent = styled.section`
     align-items: center;
     gap: 20px;
     position: relative;
-    @media screen and ${responsive.mobile} {
-      width: 100%;
-    }
     .link_item {
       display: flex;
       justify-content: center;
@@ -150,6 +138,63 @@ const ContactContent = styled.section`
       width: 30px;
     }
   }
+  @media screen and ${responsive.laptop} {
+    .contact_wrap {
+      width: 90%;
+      p {
+        font-size: 1.8rem;
+      }
+      img {
+        width: 300px;
+      }
+    }
+    .link_wrap {
+      .link_item {
+        height: 40px;
+        font-size: 1.3rem;
+      }
+      img {
+        width: 25px;
+      }
+    }
+  }
+  @media screen and ${responsive.tablet} {
+    width: 80%;
+    align-items: center;
+    padding-top: 0;
+    .contact_wrap {
+      justify-content: center;
+      text-align: center;
+      p {
+        font-size: 2rem;
+      }
+      img {
+        display: none;
+      }
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    .contact_wrap {
+      p {
+        width: 100%;
+        font-size: 1.5rem;
+        color: var(--gray);
+      }
+    }
+    .link_wrap {
+      .link_item {
+        height: 30px;
+        font-size: 1rem;
+        padding: 0 15px;
+      }
+      img {
+        width: 20px;
+      }
+    }
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    margin-top: 0px;
+  }
 `
 
 const Footer = styled.footer`
@@ -158,15 +203,30 @@ const Footer = styled.footer`
   bottom: 0;
   right: 0;
   left: 0;
-  @media screen and ${responsive.mobile} {
-    height: 80px;
-  }
   p {
     font-size: 2rem;
     color: var(--gray);
     text-align: center;
-    @media screen and ${responsive.mobile} {
+  }
+  @media screen and ${responsive.laptop} {
+    height: 80px;
+    p {
+      font-size: 1.6rem;
+    }
+  }
+  @media screen and ${responsive.tablet} {
+    p {
       font-size: 1.2rem;
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    p {
+      font-size: 1rem;
+    }
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    p {
+      font-size: 0.8rem;
     }
   }
 `;

@@ -158,14 +158,13 @@ const ProjectContent = styled.section`
     margin-right: 0;
   }
   @media screen and ${responsive.mobile} {
-    border: 1px solid black;
-    height: 300px;
+    height: 400px;
     margin-top: 0px;
-    padding: 10px;
+    padding: 0;
     padding-top: 40px;
     margin-bottom: 50px;
-    span {
-      font-size: 1.2rem;
+    .notice {
+      font-size: 1.3rem;
     }
   }
 `;
@@ -199,7 +198,6 @@ const ProjectWrap = styled.div`
   height: 100%;
   display: grid;
   grid-template-columns: repeat(2, auto);
-  border: 1px solid red;
   @media screen and ${responsive.laptop} {
     width: 500px;
   }
@@ -210,8 +208,8 @@ const ProjectWrap = styled.div`
   }
   @media screen and ${responsive.mobile} {
     display: flex;
-    flex-direction: row;
-    padding-top: 10px;
+    gap: 30px;
+    padding-top: 0;
     transition: 0.5s;
   }
 `;
@@ -225,7 +223,6 @@ const ProjectItem = styled.div`
   justify-content: center;
   padding: 10px;
   animation: ${projectSlide} ease-in-out 0.7s;
-  border: 1px solid blue;
   @media screen and ${responsive.laptop} {
     height: 300px;
     min-width: 250px;
@@ -235,10 +232,9 @@ const ProjectItem = styled.div`
     height: 300px;
   }
   @media screen and ${responsive.mobile} {
-    width: 100%;
     height: 100%;
-    margin-bottom: 0px;
-    margin-right: 20px;
+    min-width: 100%;
+    padding: 0;
   }
   @media screen and ${responsive.iphone12Pro} {
     width: 281px;
@@ -373,11 +369,11 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
 
   const prevCount = () => {
     itemId > 1 && setItemId(itemId - 1);
-    pageWidth < 392 ? (slidePx < 0 && setSlidePx(slidePx + 301)) : (slidePx < 0 && setSlidePx(slidePx + (itemWidth + 20)));
+    pageWidth < 392 ? (slidePx < 0 && setSlidePx(slidePx + 310)) : (slidePx < 0 && setSlidePx(slidePx + (itemWidth + 30)));
   };
   const nextCount = () => {
     itemId < 8 && setItemId(itemId + 1);
-    pageWidth < 392 ? (slidePx > -2107 && setSlidePx(slidePx - 301)) : (slidePx > -(itemWidth * 7) && setSlidePx(slidePx - (itemWidth + 20)));
+    pageWidth < 392 ? (slidePx > -2107 && setSlidePx(slidePx - 310)) : (slidePx > -(itemWidth * 7) && setSlidePx(slidePx - (itemWidth + 30)));
   };
 
   // mobile page project

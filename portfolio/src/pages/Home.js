@@ -44,7 +44,7 @@ const HomeTitle = styled.header`
   }
   @media screen and ${responsive.mobile} {
     h1 {
-      font-size: 5rem;
+      font-size: 4rem;
       -webkit-text-stroke: 3px var(--white);
     }
   }

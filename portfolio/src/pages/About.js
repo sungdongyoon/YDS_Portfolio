@@ -105,6 +105,7 @@ const Subtitle = styled.div`
     font-weight: bold;
     transition: 0.5s;
     cursor: pointer;
+    mix-blend-mode: multiply;
     &:hover {
       border-bottom: 5px solid var(--sky-blue);
     }
@@ -130,7 +131,6 @@ const Subtitle = styled.div`
   @media screen and ${responsive.iphone12Pro} {
     span {
       font-size: 2rem;
-      text-shadow: 5px 5px 10px var(--white),
       -5px -5px 10px var(--white);
       margin-bottom: 0px;
     }
@@ -282,6 +282,7 @@ const AboutSkill = styled.section`
       color: var(--semi-gray);
       margin-right: 30px;
       margin-bottom: 30px;
+      mix-blend-mode: multiply;
       h3 {
         font-size: 2rem;
         font-weight: bold;
@@ -324,11 +325,8 @@ const AboutSkill = styled.section`
   @media screen and ${responsive.mobile} {
     .about_skill_wrap {
       .about_skill_item {
-        text-shadow: 5px 5px 10px var(--white),
-        -5px -5px 10px var(--white);
         h3 {
           font-size: 1.4rem;
-          box-shadow: 0px 5px 5px -5px var(--white);
         }
         p {
           font-size: 1.2rem;
@@ -375,6 +373,7 @@ const AboutExperience = styled.section`
       color: var(--semi-gray);
       margin-right: 30px;
       margin-bottom: 30px;
+      mix-blend-mode: multiply;
       h3 {
         font-size: 2rem;
         font-weight: bold;
@@ -417,11 +416,8 @@ const AboutExperience = styled.section`
   @media screen and ${responsive.mobile} {
     .about_experience_wrap {
       .about_experience_item {
-        text-shadow: 5px 5px 10px var(--white),
-        -5px -5px 10px var(--white);
         h3 {
           font-size: 1.4rem;
-          box-shadow: 0px 5px 5px -5px var(--white);
         }
         p {
           font-size: 1.2rem;
