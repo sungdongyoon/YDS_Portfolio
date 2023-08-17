@@ -27,15 +27,8 @@ const Container = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
   }
-  @media screen and ${responsive.laptop} {
-    border: 3px solid yellow;
-  }
   @media screen and ${responsive.tablet} {
-    border: 3px solid red;
     padding-right: 0;
-  }
-  @media screen and ${responsive.mobile} {
-    border: 3px solid blue;
   }
 `;
 
@@ -238,8 +231,6 @@ const ProjectItem = styled.div`
     min-width: 100%;
     padding: 0;
   }
-  @media screen and ${responsive.iphone12Pro} {
-  }
 `;
 
 const ProjectImg = styled.div`
@@ -373,11 +364,11 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
 
   const prevCount = () => {
     itemId > 1 && setItemId(itemId - 1);
-    pageWidth < 392 ? (slidePx < 0 && setSlidePx(slidePx + 310)) : (slidePx < 0 && setSlidePx(slidePx + (itemWidth + 30)));
+    pageWidth <= 768 && (slidePx < 0 && setSlidePx(slidePx + (itemWidth + 30)));
   };
   const nextCount = () => {
     itemId < 8 && setItemId(itemId + 1);
-    pageWidth < 392 ? (slidePx > -2107 && setSlidePx(slidePx - 310)) : (slidePx > -(itemWidth * 7) && setSlidePx(slidePx - (itemWidth + 30)));
+    pageWidth <= 768 && (slidePx > -(itemWidth * 7) && setSlidePx(slidePx - (itemWidth + 30)));
   };
 
   // mobile page project

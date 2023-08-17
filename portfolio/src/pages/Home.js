@@ -15,12 +15,6 @@ const Container = styled.div`
   background-image: linear-gradient(#B0D2F5, #D6E6F5);
   position: relative;
   z-index: -10;
-  @media screen and ${responsive.tablet} {
-    border: 3px solid red;
-  }
-  @media screen and ${responsive.mobile} {
-    border: 3px solid blue;
-  }
 `;
 
 const HomeTitle = styled.header`

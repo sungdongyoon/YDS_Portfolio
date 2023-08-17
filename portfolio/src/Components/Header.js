@@ -32,6 +32,7 @@ const Logo = styled.span`
   font-size: 3.5rem;
   font-weight: bold;
   color: var(--gray);
+  cursor: pointer;
   @media screen and ${responsive.iphone12Pro} {
     width: 30%;
     font-size: 2.5rem;
@@ -159,7 +160,7 @@ const Header = ({scrollIndex, handleToggle, goHome, goAbout, goProject, goContac
   const isToggle = useSelector((state) => state.isToggle);
   return (
     <Container>
-      <Logo>Logo</Logo>
+      <Logo onClick={goHome}>Logo</Logo>
       <HeaderInfo>
         <span className='email'>ehdtjd0906@naver.com</span>
         <span className='phone'>+82 10-6312-5903</span>

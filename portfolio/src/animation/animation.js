@@ -2,10 +2,6 @@ import { keyframes } from "styled-components";
 
 // Scroll Animation
 
-const options = {
-  threshold: [0, 0.5, 1],
-}
-
 let titleObserver = new IntersectionObserver((e) => {
   e.forEach((el) => {
     if(el.isIntersecting) {
@@ -54,7 +50,7 @@ let leftCircleObserver = new IntersectionObserver((e) => {
       el.target.style.transform = "translateX(-50%) translateY(-50%)";
     }
   })
-}, options)
+})
 
 let rightCircleObserver = new IntersectionObserver((e) => {
   e.forEach((el) => {

@@ -23,15 +23,8 @@ const Container = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
   }
-  @media screen and ${responsive.laptop} {
-    border: 3px solid yellow;
-  }
   @media screen and ${responsive.tablet} {
-    border: 3px solid red;
     padding-right: 0;
-  }
-  @media screen and ${responsive.mobile} {
-    border: 3px solid blue;
   }
 `;
 
@@ -100,17 +93,25 @@ const Subtitle = styled.div`
   flex-direction: column;
   align-items: flex-end;
   transition: 1s;
+  .skill {
+    color: ${(props) => props.showSkill ? "var(--sky-blue)" : "var(--light-gray)"};
+    border-bottom: ${(props) => props.showSkill && "3px solid var(--sky-blue)"};
+  }
+  .experience {
+    color: ${(props) => props.showExpereince ? "var(--sky-blue)" : "var(--light-gray)"};
+    border-bottom: ${(props) => props.showExpereince && "3px solid var(--sky-blue)"};
+  }
   span {
     display: block;
     padding: 10px 0;
-    border: 5px solid transparent;
+    border-bottom: 3px solid transparent;
     font-size: var(--page-subTitle);
     font-weight: bold;
     transition: 0.5s;
     cursor: pointer;
     mix-blend-mode: multiply;
     &:hover {
-      border-bottom: 5px solid var(--sky-blue);
+      border-bottom: 3px solid var(--sky-blue);
     }
   }
   @media screen and ${responsive.laptop} {
@@ -134,11 +135,7 @@ const Subtitle = styled.div`
   @media screen and ${responsive.iphone12Pro} {
     span {
       font-size: 1.5rem;
-      border: 3px solid transparent;
       margin-bottom: 0px;
-      &:hover {
-        border-bottom: 3px solid var(--sky-blue);
-      }
     }
   }
 `;
@@ -168,6 +165,7 @@ const AboutContent = styled.section`
       background-color: var(--sky-blue);
       border-radius: 5px;
       cursor: pointer;
+      mix-blend-mode: multiply;
     }
   }
   @media screen and ${responsive.laptop} {
@@ -444,9 +442,8 @@ const RightCircle = styled.div`
 `;
 
 
-const About = ({clickMe, clickSkill, clickExperience}) => {
+const About = ({clickSkill, clickExperience}) => {
 
-  const showMe = useSelector((state) => state.showMe);
   const showSkill = useSelector((state) => state.showSkill);
   const showExpereince = useSelector((state) => state.showExperience);
 
@@ -458,7 +455,6 @@ const About = ({clickMe, clickSkill, clickExperience}) => {
   useEffect(() => {
     titleObserver.observe(titleRef.current);
     subTitleObserver.observe(subTitleRef.current);
-    // contentObserver.observe(contentRef.current);
     leftCircleObserver.observe(leftCircleRef.current);
     rightCircleObserver.observe(rightCircleRef.current);
   })
@@ -468,10 +464,9 @@ const About = ({clickMe, clickSkill, clickExperience}) => {
       <AboutMain>
         <AboutTitle>
           <h1 ref={titleRef} className='About'>About</h1>
-          <Subtitle ref={subTitleRef}>
-            {/* <span className='me' onClick={clickMe} style={showMe ? {color: "#bbd3f8", borderBottom: "5px solid #bbd3f8"} : {color: "#ccc"}}>Me</span> */}
-            <span className='skill' onClick={clickSkill} style={showSkill ? {color: "#bbd3f8", borderBottom: "5px solid #bbd3f8"} : {color: "#ccc"}}>Skill</span>
-            <span className='experience' onClick={clickExperience} style={showExpereince ? {color: "#bbd3f8", borderBottom: "5px solid #bbd3f8", boxShadow: "0px 5px 5px -5px #fff"} : {color: "#ccc"}}>Experience</span>
+          <Subtitle ref={subTitleRef} showSkill={showSkill} showExpereince={showExpereince}>
+            <span className='skill' onClick={clickSkill}>Skill</span>
+            <span className='experience' onClick={clickExperience}>Experience</span>
           </Subtitle>
         </AboutTitle>
         <AboutContent>
@@ -479,20 +474,6 @@ const About = ({clickMe, clickSkill, clickExperience}) => {
             <h1 className='aboutMe'>프론트엔드 개발자<br/> 윤동성 입니다.</h1>
             <div className='aboutMe_resume'>RESUME</div>
           </div>
-          {/* {showMe && 
-          <AboutMe ref={contentRef}>
-            <h1>프론트엔드 개발자<br/> 윤동성 입니다.</h1>
-            <p>
-              여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
-              숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
-              원스톱 여행 플랫폼을 만들고 있어요.
-              여기어때는 여행뿐만 아니라 여가의 모든 순간을 책임질 수 있도록
-              숙박, 항공, 액티비티, 렌터카, 맛집, 모바일 티켓 등
-              원스톱 여행 플랫폼을 만들고 있어요.
-            </p>
-            <button>Resume</button>
-          </AboutMe>
-          } */}
           {showSkill && 
           <AboutSkill ref={contentRef}>
             <div className='about_skill_wrap'>

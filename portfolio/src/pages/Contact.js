@@ -24,15 +24,6 @@ const Container = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
   }
-  @media screen and ${responsive.laptop} {
-    border: 3px solid yellow;
-  }
-  @media screen and ${responsive.tablet} {
-    border: 3px solid red;
-  }
-  @media screen and ${responsive.mobile} {
-    border: 3px solid blue;
-  }
 `;
 
 const ContactMain = styled.main`
@@ -211,7 +202,7 @@ const ContactContent = styled.section`
     .link_wrap {
       flex-wrap: wrap;
       .link_item {
-        width: 100%;
+        width: 80%;
         span {
           width: 50px;
         }
@@ -283,11 +274,11 @@ const Contact = () => {
             <img src={getContactImg(4)}/>
           </div>
           <div className='link_wrap'>
-            <Link className='link_item github' to='https://github.com/sungdongyoon'>
+            <Link target='_blank' className='link_item github' to='https://github.com/sungdongyoon'>
               <img src={getContactImg(1)} alt='githubIcon'/>
               <span>GitHub</span>
             </Link>
-            <Link className='link_item blog' to="https://dongyoons.tistory.com/">
+            <Link target='_blank' className='link_item blog' to="https://dongyoons.tistory.com/">
               <img src={getContactImg(2)} alt='blogIcon'/>
               <span>Blog</span>
             </Link>

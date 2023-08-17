@@ -40,12 +40,12 @@ const Modal = styled.div`
     height: 500px;
   }
   @media screen and ${responsive.mobile} {
-    width: 600px;
-    height: 450px;
+    width: 450px;
+    height: 600px;
   }
   @media screen and ${responsive.iphone12Pro} {
     width: 300px;
-    height: 650px;
+    height: 600px;
     .modal_wrap {
       height: 80%;
     }
@@ -86,7 +86,7 @@ const Title = styled.header`
     }
   }
   @media screen and ${responsive.mobile} {
-    font-size: 3rem;
+    font-size: 2.5rem;
     span {
       font-size: 1rem;
       margin-left: 10px;
@@ -107,7 +107,7 @@ const Content = styled.span`
     line-height: 30px;
   }
   @media screen and ${responsive.mobile} {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
   @media screen and ${responsive.iphone12Pro} {
     font-size: 1.2rem;
