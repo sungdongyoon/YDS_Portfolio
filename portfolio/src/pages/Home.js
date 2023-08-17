@@ -48,6 +48,12 @@ const HomeTitle = styled.header`
       -webkit-text-stroke: 3px var(--white);
     }
   }
+  @media screen and ${responsive.iphone12Pro} {
+    h1 {
+      font-size: 3rem;
+      -webkit-text-stroke: 2px var(--white);
+    }
+  }
 `;
 
 const HomeSubTitle = styled.div`
@@ -61,6 +67,9 @@ const HomeSubTitle = styled.div`
   }
   @media screen and ${responsive.mobile} {
     font-size: 2rem;
+  }
+  @media screen and ${responsive.mobile} {
+    font-size: 1.5rem;
   }
 `;
 
@@ -91,6 +100,7 @@ const HomeArrow = styled.div`
   }
   @media screen and ${responsive.mobile} {
     font-size: 3rem;
+    bottom: 50px;
     span {
       font-size: 1.5rem;
     }

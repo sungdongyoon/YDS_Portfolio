@@ -86,8 +86,11 @@ const AboutTitle = styled.section`
     }
   }
   @media screen and ${responsive.iphone12Pro} {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
     h1 {
-      font-size: 5rem;
+      font-size: 4rem;
     }
   }
 `;
@@ -130,9 +133,12 @@ const Subtitle = styled.div`
   }
   @media screen and ${responsive.iphone12Pro} {
     span {
-      font-size: 2rem;
-      -5px -5px 10px var(--white);
+      font-size: 1.5rem;
+      border: 3px solid transparent;
       margin-bottom: 0px;
+      &:hover {
+        border-bottom: 3px solid var(--sky-blue);
+      }
     }
   }
 `;
@@ -183,7 +189,7 @@ const AboutContent = styled.section`
   }
   @media screen and ${responsive.mobile} {
     width: 100%;
-    margin-top: 0;
+    margin-top: 50px;
     .aboutContent_header {
       .aboutMe {
         font-size: 2.5rem;
@@ -191,77 +197,26 @@ const AboutContent = styled.section`
       }
     }
   }
+  @media screen and ${responsive.iphone12Pro} {
+    margin-top: 0;
+    .aboutContent_header {
+      // flex-direction: column;
+      // align-items: flex-start;
+      gap: 20px;
+      .aboutMe {
+        font-size: 2.2rem;
+        margin-right: 0;
+      }
+      .aboutMe_resume {
+        width: 100px;
+        height: 30px;
+        font-size: 1.3rem;
+        line-height: 30px;
+        mix-blend-mode: multiply;
+      }
+    }
+  }
 `;
-
-// const AboutMe = styled.section`
-//   width: 65%;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   padding-top: 200px;
-//   animation: ${aboutClick} ease-in-out 1s;
-//   transition: 1s;
-//   @media screen and ${responsive.laptop} {
-//     padding-top: 100px;
-//   }
-//   @media screen and ${responsive.tablet} {
-//     padding-top: 20px;
-//     width: 80%;
-//   }
-//   @media screen and ${responsive.iphone12Pro} {
-//     padding-top: 0px;
-//   }
-//   h1 {
-//     font-size: 4.5rem;
-//     font-weight: bold;
-//     margin-bottom: 30px;
-//     letter-spacing: 3px;
-//     @media screen and ${responsive.laptop} {
-//       font-size: 3rem;
-//       margin-bottom: 20px;
-//     }
-//     @media screen and ${responsive.iphone12Pro} {
-//       font-size: 2.4rem;
-//       margin-bottom: 0px;
-//       margin-top: 30px;
-//     }
-//   }
-//   p {
-//     width: 60%;
-//     color: var(--semi-gray); 
-//     font-size: 2.6rem;
-//     line-height: 40px;
-//     margin-bottom: 50px;
-//     @media screen and ${responsive.laptop} {
-//       font-size: 2rem;
-//     }
-//     @media screen and ${responsive.tablet} {
-//       width: 100%;
-//     }
-//     @media screen and ${responsive.iphone12Pro} {
-//       font-size: 1.6rem;
-//       line-height: 25px;
-//     }
-//   }
-//   button {
-//     width: 300px;
-//     color: var(--white);
-//     font-size: 2.6rem;
-//     padding: 20px 0;
-//     border: none;
-//     border-radius: 10px;
-//     background: linear-gradient(130deg, #BBD3F8 0%, #0079FF 100%);
-//     transition: all 0.5s ease;
-//     cursor: pointer;
-//     &:hover {
-//       background: linear-gradient(130deg, #0079FF 0%, #BBD3F8 100%);
-//       transition: all 0.5s ease;
-//     }
-//     @media screen and ${responsive.mobile} {
-//       width: 100%;
-//     }
-//   }
-// `;
 
 const AboutSkill = styled.section`
   width: 100%;
@@ -339,8 +294,12 @@ const AboutSkill = styled.section`
     .about_skill_wrap {
       .about_skill_item {
         p {
-          font-size: 1.2rem;
+          font-size: 1rem;
           line-height: 15px;
+        }
+        &:last-child h3 {
+          font-size: 1.2rem;
+          padding-bottom: 5px;
         }
       }
     }
@@ -430,7 +389,7 @@ const AboutExperience = styled.section`
     .about_experience_wrap {
       .about_experience_item {
         p {
-          font-size: 1.2rem;
+          font-size: 1rem;
           line-height: 15px;
         }
       }
@@ -560,7 +519,7 @@ const About = ({clickMe, clickSkill, clickExperience}) => {
                 <p>리액트를 활용한 SPA 방식 웹 개발 경험이 있고 기본적인 리액트 훅 활용 가능, 공통 컴포넌트 활용 가능, 라우터를 이용한 페이지 분기, 상태 최적화 경험, 비동기 처리 경험이 있습니다.</p>
               </div>
               <div className='about_skill_item'>
-                <h3>Styled-components</h3>
+                <h3>Styled-Components</h3>
                 <p>컴포넌트를 기반으로 웹 개발을 할 때 주로 사용하고 있으며
                 css-in-Js 방식의 장점을 살려 props를 받아와 연산자와 변수를 활용한 스타일링이 가능합니다.</p>
               </div>

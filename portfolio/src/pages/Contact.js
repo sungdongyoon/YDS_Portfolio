@@ -52,6 +52,8 @@ const ContactMain = styled.main`
   }
   @media screen and ${responsive.iphone12Pro} {
     height: 650px;
+    gap: 20px;
+    margin-top: 0px;
   }
 `;
 
@@ -84,7 +86,7 @@ const ContactTitle = styled.section`
   }
   @media screen and ${responsive.iphone12Pro} {
     h1 {
-      font-size: 5rem;
+      font-size: 4rem;
     }
   }
 `;
@@ -128,14 +130,16 @@ const ContactContent = styled.section`
       align-items: center;
       gap: 10px;
       height: 50px;
-      color: var(--black);
-      font-size: 2rem;
       padding: 0 20px;
       background-color: var(--white);
       cursor: pointer;
-    }
-    img {
-      width: 30px;
+      span {
+        color: var(--black);
+        font-size: 2rem;
+      }
+      img {
+        width: 30px;
+      }
     }
   }
   @media screen and ${responsive.laptop} {
@@ -151,10 +155,12 @@ const ContactContent = styled.section`
     .link_wrap {
       .link_item {
         height: 40px;
-        font-size: 1.3rem;
-      }
-      img {
-        width: 25px;
+        span {
+          font-size: 1.3rem;
+        }
+        img {
+          width: 25px;
+        }
       }
     }
   }
@@ -184,16 +190,33 @@ const ContactContent = styled.section`
     .link_wrap {
       .link_item {
         height: 30px;
-        font-size: 1rem;
         padding: 0 15px;
-      }
-      img {
-        width: 20px;
+        span {
+          font-size: 1rem;
+        }
+        img {
+          width: 20px;
+        }
       }
     }
   }
   @media screen and ${responsive.iphone12Pro} {
     margin-top: 0px;
+    .contact_wrap {
+      margin-bottom: 50px;
+      p {
+        font-size: 1.6rem;
+      }
+    }
+    .link_wrap {
+      flex-wrap: wrap;
+      .link_item {
+        width: 100%;
+        span {
+          width: 50px;
+        }
+      }
+    }
   }
 `
 
@@ -262,15 +285,15 @@ const Contact = () => {
           <div className='link_wrap'>
             <Link className='link_item github' to='https://github.com/sungdongyoon'>
               <img src={getContactImg(1)} alt='githubIcon'/>
-              GitHub
+              <span>GitHub</span>
             </Link>
             <Link className='link_item blog' to="https://dongyoons.tistory.com/">
               <img src={getContactImg(2)} alt='blogIcon'/>
-              Blog
+              <span>Blog</span>
             </Link>
             <div className='link_item email' onClick={showModal}>
               <img src={getContactImg(3)} alt='emailIcon'/>
-              메일 보내기
+              <span>메일 보내기</span>
             </div>
           </div>
         </ContactContent>

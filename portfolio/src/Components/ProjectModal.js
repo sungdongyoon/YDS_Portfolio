@@ -1,5 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
+import responsive from '../style/responsive';
 
 const Container = styled.div`
   width: 100vw;
@@ -31,6 +32,24 @@ const Modal = styled.div`
     flex-direction: column;
     gap: 30px;
   }
+  @media screen and ${responsive.laptop} {
+    width: 1000px;
+  }
+  @media screen and ${responsive.tablet} {
+    width: 800px;
+    height: 500px;
+  }
+  @media screen and ${responsive.mobile} {
+    width: 600px;
+    height: 450px;
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    width: 300px;
+    height: 650px;
+    .modal_wrap {
+      height: 80%;
+    }
+  }
 `;
 
 const CloseBtn = styled.div`
@@ -39,11 +58,16 @@ const CloseBtn = styled.div`
   top: 30px;
   right: 30px;
   cursor: pointer;
+  @media screen and ${responsive.mobile} {
+    font-size: 1.5rem;
+  }
 `;
 
 const Title = styled.header`
   font-weight: bold;
   font-size: 5.5rem;
+  display: flex;
+  align-items: center;
   span {
     font-size: 2rem;
     color: var(--blue);
@@ -52,12 +76,42 @@ const Title = styled.header`
     background-color: var(--white);
     border-radius: 30px;
   }
+  @media screen and ${responsive.laptop} {
+    font-size: 5rem;
+  }
+  @media screen and ${responsive.tablet} {
+    font-size: 4rem;
+    span {
+      font-size: 1.5rem;
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    font-size: 3rem;
+    span {
+      font-size: 1rem;
+      margin-left: 10px;
+    }
+  }
 `;
 
 const Content = styled.span`
   height: 300px;
   font-size: 2rem;
   line-height: 50px;
+  @media screen and ${responsive.laptop} {
+    font-size: 1.7rem;
+    line-height: 40px;
+  }
+  @media screen and ${responsive.tablet} {
+    font-size: 1.5rem;
+    line-height: 30px;
+  }
+  @media screen and ${responsive.mobile} {
+    font-size: 1.3rem;
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    font-size: 1.2rem;
+  }
 `;
 
 const Tag = styled.div`
@@ -66,11 +120,35 @@ const Tag = styled.div`
   .tag {
     display: inline-block;
     height: 40px;
-    font-size: 2rem;
+    font-size: 1.8rem;
     background-color: var(--gray);
-    border-radius: 10px;
-    padding: 0px 20px;
+    border-radius: 30px;
+    padding: 0px 25px;
     line-height: 40px;
+  }
+  @media screen and ${responsive.laptop} {
+    gap: 20px;
+    .tag {
+      height: 35px;
+      font-size: 1.6rem;
+      line-height: 35px;
+    }
+  }
+  @media screen and ${responsive.tablet} {
+    gap: 10px;
+    .tag {
+      height: 30px;
+      font-size: 1.4rem;
+      line-height: 30px;
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    flex-wrap: wrap;
+    .tag {
+      height: 25px;
+      font-size: 1.2rem;
+      line-height: 25px;
+    }
   }
 `;
 
@@ -91,6 +169,33 @@ const Links = styled.div`
   .github {
     background-color: var(--white);
     color: var(--black);
+  }
+  @media screen and ${responsive.laptop} {
+    span {
+      height: 35px;
+      font-size: 1.6rem;
+      line-height: 35px;
+    }
+  }
+  @media screen and ${responsive.tablet} {
+    span {
+      height: 30px;
+      font-size: 1.4rem;
+      line-height: 30px;
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    span {
+      height: 25px;
+      font-size: 1.2rem;
+      line-height: 25px;
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    flex-direction: column;
+    span {
+      text-align: center;
+    }
   }
 `;
 

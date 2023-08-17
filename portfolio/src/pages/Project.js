@@ -127,11 +127,6 @@ const ProjectTitle = styled.section`
       display: none;
     }
   }
-  @media screen and ${responsive.iphone12Pro} {
-    h1 {
-      font-size: 5rem;
-    }
-  }
 `;
 
 const ProjectContent = styled.section`
@@ -165,6 +160,11 @@ const ProjectContent = styled.section`
     margin-bottom: 50px;
     .notice {
       font-size: 1.3rem;
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    .notice {
+      font-size: 1rem;
     }
   }
 `;
@@ -212,6 +212,8 @@ const ProjectWrap = styled.div`
     padding-top: 0;
     transition: 0.5s;
   }
+  @media screen and ${responsive.iphone12Pro} {
+  }
 `;
 
 
@@ -237,7 +239,6 @@ const ProjectItem = styled.div`
     padding: 0;
   }
   @media screen and ${responsive.iphone12Pro} {
-    width: 281px;
   }
 `;
 
@@ -295,6 +296,9 @@ const ProjectName = styled.div`
   }
   @media screen and ${responsive.mobile} {
     font-size: 1.4rem;
+  }
+  @media screen and ${responsive.mobile} {
+    font-size: 1.6rem;
   }
 `;
 
