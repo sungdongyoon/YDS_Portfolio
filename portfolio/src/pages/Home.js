@@ -12,7 +12,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   gap: 50px;
-  background-image: url('https://images.unsplash.com/photo-1657870329074-e5c29e668d2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80');
+  background-image: url('https://images.unsplash.com/photo-1615840636404-0f2412fd2732?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=706&q=80');
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -20,71 +20,142 @@ const Container = styled.div`
 `;
 
 const HomeTitle = styled.header`
-  span {
+  div {
     display: inline-block;
-    font-size: 15rem;
-    font-weight: 900;
-    color: var(--white);
-    -webkit-text-stroke: 5px var(--white);
-    text-shadow: 0 0 30px var(--sky-blue);
-    letter-spacing: 5px;
     margin-right: 50px;
+    transition: 1s;
+    span {
+      display: inline-block;
+      font-size: 15rem;
+      font-weight: 900;
+      color: var(--white);
+      -webkit-text-stroke: 5px var(--white);
+      text-shadow: 0 0 30px var(--sky-blue);
+      letter-spacing: 5px;
+    }
   }
   .yoon {
-    // animation: ${homeTitle} 1s ease-in-out infinite;
-    // animation-delay: 2s;
-    transition: 1s;
+    span {
+      &:nth-child(1) {
+        transform: rotate(5deg);
+      }
+      &:nth-child(4) {
+        transform: rotate(-5deg);
+      } 
+    }
   }
   .dong {
-    // animation: ${homeTitle} 1s ease-in-out infinite;
-    // animation-delay: 2.2s;
-    transition: 1s;
-    transition-delay: 0.3s;
+    transition-delay: 0.1s;
+    span {
+      &:nth-child(1) {
+        transform: rotate(5deg);
+      }
+      &:nth-child(3) {
+        transform: rotate(-5deg);
+      }
+      &:nth-child(4) {
+        transform: rotate(5deg);
+      } 
+    }
   }
   .sung {
-    // animation: ${homeTitle} 1s ease-in-out infinite;
-    // animation-delay: 2.4s;
-    transition: 1s;
-    transition-delay: 0.6s;
+    transition-delay: 0.4s;
+    span {
+      &:nth-child(1) {
+        transform: rotate(-5deg);
+      }
+      &:nth-child(3) {
+        transform: rotate(5deg);
+      }
+      &:nth-child(4) {
+        transform: rotate(5deg);
+      } 
+    }
   }
   @media screen and ${responsive.laptop} {
-    span {
-      font-size: 10rem;
+    div {
+      span {
+        font-size: 10rem;
+      }
     }
   }
   @media screen and ${responsive.tablet} {
-    span {
-      font-size: 8rem;
+    div {
+      span {
+        font-size: 8rem;
+      }
     }
   }
   @media screen and ${responsive.mobile} {
-    span {
-      font-size: 4rem;
-      -webkit-text-stroke: 3px var(--white);
+    div {
+      span {
+        font-size: 4rem;
+        -webkit-text-stroke: 3px var(--white);
+      }
     }
   }
   @media screen and ${responsive.iphone12Pro} {
-    span {
-      font-size: 3rem;
-      -webkit-text-stroke: 2px var(--white);
+    div {
+      span {
+        font-size: 3rem;
+        -webkit-text-stroke: 2px var(--white);
+      }
     }
   }
 `;
 
 const HomeSubTitle = styled.span`
-  font-size: 5rem;
-  font-weight: bold;
-  color: var(--white);
-  letter-spacing: 3px;
-  text-shadow: 0 0 20px var(--sky-blue);
+  transition: 1s;
+  span {
+    display: inline-block;
+    font-size: 5rem;
+    font-weight: bold;
+    color: var(--white);
+    letter-spacing: 3px;
+    text-shadow: 0 0 20px var(--sky-blue);
+    animation: ${homeTitle} 1.5s infinite;
+    &:nth-child(1) {
+      animation-delay: 1.1s;
+    }
+    &:nth-child(2) {
+      animation-delay: 1.2s;
+    }
+    &:nth-child(3) {
+      animation-delay: 1.3s;
+    }
+    &:nth-child(4) {
+      animation-delay: 1.4s;
+    }
+    &:nth-child(5) {
+      animation-delay: 1.5s;
+    }
+    &:nth-child(6) {
+      animation-delay: 1.6s;
+    }
+    &:nth-child(7) {
+      animation-delay: 1.7s;
+    }
+    &:nth-child(8) {
+      animation-delay: 1.8s;
+    }
+    &:nth-child(9) {
+      animation-delay: 1.9s;
+    }
+  }
   @media screen and ${responsive.tablet} {
-    font-size: 3rem;
+    span {
+      font-size: 3rem;
+    }
   }
   @media screen and ${responsive.mobile} {
-    font-size: 2rem;
+    span {
+      font-size: 2rem;
+    }
   }
   @media screen and ${responsive.mobile} {
-    font-size: 1.5rem;
+    span {
+      font-size: 1.5rem;
+    }
   }
 `;
 
@@ -129,11 +200,13 @@ const Home = () => {
   const yoonRef = useRef();
   const dongRef = useRef();
   const sungRef = useRef();
+  const subTitleRef = useRef();
 
   useEffect(() => {
     homeTitleObserver.observe(yoonRef.current);
     homeTitleObserver.observe(dongRef.current);
     homeTitleObserver.observe(sungRef.current);
+    homeTitleObserver.observe(subTitleRef.current);
     return () => {
       homeTitleObserver.disconnect(); // 컴포넌트 언마운트 시 관찰 중단
     };
@@ -141,11 +214,36 @@ const Home = () => {
   return (
     <Container>
       <HomeTitle>
-        <span ref={yoonRef} className='yoon'>YooN</span>
-        <span ref={dongRef} className='dong'>DoNG</span>
-        <span ref={sungRef} className='sung'>SuNG</span>
+        <div ref={yoonRef} className='yoon'>
+          <span>Y</span>
+          <span>o</span>
+          <span>o</span>
+          <span>N</span>
+        </div>
+        <div ref={dongRef} className='dong'>
+          <span>D</span>
+          <span>o</span>
+          <span>N</span>
+          <span>G</span>
+        </div>
+        <div ref={sungRef} className='sung'>
+          <span>S</span>
+          <span>u</span>
+          <span>N</span>
+          <span>G</span>
+        </div>
       </HomeTitle>
-      <HomeSubTitle>PORTFOLIO</HomeSubTitle>
+      <HomeSubTitle ref={subTitleRef}>
+        <span>P</span>
+        <span>O</span>
+        <span>R</span>
+        <span>T</span>
+        <span>F</span>
+        <span>O</span>
+        <span>L</span>
+        <span>I</span>
+        <span>O</span>
+      </HomeSubTitle>
       <HomeArrow>
         <span>Scroll</span>
         <FontAwesomeIcon className='chevronDownTop' icon={faChevronDown}/>

@@ -90,8 +90,17 @@ let homeTitle = keyframes`
   0% {
     transform: translateY(0);
   }
-  50% {
-    transform: translateY(10px);
+  20% {
+    transform: translateY(-20%);
+  }
+  40% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(0);
   }
   100% {
     transform: translateY(0);
