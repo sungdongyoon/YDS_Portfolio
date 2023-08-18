@@ -144,6 +144,7 @@ const AboutContent = styled.section`
   width: 65%;
   margin-top: 300px;
   height: 550px;
+  transition: 0.5s;
   .aboutContent_header {
     display: flex;
     align-items: center;
@@ -455,6 +456,7 @@ const About = ({clickSkill, clickExperience}) => {
   useEffect(() => {
     titleObserver.observe(titleRef.current);
     subTitleObserver.observe(subTitleRef.current);
+    contentObserver.observe(contentRef.current);
     leftCircleObserver.observe(leftCircleRef.current);
     rightCircleObserver.observe(rightCircleRef.current);
   })
@@ -469,13 +471,13 @@ const About = ({clickSkill, clickExperience}) => {
             <span className='experience' onClick={clickExperience}>Experience</span>
           </Subtitle>
         </AboutTitle>
-        <AboutContent>
+        <AboutContent ref={contentRef}>
           <div className='aboutContent_header'>
             <h1 className='aboutMe'>프론트엔드 개발자<br/> 윤동성 입니다.</h1>
             <div className='aboutMe_resume'>RESUME</div>
           </div>
           {showSkill && 
-          <AboutSkill ref={contentRef}>
+          <AboutSkill>
             <div className='about_skill_wrap'>
               <div className='about_skill_item'>
                 <h3>HTML5</h3>
@@ -508,7 +510,7 @@ const About = ({clickSkill, clickExperience}) => {
           </AboutSkill>
           }
           {showExpereince &&
-          <AboutExperience ref={contentRef}>
+          <AboutExperience>
             <div className='about_experience_wrap'>
               <div className='about_experience_item'>
                 <h3>Git</h3>

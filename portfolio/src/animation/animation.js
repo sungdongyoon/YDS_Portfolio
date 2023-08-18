@@ -2,6 +2,23 @@ import { keyframes } from "styled-components";
 
 // Scroll Animation
 
+let options = {
+  root: 100,
+  threshold: 0.5,
+}
+
+let homeTitleObserver = new IntersectionObserver((e) => {
+  e.forEach((el) => {
+    if(el.isIntersecting) {
+      el.target.style.opacity = 1;
+      el.target.style.transform = "translateY(0)";
+    } else {
+      el.target.style.opacity = 0;
+      el.target.style.transform = "translateY(-100px)";
+    }
+  })
+});
+
 let titleObserver = new IntersectionObserver((e) => {
   e.forEach((el) => {
     if(el.isIntersecting) {
@@ -42,10 +59,12 @@ let contentObserver = new IntersectionObserver((e) => {
 
 let leftCircleObserver = new IntersectionObserver((e) => {
   e.forEach((el) => {
+    console.log("옵저버", el);
     if(el.isIntersecting) {
       el.target.style.opacity = 1;
       el.target.style.transform = "translateX(0) translateY(0)";
-    } else {
+    }
+    else {
       el.target.style.opacity = 0;
       el.target.style.transform = "translateX(-50%) translateY(-50%)";
     }
@@ -67,17 +86,26 @@ let rightCircleObserver = new IntersectionObserver((e) => {
 
 // Animation
 
-let homeArrow = keyframes`
+let homeTitle = keyframes`
   0% {
-    transform: matrix(1, 0, 0, 1, 0, 0);
-    opacity: 0;
+    transform: translateY(0);
   }
   50% {
     transform: translateY(10px);
-    opacity: 1;
   }
   100% {
     transform: translateY(0);
+  }
+`;
+
+let homeArrow = keyframes`
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
   }
 `;
@@ -110,4 +138,4 @@ let projectSlide = keyframes`
   }
 `;
 
-export {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver, homeArrow, aboutClick, projectSlide};
+export {homeTitleObserver, titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver, homeTitle, homeArrow, aboutClick, projectSlide};

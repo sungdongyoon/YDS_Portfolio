@@ -204,11 +204,11 @@ function App() {
       }
       <Header scrollIndex={scrollIndex} handleToggle={handleToggle} {...goProps}/>
       <Home/>
-      <Divider/>
+      {/* <Divider/> */}
       <About {...clickProps}/>
-      <Divider/>
+      {/* <Divider/> */}
       <Project {...pjNumProps}/>
-      <Divider/>
+      {/* <Divider/> */}
       <Contact/>
     </Container>
     </>
