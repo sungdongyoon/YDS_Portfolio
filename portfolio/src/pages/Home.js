@@ -20,6 +20,7 @@ const Container = styled.div`
 `;
 
 const HomeTitle = styled.header`
+margin: 0 auto;
   div {
     display: inline-block;
     margin-right: 50px;
@@ -45,7 +46,7 @@ const HomeTitle = styled.header`
     }
   }
   .dong {
-    transition-delay: 0.1s;
+    transition-delay: 0.4s;
     span {
       &:nth-child(1) {
         transform: rotate(5deg);
@@ -59,7 +60,8 @@ const HomeTitle = styled.header`
     }
   }
   .sung {
-    transition-delay: 0.4s;
+    margin-right: 0;
+    transition-delay: 0.8s;
     span {
       &:nth-child(1) {
         transform: rotate(-5deg);

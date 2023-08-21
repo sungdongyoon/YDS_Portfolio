@@ -1,0 +1,110 @@
+{
+  "project":[
+    {
+      "id": 1,
+      "name": "Momentum",
+      "description": "자바스크립트를 공부하면서 배운 것들을 활용해 만든 Momentum 페이지 입니다. 랜덤 배경화면, 디지털 시계, 랜덤 명언, TodoList, 날씨 정보가 포함되어 있습니다. 날씨 데이터는 OpenWeatherMap 사이트의 Weather API 데이터를 사용했습니다.",
+      "tag": [
+        "#HTML",
+        "#CSS",
+        "#JavaScript",
+        "#API"
+      ],
+      "img": 1,
+      "team": false
+    },
+    {
+      "id": 2,
+      "name": "우산있어?",
+      "description": "갑작스러운 비에 대처할 수 있도록 우산과 양산을 대여해주는 서비스입니다. HTML, CSS, JavaScript로 제작했습니다",
+      "tag": [
+        "#HTML",
+        "#CSS",
+        "#JavaScript",
+        "#API",
+        "#JQuery",
+        "#반응형"
+      ],
+      "img": 2,
+      "team": true
+    },
+    {
+      "id": 3,
+      "name": "WhatItIsnt",
+      "description": "리액트로 만든 와릿이즌 페이지입니다. 메인 페이지와 인기 아이템 목록, 상세 아이템 페이지, 로그인 기능을 구현했습니다. JSON 데이터를 활용하여 아이템 목록을 생성했으며 반응형 페이지로 제작했습니다.",
+      "tag": [
+        "#HTML",
+        "#CSS",
+        "#JavaScript",
+        "#API"
+      ],
+      "img": 3,
+      "team": false
+    },
+    {
+      "id": 4,
+      "name": "My Diary Book",
+      "description": "리액트로 만든 와릿이즌 페이지입니다. 메인 페이지와 인기 아이템 목록, 상세 아이템 페이지, 로그인 기능을 구현했습니다. JSON 데이터를 활용하여 아이템 목록을 생성했으며 반응형 페이지로 제작했습니다.",
+      "tag": [
+        "#HTML",
+        "#CSS",
+        "#JavaScript",
+        "#API"
+      ],
+      "img": 4,
+      "team": false
+    },
+    {
+      "id": 5,
+      "name": "Netflix",
+      "description": "리액트로 만든 와릿이즌 페이지입니다. 메인 페이지와 인기 아이템 목록, 상세 아이템 페이지, 로그인 기능을 구현했습니다. JSON 데이터를 활용하여 아이템 목록을 생성했으며 반응형 페이지로 제작했습니다.",
+      "tag": [
+        "#HTML",
+        "#CSS",
+        "#JavaScript",
+        "#API"
+      ],
+      "img": 5,
+      "team": false
+    },
+    {
+      "id": 6,
+      "name": "고양이 MBTI",
+      "description": "리액트로 만든 와릿이즌 페이지입니다. 메인 페이지와 인기 아이템 목록, 상세 아이템 페이지, 로그인 기능을 구현했습니다. JSON 데이터를 활용하여 아이템 목록을 생성했으며 반응형 페이지로 제작했습니다.",
+      "tag": [
+        "#HTML",
+        "#CSS",
+        "#JavaScript",
+        "#API"
+      ],
+      "img": 6,
+      "team": false
+    },
+    {
+      "id": 7,
+      "name": "YDS 포트폴리오",
+      "description": "리액트로 만든 와릿이즌 페이지입니다. 메인 페이지와 인기 아이템 목록, 상세 아이템 페이지, 로그인 기능을 구현했습니다. JSON 데이터를 활용하여 아이템 목록을 생성했으며 반응형 페이지로 제작했습니다.",
+      "tag": [
+        "#HTML",
+        "#CSS",
+        "#JavaScript",
+        "#API"
+      ],
+      "img": 7,
+      "team": false
+    },
+    {
+      "id": 8,
+      "name": "프로젝트",
+      "description": "리액트로 만든 와릿이즌 페이지입니다. 메인 페이지와 인기 아이템 목록, 상세 아이템 페이지, 로그인 기능을 구현했습니다. JSON 데이터를 활용하여 아이템 목록을 생성했으며 반응형 페이지로 제작했습니다.",
+      "tag": [
+        "#HTML",
+        "#CSS",
+        "#JavaScript",
+        "#API"
+      ],
+      "img": 8,
+      "team": false
+    }
+  ]
+}

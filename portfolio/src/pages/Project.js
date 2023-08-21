@@ -7,7 +7,8 @@ import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, ri
 import ProjectModal from '../Components/ProjectModal';
 import largeCircle from '../img/largeCircle.png';
 import responsive from '../style/responsive';
-
+import axios from 'axios';
+import logo from '../img/logo.png';
 
 
 const Container = styled.div`
@@ -246,8 +247,7 @@ const ProjectImg = styled.div`
   align-items: center;
   cursor: pointer;
   img {
-    width: 80%;
-    height: 40%;
+    position: absolute;
   }
   .projectDetail {
     height: 100%;
@@ -384,6 +384,21 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
   const closeModal = () => {
     setIsModal(false);
   }
+
+  // Project Data
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const getData = async () => {
+      axios.get('/projectDb.json')
+        .then((res) => {
+          setData(res.data.project);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+    }
+    getData();
+  }, [])
   
   return (
     <Container isModal={isModal}>
@@ -402,82 +417,32 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
           <ProjectWrap style={pageWidth < 768 ? {transform: `translateX(${slidePx}px)`} : {transform: `translateX(0px)`}}>
             {(pjNum === 1 || mobilePjNum === 1) &&
             <>
-              <ProjectItem itemId={1} ref={itemRef}>
-                <ProjectImg onClick={() => showModal(1)}>
-                  <img src={getProjectImg(3)} alt='momentumImg'/>
-                  <div className='projectDetail'>
-                    <span>자세히 보기</span>
-                  </div>
-                </ProjectImg>
-                <ProjectName>Momentum</ProjectName>
-              </ProjectItem>
-              <ProjectItem itemId={2}>
-                <ProjectImg onClick={() => showModal(2)}>
-                  <img src={getProjectImg(3)} alt='umbrellaImg'/>
-                  <div className='projectDetail'>
-                    <span>자세히 보기</span>
-                  </div>
-                </ProjectImg>
-                <ProjectName>우산있어?</ProjectName>
-              </ProjectItem>
-              <ProjectItem itemId={3}>
-                <ProjectImg onClick={() => showModal(3)}>
-                  <img src={getProjectImg(3)} alt='whatItIsntImg'/>
-                  <div className='projectDetail'>
-                    <span>자세히 보기</span>
-                  </div>
-                </ProjectImg>
-                <ProjectName>WhatItIsnt</ProjectName>
-              </ProjectItem>
-              <ProjectItem itemId={4}>
-                  <ProjectImg onClick={() => showModal(4)}>
-                    <img src={getProjectImg(3)} alt='diaryImg'/>
+              {data.filter((project) => project.id < 5).map((it) => (
+                <ProjectItem itemId={it.id} ref={itemRef}>
+                  <ProjectImg onClick={() => showModal(it.id)}>
+                    <img src={getProjectImg(it.img)} alt={it.name}/>
                     <div className='projectDetail'>
                       <span>자세히 보기</span>
                     </div>
                   </ProjectImg>
-                <ProjectName>My Diary Book</ProjectName>
-              </ProjectItem>
+                  <ProjectName>{it.name}</ProjectName>
+                </ProjectItem>
+              ))}
             </>
             }
             {(pjNum === 2 || mobilePjNum === 1) &&
             <>
-              <ProjectItem itemId={5}>
-                <ProjectImg onClick={() => showModal(5)}>
-                  <img src={getProjectImg(3)} alt='netflixImg'/>
-                  <div className='projectDetail'>
-                    <span>자세히 보기</span>
-                  </div>
-                </ProjectImg>
-                <ProjectName>Netflix</ProjectName>
-              </ProjectItem>
-              <ProjectItem itemId={6}>
-                <ProjectImg onClick={() => showModal(6)}>
-                  <img src={getProjectImg(3)} alt='catMbtiImg'/>
-                  <div className='projectDetail'>
-                    <span>자세히 보기</span>
-                  </div>
-                </ProjectImg>
-                <ProjectName>고양이 MBTI</ProjectName>
-              </ProjectItem>
-              <ProjectItem itemId={7}>
-                <ProjectImg onClick={() => showModal(7)}>
-                  <img src={getProjectImg(3)} alt='portfolioImg'/>
-                  <div className='projectDetail'>
-                    <span>자세히 보기</span>
-                  </div>
-                </ProjectImg>
-                <ProjectName>YDS 포트폴리오</ProjectName>
-              </ProjectItem>
-              <ProjectItem itemId={8}>
-                <ProjectImg onClick={() => showModal(8)}>
-                  <img src={getProjectImg(3)} alt='momentumImg'/>
-                  <div className='projectDetail'>
-                    <span>자세히 보기</span>
-                  </div>
-                </ProjectImg>
-                <ProjectName>프로젝트</ProjectName>
-              </ProjectItem>
+              {data.filter((project) => project.id > 4).map((it) => (
+                <ProjectItem itemId={it.id} ref={itemRef}>
+                  <ProjectImg onClick={() => showModal(it.id)}>
+                    <img src={getProjectImg(it.img)} alt={it.name}/>
+                    <div className='projectDetail'>
+                      <span>자세히 보기</span>
+                    </div>
+                  </ProjectImg>
+                  <ProjectName>{it.name}</ProjectName>
+                </ProjectItem>
+              ))}
             </>
             }
           </ProjectWrap>

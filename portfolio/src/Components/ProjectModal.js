@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import responsive from '../style/responsive';
+import axios from 'axios';
 
 const Container = styled.div`
   width: 100vw;
@@ -200,194 +201,41 @@ const Links = styled.div`
 `;
 
 const ProjectModal = ({modalNum, closeModal}) => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const getData = async () => {
+      axios.get('/projectDb.json')
+        .then((res) => {
+          setData(res.data.project);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    };
+    getData();
+  }, []);
+  console.log("데이터", data);
   return (
     <Container>
-      {modalNum === 1 && 
-      <Modal>
-        <CloseBtn onClick={() => closeModal()}>닫기</CloseBtn>
-        <div className='modal_wrap'>
-          <Title>Momentum</Title>
-          <Content>
-            자바스크립트를 공부하면서 배운 것들을 활용하여 만든
-            Momentum 페이지입니다.<br/>
-            랜덤 배경화면, 시계와 날짜, 랜덤 명언, TodoList, 날씨 정보가 포함되어있습니다.<br/>
-            날씨 데이터는 OpenWeatherMap 사이트의 Weather API 데이터를 사용했습니다.
-          </Content>
-          <Tag>
-            <span className='tag'>#HTML</span>
-            <span className='tag'>#CSS</span>
-            <span className='tag'>#JavaScript</span>
-            <span className='tag'>#API</span>
-          </Tag>
-          <Links>
-            <span className='site'>사이트 바로가기</span>
-            <span className='github'>GitHub</span>
-          </Links>
-        </div>
-      </Modal>
-      }
-      {modalNum === 2 && 
-      <Modal>
-        <div className='modal_wrap'>
+      {data.map((it) => (
+        modalNum === it.id && 
+        <Modal>
           <CloseBtn onClick={() => closeModal()}>닫기</CloseBtn>
-          <Title>우산있어?<span>team project</span></Title>
-          <Content>
-            갑작스런 비와 강렬한 햇살 문제를 해결하기 위한 우산&양산 대여 서비스입니다.<br/>
-            HTML, CSS, JavaScript로 제작하였습니다.<br/>
-          </Content>
-          <Tag>
-          <span className='tag'>#HTML</span>
-            <span className='tag'>#CSS</span>
-            <span className='tag'>#JavaScript</span>
-            <span className='tag'>#JQuery</span>
-            <span className='tag'>#API</span>
-            <span className='tag'>#반응형</span>
-          </Tag>
-          <Links>
-            <span className='site'>사이트 바로가기</span>
-            <span className='github'>GitHub</span>
-          </Links>
-        </div>
-      </Modal>
-      }
-      {modalNum === 3 && 
-      <Modal>
-        <div className='modal_wrap'>
-          <CloseBtn onClick={() => closeModal()}>닫기</CloseBtn>
-          <Title>WhatItIsnt</Title>
-          <Content>
-            리액트로 만든 와릿이즌 페이지입니다.<br/>
-            메인 페이지와 인기 아이템 목록, 인기 아이템 상세목록 페이지, 로그인 기능을 구현했습니다.<br/>
-            JSON데이터를 불러와 아이템 목록을 생성했으며 반응형으로 제작했습니다.
-          </Content>
-          <Tag>
-            <span className='tag'>#react</span>
-            <span className='tag'>#redux</span>
-            <span className='tag'>#JSON</span>
-            <span className='tag'>#반응형</span>
-          </Tag>
-          <Links>
-            <span className='site'>사이트 바로가기</span>
-            <span className='github'>GitHub</span>
-          </Links>
-        </div>
-      </Modal>
-      }
-      {modalNum === 4 && 
-      <Modal>
-        <div className='modal_wrap'>
-          <CloseBtn onClick={() => closeModal()}>닫기</CloseBtn>
-          <Title>My Diary Book</Title>
-          <Content>
-            리액트로 만든 와릿이즌 페이지입니다.<br/>
-            메인 페이지와 인기 아이템 목록, 인기 아이템 상세목록 페이지, 로그인 기능을 구현했습니다.<br/>
-            JSON데이터를 불러와 아이템 목록을 생성했으며 반응형으로 제작했습니다.
-          </Content>
-          <Tag>
-            <span className='tag'>#react</span>
-            <span className='tag'>#redux</span>
-            <span className='tag'>#JSON</span>
-            <span className='tag'>#반응형</span>
-          </Tag>
-          <Links>
-            <span className='site'>사이트 바로가기</span>
-            <span className='github'>GitHub</span>
-          </Links>
-        </div>
-      </Modal>
-      }
-      {modalNum === 5 && 
-      <Modal>
-        <div className='modal_wrap'>
-          <CloseBtn onClick={() => closeModal()}>닫기</CloseBtn>
-          <Title>Netflix</Title>
-          <Content>
-            리액트로 만든 와릿이즌 페이지입니다.<br/>
-            메인 페이지와 인기 아이템 목록, 인기 아이템 상세목록 페이지, 로그인 기능을 구현했습니다.<br/>
-            JSON데이터를 불러와 아이템 목록을 생성했으며 반응형으로 제작했습니다.
-          </Content>
-          <Tag>
-            <span className='tag'>#react</span>
-            <span className='tag'>#redux</span>
-            <span className='tag'>#JSON</span>
-            <span className='tag'>#반응형</span>
-          </Tag>
-          <Links>
-            <span className='site'>사이트 바로가기</span>
-            <span className='github'>GitHub</span>
-          </Links>
-        </div>
-      </Modal>
-      }
-      {modalNum === 6 && 
-      <Modal>
-        <div className='modal_wrap'>
-          <CloseBtn onClick={() => closeModal()}>닫기</CloseBtn>
-          <Title>고양이 MBTI</Title>
-          <Content>
-            리액트로 만든 와릿이즌 페이지입니다.<br/>
-            메인 페이지와 인기 아이템 목록, 인기 아이템 상세목록 페이지, 로그인 기능을 구현했습니다.<br/>
-            JSON데이터를 불러와 아이템 목록을 생성했으며 반응형으로 제작했습니다.
-          </Content>
-          <Tag>
-            <span className='tag'>#react</span>
-            <span className='tag'>#redux</span>
-            <span className='tag'>#JSON</span>
-            <span className='tag'>#반응형</span>
-          </Tag>
-          <Links>
-            <span className='site'>사이트 바로가기</span>
-            <span className='github'>GitHub</span>
-          </Links>
-        </div>
-      </Modal>
-      }
-      {modalNum === 7 && 
-      <Modal>
-        <div className='modal_wrap'>
-          <CloseBtn onClick={() => closeModal()}>닫기</CloseBtn>
-          <Title>YDS 포트폴리오</Title>
-          <Content>
-            리액트로 만든 와릿이즌 페이지입니다.<br/>
-            메인 페이지와 인기 아이템 목록, 인기 아이템 상세목록 페이지, 로그인 기능을 구현했습니다.<br/>
-            JSON데이터를 불러와 아이템 목록을 생성했으며 반응형으로 제작했습니다.
-          </Content>
-          <Tag>
-            <span className='tag'>#react</span>
-            <span className='tag'>#redux</span>
-            <span className='tag'>#JSON</span>
-            <span className='tag'>#반응형</span>
-          </Tag>
-          <Links>
-            <span className='site'>사이트 바로가기</span>
-            <span className='github'>GitHub</span>
-          </Links>
-        </div>
-      </Modal>
-      }
-      {modalNum === 8 && 
-      <Modal>
-        <div className='modal_wrap'>
-          <CloseBtn onClick={() => closeModal()}>닫기</CloseBtn>
-          <Title>프로젝트</Title>
-          <Content>
-            리액트로 만든 와릿이즌 페이지입니다.<br/>
-            메인 페이지와 인기 아이템 목록, 인기 아이템 상세목록 페이지, 로그인 기능을 구현했습니다.<br/>
-            JSON데이터를 불러와 아이템 목록을 생성했으며 반응형으로 제작했습니다.
-          </Content>
-          <Tag>
-            <span className='tag'>#react</span>
-            <span className='tag'>#redux</span>
-            <span className='tag'>#JSON</span>
-            <span className='tag'>#반응형</span>
-          </Tag>
-          <Links>
-            <span className='site'>사이트 바로가기</span>
-            <span className='github'>GitHub</span>
-          </Links>
-        </div>
-      </Modal>
-      }
+          <div className='modal_wrap'>
+            <Title>{it.name}{it.team && <span>team project</span>}</Title>
+            <Content>{it.description}</Content>
+            <Tag>
+              {it.tag.map((tag) => (
+                <span className='tag'>{tag}</span>
+              ))}
+            </Tag>
+            <Links>
+              <span className='site'>사이트 바로가기</span>
+              <span className='github'>GitHub</span>
+            </Links>
+          </div>
+        </Modal>
+      ))}
     </Container>
   )
 }

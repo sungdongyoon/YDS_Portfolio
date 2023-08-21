@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { styled } from 'styled-components';
 import { useSelector } from 'react-redux';
 import responsive from '../style/responsive';
+import logo from '../img/logo.png';
 
 const Container = styled.header`
   height: 100px;
@@ -33,6 +34,12 @@ const Logo = styled.span`
   font-weight: bold;
   color: var(--gray);
   cursor: pointer;
+  img {
+    width: 100px;
+  }
+  @media screen and ${responsive.mobile} {
+    margin-left: 30px;
+  }
   @media screen and ${responsive.iphone12Pro} {
     width: 30%;
     font-size: 2.5rem;
@@ -122,7 +129,10 @@ const MobileNavMenu = styled.div`
     .nav_logo {
       font-size: 3rem;
       margin-bottom: 30px;
-      color: var(--white);
+      img {
+        width: 150px;
+        filter: invert(100%);
+      }
     }
     span {
       margin-bottom: 10px;
@@ -160,7 +170,9 @@ const Header = ({scrollIndex, handleToggle, goHome, goAbout, goProject, goContac
   const isToggle = useSelector((state) => state.isToggle);
   return (
     <Container>
-      <Logo onClick={goHome}>Logo</Logo>
+      <Logo onClick={goHome}>
+        <img src={logo} alt='logo'/>
+      </Logo>
       <HeaderInfo>
         <span className='email'>ehdtjd0906@naver.com</span>
         <span className='phone'>+82 10-6312-5903</span>
@@ -172,7 +184,9 @@ const Header = ({scrollIndex, handleToggle, goHome, goAbout, goProject, goContac
       </ToggleBtn>
       <MobileNavMenu isToggle={isToggle}>
         <div className='nav_menu_info'>
-          <span className='nav_logo'>Logo</span>
+          <span className='nav_logo'>
+            <img src={logo}/>
+          </span>
           <span>ehdtjd0906@naver.com</span>
           <span>+82 10-6312-5903</span>
         </div>
