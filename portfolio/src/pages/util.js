@@ -8,6 +8,7 @@ import mailImg from "../img/mail_img.png";
 import personImg from "../img/person.png";
 import logoImg from "../img/logo.png";
 import catImg from "../img/catImg.png";
+import mydiaryImg from "../img/mydiary_img.png";
 
 export const getProjectImg = (projectId) => {
   const targetProjectImg = String(projectId);
@@ -18,16 +19,14 @@ export const getProjectImg = (projectId) => {
       return umbrellaImg;
     case "3":
       return whatitisntImg;
-    // case "4":
-    //   return whatitisntImg;
+    case "4":
+      return mydiaryImg;
     case "5":
       return netflixImg;
     case "6":
       return catImg;
     case "7":
       return logoImg;
-    // case "8":
-    //   return logoImg;
     default:
       return null;
   }

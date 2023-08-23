@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import responsive from '../style/responsive';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   width: 100vw;
@@ -166,6 +167,7 @@ const Links = styled.div`
   }
   .site {
     background-color: var(--blue);
+    color: var(--white);
   }
   .github {
     background-color: var(--white);
@@ -201,6 +203,8 @@ const Links = styled.div`
 `;
 
 const ProjectModal = ({modalNum, closeModal}) => {
+
+
   const [data, setData] = useState([]);
   useEffect(() => {
     const getData = async () => {
@@ -230,8 +234,12 @@ const ProjectModal = ({modalNum, closeModal}) => {
               ))}
             </Tag>
             <Links>
-              <span className='site'>사이트 바로가기</span>
-              <span className='github'>GitHub</span>
+              <Link>
+                <span className='site'>사이트 바로가기</span>
+              </Link>
+              <Link target='_blank' to={it.github}>
+                <span className='github'>GitHub</span>
+              </Link>
             </Links>
           </div>
         </Modal>
