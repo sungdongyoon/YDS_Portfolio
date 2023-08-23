@@ -193,7 +193,7 @@ const Links = styled.div`
     }
   }
   @media screen and ${responsive.mobile} {
-    flex-direction: column;
+    flex-direction: row;
     span {
       text-align: center;
     }

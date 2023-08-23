@@ -90,16 +90,18 @@ margin: 0 auto;
   }
   @media screen and ${responsive.mobile} {
     div {
+      margin-right: 20px;
       span {
-        font-size: 4rem;
+        font-size: 4.5rem;
         -webkit-text-stroke: 3px var(--white);
       }
     }
   }
   @media screen and ${responsive.iphone12Pro} {
     div {
+      margin-right: 10px;
       span {
-        font-size: 3rem;
+        font-size: 3.5rem;
         -webkit-text-stroke: 2px var(--white);
       }
     }

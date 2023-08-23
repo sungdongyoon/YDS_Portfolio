@@ -138,7 +138,7 @@ const ProjectContent = styled.section`
   }
   @media screen and ${responsive.laptop} {
     width: 50%;
-    margin-top: 300px;
+    margin-top: 200px;
     margin-right: 150px;
   }
   @media screen and ${responsive.tablet} {
@@ -247,6 +247,7 @@ const ProjectImg = styled.div`
   align-items: center;
   cursor: pointer;
   img {
+    width: 80%;
     position: absolute;
   }
   .projectDetail {

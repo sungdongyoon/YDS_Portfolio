@@ -170,6 +170,7 @@ const AboutContent = styled.section`
     }
   }
   @media screen and ${responsive.laptop} {
+    margin-top: 200px;
     .aboutContent_header {
       .aboutMe {
         font-size: 3rem;
@@ -199,8 +200,6 @@ const AboutContent = styled.section`
   @media screen and ${responsive.iphone12Pro} {
     margin-top: 0;
     .aboutContent_header {
-      // flex-direction: column;
-      // align-items: flex-start;
       gap: 20px;
       .aboutMe {
         font-size: 2.2rem;
