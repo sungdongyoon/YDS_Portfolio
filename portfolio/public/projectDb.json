@@ -12,7 +12,8 @@
       ],
       "img": 1,
       "team": false,
-      "github": "https://github.com/sungdongyoon/Momentum"
+      "github": "https://github.com/sungdongyoon/Momentum",
+      "link": "https://resilient-piroshki-27b330.netlify.app"
     },
     {
       "id": 2,
@@ -28,7 +29,8 @@
       ],
       "img": 2,
       "team": true,
-      "github": "https://github.com/sungdongyoon/teamProject"
+      "github": "https://github.com/sungdongyoon/teamProject",
+      "link": "https://resilient-piroshki-27b330.netlify.app"
     },
     {
       "id": 3,
@@ -43,7 +45,8 @@
       ],
       "img": 3,
       "team": false,
-      "github": "https://github.com/sungdongyoon/whatitisnt"
+      "github": "https://github.com/sungdongyoon/whatitisnt",
+      "link": "https://resilient-piroshki-27b330.netlify.app"
     },
     {
       "id": 4,
@@ -57,7 +60,8 @@
       ],
       "img": 4,
       "team": false,
-      "github": "https://github.com/sungdongyoon/Momentum"
+      "github": "https://github.com/sungdongyoon/Momentum",
+      "link": "https://resilient-piroshki-27b330.netlify.app"
     },
     {
       "id": 5,
@@ -71,7 +75,8 @@
       ],
       "img": 5,
       "team": false,
-      "github": "https://github.com/sungdongyoon/Momentum"
+      "github": "https://github.com/sungdongyoon/Momentum",
+      "link": "https://resilient-piroshki-27b330.netlify.app"
     },
     {
       "id": 6,
@@ -85,7 +90,8 @@
       ],
       "img": 6,
       "team": false,
-      "github": "https://github.com/sungdongyoon/Momentum"
+      "github": "https://github.com/sungdongyoon/Momentum",
+      "link": "https://resilient-piroshki-27b330.netlify.app"
     },
     {
       "id": 7,
@@ -99,7 +105,8 @@
       ],
       "img": 7,
       "team": false,
-      "github": "https://github.com/sungdongyoon/YDS_Portfolio"
+      "github": "https://github.com/sungdongyoon/YDS_Portfolio",
+      "link": "https://resilient-piroshki-27b330.netlify.app"
     }
   ]
 }

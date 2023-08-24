@@ -4,6 +4,7 @@ import { styled } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft, faAnglesLeft, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver, projectSlide} from '../animation/animation';
+import { motion } from 'framer-motion';
 import ProjectModal from '../Components/ProjectModal';
 import largeCircle from '../img/largeCircle.png';
 import responsive from '../style/responsive';
@@ -294,7 +295,7 @@ const ProjectName = styled.div`
   }
 `;
 
-const LeftCircle = styled.div`
+const LeftCircle = styled(motion.div)`
   position: absolute;
   bottom: -200px;
   left: -200px;
@@ -455,7 +456,7 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
         </ProjectContent>
         {isModal && <ProjectModal modalNum={modalNum} closeModal={closeModal}/>}
       </ProjectMain>
-      <LeftCircle>
+      <LeftCircle layoutId='leftCircle'>
         <img src={largeCircle} ref={leftCircleRef}/>
       </LeftCircle>
       <RightCircle>

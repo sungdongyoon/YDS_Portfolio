@@ -4,6 +4,7 @@ import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, ri
 import { useSelector } from 'react-redux';
 import largeCircle from '../img/largeCircle.png';
 import responsive from '../style/responsive';
+import { motion } from 'framer-motion';
 
 const Container = styled.div`
   height: 100vh;
@@ -395,7 +396,7 @@ const AboutExperience = styled.section`
   }
 `;
 
-const LeftCircle = styled.div`
+const LeftCircle = styled(motion.div)`
   width: 600px;
   height: 600px;
   background-color: var(--sky-blue);
@@ -551,7 +552,7 @@ const About = ({clickSkill, clickExperience}) => {
           </AboutExperience>}
         </AboutContent>
       </AboutMain>
-      <LeftCircle ref={leftCircleRef}>
+      <LeftCircle ref={leftCircleRef} layoutId='leftCircle'>
         <img src={largeCircle} />
       </LeftCircle>
       <RightCircle>

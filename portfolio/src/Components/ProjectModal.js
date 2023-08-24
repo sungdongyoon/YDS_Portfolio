@@ -234,7 +234,7 @@ const ProjectModal = ({modalNum, closeModal}) => {
               ))}
             </Tag>
             <Links>
-              <Link>
+              <Link target='_blank' to={it.link}>
                 <span className='site'>사이트 바로가기</span>
               </Link>
               <Link target='_blank' to={it.github}>
