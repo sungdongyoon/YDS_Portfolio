@@ -2,7 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import { styled } from 'styled-components';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { homeTitle, homeArrow, homeTitleObserver } from '../animation/animation';
+import { homeSubTitle, homeArrow, homeTitleObserver, homeTitle } from '../animation/animation';
+import { opacityVar } from '../animation/animation';
+import { motion } from 'framer-motion';
+import useObserver from '../hooks/useObserver';
 import responsive from '../style/responsive';
 
 const Container = styled.div`
@@ -19,11 +22,13 @@ const Container = styled.div`
   z-index: -10;
 `;
 
-const HomeTitle = styled.header`
-margin: 0 auto;
+const HomeTitle = styled(motion.header)`
+  margin: 0 auto;
   div {
     display: inline-block;
     margin-right: 50px;
+    animation: ${homeTitle} 1s linear;
+    animation-fill-mode: forwards;
     transition: 1s;
     span {
       display: inline-block;
@@ -36,6 +41,9 @@ margin: 0 auto;
     }
   }
   .yoon {
+    opacity: 0;
+    animation-delay: 0.3s;
+    transition-delay: 0.3s;
     span {
       &:nth-child(1) {
         transform: rotate(5deg);
@@ -46,7 +54,9 @@ margin: 0 auto;
     }
   }
   .dong {
-    transition-delay: 0.4s;
+    opacity: 0;
+    animation-delay: 0.6s;
+    transition-delay: 0.6s;
     span {
       &:nth-child(1) {
         transform: rotate(5deg);
@@ -61,7 +71,9 @@ margin: 0 auto;
   }
   .sung {
     margin-right: 0;
-    transition-delay: 0.8s;
+    opacity: 0;
+    animation-delay: 0.9s;
+    transition-delay: 0.9s;
     span {
       &:nth-child(1) {
         transform: rotate(-5deg);
@@ -117,7 +129,7 @@ const HomeSubTitle = styled.span`
     color: var(--white);
     letter-spacing: 3px;
     text-shadow: 0 0 20px var(--sky-blue);
-    animation: ${homeTitle} 1.5s infinite;
+    animation: ${homeSubTitle} 1.5s infinite;
     &:nth-child(1) {
       animation-delay: 1.1s;
     }
@@ -167,20 +179,13 @@ const HomeArrow = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--blue);
+  color: var(--gray);
   font-size: 5rem;
   position: absolute;
   bottom: 50px;
-  animation: ${homeArrow} 2s ease-in-out infinite;
+  animation: ${homeArrow} 1s ease-in-out infinite;
   span {
     font-size: 2.5rem;
-  }
-  .chevronDownTop {
-    display: block;
-  }
-  .chevronDownBottom {
-    display: block;
-    transform: translateY(-30px);
   }
   @media screen and ${responsive.laptop} {
     font-size: 4rem;
@@ -193,51 +198,35 @@ const HomeArrow = styled.div`
     span {
       font-size: 1.5rem;
     }
-    .chevronDownBottom {
-      transform: translateY(-20px);
-    }
   }
 `;
 
 
 const Home = () => {
-  const yoonRef = useRef();
-  const dongRef = useRef();
-  const sungRef = useRef();
-  const subTitleRef = useRef();
-
-  useEffect(() => {
-    homeTitleObserver.observe(yoonRef.current);
-    homeTitleObserver.observe(dongRef.current);
-    homeTitleObserver.observe(sungRef.current);
-    homeTitleObserver.observe(subTitleRef.current);
-    return () => {
-      homeTitleObserver.disconnect(); // 컴포넌트 언마운트 시 관찰 중단
-    };
-  }, []);
+  const { ref, animation } = useObserver();
   return (
     <Container>
-      <HomeTitle>
-        <div ref={yoonRef} className='yoon'>
+      <HomeTitle ref={ref} initial="hidden" animate={animation} variants={opacityVar}>
+        <div className='yoon'>
           <span>Y</span>
           <span>o</span>
           <span>o</span>
           <span>N</span>
         </div>
-        <div ref={dongRef} className='dong'>
+        <div className='dong'>
           <span>D</span>
           <span>o</span>
           <span>N</span>
           <span>G</span>
         </div>
-        <div ref={sungRef} className='sung'>
+        <div className='sung'>
           <span>S</span>
           <span>u</span>
           <span>N</span>
           <span>G</span>
         </div>
       </HomeTitle>
-      <HomeSubTitle ref={subTitleRef}>
+      <HomeSubTitle>
         <span>P</span>
         <span>O</span>
         <span>R</span>
@@ -250,8 +239,7 @@ const Home = () => {
       </HomeSubTitle>
       <HomeArrow>
         <span>Scroll</span>
-        <FontAwesomeIcon className='chevronDownTop' icon={faChevronDown}/>
-        <FontAwesomeIcon className='chevronDownBottom' icon={faChevronDown}/>
+        <FontAwesomeIcon className='chevronDown' icon={faChevronDown}/>
       </HomeArrow>
     </Container>
   )
