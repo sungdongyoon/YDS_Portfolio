@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
     --page-title: 17rem;
     --page-subTitle: 5rem;
 
-    --sky-blue: #bbd3f8;
+    --sky-blue: #acd8f8;
     --blue: #0079FF;
     --light-gray: #ccc;
     --semi-gray: #999;

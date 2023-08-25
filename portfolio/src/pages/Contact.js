@@ -1,8 +1,9 @@
 import React, {useRef, useEffect, useState} from 'react';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
-import { getContactImg } from './util';
-import {titleObserver, contentObserver, leftCircleObserver, rightCircleObserver} from '../animation/animation';
+import { getContactImg } from '../Components/util';
+import {titleObserver, contentObserver} from '../animation/animation';
+import { Image } from '../Components/util';
 import EmailModal from '../Components/EmailModal';
 import responsive from '../style/responsive';
 
@@ -20,7 +21,7 @@ const Container = styled.div`
     position: absolute;
     left: 0px;
     top: 0px;
-    background-image: url('https://kijepark.com/assets/img/root/plus-light-pattern.png');
+    background-image: url(${Image(2)});
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -90,7 +91,7 @@ const ContactContent = styled.section`
   justify-content: center;
   transition: 1.5s;
   .contact_wrap {
-    width: 85%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
@@ -102,11 +103,11 @@ const ContactContent = styled.section`
       line-height: 70px;
     }
     img {
-      border-radius: 30px;
+      width: 400px;
+      border-radius: 10px;
       position: absolute;
       right: 0;
-      top: 0;
-      transform: scaleX(-1);
+      top: -100px;
     }
   }
   .link_wrap {
@@ -141,6 +142,7 @@ const ContactContent = styled.section`
       }
       img {
         width: 300px;
+        top: 0;
       }
     }
     .link_wrap {
@@ -271,7 +273,7 @@ const Contact = () => {
         <ContactContent ref={contentRef}>
           <div className='contact_wrap'>
             <p>궁금하신 사항이나<br/> 저의 부족한 부분에 대한 피드백이 있으시면 <br/> 언제든 연락주시면 감사하겠습니다.</p>
-            <img src={getContactImg(4)}/>
+            <img className='me' src={getContactImg(4)}/>
           </div>
           <div className='link_wrap'>
             <Link target='_blank' className='link_item github' to='https://github.com/sungdongyoon'>

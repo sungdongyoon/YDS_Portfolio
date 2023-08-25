@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { styled } from 'styled-components';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { homeSubTitle, homeArrow, homeTitleObserver, homeTitle } from '../animation/animation';
+import { homeArrow, homeTitle, homeSubTitle, homeSubTitle2 } from '../animation/animation';
 import { opacityVar } from '../animation/animation';
 import { motion } from 'framer-motion';
 import useObserver from '../hooks/useObserver';
@@ -120,7 +120,11 @@ const HomeTitle = styled(motion.header)`
   }
 `;
 
-const HomeSubTitle = styled.span`
+const HomeSubTitle = styled.div`
+  opacity: 0;
+  animation: ${homeSubTitle} 1.5s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
   transition: 1s;
   span {
     display: inline-block;
@@ -129,33 +133,33 @@ const HomeSubTitle = styled.span`
     color: var(--white);
     letter-spacing: 3px;
     text-shadow: 0 0 20px var(--sky-blue);
-    animation: ${homeSubTitle} 1.5s infinite;
+    animation: ${homeSubTitle2} 1.5s infinite;
     &:nth-child(1) {
-      animation-delay: 1.1s;
+      animation-delay: 2s;
     }
     &:nth-child(2) {
-      animation-delay: 1.2s;
+      animation-delay: 2.1s;
     }
     &:nth-child(3) {
-      animation-delay: 1.3s;
+      animation-delay: 2.2s;
     }
     &:nth-child(4) {
-      animation-delay: 1.4s;
+      animation-delay: 2.3s;
     }
     &:nth-child(5) {
-      animation-delay: 1.5s;
+      animation-delay: 2.4s;
     }
     &:nth-child(6) {
-      animation-delay: 1.6s;
+      animation-delay: 2.5s;
     }
     &:nth-child(7) {
-      animation-delay: 1.7s;
+      animation-delay: 2.6s;
     }
     &:nth-child(8) {
-      animation-delay: 1.8s;
+      animation-delay: 2.7s;
     }
     &:nth-child(9) {
-      animation-delay: 1.9s;
+      animation-delay: 2.8s;
     }
   }
   @media screen and ${responsive.tablet} {
@@ -206,7 +210,7 @@ const Home = () => {
   const { ref, animation } = useObserver();
   return (
     <Container>
-      <HomeTitle ref={ref} initial="hidden" animate={animation} variants={opacityVar}>
+      <HomeTitle ref={ref} variants={opacityVar} initial="hidden" animate={animation}>
         <div className='yoon'>
           <span>Y</span>
           <span>o</span>

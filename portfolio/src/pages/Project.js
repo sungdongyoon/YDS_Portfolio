@@ -1,15 +1,14 @@
 import React, {useRef, useEffect, useState} from 'react';
-import { getProjectImg } from './util';
+import { getProjectImg } from '../Components/util';
 import { styled } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft, faAnglesLeft, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver, projectSlide} from '../animation/animation';
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Image } from '../Components/util';
 import ProjectModal from '../Components/ProjectModal';
-import largeCircle from '../img/largeCircle.png';
 import responsive from '../style/responsive';
 import axios from 'axios';
-import logo from '../img/logo.png';
 
 
 const Container = styled.div`
@@ -25,7 +24,7 @@ const Container = styled.div`
     position: absolute;
     left: 0px;
     top: 0px;
-    background-image: url('https://kijepark.com/assets/img/root/plus-light-pattern.png');
+    background-image: url(${Image(2)});
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -278,29 +277,39 @@ const ProjectImg = styled.div`
 `;
 
 const ProjectName = styled.div`
-  font-size: 2rem;
-  margin-top: 20px;
   text-align: center;
+  margin-top: 20px;
+  .link {
+    font-size: 2rem;
+  }
   @media screen and ${responsive.laptop} {
-    font-size: 1.8rem;
+    .link {
+      font-size: 1.8rem;
+    }
   }
   @media screen and ${responsive.tablet} {
-    font-size: 1.6rem;
+    .link {
+      font-size: 1.6rem;
+    }
   }
   @media screen and ${responsive.mobile} {
-    font-size: 1.4rem;
+    .link {
+      font-size: 1.4rem;
+    }
   }
   @media screen and ${responsive.mobile} {
-    font-size: 1.6rem;
+    .link {
+      font-size: 1.6rem;
+    }
   }
 `;
 
-const LeftCircle = styled(motion.div)`
+const LeftCircle = styled.div`
+  width: 600px;
+  height: 600px;
   position: absolute;
   bottom: -200px;
   left: -200px;
-  width: 600px;
-  height: 600px;
   border-radius: 50%;
   z-index: -10;
   @media screen and ${responsive.laptop} {
@@ -313,8 +322,9 @@ const LeftCircle = styled(motion.div)`
   }
   img {
     width: 100%;
-    heigiht: 100%;
+    height: 100%;
     transition: 1s;
+    filter: opacity(0.3) drop-shadow(0 0 0 var(--blue));
   }
 `;
 
@@ -337,6 +347,7 @@ const RightCircle = styled.div`
     width: 100%;
     height: 100%;
     transition: 1s;
+    filter: opacity(0.3) drop-shadow(0 0 0 var(--blue));
   }
 `;
 
@@ -369,8 +380,8 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
     pageWidth <= 768 && (slidePx < 0 && setSlidePx(slidePx + (itemWidth + 30)));
   };
   const nextCount = () => {
-    itemId < 8 && setItemId(itemId + 1);
-    pageWidth <= 768 && (slidePx > -(itemWidth * 7) && setSlidePx(slidePx - (itemWidth + 30)));
+    itemId < data.length && setItemId(itemId + 1);
+    pageWidth <= 768 && (slidePx > -(itemWidth * (data.length - 1)) && setSlidePx(slidePx - (itemWidth + 30)));
   };
 
   // mobile page project
@@ -427,7 +438,11 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
                       <span>자세히 보기</span>
                     </div>
                   </ProjectImg>
-                  <ProjectName>{it.name}</ProjectName>
+                  <ProjectName>
+                    <Link className='link' target="_blank" to={it.link}>
+                      {it.name}
+                    </Link>
+                  </ProjectName>
                 </ProjectItem>
               ))}
             </>
@@ -442,7 +457,11 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
                       <span>자세히 보기</span>
                     </div>
                   </ProjectImg>
-                  <ProjectName>{it.name}</ProjectName>
+                  <ProjectName>
+                    <Link className='link' target="_blank" to={it.link}>
+                      {it.name}
+                    </Link>
+                  </ProjectName>
                 </ProjectItem>
               ))}
             </>
@@ -450,17 +469,17 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
           </ProjectWrap>
           <SliderBtn>
             <FontAwesomeIcon icon={faAnglesLeft} className='leftBtn' onClick={prevCount}/>
-            <div className='count'>{itemId} / 8</div>
+            <div className='count'>{itemId} / {data.length}</div>
             <FontAwesomeIcon icon={faAnglesRight} className='rightBtn' onClick={nextCount}/>
           </SliderBtn>
         </ProjectContent>
         {isModal && <ProjectModal modalNum={modalNum} closeModal={closeModal}/>}
       </ProjectMain>
-      <LeftCircle layoutId='leftCircle'>
-        <img src={largeCircle} ref={leftCircleRef}/>
+      <LeftCircle>
+        <img src={Image(1)} ref={leftCircleRef}/>
       </LeftCircle>
       <RightCircle>
-        <img src={largeCircle} ref={rightCircleRef}/>
+        <img src={Image(1)} ref={rightCircleRef}/>
       </RightCircle>
     </Container>
   )

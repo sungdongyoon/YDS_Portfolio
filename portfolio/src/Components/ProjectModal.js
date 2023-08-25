@@ -20,16 +20,15 @@ const Container = styled.div`
 
 const Modal = styled.div`
   width: 1200px;
-  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #18191F;
   position: relative;
   color: var(--white);
+  padding: 100px 0;
   .modal_wrap {
     width: 80%;
-    height: 70%;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -39,18 +38,13 @@ const Modal = styled.div`
   }
   @media screen and ${responsive.tablet} {
     width: 800px;
-    height: 500px;
   }
   @media screen and ${responsive.mobile} {
     width: 450px;
-    height: 600px;
+    padding: 50px 0;
   }
   @media screen and ${responsive.iphone12Pro} {
     width: 300px;
-    height: 600px;
-    .modal_wrap {
-      height: 80%;
-    }
   }
 `;
 
@@ -97,9 +91,10 @@ const Title = styled.header`
 `;
 
 const Content = styled.span`
-  height: 300px;
   font-size: 2rem;
   line-height: 50px;
+  margin-top: 10px;
+  margin-bottom: 100px;
   @media screen and ${responsive.laptop} {
     font-size: 1.7rem;
     line-height: 40px;
@@ -110,15 +105,19 @@ const Content = styled.span`
   }
   @media screen and ${responsive.mobile} {
     font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 30px;
   }
   @media screen and ${responsive.iphone12Pro} {
     font-size: 1.2rem;
+    margin-bottom: 0px;
   }
 `;
 
 const Tag = styled.div`
   display: flex;
   gap: 30px;
+  flex-wrap: wrap;
   .tag {
     display: inline-block;
     height: 40px;
@@ -145,11 +144,18 @@ const Tag = styled.div`
     }
   }
   @media screen and ${responsive.mobile} {
-    flex-wrap: wrap;
     .tag {
-      height: 25px;
-      font-size: 1.2rem;
-      line-height: 25px;
+      height: 20px;
+      font-size: 1rem;
+      line-height: 20px;
+      padding: 0px 15px;
+    }
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    .tag {
+      height: 20px;
+      font-size: 1rem;
+      line-height: 20px;
     }
   }
 `;
@@ -194,17 +200,20 @@ const Links = styled.div`
       line-height: 25px;
     }
   }
-  @media screen and ${responsive.mobile} {
-    flex-direction: row;
+  @media screen and ${responsive.iphone12Pro} {
+    flex-direction: column;
+    gap: 5px;
     span {
+      width: 100%;
+      height: 25px;
       text-align: center;
+      font-size: 1rem;
+      line-height: 25px;
     }
   }
 `;
 
 const ProjectModal = ({modalNum, closeModal}) => {
-
-
   const [data, setData] = useState([]);
   useEffect(() => {
     const getData = async () => {

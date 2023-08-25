@@ -5,10 +5,13 @@ import netflixImg from "../img/netflix_logo.png";
 import blogImg from "../img/blog_img.png";
 import githubImg from "../img/github_img.png";
 import mailImg from "../img/mail_img.png";
-import personImg from "../img/person.png";
+import me from "../img/me.jpg";
 import logoImg from "../img/logo.png";
 import catImg from "../img/catImg.png";
 import mydiaryImg from "../img/mydiary_img.png";
+import brushCircle from "../img/brushCircle.png";
+import pattern from "../img/pattern.png";
+
 
 export const getProjectImg = (projectId) => {
   const targetProjectImg = String(projectId);
@@ -42,7 +45,19 @@ export const getContactImg = (contactId) => {
     case "3":
       return mailImg;
     case "4":
-      return personImg;
+      return me;
+    default:
+      return null;
+  }
+}
+
+export const Image = (imageId) => {
+  const targetImage = String(imageId);
+  switch(targetImage) {
+    case "1":
+      return brushCircle;
+    case "2":
+      return pattern;
     default:
       return null;
   }

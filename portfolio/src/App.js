@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect, useRef, useState } from 'react';
 import { styled } from 'styled-components';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import GlobalStyle from './style/GlobalStyle';
 import Header from './Components/Header';
 import Dots from './Components/Dots';
@@ -9,7 +9,6 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Project from './pages/Project';
 import Contact from './pages/Contact';
-import { motion } from 'framer-motion';
 
 
 const Container = styled.div`
@@ -43,14 +42,6 @@ function App() {
     });
     console.log("윈도우 사이즈", windowSize)
   }
-
-  // const handleResize = throttle(() => {
-  //   setWindowSize({
-  //     width: window.innerWidth,
-  //     height: window.innerHeight,
-  //   }, 200);
-  //   console.log("윈도우 사이즈", windowSize)
-  // })
 
   // Scroll Event
   const outerDivRef = useRef();

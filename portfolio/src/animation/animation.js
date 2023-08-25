@@ -5,14 +5,9 @@ import { keyframes } from "styled-components";
 export const opacityVar = {
   hidden: {
     opacity: 0,
-    transform: "trnaslateY(-50px)",
   },
   visible: {
     opacity: 1,
-    transform: "trnaslateY(0)",
-    transition: {
-      duration: 1,
-    },
   },
 };
 
@@ -70,11 +65,13 @@ export let leftCircleObserver = new IntersectionObserver((e) => {
   e.forEach((el) => {
     if(el.isIntersecting) {
       el.target.style.opacity = 1;
-      el.target.style.transform = "translateX(0) translateY(0)";
+      // el.target.style.transform = "translateX(0) translateY(0)";
+      el.target.style.transform = "scale(1)";
     }
     else {
       el.target.style.opacity = 0;
-      el.target.style.transform = "translateX(-50%) translateY(-50%)";
+      el.target.style.transform = "scale(0)";
+      // el.target.style.transform = "translateX(-50%) translateY(-50%)";
     }
   })
 })
@@ -106,6 +103,15 @@ export let homeTitle = keyframes`
 `;
 
 export let homeSubTitle = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+export let homeSubTitle2 = keyframes`
   0% {
     opacity: 0;
     transform: translateY(0);

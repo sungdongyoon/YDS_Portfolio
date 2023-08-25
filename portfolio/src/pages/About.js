@@ -2,9 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { styled } from 'styled-components';
 import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver, aboutClick} from '../animation/animation';
 import { useSelector } from 'react-redux';
-import largeCircle from '../img/largeCircle.png';
+import { Image } from '../Components/util';
 import responsive from '../style/responsive';
-import { motion } from 'framer-motion';
 
 const Container = styled.div`
   height: 100vh;
@@ -20,7 +19,7 @@ const Container = styled.div`
     position: absolute;
     left: 0px;
     top: 0px;
-    background-image: url('https://kijepark.com/assets/img/root/plus-light-pattern.png');
+    background-image: url(${Image(2)});
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -157,18 +156,18 @@ const AboutContent = styled.section`
       letter-spacing: 3px;
       margin-right: 50px;
     }
-    .aboutMe_resume {
-      width: 150px;
-      height: 50px;
-      font-size: 2rem;
-      color: var(--white);
-      text-align: center;
-      line-height: 50px;
-      background-color: var(--sky-blue);
-      border-radius: 5px;
-      cursor: pointer;
-      mix-blend-mode: multiply;
-    }
+    // .aboutMe_resume {
+    //   width: 150px;
+    //   height: 50px;
+    //   font-size: 2rem;
+    //   color: var(--white);
+    //   text-align: center;
+    //   line-height: 50px;
+    //   background-color: var(--sky-blue);
+    //   border-radius: 5px;
+    //   cursor: pointer;
+    //   mix-blend-mode: multiply;
+    // }
   }
   @media screen and ${responsive.laptop} {
     margin-top: 200px;
@@ -396,16 +395,14 @@ const AboutExperience = styled.section`
   }
 `;
 
-const LeftCircle = styled(motion.div)`
+const LeftCircle = styled.div`
   width: 600px;
   height: 600px;
-  background-color: var(--sky-blue);
-  border-radius: 50%;
   position: absolute;
   bottom: -200px;
   left: -200px;
+  transition: 1s;
   z-index: -10;
-  transition: 0.5s;
   @media screen and ${responsive.laptop} {
     width: 500px;
     height: 500px;
@@ -415,17 +412,19 @@ const LeftCircle = styled(motion.div)`
     height: 400px;
   }
   img {
-    width: 0%;
-    height: 0%;
+    width: 100%;
+    height: 100%;
     transition: 1s;
+    filter: opacity(0.3) drop-shadow(0 0 0 var(--blue));
   }
 `;
 
 const RightCircle = styled.div`
-  position: absolute;
   width: 700px;
   height: 700px;
+  position: absolute;
   right: -200px;
+  transition: 1s;
   z-index: -1;
   @media screen and ${responsive.laptop} {
     width: 500px;
@@ -439,6 +438,7 @@ const RightCircle = styled.div`
     width: 100%;
     height: 100%;
     transition: 1s;
+    filter: opacity(0.3) drop-shadow(0 0 0 var(--blue));
   }
 `;
 
@@ -474,7 +474,7 @@ const About = ({clickSkill, clickExperience}) => {
         <AboutContent ref={contentRef}>
           <div className='aboutContent_header'>
             <h1 className='aboutMe'>프론트엔드 개발자<br/> 윤동성 입니다.</h1>
-            <div className='aboutMe_resume'>RESUME</div>
+            {/* <div className='aboutMe_resume'>RESUME</div> */}
           </div>
           {showSkill && 
           <AboutSkill>
@@ -482,16 +482,16 @@ const About = ({clickSkill, clickExperience}) => {
               <div className='about_skill_item'>
                 <h3>HTML5</h3>
                 <p>
-                  웹 접근성이 좋고 유지보수하기 용이한 시멘틱 태그 사용을 지향합니다. 태그에 대한 이해도가 있습니다.
+                  웹 접근성이 좋고 유지보수하기 용이한 시멘틱 태그 사용을 지향합니다. 태그에 대한 기본적인 이해도가 있습니다.
                 </p>
               </div>
               <div className='about_skill_item'>
                 <h3>CSS3</h3>
-                <p>flex와 grid를 활용하여 적절한 레이아웃을 구현할 수 있으며, keyframe을 활용한 애니메이션 제작, 미디어쿼리를 활용한 반응형 페이지를 제작할 수 있습니다.</p>
+                <p>flex와 grid를 활용하여 적절한 레이아웃을 구현할 수 있으며 keyframe을 활용한 애니메이션 제작, 미디어쿼리를 활용한 반응형 페이지를 제작할 수 있습니다.</p>
               </div>
               <div className='about_skill_item'>
                 <h3>JavaScript</h3>
-                <p>ES6 문법과 함수에 대한 이해, 바닐라 자바스크립트로 화면 제어 및 기능 구현 가능, DOM 활용 가능, 다양한 함수 메서드 활용 가능, 외부 API 데이터를 활용한 작업이 가능합니다.</p>
+                <p>ES6 문법과 함수에 대한 이해, 바닐라 자바스크립트로 화면 제어 및 기능 구현 가능, DOM 활용 가능, 다양한 함수 메서드 활용 가능, 외부 API 데이터를 활용한 작업 등이 가능합니다.</p>
               </div>
               <div className='about_skill_item'>
                 <h3>TypeScript</h3>
@@ -499,7 +499,7 @@ const About = ({clickSkill, clickExperience}) => {
               </div>
               <div className='about_skill_item'>
                 <h3>React</h3>
-                <p>리액트를 활용한 SPA 방식 웹 개발 경험이 있고 기본적인 리액트 훅 활용 가능, 공통 컴포넌트 활용 가능, 라우터를 이용한 페이지 분기, 상태 최적화 경험, 비동기 처리 경험이 있습니다.</p>
+                <p>리액트를 활용한 SPA 방식 웹 개발 경험이 있고 기본적인 리액트 훅 활용 가능, 공통 컴포넌트 활용 가능, 라우터를 이용한 페이지 분기, 상태 최적화 경험, 비동기 처리 경험 등이 있습니다.</p>
               </div>
               <div className='about_skill_item'>
                 <h3>Styled-Components</h3>
@@ -519,9 +519,9 @@ const About = ({clickSkill, clickExperience}) => {
                 </p>
               </div>
               <div className='about_experience_item'>
-                <h3>API</h3>
+                <h3>Rest API</h3>
                 <p>
-                  외부 API 데이터를 활용한 경험이 있습니다.
+                  카카오 지도, 따릉이, 날씨, 영화, 지하철 등 외부 API 데이터를 활용한 경험이 있습니다.
                 </p>
               </div>
               <div className='about_experience_item'>
@@ -533,7 +533,7 @@ const About = ({clickSkill, clickExperience}) => {
               <div className='about_experience_item'>
                 <h3>상태 최적화</h3>
                 <p>
-                  React의 useMemo, redux를 사용해서 프로젝트 최적화 경험이 있습니다.
+                  React의 useMemo, Redux, Recoil, react-query를 사용한 프로젝트 최적화 경험이 있습니다.
                 </p>
               </div>
               <div className='about_experience_item'>
@@ -552,11 +552,11 @@ const About = ({clickSkill, clickExperience}) => {
           </AboutExperience>}
         </AboutContent>
       </AboutMain>
-      <LeftCircle ref={leftCircleRef} layoutId='leftCircle'>
-        <img src={largeCircle} />
+      <LeftCircle>
+        <img src={Image(1)} ref={leftCircleRef}/>
       </LeftCircle>
       <RightCircle>
-        <img src={largeCircle} ref={rightCircleRef}/>
+        <img src={Image(1)} ref={rightCircleRef}/>
       </RightCircle>
     </Container>
   )
