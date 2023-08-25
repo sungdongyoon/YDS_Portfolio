@@ -65,13 +65,11 @@ export let leftCircleObserver = new IntersectionObserver((e) => {
   e.forEach((el) => {
     if(el.isIntersecting) {
       el.target.style.opacity = 1;
-      // el.target.style.transform = "translateX(0) translateY(0)";
-      el.target.style.transform = "scale(1)";
+      el.target.style.transform = "translateX(0) translateY(0)";
     }
     else {
       el.target.style.opacity = 0;
-      el.target.style.transform = "scale(0)";
-      // el.target.style.transform = "translateX(-50%) translateY(-50%)";
+      el.target.style.transform = "translateX(-50%) translateY(50%)";
     }
   })
 })
