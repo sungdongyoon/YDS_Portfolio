@@ -7,6 +7,7 @@
 - React
 
 ### 📗사용 라이브러리
+- router
 - axios
 - emailJs
 - framer-motion
