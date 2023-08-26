@@ -495,7 +495,7 @@ const About = ({clickSkill, clickExperience}) => {
               </div>
               <div className='about_skill_item'>
                 <h3>TypeScript</h3>
-                <p>기본적인 타입스크립트 문법에 대한 이해</p>
+                <p>기본 타입, 인터페이스, 제네릭, 함수 등 기본적인 문법과 타입 정의에 대해 알고 있습니다. </p>
               </div>
               <div className='about_skill_item'>
                 <h3>React</h3>

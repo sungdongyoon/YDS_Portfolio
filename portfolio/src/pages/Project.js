@@ -191,7 +191,8 @@ const ProjectWrap = styled.div`
   width: 70%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   @media screen and ${responsive.laptop} {
     width: 500px;
   }

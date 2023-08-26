@@ -66,36 +66,6 @@
     },
     {
       "id": 5,
-      "name": "Netflix",
-      "description": ".",
-      "tag": [
-        "#HTML",
-        "#CSS",
-        "#JavaScript",
-        "#API"
-      ],
-      "img": 5,
-      "team": false,
-      "github": "https://github.com/sungdongyoon/Momentum",
-      "link": "https://resilient-piroshki-27b330.netlify.app"
-    },
-    {
-      "id": 6,
-      "name": "고양이 MBTI",
-      "description": ".",
-      "tag": [
-        "#HTML",
-        "#CSS",
-        "#JavaScript",
-        "#API"
-      ],
-      "img": 6,
-      "team": false,
-      "github": "https://github.com/sungdongyoon/Momentum",
-      "link": "https://resilient-piroshki-27b330.netlify.app"
-    },
-    {
-      "id": 7,
       "name": "YDS 포트폴리오",
       "description": "리액트로 개발한 포트폴리오입니다. 원페이지 스크롤 방식으로 페이지를 구현하였으며 Intersection Observer API를 활용해 스크롤 애니메이션을 구현했습니다. 페이지 스크롤과 슬라이드, 모달 기능은 라이브러리를 사용하지 않고 구현했습니다. axios를 사용한 비동기 처리로 json 데이터를 불러왔습니다. About페이지와 토글 기능에 Redux를 사용하여 보다 간편하게 값을 전달하였습니다. emailJs 라이브러리를 사용하여 메일을 보낼 수 있는 기능 또한 구현하였습니다. Desktop(기본), laptop, tablet, mobile, iphone12pro 버전으로 반응형을 구현했습니다.",
       "tag": [
