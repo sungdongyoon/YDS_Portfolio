@@ -1,8 +1,7 @@
-import React, {useRef, useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { getContactImg } from '../Components/util';
-import {titleObserver, contentObserver} from '../animation/animation';
 import { Image } from '../Components/util';
 import EmailModal from '../Components/EmailModal';
 import responsive from '../style/responsive';
@@ -256,21 +255,14 @@ const Contact = () => {
   const closeModal = () => {
     setIsModal(false);
   }
-
-  const titleRef = useRef();
-  const contentRef = useRef();
-  useEffect(() => {
-    titleObserver.observe(titleRef.current);
-    contentObserver.observe(contentRef.current);
-  })
   return (
     <Container>
       <div className='pattern'></div>
       <ContactMain>
         <ContactTitle>
-          <h1 ref={titleRef}>Contact Me</h1>
+          <h1>Contact Me</h1>
         </ContactTitle>
-        <ContactContent ref={contentRef}>
+        <ContactContent>
           <div className='contact_wrap'>
             <p>궁금하신 사항이나<br/> 저의 부족한 부분에 대한 피드백이 있으시면 <br/> 언제든 연락주시면 감사하겠습니다.</p>
             <img className='me' src={getContactImg(4)}/>

@@ -1,20 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.590fea17.css",
-    "main.js": "/static/js/main.320dda37.js",
+    "main.css": "/static/css/main.d5c0ac56.css",
+    "main.js": "/static/js/main.bff1ac13.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/me.jpg": "/static/media/me.5ffac5893eeeeaa7b530.jpg",
+    "static/media/whatitisntmac.png": "/static/media/whatitisntmac.cfc759720e819d7bfc29.png",
+    "static/media/momentummac.png": "/static/media/momentummac.ee32de48a79a1e1964a5.png",
+    "static/media/umbrellamac.png": "/static/media/umbrellamac.1d0f7992d6a3baac8a49.png",
     "static/media/brushCircle.png": "/static/media/brushCircle.a64739fd25e888d892a8.png",
+    "static/media/mydiarymac.png": "/static/media/mydiarymac.be85ed54a6fb179f6f08.png",
+    "static/media/portfoliomac.png": "/static/media/portfoliomac.fcb4929e370d1409b644.png",
     "static/media/catImg.png": "/static/media/catImg.bea23089bb7e79c0d0e1.png",
     "static/media/pattern.png": "/static/media/pattern.0fce761d288da739387c.png",
     "static/media/whatitisnt_logo.png": "/static/media/whatitisnt_logo.212ead1bcd627b6a7c87.png",
     "index.html": "/index.html",
-    "main.590fea17.css.map": "/static/css/main.590fea17.css.map",
-    "main.320dda37.js.map": "/static/js/main.320dda37.js.map",
+    "main.d5c0ac56.css.map": "/static/css/main.d5c0ac56.css.map",
+    "main.bff1ac13.js.map": "/static/js/main.bff1ac13.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.590fea17.css",
-    "static/js/main.320dda37.js"
+    "static/css/main.d5c0ac56.css",
+    "static/js/main.bff1ac13.js"
   ]
 }

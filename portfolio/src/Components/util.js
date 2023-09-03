@@ -11,25 +11,44 @@ import catImg from "../img/catImg.png";
 import mydiaryImg from "../img/mydiary_img.png";
 import brushCircle from "../img/brushCircle.png";
 import pattern from "../img/pattern.png";
+import whatitisntMac from "../img/whatitisntmac.png";
+import portfolioMac from "../img/portfoliomac.png";
+import mydiaryMac from "../img/mydiarymac.png";
+import umbrellaMac from "../img/umbrellamac.png";
+import momentumMac from "../img/momentummac.png";
 
 
 export const getProjectImg = (projectId) => {
   const targetProjectImg = String(projectId);
   switch(targetProjectImg) {
     case "1":
-      return momentumImg;
+      return logoImg;
     case "2":
-      return umbrellaImg;
-    case "3":
       return whatitisntImg;
+    case "3":
+      return umbrellaImg;
     case "4":
       return mydiaryImg;
     case "5":
-      return netflixImg;
-    case "6":
-      return catImg;
-    case "7":
-      return logoImg;
+      return momentumImg;
+    default:
+      return null;
+  }
+}
+
+export const getProjectDetailImg = (projectId) => {
+  const targetProjectDetailImg = String(projectId);
+  switch(targetProjectDetailImg) {
+    case "1":
+      return portfolioMac;
+    case "2":
+      return whatitisntMac;
+    case "3":
+      return umbrellaMac;
+    case "4":
+      return mydiaryMac;
+    case "5":
+      return momentumMac;
     default:
       return null;
   }

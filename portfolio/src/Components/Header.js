@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import { useSelector } from 'react-redux';
 import responsive from '../style/responsive';
@@ -25,7 +25,7 @@ const Container = styled.header`
 `;
 
 const Logo = styled.span`
-  display: flex;
+  display: ${(props) => props.scroll < 100 ? "flex" : "none"};
   justify-content: center;
   align-items: center;
   width: 20%;
@@ -84,24 +84,24 @@ const ToggleBtn = styled.div`
     position: absolute;
     top: 0;
     border-radius: 20px;
-    background-color: ${(props) => props.isToggle ? "#fff" : "var(--gray)"};
+    background-color: ${(props) => props.toggle ? "#fff" : "var(--gray)"};
     transition: 1s;
-    transform: ${(props) => props.isToggle ? "translateY(10px) rotate(45deg)" : "rotate(0) translateY(0)"};
+    transform: ${(props) => props.toggle ? "translateY(10px) rotate(45deg)" : "rotate(0) translateY(0)"};
   }
   .tobbleBtn_m {
     position: absolute;
     top: 50%;
     border-radius: 20px;
     transform: translateY(-50%);
-    opacity: ${(props) => props.isToggle ? "0" : "1"};
+    opacity: ${(props) => props.toggle ? "0" : "1"};
   }
   .tobbleBtn_b {
     position: absolute;
     bottom: 0;
     border-radius: 20px;
-    background-color: ${(props) => props.isToggle ? "#fff" : "var(--gray)"};
+    background-color: ${(props) => props.toggle ? "#fff" : "var(--gray)"};
     transition: 1s;
-    transform: ${(props) => props.isToggle ? "translateY(-8px) rotate(-45deg)" : "rotate(0) translateY(0)"};
+    transform: ${(props) => props.toggle ? "translateY(-8px) rotate(-45deg)" : "rotate(0) translateY(0)"};
   }
   @media screen and ${responsive.tablet} {
     display: block;
@@ -118,7 +118,7 @@ const MobileNavMenu = styled.div`
   background-color: var(--black);
   color: var(--white);
   transition: ${window.innerWidth < 768 ? '1s' : '1.5s'};
-  transform: ${(props) => (props.isToggle ? "translateX(0px)" : `translateX(${window.innerWidth}px)`)};
+  transform: ${(props) => props.toggle ? "translateX(0)" : `translateX(${window.innerWidth}px)`};
   .nav_menu_info {
     position: absolute;
     top: 30px;
@@ -166,23 +166,24 @@ const MobileNavMenu = styled.div`
   }
 `;
 
-const Header = ({scrollIndex, handleToggle, goHome, goAbout, goProject, goContact}) => {
+const Header = ({handleToggle, goHome, goAbout, goWork, goContact, scroll}) => {
   const isToggle = useSelector((state) => state.isToggle);
+
   return (
     <Container>
-      <Logo onClick={goHome}>
+      <Logo onClick={goHome} scroll={scroll}>
         <img src={logo} alt='logo'/>
       </Logo>
       <HeaderInfo>
         <span className='email'>ehdtjd0906@naver.com</span>
         <span className='phone'>+82 10-6312-5903</span>
       </HeaderInfo>
-      <ToggleBtn onClick={handleToggle} isToggle={isToggle}>
-        <span className='tobbleBtn_t' isToggle={isToggle}></span>
-        <span className='tobbleBtn_m' isToggle={isToggle}></span>
-        <span className='tobbleBtn_b' isToggle={isToggle}></span>
+      <ToggleBtn onClick={handleToggle} toggle={isToggle}>
+        <span className='tobbleBtn_t' toggle={isToggle}></span>
+        <span className='tobbleBtn_m' toggle={isToggle}></span>
+        <span className='tobbleBtn_b' toggle={isToggle}></span>
       </ToggleBtn>
-      <MobileNavMenu isToggle={isToggle}>
+      <MobileNavMenu toggle={isToggle}>
         <div className='nav_menu_info'>
           <span className='nav_logo'>
             <img src={logo}/>
@@ -191,10 +192,10 @@ const Header = ({scrollIndex, handleToggle, goHome, goAbout, goProject, goContac
           <span>+82 10-6312-5903</span>
         </div>
         <ul>
-          <li onClick={goHome} num={1} scrollIndex={scrollIndex}>HOME</li>
-          <li onClick={goAbout} num={2} scrollIndex={scrollIndex}>ABOUT</li>
-          <li onClick={goProject} num={3} scrollIndex={scrollIndex}>PROJECT</li>
-          <li onClick={goContact} num={4} scrollIndex={scrollIndex}>CONTACT</li>
+          <li onClick={goHome}>HOME</li>
+          <li onClick={goWork}>WORK</li>
+          <li onClick={goAbout}>ABOUT</li>
+          <li onClick={goContact}>CONTACT</li>
         </ul>
       </MobileNavMenu>
     </Container>

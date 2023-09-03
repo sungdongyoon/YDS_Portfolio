@@ -3,9 +3,6 @@ import {reset} from "styled-reset";
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    --page-title: 17rem;
-    --page-subTitle: 5rem;
-
     --sky-blue: #acd8f8;
     --blue: #0079FF;
     --light-gray: #ccc;

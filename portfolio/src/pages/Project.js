@@ -3,10 +3,9 @@ import { getProjectImg } from '../Components/util';
 import { styled } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft, faAnglesLeft, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
-import {titleObserver, subTitleObserver, contentObserver, leftCircleObserver, rightCircleObserver, projectSlide} from '../animation/animation';
-import { Link } from 'react-router-dom';
+import { projectSlide } from '../animation/animation';
+import { Link, useNavigate } from 'react-router-dom';
 import { Image } from '../Components/util';
-import ProjectModal from '../Components/ProjectModal';
 import responsive from '../style/responsive';
 import axios from 'axios';
 
@@ -28,35 +27,31 @@ const Container = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
   }
-  @media screen and ${responsive.tablet} {
-    padding-right: 0;
-  }
 `;
 
 const ProjectMain = styled.main`
-  width: 80%;
-  height: 1000px;
-  display: flex;
-  justify-content: space-between;
-  @media screen and ${responsive.tablet} {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  @media screen and ${responsive.mobile} {
-    height: 650px;
-  }
-`;
-
-const ProjectTitle = styled.section`
-  width: 30%;
+  width: 100%;
+  height: 70%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  gap: 100px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+`;
+
+const ProjectTitle = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 30px;
   h1 {
-    font-size: var(--page-title);
+    font-size: 5rem;
     font-weight: bold;
     color: var(--sky-blue);
     transition: 0.5s;
@@ -84,7 +79,7 @@ const ProjectTitle = styled.section`
   }
   @media screen and ${responsive.laptop} {
     h1 {
-      font-size: 10rem;
+      font-size: 4rem;
     }
     .slide_arrow {
       .slide_right,
@@ -97,11 +92,8 @@ const ProjectTitle = styled.section`
     }
   }
   @media screen and ${responsive.tablet} {
-    width: 80%;
-    justify-content: flex-start;
-    align-items: flex-start;
     h1 {
-      font-size: 8rem;
+      font-size: 3rem;
     }
     .slide_arrow {
       .slide_right,
@@ -115,7 +107,7 @@ const ProjectTitle = styled.section`
   }
   @media screen and ${responsive.mobile} {
     h1 {
-      font-size: 6rem;
+      font-size: 4rem;
     }
     .slide_arrow {
       display: none;
@@ -124,11 +116,11 @@ const ProjectTitle = styled.section`
 `;
 
 const ProjectContent = styled.section`
-  width: 65%;
+  width: 60%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 200px;
   position: relative;
   transition: 1s;
   .notice {
@@ -137,28 +129,16 @@ const ProjectContent = styled.section`
     margin-bottom: 20px;
   }
   @media screen and ${responsive.laptop} {
-    width: 50%;
-    margin-top: 200px;
-    margin-right: 150px;
+    width: 80%;
   }
   @media screen and ${responsive.tablet} {
-    width: 80%;
-    margin-top: 50px;
-    margin-right: 0;
+    width: 90%;
   }
   @media screen and ${responsive.mobile} {
-    height: 400px;
-    margin-top: 0px;
-    padding: 0;
-    padding-top: 40px;
+    width: 60%;
     margin-bottom: 50px;
     .notice {
       font-size: 1.3rem;
-    }
-  }
-  @media screen and ${responsive.mobile} {
-    .notice {
-      font-size: 1rem;
     }
   }
 `;
@@ -188,17 +168,11 @@ const SliderBtn = styled.div`
 `;
 
 const ProjectWrap = styled.div`
-  width: 70%;
+  width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  @media screen and ${responsive.laptop} {
-    width: 500px;
-  }
+  grid-template-columns: repeat(3, 1fr);
   @media screen and ${responsive.tablet} {
-    width: 100%;
-    padding: 0;
     padding-top: 20px;
   }
   @media screen and ${responsive.mobile} {
@@ -207,29 +181,21 @@ const ProjectWrap = styled.div`
     padding-top: 0;
     transition: 0.5s;
   }
-  @media screen and ${responsive.iphone12Pro} {
-  }
 `;
 
 
 const ProjectItem = styled.div`
-  width: 80%;
-  min-width: 300px;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;
+  padding: 0 30px;
   animation: ${projectSlide} ease-in-out 0.7s;
-  @media screen and ${responsive.laptop} {
-    height: 300px;
-    min-width: 250px;
-  }
   @media screen and ${responsive.tablet} {
-    width: 90%;
-    height: 300px;
+    width: 100%;
   }
   @media screen and ${responsive.mobile} {
-    height: 100%;
     min-width: 100%;
     padding: 0;
   }
@@ -306,20 +272,20 @@ const ProjectName = styled.div`
 `;
 
 const LeftCircle = styled.div`
-  width: 600px;
-  height: 600px;
+  width: 20%;
   position: absolute;
-  bottom: -200px;
-  left: -200px;
+  bottom: 100px;
+  left: 100px;
   border-radius: 50%;
   z-index: -10;
   @media screen and ${responsive.laptop} {
-    width: 500px;
-    height: 500px;
+    width: 250px;
   }
   @media screen and ${responsive.mobile} {
-    width: 400px;
-    height: 400px;
+    width: 200px;
+    height: 200px;
+    bottom: 50px;
+    left: 50px;
   }
   img {
     width: 100%;
@@ -331,9 +297,8 @@ const LeftCircle = styled.div`
 
 
 const RightCircle = styled.div`
+  width: 35%;
   position: absolute;
-  width: 700px;
-  height: 700px;
   right: -200px;
   z-index: -1;
   @media screen and ${responsive.laptop} {
@@ -355,49 +320,28 @@ const RightCircle = styled.div`
 const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
   /** 윈도우 너비 : window.innerWidth */
   const pageWidth = window.innerWidth;
-
-  const [itemId, setItemId] = useState(1);
-  const [slidePx, setSlidePx] = useState(0);
-
+  
   const itemRef = useRef();
   const itemWidth = itemRef.current?.offsetWidth;
-
-  const titleRef = useRef();
-  const subTitleRef = useRef();
-  const contentRef = useRef();
-  const leftCircleRef = useRef();
-  const rightCircleRef = useRef();
+  const itemWidthMargin = itemWidth + 30;
   
-  useEffect(() => {
-    titleObserver.observe(titleRef.current);
-    subTitleObserver.observe(subTitleRef.current);
-    contentObserver.observe(contentRef.current);
-    leftCircleObserver.observe(leftCircleRef.current);
-    rightCircleObserver.observe(rightCircleRef.current);
-  }, []);
-
+  const [itemID, setItemId] = useState(1);
+  const [slidePx, setSlidePx] = useState(0);
+  
+  
+  // mobile page project
   const prevCount = () => {
-    itemId > 1 && setItemId(itemId - 1);
-    pageWidth <= 768 && (slidePx < 0 && setSlidePx(slidePx + (itemWidth + 30)));
+    itemID > 1 && setItemId(itemID - 1);
+    pageWidth < 768 && (slidePx < 0 && setSlidePx(slidePx + itemWidthMargin));
   };
   const nextCount = () => {
-    itemId < data.length && setItemId(itemId + 1);
-    pageWidth <= 768 && (slidePx > -(itemWidth * (data.length - 1)) && setSlidePx(slidePx - (itemWidth + 30)));
+    itemID < data.length && setItemId(itemID + 1);
+    pageWidth < 768 && (slidePx > -(itemWidthMargin * (data.length - 1)) && setSlidePx(slidePx - itemWidthMargin));
   };
 
-  // mobile page project
-  pageWidth < 768 ? setMobilePjNum(1) : setMobilePjNum(0);
-
-  // project modal
-  const [isModal, setIsModal] = useState(false);
-  const [modalNum, setModalNum] = useState(0);
-  const showModal = (modalNum) => {
-    setIsModal(!isModal);
-    setModalNum(modalNum);
-  }
-  const closeModal = () => {
-    setIsModal(false);
-  }
+  useEffect(() => {
+    pageWidth < 768 ? setMobilePjNum(1) : setMobilePjNum(0);
+  }, [prevCount, nextCount])
 
   // Project Data
   const [data, setData] = useState([]);
@@ -412,29 +356,26 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
         })
     }
     getData();
-  }, [])
+  }, []);
+
+  const navigate = useNavigate();
+  const goDetail = (projectId) => {
+    navigate(`/work/${projectId}`)
+  }
   
   return (
-    <Container isModal={isModal}>
+    <Container>
       <div className='pattern'></div>
       <ProjectMain>
-        <ProjectTitle>
-          <h1 ref={titleRef}>Project</h1>
-          <div className='slide_arrow' ref={subTitleRef}>
-            <FontAwesomeIcon onClick={() => setPjNum(1)} className='slide_left' icon={faArrowLeft}/>
-            <span>{pjNum} / 2</span>
-            <FontAwesomeIcon onClick={() => setPjNum(2)} className='slide_right' icon={faArrowRight}/>
-          </div>
-        </ProjectTitle>
-        <ProjectContent ref={contentRef}>
+        <ProjectContent>
           <span className='notice'>* 제목 클릭 시 해당 페이지로 이동합니다.</span>
-          <ProjectWrap style={pageWidth < 768 ? {transform: `translateX(${slidePx}px)`} : {transform: `translateX(0px)`}}>
+          <ProjectWrap ref={itemRef} style={pageWidth < 768 ? {transform: `translateX(${slidePx}px)`} : {transform: `translateX(0px)`}}>
             {(pjNum === 1 || mobilePjNum === 1) &&
             <>
-              {data.filter((project) => project.id < 5).map((it) => (
-                <ProjectItem itemId={it.id} ref={itemRef}>
-                  <ProjectImg onClick={() => showModal(it.id)}>
-                    <img src={getProjectImg(it.img)} alt={it.name}/>
+              {data.filter((project) => project.id < 4).map((it) => (
+                <ProjectItem key={it.id} itemID={it.id}>
+                  <ProjectImg onClick={() => goDetail(it.id)}>
+                    <img src={getProjectImg(it.id)} alt={it.name}/>
                     <div className='projectDetail'>
                       <span>자세히 보기</span>
                     </div>
@@ -450,10 +391,10 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
             }
             {(pjNum === 2 || mobilePjNum === 1) &&
             <>
-              {data.filter((project) => project.id > 4).map((it) => (
-                <ProjectItem itemId={it.id} ref={itemRef}>
-                  <ProjectImg onClick={() => showModal(it.id)}>
-                    <img src={getProjectImg(it.img)} alt={it.name}/>
+              {data.filter((project) => project.id > 3).map((it) => (
+                <ProjectItem key={it.id} itemID={it.id}>
+                  <ProjectImg onClick={() => goDetail(it.id)}>
+                    <img src={getProjectImg(it.id)} alt={it.name}/>
                     <div className='projectDetail'>
                       <span>자세히 보기</span>
                     </div>
@@ -470,17 +411,24 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
           </ProjectWrap>
           <SliderBtn>
             <FontAwesomeIcon icon={faAnglesLeft} className='leftBtn' onClick={prevCount}/>
-            <div className='count'>{itemId} / {data.length}</div>
+            <div className='count'>{itemID} / {data.length}</div>
             <FontAwesomeIcon icon={faAnglesRight} className='rightBtn' onClick={nextCount}/>
           </SliderBtn>
         </ProjectContent>
-        {isModal && <ProjectModal modalNum={modalNum} closeModal={closeModal}/>}
+        <ProjectTitle>
+          <h1>WORK</h1>
+          <div className='slide_arrow'>
+            <FontAwesomeIcon onClick={() => setPjNum(1)} className='slide_left' icon={faArrowLeft}/>
+            <span>{pjNum} / 2</span>
+            <FontAwesomeIcon onClick={() => setPjNum(2)} className='slide_right' icon={faArrowRight}/>
+          </div>
+        </ProjectTitle>
       </ProjectMain>
       <LeftCircle>
-        <img src={Image(1)} ref={leftCircleRef}/>
+        <img src={Image(1)}/>
       </LeftCircle>
       <RightCircle>
-        <img src={Image(1)} ref={rightCircleRef}/>
+        <img src={Image(1)}/>
       </RightCircle>
     </Container>
   )

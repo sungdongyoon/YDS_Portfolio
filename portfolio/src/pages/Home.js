@@ -1,11 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { homeArrow, homeTitle, homeSubTitle, homeSubTitle2 } from '../animation/animation';
-import { opacityVar } from '../animation/animation';
+import { homeTitle, homeSubTitle, homeSubTitle2 } from '../animation/animation';
 import { motion } from 'framer-motion';
-import useObserver from '../hooks/useObserver';
 import responsive from '../style/responsive';
 
 const Container = styled.div`
@@ -27,9 +23,6 @@ const HomeTitle = styled(motion.header)`
   div {
     display: inline-block;
     margin-right: 50px;
-    animation: ${homeTitle} 1s linear;
-    animation-fill-mode: forwards;
-    transition: 1s;
     span {
       display: inline-block;
       font-size: 15rem;
@@ -38,51 +31,69 @@ const HomeTitle = styled(motion.header)`
       -webkit-text-stroke: 5px var(--white);
       text-shadow: 0 0 30px var(--sky-blue);
       letter-spacing: 5px;
+      animation: ${homeTitle} 1s linear;
+      animation-fill-mode: forwards;
+      transition: 1s;
+      opacity: 0;
     }
   }
   .yoon {
-    opacity: 0;
-    animation-delay: 0.3s;
-    transition-delay: 0.3s;
+    opacity: 1;
     span {
       &:nth-child(1) {
         transform: rotate(5deg);
+        animation-delay: 0.1s;
+      }
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.3s;
       }
       &:nth-child(4) {
         transform: rotate(-5deg);
+        animation-delay: 0.4s;
       } 
     }
   }
   .dong {
-    opacity: 0;
-    animation-delay: 0.6s;
-    transition-delay: 0.6s;
+    opacity: 1;
     span {
       &:nth-child(1) {
         transform: rotate(5deg);
+        animation-delay: 0.5s;
+      }
+      &:nth-child(2) {
+        animation-delay: 0.6s;
       }
       &:nth-child(3) {
         transform: rotate(-5deg);
+        animation-delay: 0.7s;
       }
       &:nth-child(4) {
         transform: rotate(5deg);
+        animation-delay: 0.8s;
       } 
     }
   }
   .sung {
     margin-right: 0;
-    opacity: 0;
-    animation-delay: 0.9s;
-    transition-delay: 0.9s;
+    opacity: 1;
     span {
       &:nth-child(1) {
         transform: rotate(-5deg);
+        animation-delay: 0.9s;
+      }
+      &:nth-child(2) {
+        animation-delay: 1s;
       }
       &:nth-child(3) {
         transform: rotate(5deg);
+        animation-delay: 1.1s;
       }
       &:nth-child(4) {
         transform: rotate(5deg);
+        animation-delay: 1.2s;
       } 
     }
   }
@@ -179,38 +190,10 @@ const HomeSubTitle = styled.div`
   }
 `;
 
-const HomeArrow = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: var(--gray);
-  font-size: 5rem;
-  position: absolute;
-  bottom: 50px;
-  animation: ${homeArrow} 1s ease-in-out infinite;
-  span {
-    font-size: 2.5rem;
-  }
-  @media screen and ${responsive.laptop} {
-    font-size: 4rem;
-    span {
-      font-size: 2rem;
-    }
-  }
-  @media screen and ${responsive.mobile} {
-    font-size: 3rem;
-    span {
-      font-size: 1.5rem;
-    }
-  }
-`;
-
-
 const Home = () => {
-  const { ref, animation } = useObserver();
   return (
     <Container>
-      <HomeTitle ref={ref} variants={opacityVar} initial="hidden" animate={animation}>
+      <HomeTitle>
         <div className='yoon'>
           <span>Y</span>
           <span>o</span>
@@ -241,10 +224,6 @@ const Home = () => {
         <span>I</span>
         <span>O</span>
       </HomeSubTitle>
-      <HomeArrow>
-        <span>Scroll</span>
-        <FontAwesomeIcon className='chevronDown' icon={faChevronDown}/>
-      </HomeArrow>
     </Container>
   )
 }

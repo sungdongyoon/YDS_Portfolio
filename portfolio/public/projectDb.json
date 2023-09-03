@@ -2,23 +2,40 @@
   "project":[
     {
       "id": 1,
-      "name": "Momentum",
-      "description": "자바스크립트를 공부하면서 배운 것들을 활용해 만든 Momentum 페이지 입니다. 랜덤 배경화면, 디지털 시계, 랜덤 명언, TodoList, 날씨 정보가 포함되어 있습니다. 날씨 데이터는 OpenWeatherMap 사이트의 Weather API 데이터를 사용했습니다.",
+      "name": "YDS 포트폴리오",
+      "description": "리액트로 개발한 포트폴리오입니다. axios를 활용한 비동기 처리로 json 데이터를 불러왔습니다. 모바일 상단 토글 기능에 Redux를 사용하여 보다 간편하게 값을 전달하였습니다. emailJs 라이브러리를 사용하여 메일을 보낼 수 있는 기능 또한 구현하였습니다. Desktop(기본), laptop, tablet, mobile, iphone12pro 버전으로 반응형을 구현했습니다.",
       "tag": [
-        "#HTML",
-        "#CSS",
-        "#JavaScript",
-        "#API"
+        "#React",
+        "#styled-components",
+        "#axios",
+        "#emailJs",
+        "#JSON",
+        "#Redux",
+        "#반응형"
       ],
-      "img": 1,
       "team": false,
-      "github": "https://github.com/sungdongyoon/Momentum",
-      "link": "https://momentum-da022.web.app/"
+      "github": "https://github.com/sungdongyoon/YDS_Portfolio",
+      "link": "https://portfolio-93558.web.app/"
     },
     {
       "id": 2,
+      "name": "WhatItIsnt",
+      "description": "리액트로 개발한 와릿이즌 페이지입니다. 메인 페이지와 베스트 아이템 페이지, 베스트 아이템 검색 기능, 상세 아이템 페이지, 로그인 기능을 구현했습니다. JSON 데이터를 활용하여 아이템 목록을 생성했으며 반응형 페이지로 제작했습니다.",
+      "tag": [
+        "#React",
+        "#styled-components",
+        "#Router",
+        "#JSON",
+        "#반응형"
+      ],
+      "team": false,
+      "github": "https://github.com/sungdongyoon/whatitisnt",
+      "link": "https://resilient-piroshki-27b330.netlify.app"
+    },
+    {
+      "id": 3,
       "name": "우산있어?",
-      "description": "우산 & 양산 대여 서비스입니다. HTML, CSS, JavaScript로 제작했으며 메인 페이지, 안내, 이용권 구매, FAQ, 지도, 회원 정보 페이지로 구성되어있습니다. Intersection Observer API로 스크롤 애니메이션을 구현, alert 디자인을 위한 sweet-alert2 라이브러리 사용, 슬라이드는 하드코딩으로 구현했습니다. 제가 담당한 페이지는 회원&비회원 이용권 구매, 비회원 로그인, 대여(모바일 전용), 대여소 지도 페이지입니다. 회원 / 비회원 전용 이용권 구매 페이지를 만들었으며 비회원은 1회권만 구매 가능하며 보증금, 대여료 혜택을 받을 수 없도록 구현했습니다. 자바스크립트 함수를 활용하여 페이지 기능 구현, localstorage에 이용권 정보를 저장했으며 지도 API는 카카오 지도, 대여소 정보는 따릉이 데이터를 활용하여 기능구현을 하였습니다.",
+      "description": "우산 & 양산 대여 서비스입니다. HTML, CSS, JavaScript로 제작했으며 메인 페이지, 안내, 이용권 구매, FAQ, 지도, 회원 정보 페이지로 구성되어있습니다. alert 디자인을 위한 sweet-alert2 라이브러리 사용했습니다. 제가 담당한 페이지는 회원&비회원 이용권 구매, 비회원 로그인, 대여(모바일 전용), 대여소 지도 페이지입니다. 회원 / 비회원 전용 이용권 구매 페이지를 만들었으며 자바스크립트 함수를 활용하여 페이지 기능 구현, localstorage에 이용권 정보를 저장했습니다. 지도 API는 카카오 지도, 대여소 정보는 따릉이 데이터를 활용하여 기능구현을 하였습니다.",
       "tag": [
         "#HTML",
         "#CSS",
@@ -27,27 +44,11 @@
         "#JQuery",
         "#반응형"
       ],
-      "img": 2,
       "team": true,
       "github": "https://github.com/sungdongyoon/teamProject",
       "link": "https://umbrella-8a517.web.app/"
     },
-    {
-      "id": 3,
-      "name": "WhatItIsnt",
-      "description": "리액트로 개발한 와릿이즌 페이지입니다. 메인 페이지와 베스트 아이템 페이지, 베스트 아이템 검색 기능, 상세 아이템 페이지, 로그인 기능을 구현했습니다. JSON 데이터를 활용하여 아이템 목록을 생성했으며 반응형 페이지로 제작했습니다.",
-      "tag": [
-        "#React",
-        "#styled-components",
-        "#Router",
-        "#API",
-        "#반응형"
-      ],
-      "img": 3,
-      "team": false,
-      "github": "https://github.com/sungdongyoon/whatitisnt",
-      "link": "https://resilient-piroshki-27b330.netlify.app"
-    },
+    
     {
       "id": 4,
       "name": "My Diary",
@@ -56,33 +57,25 @@
         "#React",
         "#styled-components",
         "#Router",
-        "#LocalStorage",
         "#react date-fns"
       ],
-      "img": 4,
       "team": false,
       "github": "https://github.com/sungdongyoon/Momentum",
       "link": "https://my-diary-c870a.web.app/"
     },
     {
       "id": 5,
-      "name": "YDS 포트폴리오",
-      "description": "리액트로 개발한 포트폴리오입니다. 원페이지 스크롤 방식으로 페이지를 구현하였으며 Intersection Observer API를 활용해 스크롤 애니메이션을 구현했습니다. 페이지 스크롤과 슬라이드, 모달 기능은 라이브러리를 사용하지 않고 구현했습니다. axios를 사용한 비동기 처리로 json 데이터를 불러왔습니다. About페이지와 토글 기능에 Redux를 사용하여 보다 간편하게 값을 전달하였습니다. emailJs 라이브러리를 사용하여 메일을 보낼 수 있는 기능 또한 구현하였습니다. Desktop(기본), laptop, tablet, mobile, iphone12pro 버전으로 반응형을 구현했습니다.",
+      "name": "Momentum",
+      "description": "자바스크립트를 공부하면서 배운 것들을 활용해 만든 Momentum 페이지 입니다. 랜덤 배경화면, 디지털 시계, 랜덤 명언, TodoList, 날씨 정보가 포함되어 있습니다. 날씨 데이터는 OpenWeatherMap 사이트의 Weather API 데이터를 사용했습니다. 배경 이미지를 배열에 저장하고 Math.random() 함수를 사용하여 랜덤 숫자를 변수에 담아서 클릭 시 배열값이 랜덤으로 background url에 담기도록 구현했습니다. TodoList의 할 일은 localstorage에 저장되도록 구현했습니다. ",
       "tag": [
-        "#React",
-        "#styled-components",
-        "#axios",
-        "#emailJs",
-        "#Intersection Observer API",
-        "#JSON",
-        "#Redux",
-        "#framer-motion",
-        "#반응형"
+        "#HTML",
+        "#CSS",
+        "#JavaScript",
+        "#API"
       ],
-      "img": 7,
       "team": false,
-      "github": "https://github.com/sungdongyoon/YDS_Portfolio",
-      "link": "https://portfolio-93558.web.app/"
+      "github": "https://github.com/sungdongyoon/Momentum",
+      "link": "https://momentum-da022.web.app/"
     }
   ]
 }
