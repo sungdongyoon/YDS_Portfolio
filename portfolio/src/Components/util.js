@@ -16,6 +16,7 @@ import portfolioMac from "../img/portfoliomac.png";
 import mydiaryMac from "../img/mydiarymac.png";
 import umbrellaMac from "../img/umbrellamac.png";
 import momentumMac from "../img/momentummac.png";
+import netflixMac from "../img/netflixmac.png";
 
 
 export const getProjectImg = (projectId) => {
@@ -26,10 +27,12 @@ export const getProjectImg = (projectId) => {
     case "2":
       return whatitisntImg;
     case "3":
-      return umbrellaImg;
+      return netflixImg;
     case "4":
-      return mydiaryImg;
+      return umbrellaImg;
     case "5":
+      return mydiaryImg;
+    case "6":
       return momentumImg;
     default:
       return null;
@@ -44,10 +47,12 @@ export const getProjectDetailImg = (projectId) => {
     case "2":
       return whatitisntMac;
     case "3":
-      return umbrellaMac;
+      return netflixMac;
     case "4":
-      return mydiaryMac;
+      return umbrellaMac;
     case "5":
+      return mydiaryMac;
+    case "6":
       return momentumMac;
     default:
       return null;
