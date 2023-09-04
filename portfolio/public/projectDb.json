@@ -34,6 +34,23 @@
     },
     {
       "id": 3,
+      "name": "Netflix",
+      "description": "리액트로 개발한 넷플릭스 입니다. 메인 페이지와 상세 영화 페이지, 전체 영화 페이지로 구성되어있습니다. TMDB 사이트에서 영화 데이터를 가져왔고 react-query를 활용하여 데이터를 출력시켰습니다. 영화 리스트 슬라이더는 framer-motion을 활용하여 구현하였습니다. 메인 페이지 배너 클릭 시 슬라이더가 넘어가도록 구현했습니다. useMatch()와 라우터를 활용하여 메인 페이지에서 영화 상세 페이지를 클릭해도 다른 페이지로 넘어가지 않고 메인 페이지에서 상세 페이지가 출력되도록 구현하였습니다.",
+      "tag": [
+        "#React",
+        "#TypeScript",
+        "#styled-components",
+        "#Router",
+        "#API",
+        "#framer-motion",
+        "#react-query"
+      ],
+      "team": false,
+      "github": "https://github.com/sungdongyoon/react-netflix",
+      "link": "https://netflix-5dd3d.web.app/"
+    },
+    {
+      "id": 4,
       "name": "우산있어?",
       "description": "우산 & 양산 대여 서비스입니다. HTML, CSS, JavaScript로 제작했으며 메인 페이지, 안내, 이용권 구매, FAQ, 지도, 회원 정보 페이지로 구성되어있습니다. alert 디자인을 위한 sweet-alert2 라이브러리 사용했습니다. 제가 담당한 페이지는 회원&비회원 이용권 구매, 비회원 로그인, 대여(모바일 전용), 대여소 지도 페이지입니다. 회원 / 비회원 전용 이용권 구매 페이지를 만들었으며 자바스크립트 함수를 활용하여 페이지 기능 구현, localstorage에 이용권 정보를 저장했습니다. 지도 API는 카카오 지도, 대여소 정보는 따릉이 데이터를 활용하여 기능구현을 하였습니다.",
       "tag": [
@@ -50,7 +67,7 @@
     },
     
     {
-      "id": 4,
+      "id": 5,
       "name": "My Diary",
       "description": "리액트로 개발한 다이어리입니다. 달력은 date-fns 라이브러리를 활용하여 구현하였습니다. 달력의 날짜를 클릭하면 해당 날짜의 다이어리로 이동합니다. 일기와 기분을 선택하여 작성하면 오른쪽 Diary에 출력되고 할 일이 작성되면 오른쪽 Todo List에 출력되며 체크 기능을 통해 해야할 일과 완료된 일, 미완료된 일을 구분할 수 있습니다. 할 일 검색기능을 구현했습니다. 일기와 Todo List 모두 삭제 기능을 구현하였습니다.",
       "tag": [
@@ -64,7 +81,7 @@
       "link": "https://my-diary-c870a.web.app/"
     },
     {
-      "id": 5,
+      "id": 6,
       "name": "Momentum",
       "description": "자바스크립트를 공부하면서 배운 것들을 활용해 만든 Momentum 페이지 입니다. 랜덤 배경화면, 디지털 시계, 랜덤 명언, TodoList, 날씨 정보가 포함되어 있습니다. 날씨 데이터는 OpenWeatherMap 사이트의 Weather API 데이터를 사용했습니다. 배경 이미지를 배열에 저장하고 Math.random() 함수를 사용하여 랜덤 숫자를 변수에 담아서 클릭 시 배열값이 랜덤으로 background url에 담기도록 구현했습니다. TodoList의 할 일은 localstorage에 저장되도록 구현했습니다. ",
       "tag": [
