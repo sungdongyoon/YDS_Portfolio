@@ -38,6 +38,9 @@ const AboutMain = styled.main`
   @media screen and ${responsive.mobile} {
     height: 650px;
   }
+  @media screen and ${responsive.iphone12Pro} {
+    top: 30%;
+  }
 `;
 
 const AboutContent = styled.section`
@@ -77,6 +80,7 @@ const AboutContent = styled.section`
   @media screen and ${responsive.tablet} {
     width: 100%;
     .aboutMe {
+      margin-bottom: 50px;
       .aboutMe_title {
         font-size: 2.5rem;
       }
@@ -86,7 +90,15 @@ const AboutContent = styled.section`
     }
   }
   @media screen and ${responsive.iphone12Pro} {
-    
+    .aboutMe {
+      .aboutMe_title {
+        font-size: 2rem;
+        padding: 0 50px;
+      }
+      .aboutMe_desc {
+        font-size: 1.4rem;
+      }
+    }
   }
 `;
 
@@ -109,10 +121,10 @@ const AboutSkillExperience = styled.section`
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    .experience_middle {
+    .experience_title {
       font-size: 2rem;
     }
-    .experience_left {
+    .experience_sub {
       font-size: 1.6rem;
     }
   }
@@ -129,13 +141,25 @@ const AboutSkillExperience = styled.section`
       }
     }
     .about_experience {
-      .experience_middle {
+      .experience_title {
         font-size: 1.8rem;
       }
     }
   }
   @media screen and ${responsive.iphone12Pro} {
-    
+    .about_skill_wrap {
+      width: 100%;
+    }
+    .about_experience {
+      .experience_title {
+        font-size: 1.6rem;
+        padding: 0 30px;
+        text-align: center;
+      }
+      .experience_sub {
+        font-size: 1.4rem;
+      }
+    }
   }
 `;
 
@@ -207,8 +231,8 @@ const About = () => {
               <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white"/>
             </div>
             <div className='about_experience'>
-              <span className='experience_middle'>💻 웹퍼블리셔&리액트 활용 프론트엔드 웹SW 개발자 과정 수료</span>
-              <span className='experience_left'>그린컴퓨터아트학원(2023.02 ~ 2023.08)</span>
+              <span className='experience_title'>💻 웹퍼블리셔&리액트 활용 프론트엔드 웹SW 개발자 과정 수료</span>
+              <span className='experience_sub'>그린컴퓨터아트학원(2023.02 ~ 2023.08)</span>
             </div>
           </AboutSkillExperience>
         </AboutContent>

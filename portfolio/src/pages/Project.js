@@ -55,6 +55,7 @@ const ProjectTitle = styled.section`
     font-weight: bold;
     color: var(--sky-blue);
     transition: 0.5s;
+    mix-blend-mode: difference;
   }
   .slide_arrow {
     font-size: 3rem;
@@ -264,7 +265,7 @@ const ProjectName = styled.div`
       font-size: 1.4rem;
     }
   }
-  @media screen and ${responsive.mobile} {
+  @media screen and ${responsive.iphone12Pro} {
     .link {
       font-size: 1.6rem;
     }
@@ -286,6 +287,10 @@ const LeftCircle = styled.div`
     height: 200px;
     bottom: 50px;
     left: 50px;
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    bottom: 80px;
+    left: -50px;
   }
   img {
     width: 100%;

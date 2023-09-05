@@ -183,7 +183,7 @@ const HomeSubTitle = styled.div`
       font-size: 2rem;
     }
   }
-  @media screen and ${responsive.mobile} {
+  @media screen and ${responsive.iphone12Pro} {
     span {
       font-size: 1.5rem;
     }

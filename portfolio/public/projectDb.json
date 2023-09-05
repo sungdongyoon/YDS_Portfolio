@@ -5,7 +5,7 @@
       "name": "YDS 포트폴리오",
       "description": "리액트로 개발한 포트폴리오입니다. axios를 활용한 비동기 처리로 json 데이터를 불러왔습니다. 모바일 상단 토글 기능에 Redux를 사용하여 보다 간편하게 값을 전달하였습니다. emailJs 라이브러리를 사용하여 메일을 보낼 수 있는 기능 또한 구현하였습니다. Desktop(기본), laptop, tablet, mobile, iphone12pro 버전으로 반응형을 구현했습니다.",
       "tag": [
-        "#React",
+        "#React.js",
         "#styled-components",
         "#axios",
         "#emailJs",
@@ -22,7 +22,7 @@
       "name": "WhatItIsnt",
       "description": "리액트로 개발한 와릿이즌 페이지입니다. 메인 페이지와 베스트 아이템 페이지, 베스트 아이템 검색 기능, 상세 아이템 페이지, 로그인 기능을 구현했습니다. JSON 데이터를 활용하여 아이템 목록을 생성했으며 반응형 페이지로 제작했습니다.",
       "tag": [
-        "#React",
+        "#React.js",
         "#styled-components",
         "#Router",
         "#JSON",
@@ -37,7 +37,7 @@
       "name": "Netflix",
       "description": "리액트로 개발한 넷플릭스 입니다. 메인 페이지와 상세 영화 페이지, 전체 영화 페이지로 구성되어있습니다. TMDB 사이트에서 영화 데이터를 가져왔고 react-query를 활용하여 데이터를 출력시켰습니다. 영화 리스트 슬라이더는 framer-motion을 활용하여 구현하였습니다. 메인 페이지 배너 클릭 시 슬라이더가 넘어가도록 구현했습니다. useMatch()와 라우터를 활용하여 메인 페이지에서 영화 상세 페이지를 클릭해도 다른 페이지로 넘어가지 않고 메인 페이지에서 상세 페이지가 출력되도록 구현하였습니다.",
       "tag": [
-        "#React",
+        "#React.ts",
         "#TypeScript",
         "#styled-components",
         "#Router",
@@ -71,7 +71,7 @@
       "name": "My Diary",
       "description": "리액트로 개발한 다이어리입니다. 달력은 date-fns 라이브러리를 활용하여 구현하였습니다. 달력의 날짜를 클릭하면 해당 날짜의 다이어리로 이동합니다. 일기와 기분을 선택하여 작성하면 오른쪽 Diary에 출력되고 할 일이 작성되면 오른쪽 Todo List에 출력되며 체크 기능을 통해 해야할 일과 완료된 일, 미완료된 일을 구분할 수 있습니다. 할 일 검색기능을 구현했습니다. 일기와 Todo List 모두 삭제 기능을 구현하였습니다.",
       "tag": [
-        "#React",
+        "#React.js",
         "#styled-components",
         "#Router",
         "#react date-fns"
@@ -92,7 +92,7 @@
       ],
       "team": false,
       "github": "https://github.com/sungdongyoon/Momentum",
-      "link": "https://momentum-da022.web.app/"
+      "link": "https://momentum-6e4b2.web.app/"
     }
   ]
 }

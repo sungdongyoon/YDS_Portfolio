@@ -24,6 +24,10 @@ const Nav = styled.div`
   @media screen and ${responsive.mobile} {
     gap: 30px;
   }
+  @media screen and ${responsive.iphone12Pro} {
+    gap: 0px;
+    padding: 5px 15px;
+  }
 `;
 
 const NavTitle = styled.div`
@@ -38,8 +42,9 @@ const NavTitle = styled.div`
   @media screen and ${responsive.tablet} {
     font-size: 1.6rem;
   }
-  @media screen and ${responsive.tablet} {
+  @media screen and ${responsive.mobile} {
     font-size: 1.2rem;
+    padding: 8px 15px;
   }
 `;
 
