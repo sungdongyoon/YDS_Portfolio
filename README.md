@@ -11,15 +11,12 @@
 - axios
 - emailJs
 - framer-motion
-- Intersection Observer
 - redux
 - styled-components
 
 ### ✏️주요 기능
-- 원페이지 스크롤
-- 스크롤 애니메이션
-- About : 스킬과 사용 경험 있는 라이브러리 및 언어, 툴 기재
 - Project: 개발한 프로젝트 슬라이더 형식, 모달로 구현
+- About : 스킬과 사용 경험 있는 라이브러리 및 언어, 툴 기재
 - Contact: 깃허브, 블로그 링크와 이메일, 메세지 입력 기능 구현
 - 반응형 페이지로 제작
   - laptop: 1400px
