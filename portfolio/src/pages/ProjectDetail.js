@@ -14,6 +14,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(90deg, var(--white), rgba(0, 255, 255, 0.1));
   overflow: hidden;
   .backBtn {
     font-size: 5rem;
@@ -46,6 +47,9 @@ const Wrap = styled.div`
   }
   @media screen and ${responsive.mobile} {
     margin-top: 30%;
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    margin-top: 40%;
   }
 `;
 
@@ -172,6 +176,11 @@ const ProjectInfo = styled.div`
       height: 60vh;
     }
   }
+  @media screen and ${responsive.iphone12Pro} {
+    .project_wrap {
+      height: 100vh;
+    }
+  }
 `;
 
 const ProjectImg = styled.div`
@@ -186,6 +195,9 @@ const ProjectImg = styled.div`
   @media screen and ${responsive.tablet} {
     width: 100%;
     height: 50%;
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    display: none;
   }
 `;
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { styled } from 'styled-components';
 import { useSelector } from 'react-redux';
 import responsive from '../style/responsive';
@@ -25,7 +25,7 @@ const Container = styled.header`
 `;
 
 const Logo = styled.span`
-  display: ${(props) => props.scroll < 100 ? "flex" : "none"};
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 20%;
@@ -166,12 +166,12 @@ const MobileNavMenu = styled.div`
   }
 `;
 
-const Header = ({handleToggle, goHome, goAbout, goWork, goContact, scroll}) => {
+const Header = ({handleToggle, goHome, goAbout, goWork, goContact}) => {
   const isToggle = useSelector((state) => state.isToggle);
 
   return (
     <Container>
-      <Logo onClick={goHome} scroll={scroll}>
+      <Logo onClick={goHome}>
         <img src={logo} alt='logo'/>
       </Logo>
       <HeaderInfo>
@@ -186,7 +186,7 @@ const Header = ({handleToggle, goHome, goAbout, goWork, goContact, scroll}) => {
       <MobileNavMenu toggle={isToggle}>
         <div className='nav_menu_info'>
           <span className='nav_logo'>
-            <img src={logo}/>
+            <img src={logo} alt={logo}/>
           </span>
           <span>ehdtjd0906@naver.com</span>
           <span>+82 10-6312-5903</span>
