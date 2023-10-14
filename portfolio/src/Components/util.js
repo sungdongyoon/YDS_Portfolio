@@ -1,4 +1,3 @@
-import momentumImg from "../img/momentum_img.png";
 import umbrellaImg from "../img/umbrella_logo.png";
 import whatitisntImg from "../img/whatitisnt_logo.png";
 import netflixImg from "../img/netflix_logo.png";
@@ -15,7 +14,6 @@ import whatitisntMac from "../img/whatitisntmac.png";
 import portfolioMac from "../img/portfoliomac.png";
 import mydiaryMac from "../img/mydiarymac.png";
 import umbrellaMac from "../img/umbrellamac.png";
-import momentumMac from "../img/momentummac.png";
 import netflixMac from "../img/netflixmac.png";
 import mbtiCatMac from "../img/mbtiCatmac.png";
 

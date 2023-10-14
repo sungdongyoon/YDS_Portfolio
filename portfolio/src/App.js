@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import Header from './Components/Header';
 import Navigation from './Components/Navigation';
 import Home from './pages/Home';
@@ -75,16 +75,6 @@ function App() {
     setMobilePjNum,
   }
 
-  // scroll
-  const [scroll, setScroll] = useState(0);
-  const handleScroll = () => {
-    setScroll(window.scrollY || document.documentElement.scrollTop);
-  }
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <>
       <Routes>
@@ -94,8 +84,8 @@ function App() {
         <Route path="/about" element={<About/>}/>
         <Route path="/contact" element={<Contact/>}/>
       </Routes>
-      <Navigation {...goProps} scroll={scroll}/>
-      <Header handleToggle={handleToggle} {...goProps} scroll={scroll}/>
+      <Navigation {...goProps}/>
+      <Header handleToggle={handleToggle} {...goProps}/>
     </>
   );
 }
