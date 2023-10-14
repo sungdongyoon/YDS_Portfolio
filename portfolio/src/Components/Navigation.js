@@ -11,7 +11,7 @@ const NavWrap = styled.nav`
 `;
 
 const Nav = styled.div`
-  display: flex;
+  display: ${(props) => props.scroll < 100 ? "flex" : "none"};
   justify-content: space-between;
   align-items: flex-end;
   gap: 100px;

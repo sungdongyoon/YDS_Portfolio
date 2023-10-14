@@ -5,34 +5,31 @@ import blogImg from "../img/blog_img.png";
 import githubImg from "../img/github_img.png";
 import mailImg from "../img/mail_img.png";
 import me from "../img/me.jpg";
-import logoImg from "../img/logo.png";
 import catImg from "../img/catImg.png";
-import mydiaryImg from "../img/mydiary_img.png";
 import brushCircle from "../img/brushCircle.png";
 import pattern from "../img/pattern.png";
 import whatitisntMac from "../img/whatitisntmac.png";
-import portfolioMac from "../img/portfoliomac.png";
-import mydiaryMac from "../img/mydiarymac.png";
 import umbrellaMac from "../img/umbrellamac.png";
 import netflixMac from "../img/netflixmac.png";
 import mbtiCatMac from "../img/mbtiCatmac.png";
+import umbrellaGif from "../gif/우산있어 메인.gif";
+import umbrellaGif2 from "../gif/우산있어 이용권 구매.gif";
+import umbrellaGif3 from "../gif/우산있어 대여소.gif";
 
 
 export const getProjectImg = (projectId) => {
   const targetProjectImg = String(projectId);
   switch(targetProjectImg) {
     case "1":
-      return whatitisntImg;
-    case "2":
-      return mydiaryImg;
-    case "3":
-      return netflixImg;
-    case "4":
-      return catImg;
-    case "5":
-      return logoImg;
-    case "6":
       return umbrellaImg;
+    case "2":
+      return umbrellaImg;
+    case "3":
+      return whatitisntImg;
+    case "4":
+      return netflixImg;
+    case "5":
+      return catImg;
     default:
       return null;
   }
@@ -42,17 +39,15 @@ export const getProjectDetailImg = (projectId) => {
   const targetProjectDetailImg = String(projectId);
   switch(targetProjectDetailImg) {
     case "1":
-      return whatitisntMac;
-    case "2":
-      return mydiaryMac;
-    case "3":
-      return netflixMac;
-    case "4":
-      return mbtiCatMac;
-    case "5":
-      return portfolioMac;
-    case "6":
       return umbrellaMac;
+    case "2":
+      return umbrellaMac;
+    case "3":
+      return whatitisntMac;
+    case "4":
+      return netflixMac;
+    case "5":
+      return mbtiCatMac;
     default:
       return null;
   }
@@ -81,6 +76,26 @@ export const Image = (imageId) => {
       return brushCircle;
     case "2":
       return pattern;
+    default:
+      return null;
+  }
+}
+
+export const getProjectDetailGif = (gifId) => {
+  const targetProjectDetailGif = String(gifId);
+  switch(targetProjectDetailGif) {
+    case "1":
+      return umbrellaGif;
+    case "2":
+      return umbrellaGif2;
+    case "3":
+      return umbrellaGif3;
+    case "4":
+      return umbrellaGif2;
+    case "5":
+      return umbrellaGif;
+    case "6":
+      return umbrellaGif2;
     default:
       return null;
   }

@@ -75,6 +75,16 @@ function App() {
     setMobilePjNum,
   }
 
+  // scroll
+  const [scroll, setScroll] = useState(0);
+  const handleScroll = () => {
+    setScroll(window.scrollY || document.documentElement.scrollTop);
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <Routes>
@@ -84,7 +94,7 @@ function App() {
         <Route path="/about" element={<About/>}/>
         <Route path="/contact" element={<Contact/>}/>
       </Routes>
-      <Navigation {...goProps}/>
+      <Navigation {...goProps} scroll={scroll}/>
       <Header handleToggle={handleToggle} {...goProps}/>
     </>
   );

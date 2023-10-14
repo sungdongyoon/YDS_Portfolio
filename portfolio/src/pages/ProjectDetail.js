@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import { Link, useParams } from 'react-router-dom';
-import { getProjectDetailImg } from '../Components/util';
+import { getProjectDetailGif } from '../Components/util';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +10,6 @@ import axios from 'axios';
 
 const Container = styled.div`
   width: 100vw;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,12 +34,14 @@ const Container = styled.div`
 `;
 
 const Wrap = styled.div`
-  width: 80%;
-  height: 70%;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 5%;
+  gap: 100px;
+  margin-top: 10%;
+  margin-bottom: 5%;
   @media screen and ${responsive.tablet} {
     flex-direction: column;
     margin-top: 20%;
@@ -54,29 +55,28 @@ const Wrap = styled.div`
 `;
 
 const ProjectInfo = styled.div`
-  width: 50%;
-  height: 100%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   .project_wrap {
-    width: 90%;
-    height: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 50px;
     .project_content {
       width: 100%;
       display: flex;
       flex-direction: column;
       flex: 6;
       gap: 30px;
+      margin-bottom: 50px;
       .project_title {
         display: flex;
         align-items: center;
         font-size: 5rem;
         padding-bottom: 30px;
-        border-bottom: 3px solid var(--light-gray);
         .project_team {
           background-color: var(--blue);
           border-radius: 50px;
@@ -91,7 +91,7 @@ const ProjectInfo = styled.div`
         line-height: 30px;
       }
       .project_info {
-        width: 90%;
+        width: 100%;
       }
     }
     .project_links {
@@ -101,7 +101,6 @@ const ProjectInfo = styled.div`
       gap: 20px;
       flex: 1;
       span {
-        border-radius: 50px;
         background-color: var(--black);
         color: var(--white);
         font-size: 1.6rem;
@@ -117,7 +116,6 @@ const ProjectInfo = styled.div`
       gap: 10px;
       flex: 1;
       span {
-        border-radius: 50px;
         background-color: var(--sky-blue);
         color: var(--black);
         font-size: 1.6rem;
@@ -183,14 +181,20 @@ const ProjectInfo = styled.div`
   }
 `;
 
-const ProjectImg = styled.div`
-  width: 50%;
-  height: 100%;
+const ProjectGif = styled.div`
+  width: 70%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  gap: 50px;
+  border-top: 3px solid var(--light-gray);
+  padding-top: 100px;
+  span {
+    font-size: 2rem;
+  }
   img {
     width: 100%;
+    border: 2px solid var(--light-gray);
   }
   @media screen and ${responsive.tablet} {
     width: 100%;
@@ -222,6 +226,10 @@ const ProjectDetail = () => {
   const goWork = () => {
     navigate('/work');
   }
+
+
+
+  const arr = [0, 1, 2];
   return (
     <Container>
       <FontAwesomeIcon onClick={goWork} className='backBtn' icon={faChevronLeft}/>
@@ -254,9 +262,12 @@ const ProjectDetail = () => {
               </div>
             </div>
           </ProjectInfo>
-          <ProjectImg>
-            <img src={getProjectDetailImg(it.id)}/>
-          </ProjectImg>
+          {arr.map((el) => (
+            <ProjectGif>
+              <span>{it.subDesc[el]}</span>
+              <img src={getProjectDetailGif(it.gifNum[el])}/>
+            </ProjectGif>
+          ))}
         </Wrap>
       ))}
     </Container>
