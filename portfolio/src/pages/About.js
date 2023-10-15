@@ -29,22 +29,20 @@ const AboutMain = styled.main`
   justify-content: center;
   align-items: flex-start;
   position: absolute;
-  top: 40%;
+  top: 35%;
   left: 50%;
   transform: translateX(-50%);
   @media screen and ${responsive.laptop} {
     width: 100%;
+    top: 30%;
   }
   @media screen and ${responsive.mobile} {
     height: 650px;
   }
-  @media screen and ${responsive.iphone12Pro} {
-    top: 30%;
-  }
 `;
 
 const AboutContent = styled.section`
-  width: 70%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -59,21 +57,21 @@ const AboutContent = styled.section`
     text-align: center;
     margin-bottom: 100px;
     .aboutMe_title {
-      font-size: 4rem;
+      font-size: 3.5rem;
       font-weight: bold;
       color: var(--black);
-      margin-bottom: 30px;
+      margin-bottom: 50px;
       letter-spacing: 3px;
     }
     .aboutMe_desc {
-      font-size: 2rem;
+      font-size: 1.5rem;
       line-height: 35px;
     }
   }
   @media screen and ${responsive.laptop} {
     .aboutMe {
       .aboutMe_title {
-        font-size: 3.5rem;
+        font-size: 3rem;
       }
     }
   }
@@ -82,10 +80,10 @@ const AboutContent = styled.section`
     .aboutMe {
       margin-bottom: 50px;
       .aboutMe_title {
-        font-size: 2.5rem;
+        font-size: 2rem;
       }
       .aboutMe_desc {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
       }
     }
   }
@@ -122,10 +120,10 @@ const AboutSkillExperience = styled.section`
     align-items: center;
     gap: 10px;
     .experience_title {
-      font-size: 2rem;
+      font-size: 1.6rem;
     }
     .experience_sub {
-      font-size: 1.6rem;
+      font-size: 1.2rem;
     }
   }
   @media screen and ${responsive.tablet} {
@@ -142,7 +140,7 @@ const AboutSkillExperience = styled.section`
     }
     .about_experience {
       .experience_title {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
       }
     }
   }
