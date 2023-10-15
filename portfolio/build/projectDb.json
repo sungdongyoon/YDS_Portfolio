@@ -2,6 +2,34 @@
   "project":[
     {
       "id": 1,
+      "name": "우산있어?",
+      "description": "우산 & 양산 대여 서비스입니다. 메인, 안내, 이용권 구매, FAQ, 지도, 회원 정보 페이지로 구성되어 있습니다. 제가 담당한 페이지는 회원/비회원 이용권 구매, 비회원 로그인, 대여(모바일 전용), 지도 페이지입니다.",
+      "subDesc": ["메인 페이지", "이용권 구매 페이지는 회원/비회원으로 구분했습니다. 이용권 정보는 localstorage에 저장됩니다.", "대여소 정보는 서울시 공공자전거(따릉이) 대여소 API를 사용하여 구현하였고 카카오 지도에 대여소 데이터를 출력하여 지도를 구현했습니다."],
+      "tag": [
+        "#HTML",
+        "#CSS",
+        "#JavaScript",
+        "#반응형"
+      ],
+      "team": true,
+      "gifNum": [1, 2, 3],
+      "github": "https://github.com/sungdongyoon/teamProject",
+      "link": "https://umbrella-8a517.web.app/"
+    },
+    {
+      "id": 2,
+      "name": "우산있어? React.ver",
+      "description": "우산있어? 팀 프로젝트를 리액트로 개발한 개인 프로젝트입니다. 기존 프로젝트의 문제점 해결과 변경된 UI/UX가 적용되었습니다.",
+      "tag": [
+        "#React.js"
+      ],
+      "team": false,
+      "gifNum": [4, 5, 6],
+      "github": "https://github.com/sungdongyoon/umbrella_renewal",
+      "link": "https://umbrella-react-a1eb1.web.app/"
+    },
+    {
+      "id": 3,
       "name": "WhatItIsnt",
       "description": "리액트로 개발한 와릿이즌 페이지입니다. 메인 페이지와 베스트 아이템 페이지, 베스트 아이템 검색 기능, 상세 아이템 페이지, 로그인 기능을 구현했습니다. JSON 데이터를 활용하여 아이템 목록을 생성했으며 반응형 페이지로 제작했습니다.",
       "tag": [
@@ -12,25 +40,12 @@
         "#반응형"
       ],
       "team": false,
+      "gifNum": [7, 8, 9],
       "github": "https://github.com/sungdongyoon/whatitisnt",
       "link": "https://resilient-piroshki-27b330.netlify.app"
     },
     {
-      "id": 2,
-      "name": "My Diary",
-      "description": "리액트로 개발한 다이어리입니다. 달력은 date-fns 라이브러리를 활용하여 구현하였습니다. 달력의 날짜를 클릭하면 해당 날짜의 다이어리로 이동합니다. 일기와 기분을 선택하여 작성하면 오른쪽 Diary에 출력되고 할 일이 작성되면 오른쪽 Todo List에 출력되며 체크 기능을 통해 해야할 일과 완료된 일, 미완료된 일을 구분할 수 있습니다. 할 일 검색기능을 구현했습니다. 일기와 Todo List 모두 삭제 기능을 구현하였습니다.",
-      "tag": [
-        "#React.js",
-        "#styled-components",
-        "#Router",
-        "#react date-fns"
-      ],
-      "team": false,
-      "github": "https://github.com/sungdongyoon/My_Diary",
-      "link": "https://my-diary-c870a.web.app/"
-    },
-    {
-      "id": 3,
+      "id": 4,
       "name": "Netflix",
       "description": "리액트로 개발한 넷플릭스 입니다. 메인 페이지와 상세 영화 페이지, 전체 영화 페이지로 구성되어있습니다. TMDB 사이트에서 영화 데이터를 가져왔고 react-query를 활용하여 데이터를 출력시켰습니다. 영화 리스트 슬라이더는 framer-motion을 활용하여 구현하였습니다. 메인 페이지 배너 클릭 시 슬라이더가 넘어가도록 구현했습니다. useMatch()와 라우터를 활용하여 메인 페이지에서 영화 상세 페이지를 클릭해도 다른 페이지로 넘어가지 않고 메인 페이지에서 상세 페이지가 출력되도록 구현하였습니다.",
       "tag": [
@@ -43,11 +58,12 @@
         "#react-query"
       ],
       "team": false,
+      "gifNum": [10, 11, 12],
       "github": "https://github.com/sungdongyoon/netflix_react",
       "link": "https://netflix-5dd3d.web.app/"
     },
     {
-      "id": 4,
+      "id": 5,
       "name": "MBTI로 보는 예비집사 판별기",
       "description": "리액트로 개발한 예비집사 판별기 입니다. axios를 활용하여 json 파일에 있는 데이터를 불러왔습니다. 각 질문의 데이터에 존재하는 type값과 각 질문의 id값이 같을 경우 a버튼을 클릭하면 score값이 1, b버튼을 클릭하면 0씩 증가합니다. 이렇게 출력된 score값에 따라 mbti가 정해지게 됩니다. useNavigate를 사용하여 mbti값을 url로 전송했고 useSearchParams를 사용하여 결과창에서 mbti값을 받아왔습니다.",
       "tag": [
@@ -57,41 +73,9 @@
         "#axios"
       ],
       "team": false,
+      "gifNum": [13, 14, 15],
       "github": "https://github.com/sungdongyoon/mbti-cat",
       "link": "https://mbti-cat.web.app/"
-    },
-    {
-      "id": 5,
-      "name": "YDS 포트폴리오",
-      "description": "리액트로 개발한 포트폴리오입니다. axios를 활용한 비동기 처리로 json 데이터를 불러왔습니다. 모바일 상단 토글 기능에 Redux를 사용하여 보다 간편하게 값을 전달하였습니다. emailJs 라이브러리를 사용하여 메일을 보낼 수 있는 기능 또한 구현하였습니다. Desktop(기본), laptop, tablet, mobile, iphone12pro 버전으로 반응형을 구현했습니다.",
-      "tag": [
-        "#React.js",
-        "#styled-components",
-        "#axios",
-        "#emailJs",
-        "#JSON",
-        "#Redux",
-        "#반응형"
-      ],
-      "team": false,
-      "github": "https://github.com/sungdongyoon/YDS_Portfolio",
-      "link": "https://portfolio-93558.web.app/"
-    },
-    {
-      "id": 6,
-      "name": "우산있어?",
-      "description": "우산 & 양산 대여 서비스입니다. HTML, CSS, JavaScript로 제작했으며 메인 페이지, 안내, 이용권 구매, FAQ, 지도, 회원 정보 페이지로 구성되어있습니다. alert 디자인을 위한 sweet-alert2 라이브러리 사용했습니다. 제가 담당한 페이지는 회원&비회원 이용권 구매, 비회원 로그인, 대여(모바일 전용), 대여소 지도 페이지입니다. 회원 / 비회원 전용 이용권 구매 페이지를 만들었으며 자바스크립트 함수를 활용하여 페이지 기능 구현, localstorage에 이용권 정보를 저장했습니다. 지도 API는 카카오 지도, 대여소 정보는 따릉이 데이터를 활용하여 기능구현을 하였습니다.",
-      "tag": [
-        "#HTML",
-        "#CSS",
-        "#JavaScript",
-        "#API",
-        "#JQuery",
-        "#반응형"
-      ],
-      "team": true,
-      "github": "https://github.com/sungdongyoon/teamProject",
-      "link": "https://umbrella-8a517.web.app/"
     }
   ]
 }
