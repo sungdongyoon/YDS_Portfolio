@@ -23,17 +23,6 @@ const Container = styled.div`
     left: 5%;
     cursor: pointer;
   }
-  @media screen and ${responsive.laptop} {
-    border: 2px solid red;
-  }
-  @media screen and ${responsive.tablet} {
-    border: 2px solid orange;
-  }
-  @media screen and ${responsive.mobile} {
-    border: 2px solid yellow;
-  }
-  @media screen and ${responsive.iphone12Pro} {
-    border: 2px solid green;
 `;
 
 const Wrap = styled.div`
