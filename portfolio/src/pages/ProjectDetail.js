@@ -18,19 +18,22 @@ const Container = styled.div`
   .backBtn {
     font-size: 3.5rem;
     color: var(--semi-gray);
-    position: absolute;
+    position: fixed;
     top: 15%;
     left: 5%;
     cursor: pointer;
   }
-  @media screen and ${responsive.tablet} {
-    height: 100%;
-    overflow: visible;
-    .backBtn {
-      font-size: 3rem;
-      top: 20%;
-    }
+  @media screen and ${responsive.laptop} {
+    border: 2px solid red;
   }
+  @media screen and ${responsive.tablet} {
+    border: 2px solid orange;
+  }
+  @media screen and ${responsive.mobile} {
+    border: 2px solid yellow;
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    border: 2px solid green;
 `;
 
 const Wrap = styled.div`
@@ -40,18 +43,8 @@ const Wrap = styled.div`
   justify-content: center;
   align-items: center;
   gap: 50px;
-  margin-top: 10%;
+  margin-top: 150px;
   margin-bottom: 5%;
-  @media screen and ${responsive.tablet} {
-    flex-direction: column;
-    margin-top: 20%;
-  }
-  @media screen and ${responsive.mobile} {
-    margin-top: 30%;
-  }
-  @media screen and ${responsive.iphone12Pro} {
-    margin-top: 40%;
-  }
 `;
 
 const ProjectInfo = styled.div`
@@ -110,7 +103,6 @@ const ProjectInfo = styled.div`
       }
     }
     .project_tags {
-      width: 80vw;
       display: flex;
       align-items: center;
       flex-wrap: wrap;
@@ -129,50 +121,52 @@ const ProjectInfo = styled.div`
     .project_wrap {
       .project_content {
         .project_title {
-          font-size: 4.5rem;
+          font-size: 3rem;
         }
         span {
-          font-size: 1.6rem;
-        }
-        .project_info {
-          width: 100%;
+          font-size: 1.4rem;
         }
       }
       .project_links {
         span {
-          font-size: 1.4rem;
-          padding: 10px 30px;
+          font-size: 1.2rem;
         }
       }
       .project_tags {
-        width: 100%;
+        gap: 0px;
         span {
-          font-size: 1.4rem;
-          margin-right: 20px;
-          padding: 10px 30px;
+          font-size: 1.2rem;
         }
       }
     }
   }
   @media screen and ${responsive.tablet} {
-    width: 100%;
     .project_wrap {
-      height: 50vh;
-      border-bottom: 3px solid var(--light-gray);
-      padding-bottom: 5%;
       .project_content {
         .project_title {
-          font-size: 3rem;
+          font-size: 2.5rem;
           .project_team {
             font-size: 1.2rem;
           }
         }
       }
-    }
+    } 
   }
   @media screen and ${responsive.mobile} {
     .project_wrap {
-      height: 60vh;
+      gap: 30px;
+      .project_links {
+        span {
+          font-size: 1rem;
+          padding: 7px 15px;
+        }
+      }
+      .project_tags {
+        span {
+          font-size: 1rem;
+          padding: 7px 15px;
+        }
+      }
     }
   }
   @media screen and ${responsive.iphone12Pro} {
@@ -199,7 +193,6 @@ const ProjectGif = styled.div`
     border: 2px solid var(--light-gray);
   }
   @media screen and ${responsive.tablet} {
-    width: 100%;
     height: 50%;
   }
   @media screen and ${responsive.iphone12Pro} {
