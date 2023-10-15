@@ -5,7 +5,7 @@ import responsive from '../style/responsive';
 import logo from '../img/logo.png';
 
 const Container = styled.header`
-  height: 100px;
+  height: 80px;
   background-color: transparent;
   display: flex;
   justify-content: space-between;
@@ -20,7 +20,7 @@ const Container = styled.header`
     font-size: 1.8rem;
   }
   @media screen and ${responsive.iphone12Pro} {
-    height: 80px;
+    height: 60px;
   }
 `;
 
@@ -30,12 +30,10 @@ const Logo = styled.span`
   align-items: center;
   width: 20%;
   height: 100%;
-  font-size: 3.5rem;
-  font-weight: bold;
   color: var(--gray);
   cursor: pointer;
   img {
-    width: 100px;
+    width: 80px;
   }
   @media screen and ${responsive.mobile} {
     margin-left: 30px;
@@ -56,7 +54,7 @@ const HeaderInfo = styled.div`
     display: none;
   }
   span {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     color: var(--gray);
     margin-right: 50px;
     @media screen and ${responsive.laptop} {

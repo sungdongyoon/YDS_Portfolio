@@ -14,15 +14,15 @@ const Nav = styled.div`
   display: ${(props) => props.scroll < 100 ? "flex" : "none"};
   justify-content: space-between;
   align-items: flex-end;
-  gap: 100px;
-  padding: 10px 50px;
+  gap: 80px;
+  padding: 8px 20px;
   background-color: var(--sky-blue);
   border-radius: 50px;
   @media screen and ${responsive.tablet} {
-    gap: 50px;
+    gap: 40px;
   }
   @media screen and ${responsive.mobile} {
-    gap: 30px;
+    gap: 20px;
   }
   @media screen and ${responsive.iphone12Pro} {
     gap: 0px;
@@ -31,7 +31,7 @@ const Nav = styled.div`
 `;
 
 const NavTitle = styled.div`
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: bold;
   color: var(--white);
   background-color: ${(props) => props.location === props.pagepath ? "var(--blue)" : "var(--sky-blue)"};
@@ -40,11 +40,11 @@ const NavTitle = styled.div`
   cursor: pointer;
   transition: 1s;
   @media screen and ${responsive.tablet} {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
   }
   @media screen and ${responsive.mobile} {
-    font-size: 1.2rem;
-    padding: 8px 15px;
+    font-size: 1rem;
+    padding: 5px 15px;
   }
 `;
 

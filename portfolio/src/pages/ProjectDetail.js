@@ -16,7 +16,7 @@ const Container = styled.div`
   background: linear-gradient(90deg, var(--white), rgba(0, 255, 255, 0.1));
   overflow: hidden;
   .backBtn {
-    font-size: 5rem;
+    font-size: 3.5rem;
     color: var(--semi-gray);
     position: absolute;
     top: 15%;
@@ -39,7 +39,7 @@ const Wrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 100px;
+  gap: 50px;
   margin-top: 10%;
   margin-bottom: 5%;
   @media screen and ${responsive.tablet} {
@@ -70,25 +70,26 @@ const ProjectInfo = styled.div`
       display: flex;
       flex-direction: column;
       flex: 6;
-      gap: 30px;
+      gap: 50px;
       margin-bottom: 50px;
       .project_title {
         display: flex;
         align-items: center;
-        font-size: 5rem;
-        padding-bottom: 30px;
+        font-size: 3.5rem;
+        font-weight: 700;
+        padding-bottom: 10px;
         .project_team {
           background-color: var(--blue);
           border-radius: 50px;
           color: var(--white);
-          font-size: 1.4rem;
+          font-size: 1rem;
           padding: 0px 10px;
           margin-left: 20px;
         }
       }
       span {
-        font-size: 2rem;
-        line-height: 30px;
+        font-size: 1.5rem;
+        line-height: 20px;
       }
       .project_info {
         width: 100%;
@@ -103,8 +104,8 @@ const ProjectInfo = styled.div`
       span {
         background-color: var(--black);
         color: var(--white);
-        font-size: 1.6rem;
-        padding: 15px 40px;
+        font-size: 1.3rem;
+        padding: 10px 20px;
         cursor: pointer;
       }
     }
@@ -118,9 +119,9 @@ const ProjectInfo = styled.div`
       span {
         background-color: var(--sky-blue);
         color: var(--black);
-        font-size: 1.6rem;
+        font-size: 1.3rem;
         margin-right: 20px;
-        padding: 15px 40px;
+        padding: 10px 20px;
       }
     }
   }
@@ -188,9 +189,10 @@ const ProjectGif = styled.div`
   align-items: center;
   gap: 50px;
   border-top: 3px solid var(--light-gray);
-  padding-top: 100px;
+  padding-top: 50px;
+  margin-bottom: 50px;
   span {
-    font-size: 2rem;
+    font-size: 1.4rem;
   }
   img {
     width: 100%;

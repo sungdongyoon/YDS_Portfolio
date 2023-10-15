@@ -36,7 +36,7 @@ const ProjectMain = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 100px;
+  gap: 30px;
   position: absolute;
   top: 25%;
   left: 50%;
@@ -51,14 +51,14 @@ const ProjectTitle = styled.section`
   align-items: center;
   gap: 30px;
   h1 {
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: bold;
     color: var(--sky-blue);
     transition: 0.5s;
     mix-blend-mode: difference;
   }
   .slide_arrow {
-    font-size: 3rem;
+    font-size: 2rem;
     color: var(--gray);
     transition: 1s;
     .slide_left {
@@ -74,27 +74,27 @@ const ProjectTitle = styled.section`
     span {
       width: 150px;
       display: inline-block;
-      font-size: 3rem;
+      font-size: 2rem;
       text-align: center;
     }
   }
   @media screen and ${responsive.laptop} {
     h1 {
-      font-size: 4rem;
+      font-size: 3.5rem;
     }
     .slide_arrow {
       .slide_right,
       .slide_left {
-        font-size: 2.6rem;
+        font-size: 1.6rem;
       }
       span {
-        font-size: 2.6rem;
+        font-size: 1.6rem;
       }
     }
   }
   @media screen and ${responsive.tablet} {
     h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
     .slide_arrow {
       .slide_right,
@@ -108,7 +108,7 @@ const ProjectTitle = styled.section`
   }
   @media screen and ${responsive.mobile} {
     h1 {
-      font-size: 4rem;
+      font-size: 2.5rem;
     }
     .slide_arrow {
       display: none;
@@ -126,20 +126,22 @@ const ProjectContent = styled.section`
   transition: 1s;
   .notice {
     color: var(--red);
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     margin-bottom: 20px;
   }
   @media screen and ${responsive.laptop} {
-    width: 80%;
+    width: 70%;
+    height: 80%;
   }
   @media screen and ${responsive.tablet} {
     width: 90%;
   }
   @media screen and ${responsive.mobile} {
     width: 60%;
+    height: 70%;
     margin-bottom: 50px;
     .notice {
-      font-size: 1.3rem;
+      font-size: 1rem;
     }
   }
 `;
@@ -147,7 +149,7 @@ const ProjectContent = styled.section`
 const SliderBtn = styled.div`
   display: none;
   position: absolute;
-  bottom: -100px;
+  bottom: -50px;
   left: 0;
   right: 0;
   color: var(--gray);
@@ -236,7 +238,7 @@ const ProjectImg = styled.div`
     span {
       padding: 20px;
       color: var(--white);
-      font-size: 2rem;
+      font-size: 1.6rem;
     }
   }
   &:hover .projectDetail {
@@ -248,26 +250,26 @@ const ProjectName = styled.div`
   text-align: center;
   margin-top: 20px;
   .link {
-    font-size: 2rem;
+    font-size: 1.4rem;
   }
   @media screen and ${responsive.laptop} {
     .link {
-      font-size: 1.8rem;
+      font-size: 1.3rem;
     }
   }
   @media screen and ${responsive.tablet} {
     .link {
-      font-size: 1.6rem;
+      font-size: 1.2rem;
     }
   }
   @media screen and ${responsive.mobile} {
     .link {
-      font-size: 1.4rem;
+      font-size: 1.1rem;
     }
   }
   @media screen and ${responsive.iphone12Pro} {
     .link {
-      font-size: 1.6rem;
+      font-size: 1rem;
     }
   }
 `;
