@@ -125,10 +125,9 @@ const MobileNavMenu = styled.div`
     flex-direction: column;
     color: var(--white);
     .nav_logo {
-      font-size: 3rem;
       margin-bottom: 30px;
       img {
-        width: 150px;
+        width: 130px;
         filter: invert(100%);
       }
     }
@@ -145,7 +144,7 @@ const MobileNavMenu = styled.div`
     justify-content: center;
     gap: 70px;
     li {
-      font-size: 5rem;
+      font-size: 4rem;
       font-weight: bold;
       text-shadow: 0px 0px 20px var(--blue);
       -webkit-box-reflect: below -1vw -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.45, transparent), to(rgba(255, 255, 255, 0.25)));
@@ -158,7 +157,7 @@ const MobileNavMenu = styled.div`
   @media screen and ${responsive.iphone12Pro} {
     ul {
       li {
-        font-size: 3rem;
+        font-size: 3.5rem;
       }
     }
   }

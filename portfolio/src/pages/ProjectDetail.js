@@ -160,7 +160,20 @@ const ProjectInfo = styled.div`
   }
   @media screen and ${responsive.iphone12Pro} {
     .project_wrap {
-      height: 100vh;
+      .project_content {
+        span {
+          font-size: 1.2rem;
+        }
+      }
+      .project_tags {
+        span {
+          font-size: 1rem;
+          padding: 7px 15px;
+          &:last-child {
+            margin-top: 10px;
+          }
+        }
+      }
     }
   }
 `;
@@ -185,7 +198,9 @@ const ProjectGif = styled.div`
     height: 50%;
   }
   @media screen and ${responsive.iphone12Pro} {
-    display: none;
+    span {
+      font-size: 1.2rem;
+    }
   }
 `;
 

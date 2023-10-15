@@ -41,6 +41,10 @@ const ProjectMain = styled.main`
   top: 25%;
   left: 50%;
   transform: translateX(-50%);
+  @media screen and ${responsive.iphone12Pro} {
+    height: 80%;
+    top: 16%;
+  }
 `;
 
 const ProjectTitle = styled.section`
@@ -114,6 +118,11 @@ const ProjectTitle = styled.section`
       display: none;
     }
   }
+  @media screen and ${responsive.iphone12Pro} {
+    h1 {
+      font-size: 3rem;
+    }
+  }
 `;
 
 const ProjectContent = styled.section`
@@ -143,6 +152,9 @@ const ProjectContent = styled.section`
     .notice {
       font-size: 1rem;
     }
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    width: 70%;
   }
 `;
 
