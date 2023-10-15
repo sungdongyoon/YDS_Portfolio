@@ -25,7 +25,7 @@ const HomeTitle = styled(motion.header)`
     margin-right: 50px;
     span {
       display: inline-block;
-      font-size: 15rem;
+      font-size: 10rem;
       font-weight: 900;
       color: var(--white);
       -webkit-text-stroke: 5px var(--white);
@@ -100,14 +100,14 @@ const HomeTitle = styled(motion.header)`
   @media screen and ${responsive.laptop} {
     div {
       span {
-        font-size: 10rem;
+        font-size: 8rem;
       }
     }
   }
   @media screen and ${responsive.tablet} {
     div {
       span {
-        font-size: 8rem;
+        font-size: 5rem;
       }
     }
   }
@@ -115,7 +115,7 @@ const HomeTitle = styled(motion.header)`
     div {
       margin-right: 20px;
       span {
-        font-size: 4.5rem;
+        font-size: 3rem;
         -webkit-text-stroke: 3px var(--white);
       }
     }
@@ -124,7 +124,7 @@ const HomeTitle = styled(motion.header)`
     div {
       margin-right: 10px;
       span {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
         -webkit-text-stroke: 2px var(--white);
       }
     }
@@ -139,7 +139,7 @@ const HomeSubTitle = styled.div`
   transition: 1s;
   span {
     display: inline-block;
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: bold;
     color: var(--white);
     letter-spacing: 3px;
@@ -175,17 +175,17 @@ const HomeSubTitle = styled.div`
   }
   @media screen and ${responsive.tablet} {
     span {
-      font-size: 3rem;
+      font-size: 2rem;
     }
   }
   @media screen and ${responsive.mobile} {
     span {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
   }
   @media screen and ${responsive.iphone12Pro} {
     span {
-      font-size: 1.5rem;
+      font-size: 1rem;
     }
   }
 `;
