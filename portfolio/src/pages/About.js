@@ -216,8 +216,8 @@ const About = () => {
       <AboutMain>
         <AboutContent>
           <div className='aboutMe'>
-            <h1 className='aboutMe_title'>프론트엔드 개발자를 희망하는 윤동성 입니다!</h1>
-            <span className='aboutMe_desc'>항상 사용자들의 입장에서 UI/UX를 생각하고<br/>회사와 함께 발전하기 위해 열정과 호기심을 바탕으로<br/>한걸음 한걸음 성장해나가는 개발자가 되겠습니다!</span>
+            <h1 className='aboutMe_title'>프론트엔드 개발자를 희망하는 윤동성 입니다🧑‍💻</h1>
+            <span className='aboutMe_desc'>유저들에게 보다 더 좋은 서비스를 제공하기 위해<br/>회사와 함께 발전하기 위해 열정과 호기심을 바탕으로<br/>한걸음 한걸음 성장해나가는 개발자가 되겠습니다😊</span>
           </div>
           <AboutSkillExperience>
             <div className='about_skill_wrap'>

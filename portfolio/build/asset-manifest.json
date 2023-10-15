@@ -1,27 +1,39 @@
 {
   "files": {
     "main.css": "/static/css/main.d5c0ac56.css",
-    "main.js": "/static/js/main.d4960b53.js",
+    "main.js": "/static/js/main.188c5b59.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
+    "static/media/와릿이즌 메인페이지.gif": "/static/media/와릿이즌 메인페이지.fcc657429f526d4fd329.gif",
+    "static/media/우산있어react 로그인.gif": "/static/media/우산있어react 로그인.717b1dfc705b695d07c8.gif",
+    "static/media/넷플릭스 movies 페이지.gif": "/static/media/넷플릭스 movies 페이지.6a266c5cbe06577ec8eb.gif",
     "static/media/우산있어 메인.gif": "/static/media/우산있어 메인.94d5318acbb6534e8b6a.gif",
+    "static/media/넷플릭스 메인 페이지.gif": "/static/media/넷플릭스 메인 페이지.839f8b7966db3f288671.gif",
+    "static/media/우산있어react 대여소.gif": "/static/media/우산있어react 대여소.47d9ac8ed83f2fb5f943.gif",
     "static/media/우산있어 대여소.gif": "/static/media/우산있어 대여소.d5f12355f939c6174a47.gif",
+    "static/media/넷플릭스 영화 정보.gif": "/static/media/넷플릭스 영화 정보.18fcb74b30555ca6d25c.gif",
+    "static/media/와릿이즌 베스트 아이템.gif": "/static/media/와릿이즌 베스트 아이템.2fefbdfc45d19ac3cafd.gif",
+    "static/media/와릿이즌 아이템 상세.gif": "/static/media/와릿이즌 아이템 상세.0b4f4ad0caab31849d90.gif",
     "static/media/우산있어 이용권 구매.gif": "/static/media/우산있어 이용권 구매.5efca10172061309f7b9.gif",
+    "static/media/우산있어react 이용권 구매.gif": "/static/media/우산있어react 이용권 구매.36fa60fa31c00015ac22.gif",
     "static/media/netflixmac.png": "/static/media/netflixmac.45c5016d070825ac0b3d.png",
     "static/media/me.jpg": "/static/media/me.5ffac5893eeeeaa7b530.jpg",
     "static/media/whatitisntmac.png": "/static/media/whatitisntmac.cfc759720e819d7bfc29.png",
+    "static/media/예비집사 판별기 결과.gif": "/static/media/예비집사 판별기 결과.b29eeabaaa460d5fcc0b.gif",
     "static/media/umbrellamac.png": "/static/media/umbrellamac.1d0f7992d6a3baac8a49.png",
+    "static/media/예비집사 판별기 question 페이지.gif": "/static/media/예비집사 판별기 question 페이지.6fd2fbdb634a387f8ae7.gif",
     "static/media/brushCircle.png": "/static/media/brushCircle.a64739fd25e888d892a8.png",
+    "static/media/예비집사 판별기 메인 페이지.png": "/static/media/예비집사 판별기 메인 페이지.6f9c59a822e14ebba528.png",
     "static/media/mbtiCatmac.png": "/static/media/mbtiCatmac.578580fb39942367d5ab.png",
     "static/media/catImg.png": "/static/media/catImg.bea23089bb7e79c0d0e1.png",
     "static/media/pattern.png": "/static/media/pattern.0fce761d288da739387c.png",
     "static/media/whatitisnt_logo.png": "/static/media/whatitisnt_logo.212ead1bcd627b6a7c87.png",
     "index.html": "/index.html",
     "main.d5c0ac56.css.map": "/static/css/main.d5c0ac56.css.map",
-    "main.d4960b53.js.map": "/static/js/main.d4960b53.js.map",
+    "main.188c5b59.js.map": "/static/js/main.188c5b59.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d5c0ac56.css",
-    "static/js/main.d4960b53.js"
+    "static/js/main.188c5b59.js"
   ]
 }

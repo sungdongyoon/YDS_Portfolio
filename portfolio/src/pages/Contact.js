@@ -27,7 +27,7 @@ const Container = styled.div`
 `;
 
 const ContactMain = styled.main`
-  width: 1000px;
+  width: 800px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -36,10 +36,11 @@ const ContactMain = styled.main`
   margin-top: 100px;
   position: relative;
   @media screen and ${responsive.laptop} {
-    width: 800px;
+    width: 700px;
   }
   @media screen and ${responsive.tablet} {
     align-items: center;
+    margin-top: 50px;
   }
   @media screen and ${responsive.iphone12Pro} {
     height: 650px;
@@ -54,7 +55,7 @@ const ContactTitle = styled.section`
   justify-content: center;
   align-items: flex-end;
   h1 {
-    font-size: 7rem;
+    font-size: 5rem;
     -webkit-text-stroke: 1px var(--blue);
     font-weight: bold;
     color: var(--blue);
@@ -62,17 +63,17 @@ const ContactTitle = styled.section`
   }
   @media screen and ${responsive.laptop} {
     h1 {
-      font-size: 5rem;
+      font-size: 4rem;
     }
   }
   @media screen and ${responsive.tablet} {
     h1 {
-      font-size: 6rem;
+      font-size: 4rem;
     }
   }
   @media screen and ${responsive.mobile} {
     h1 {
-      font-size: 4rem;
+      font-size: 3rem;
     }
   }
   @media screen and ${responsive.iphone12Pro} {
@@ -96,17 +97,17 @@ const ContactContent = styled.section`
     margin-bottom: 50px;
     position: relative;
     p {
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: bold;
       color: var(--gray); 
-      line-height: 70px;
+      line-height: 50px;
     }
     img {
-      width: 400px;
+      width: 300px;
       border-radius: 10px;
       position: absolute;
-      right: 0;
-      top: -100px;
+      right: 0px;
+      top: -80px;
     }
   }
   .link_wrap {
@@ -120,28 +121,27 @@ const ContactContent = styled.section`
       justify-content: center;
       align-items: center;
       gap: 10px;
-      height: 50px;
-      padding: 0 20px;
+      padding: 7px 20px;
       background-color: var(--white);
       cursor: pointer;
       span {
         color: var(--black);
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
       img {
-        width: 30px;
+        width: 20px;
       }
     }
   }
   @media screen and ${responsive.laptop} {
     .contact_wrap {
-      width: 90%;
+      width: 100%;
       p {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
       }
       img {
-        width: 300px;
-        top: 0;
+        width: 250px;
+        top: -50px;
       }
     }
     .link_wrap {
@@ -213,26 +213,15 @@ const ContactContent = styled.section`
 `
 
 const Footer = styled.footer`
-  height: 100px;
+  height: 50px;
   position: absolute;
   bottom: 0;
   right: 0;
   left: 0;
   p {
-    font-size: 2rem;
+    font-size: 1.2rem;
     color: var(--gray);
     text-align: center;
-  }
-  @media screen and ${responsive.laptop} {
-    height: 80px;
-    p {
-      font-size: 1.6rem;
-    }
-  }
-  @media screen and ${responsive.tablet} {
-    p {
-      font-size: 1.2rem;
-    }
   }
   @media screen and ${responsive.mobile} {
     p {
