@@ -14,18 +14,19 @@ const Container = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10;
+  z-index: 15;
 `;
 
 const Modal = styled.form`
-  width: 1200px;
-  height: 600px;
+  width: 60%;
+  height: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--white);
   background-color: #18191F;
   position: relative;
+  transform: translateY(-10%);
   .modal_wrap {
     width: 80%;
     height: 60%;
