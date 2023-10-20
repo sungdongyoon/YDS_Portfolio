@@ -172,7 +172,7 @@ const Header = ({handleToggle, goHome, goAbout, goWork, goContact}) => {
         <img src={logo} alt='logo'/>
       </Logo>
       <HeaderInfo>
-        <span className='email'>ehdtjd0906@naver.com</span>
+        <span className='email'>yds090655@gmail.com</span>
         <span className='phone'>+82 10-6312-5903</span>
       </HeaderInfo>
       <ToggleBtn onClick={handleToggle} toggle={isToggle}>
@@ -185,7 +185,7 @@ const Header = ({handleToggle, goHome, goAbout, goWork, goContact}) => {
           <span className='nav_logo'>
             <img src={logo} alt={logo}/>
           </span>
-          <span>ehdtjd0906@naver.com</span>
+          <span>yds090655@gmail.com</span>
           <span>+82 10-6312-5903</span>
         </div>
         <ul>
