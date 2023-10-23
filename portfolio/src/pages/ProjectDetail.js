@@ -362,8 +362,8 @@ const ProjectDetail = () => {
                   <li>
                     <h3>Link</h3>
                     <div className='links'>
-                      <Link className='link'>깃허브</Link>
-                      <Link className='link'>웹 사이트</Link>
+                      <Link className='link' target="_blank" to={it.github}>깃허브</Link>
+                      <Link className='link' target="_blank" to={it.link}>웹 사이트</Link>
                     </div>
                   </li>
                 </ul>
