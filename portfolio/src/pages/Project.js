@@ -394,14 +394,14 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
               {data.filter((project) => project.id < 4).map((it) => (
                 <ProjectItem key={it.id} itemID={it.id}>
                   <ProjectImg onClick={() => goDetail(it.id)}>
-                    <img src={getProjectImg(it.id)} alt={it.name}/>
+                    <img src={getProjectImg(it.id)} alt={it.title}/>
                     <div className='projectDetail'>
                       <span>자세히 보기</span>
                     </div>
                   </ProjectImg>
                   <ProjectName>
                     <Link className='link' target="_blank" to={it.link}>
-                      {it.name}
+                      {it.title}
                     </Link>
                   </ProjectName>
                 </ProjectItem>
@@ -436,11 +436,11 @@ const Project = ({pjNum, setPjNum, mobilePjNum, setMobilePjNum}) => {
         </ProjectContent>
         <ProjectTitle>
           <h1>WORK</h1>
-          <div className='slide_arrow'>
+          {/* <div className='slide_arrow'>
             <FontAwesomeIcon onClick={() => setPjNum(1)} className='slide_left' icon={faArrowLeft}/>
             <span>{pjNum} / 2</span>
             <FontAwesomeIcon onClick={() => setPjNum(2)} className='slide_right' icon={faArrowRight}/>
-          </div>
+          </div> */}
         </ProjectTitle>
       </ProjectMain>
       <LeftCircle>

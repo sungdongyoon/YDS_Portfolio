@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import responsive from '../style/responsive';
+import { useParams } from 'react-router-dom';
 
 const NavWrap = styled.nav`
   position: fixed;
@@ -50,6 +51,11 @@ const NavTitle = styled.div`
 
 const Navigation = ({goHome, goAbout, goWork, goContact, scroll}) => {
   const location = window.location.pathname;
+
+  if (location.startsWith("/work/")) {
+    return null;
+  }
+  
   return (
     <NavWrap>
       <Nav scroll={scroll}>
