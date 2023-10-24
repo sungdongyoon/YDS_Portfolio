@@ -27,6 +27,17 @@ const GlobalStyle = createGlobalStyle`
   body{
     font-family: 'Pretendard';
   }
+  body::-webkit-scrollbar {
+    width: 6px;
+  }
+  body::-webkit-scrollbar-thumb {
+    height: 20%;
+    background-color: var(--sky-blue);
+    border-radius: 30px;
+  }
+  body::-webkit-scrollbar-track {
+    background: rgba(135, 199, 0, 0.2);
+  }
   a{
     text-decoration: none;
     color: var(--black);
