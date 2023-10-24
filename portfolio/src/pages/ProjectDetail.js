@@ -32,11 +32,21 @@ const Wrap = styled.div`
   justify-content: center;
   align-items: center;
   gap: 20px;
-  margin-top: 7%;
+  margin-top: 100px;
   margin-bottom: 5%;
   padding: 50px;
   background-color: var(--sky-blue);
   border-radius: 10px;
+  @media screen and ${responsive.tablet} {
+    width: 80%;
+  }
+  @media screen and ${responsive.mobile} {
+    width: 85%;
+    padding: 30px;
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    margin-top: 70px;
+  }
 `;
 
 const ProjectTitle = styled.div`
@@ -51,6 +61,14 @@ const ProjectTitle = styled.div`
   span {
     font-size: 1.5rem;
     color: var(--gray);
+  }
+  @media screen and ${responsive.mobile} {
+    h1 {
+      font-size: 2.5rem;
+    }
+    span {
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -73,6 +91,12 @@ const ProjectInfo = styled.div`
   display: flex;
   gap: 50px;
   flex: 1;
+  @media screen and ${responsive.laptop} {
+    gap: 20px;
+  }
+  @media screen and ${responsive.tablet} {
+    flex-direction: column;
+  }
 `;
 
 const InfoBox = styled.div`
@@ -112,6 +136,23 @@ const Outline = styled.div`
       }
     }
   }
+  @media screen and ${responsive.iphone12Pro} {
+    ul {
+      li {
+        h3 {
+          font-size: 1.5rem;
+        }
+        span {
+          font-size: 1.2rem;
+        }
+        .links {
+          .link {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
 `;
 
 const Detail = styled.div`
@@ -132,6 +173,16 @@ const Detail = styled.div`
       line-height: 15px;
       list-style: "✅";
       padding-left: 10px;
+    }
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    h1 {
+      font-size: 1.5rem;
+    }
+    ul {
+      li {
+        font-size: 1.2rem;
+      }
     }
   }
 `;
