@@ -221,7 +221,7 @@ const ProjectDetail = () => {
             <span>{it.subTitle}</span>
           </ProjectTitle>
           <ProjectGif>
-            <img src={getProjectDetailGif(1)} alt='프로젝트 gif'/>
+            <img src={getProjectDetailGif(it.id)} alt='프로젝트 gif'/>
           </ProjectGif>
           <ProjectInfo>
             <InfoBox>
