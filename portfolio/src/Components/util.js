@@ -1,17 +1,15 @@
 import umbrellaImg from "../img/umbrella_logo.png";
 import umbrella2Img from "../img/umbrella_react_logo.png";
 import whatitisntImg from "../img/whatitisnt_logo.png";
-import netflixImg from "../img/netflix_logo.png";
 import blogImg from "../img/blog_img.png";
 import githubImg from "../img/github_img.png";
 import mailImg from "../img/mail_img.png";
 import me from "../img/me.jpg";
-import catImg from "../img/catImg.png";
 import brushCircle from "../img/brushCircle.png";
 import pattern from "../img/pattern.png";
-import umbrellaGif from "../gif/우산있어 메인.gif";
-import umbrella2Gif from "../gif/우산있어react 로그인.gif";
-import whatitisntGif from "../gif/와릿이즌 메인페이지.gif";
+import umbrellaGif from "../gif/우산있어 메인-min.gif";
+import umbrella2Gif from "../gif/우산있어react 대여소-min.gif";
+import whatitisntGif from "../gif/와릿이즌 메인페이지-min.gif";
 
 
 
@@ -24,10 +22,6 @@ export const getProjectImg = (projectId) => {
       return umbrella2Img;
     case "3":
       return whatitisntImg;
-    case "4":
-      return netflixImg;
-    case "5":
-      return catImg;
     default:
       return null;
   }
