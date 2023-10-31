@@ -20,7 +20,8 @@
       "team": false,
       "skill": "React.js",
       "github": "https://github.com/sungdongyoon/umbrella_renewal",
-      "link": "https://umbrella-react-a1eb1.web.app/"
+      "link": "https://umbrella-react-a1eb1.web.app/",
+      "blog": ["https://dongyoons.tistory.com/117", "https://dongyoons.tistory.com/113", "https://dongyoons.tistory.com/112"]
     },
     {
       "id": 3,

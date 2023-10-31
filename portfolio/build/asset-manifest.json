@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.d5c0ac56.css",
-    "main.js": "/static/js/main.434eb4c1.js",
+    "main.js": "/static/js/main.acd9df61.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/와릿이즌 메인페이지-min.gif": "/static/media/와릿이즌 메인페이지-min.1fcbc55928e7c5ee1eb2.gif",
     "static/media/우산있어react 대여소-min.gif": "/static/media/우산있어react 대여소-min.96b096911dbf5e301c16.gif",
@@ -12,11 +12,11 @@
     "static/media/whatitisnt_logo.png": "/static/media/whatitisnt_logo.212ead1bcd627b6a7c87.png",
     "index.html": "/index.html",
     "main.d5c0ac56.css.map": "/static/css/main.d5c0ac56.css.map",
-    "main.434eb4c1.js.map": "/static/js/main.434eb4c1.js.map",
+    "main.acd9df61.js.map": "/static/js/main.acd9df61.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d5c0ac56.css",
-    "static/js/main.434eb4c1.js"
+    "static/js/main.acd9df61.js"
   ]
 }
