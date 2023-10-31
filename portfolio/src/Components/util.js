@@ -7,10 +7,6 @@ import mailImg from "../img/mail_img.png";
 import me from "../img/me.jpg";
 import brushCircle from "../img/brushCircle.png";
 import pattern from "../img/pattern.png";
-import umbrellaGif from "../gif/우산있어 메인-min.gif";
-import umbrella2Gif from "../gif/우산있어react 대여소-min.gif";
-import whatitisntGif from "../gif/와릿이즌 메인페이지-min.gif";
-
 
 
 export const getProjectImg = (projectId) => {
@@ -55,15 +51,15 @@ export const Image = (imageId) => {
   }
 }
 
-export const getProjectDetailGif = (gifId) => {
-  const targetProjectDetailGif = String(gifId);
-  switch(targetProjectDetailGif) {
+export const getProjectDetailVideo = (videoId) => {
+  const targetProjectDetailVideo = String(videoId);
+  switch(targetProjectDetailVideo) {
     case "1":
-      return umbrellaGif;
+      return "/video/umbrellaVideo.webm";
     case "2":
-      return umbrella2Gif;
+      return "/video/umbrellaReVideo.webm";
     case "3":
-      return whatitisntGif;
+      return "/video/whatitisntVideo.webm";
     default:
       return null;
   }

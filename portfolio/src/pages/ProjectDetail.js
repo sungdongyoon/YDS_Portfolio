@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import { Link, useParams } from 'react-router-dom';
-import { getProjectDetailGif } from '../Components/util';
+import { getProjectDetailVideo } from '../Components/util';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
@@ -82,6 +82,10 @@ const ProjectGif = styled.div`
   border-radius: 10px;
   img {
     width: 100%;
+    border-radius: 10px;
+  }
+  video {
+    widthL 100%;
     border-radius: 10px;
   }
 `;
@@ -231,7 +235,7 @@ const ProjectDetail = () => {
             <span>{it.subTitle}</span>
           </ProjectTitle>
           <ProjectGif>
-            <img src={getProjectDetailGif(it.id)} alt='프로젝트 gif'/>
+            <video width="100%" autoPlay loop muted src={getProjectDetailVideo(it.id)}/>
           </ProjectGif>
           <ProjectInfo>
             <InfoBox>
