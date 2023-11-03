@@ -129,6 +129,12 @@ const Outline = styled.div`
       span {
         font-size: 1.5rem;
       }
+      .skills {
+        width: 70%;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-gap: 10px;
+      }
       .links {
         display: flex;
         gap: 30px;
@@ -253,7 +259,11 @@ const ProjectDetail = () => {
                   </li>
                   <li>
                     <h3>Skill</h3>
-                    <span>{it.skill}</span>
+                    <div className='skills'>
+                      {it.skill.map((el) => (
+                          <span className='skill'>✔️ {el}</span>
+                      ))}
+                    </div>
                   </li>
                   <li>
                     <h3>Link</h3>

@@ -1,5 +1,5 @@
-import umbrellaImg from "../img/umbrella_logo.png";
-import umbrella2Img from "../img/umbrella_react_logo.png";
+import umbrellaImg from "../img/umbrella_react_logo.png";
+import catmistryImg from "../img/catmistry_logo.png";
 import whatitisntImg from "../img/whatitisnt_logo.png";
 import blogImg from "../img/blog_img.png";
 import githubImg from "../img/github_img.png";
@@ -15,7 +15,7 @@ export const getProjectImg = (projectId) => {
     case "1":
       return umbrellaImg;
     case "2":
-      return umbrella2Img;
+      return catmistryImg;
     case "3":
       return whatitisntImg;
     default:
@@ -55,9 +55,9 @@ export const getProjectDetailVideo = (videoId) => {
   const targetProjectDetailVideo = String(videoId);
   switch(targetProjectDetailVideo) {
     case "1":
-      return "/video/umbrellaVideo.webm";
-    case "2":
       return "/video/umbrellaReVideo.webm";
+    case "2":
+      return "/video/catmistryVideo.webm";
     case "3":
       return "/video/whatitisntVideo.webm";
     default:
