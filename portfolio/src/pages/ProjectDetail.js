@@ -279,6 +279,7 @@ const ProjectDetail = () => {
                         <Link className='blog' target='_blank' to={it.blog[0]}>이미지 최적화하기</Link>
                         <Link className='blog' target='_blank' to={it.blog[1]}>환경변수 관리하기</Link>
                         <Link className='blog' target='_blank' to={it.blog[2]}>리액트에서 카카오지도 구현하기</Link>
+                        <Link className='blog' target='_blank' to={it.blog[3]}>mixed content 문제 해결하기</Link>
                       </div>
                     </li>
                   }
